@@ -1,0 +1,71 @@
+{
+    "InputData":
+    {
+        
+    "Comp": "Avivacc",
+    "User": "auto.testing",
+    "BOPass": "Meloncrate1!",
+    "PortalPass": "Meloncrate1!",
+    "InvalidPass": "Hannah1991",
+    "Email1": "automatedtesting@dotsys.co.uk",
+    "InvalidEmail": "automatedtesting@dotsys.co.",
+    "InvalidEmail1": "automatedtestin@dotsys.co.uk",
+    "Phone1": "07950439085",
+    "DOB1": "20/11/1980",
+    "InvalidPolicy": "988303119",
+    "InvalidEmail2": "automatedtesting@dotsys.com",
+    "ProposedForename": "Andy",
+    "ProposedSurname": "Test",
+    "ProposedAddress": "1 Dub",
+    "AD1_Forename":"Sarah",
+    "AD1_Surname":"Test",
+    "AD1_DOB":"28/12/1982",
+    "AD2_Forename":"Kaitlyn",
+    "AD2_Surname":"Test",
+    "AD2_DOB":"13/06/2001",
+    "AD3_Forename":"Tommy",
+    "AD3_Surname":"Test",
+    "AD3_DOB":"05/01/2006",
+    "AD4_Forename":"Mark",
+    "AD4_Surname":"Test",
+    "AD4_DOB":"25/01/1972",
+    "AD5_Forename":"Amanda",
+    "AD5_Surname":"Test",
+    "AD5_DOB":"01/01/1985",
+    "AD6_Forename":"Betty",
+    "AD6_Surname":"Test",
+    "AD6_DOB":"08/09/1990",
+    "AD7_Forename":"Bob",
+    "AD7_Surname":"Test",
+    "AD7_DOB":"25/01/1995",
+    "Driver_Number": "123456789",
+    "CarReg": "12D151",
+    "PromoCode": "Aviva2023",
+    "OtherCarPol": "912400000",
+    "OtherHomePol": "912400001"
+
+    },
+
+    "HeadingData":
+    {
+
+    "AboutYou_Heading": "About you",
+    "PersonDetails_Heading": "Personal details",
+    "InsuranceDetails_Heading": "Insurance details",
+    "CarDetails_Heading": "Car details",
+    "AdditionalDrivers_Heading": "Additional drivers",
+    "AD_Added": "Additional driver added",
+    "AD_Added6": "Additional drivers added",
+    "Claims_Heading": "Your claims",
+    "PP_Heading": "Penalty points",
+    "CoverStart_Heading": "Cover start date",
+    "QuotePage_Heading": "Aviva car insurance quote",
+    "PostQuote1_Heading": "About your car",
+    "PostQuote2_Heading": "About the drivers",
+    "PostQuote3_Heading": "Your insurance history and inception details",
+    "DiaryCorrespondence_Heading": "Internal Diary and Correspondence",
+    "Thankyou_Heading": "Thank you"
+
+    }
+    
+}
