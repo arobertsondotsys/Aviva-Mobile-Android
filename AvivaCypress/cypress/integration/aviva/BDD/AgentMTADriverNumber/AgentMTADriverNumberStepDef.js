@@ -34,7 +34,7 @@ Given('Agent can change the driver number',()=>
     cy.get('[class^="dropdown selectAction"]').last().click().contains('Make Adjustment').invoke("removeAttr", "target").click({force:true})
     
     //Select to perform a permanent adjustment on contact details
-    cy.get('#onetrust-accept-btn-handler').click()
+    Global_Stuff.cookiesAccept()
     cy.get('#ctl00_MainContent_ddlPermaSelection').select('Contacts',{force: true}).should('have.value', 'Contacts');
     cy.get('#btnMakePermaChange').click({force: true})
     //Input date for MTA to start

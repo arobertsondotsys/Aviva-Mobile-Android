@@ -290,6 +290,10 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
     cy.get('#btnBuyNow').click({force: true})
 
+    Global_Stuff.postQuote1wnCar()
+    Global_Stuff.postQuote1PrivateIns()
+    Global_Stuff.postQuote1Continue()
+
     cy.get('#div2').contains('About the drivers')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
     cy.get('#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
