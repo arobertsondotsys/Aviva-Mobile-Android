@@ -35,7 +35,7 @@ Given('Agent can purchase MTA',()=>
     
     
     //Select to perform a permanent adjustment on contact details
-    cy.get('#onetrust-accept-btn-handler').click()
+    Global_Stuff.cookiesAccept()
     cy.get('#ctl00_MainContent_ddlPermaSelection').select('Contacts',{force: true}).should('have.value', 'Contacts');
     cy.get('#btnMakePermaChange').click({force: true})
     //Amend Contact number
