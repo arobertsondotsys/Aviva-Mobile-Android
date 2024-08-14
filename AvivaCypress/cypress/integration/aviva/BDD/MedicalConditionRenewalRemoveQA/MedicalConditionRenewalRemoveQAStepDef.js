@@ -245,7 +245,7 @@ Given('Medical condition can be removed at renewal QA',()=>
     cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
     cy.get('#ctl00_MainContent_EditAdditionalDriver').click()
     Global_Stuff.additionalDriversTrue()
-    cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
+    cy.get('#AddDriverTitle > #Mrs > .a-radio > .a-radio__label').click()
     cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
     cy.get('#ctl00_MainContent_DriverSurname').type('Test')
     cy.get('#ctl00_MainContent_DriverDOB').type('28/12/1982')
@@ -289,10 +289,6 @@ Given('Medical condition can be removed at renewal QA',()=>
     cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
     cy.get('#btnBuyNow').click({force: true})
 
-    Global_Stuff.postQuote1wnCar()
-    Global_Stuff.postQuote1PrivateIns()
-    Global_Stuff.postQuote1Continue()
-
     cy.get('#div2').contains('About the drivers')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
     cy.get('#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
@@ -311,7 +307,7 @@ Given('Medical condition can be removed at renewal QA',()=>
     cy.get('#SaveMedicalCondition').click({force: true})
     cy.get('#btnAddMedicalCondition').click({force: true})
     cy.get('#ctl00_MainContent_ddlDriversMedicalConditions').select(2,{force: true})
-    cy.get('#ctl00_MainContent_ddlMedicalConditions').select(3,{force: true})
+    cy.get('#ctl00_MainContent_ddlMedicalConditions').select(3)
     cy.get('#IsInformed-False').click()
     cy.get('#SaveMedicalCondition').click()
     cy.get(':nth-child(1) > .m-card-content > .m-card-content__inner > .m-card > .m-form-row > .has-modules-loaded').click({force: true})
@@ -334,7 +330,7 @@ Given('Medical condition can be removed at renewal QA',()=>
 
     cy.get('#ctl00_MainContent_DriverRepeater_ctl01_DriverNum').type('123123123')
 
-    Global_Stuff.postQuote2Continue()
+    cy.get('#ctl00_MainContent_btnContinueDrivers').click({force: true})
 
     cy.get('#ctl00_MainContent_btnContinueToPayment').click()
 

@@ -7,15 +7,14 @@ export class Global{
     Server(){
         
         //cy.visit('https://qaaviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
+        //cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
         //cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
         //cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva3fat.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva4e2e.dotsys.co.uk/backoffice/Login.aspx?')
-        //cy.visit('https://testaviva5pricing.dotsys.co.uk/backoffice/Login.aspx?')
+        cy.visit('https://testaviva5pricing.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva6training.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva7hotfix.dotsys.co.uk/backoffice/Login.aspx?')
-        //cy.visit('https://testaviva8crmigration.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva9fatmigration.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva10prodmigration.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://gcc-pre.aviva.ie/backoffice/Default.aspx')
@@ -24,17 +23,16 @@ export class Global{
     Server1(){
         
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva5pricing.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva6training.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva7hotfix.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://insurance-testaviva8crmigration.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva9fatmigration.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://insurance-testaviva10prodmigration.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        //cy.visit('https://insurance-testaviva10prodtmigration.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-pre.aviva.ie/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
 
     }
@@ -42,15 +40,14 @@ export class Global{
     Server2(){
 
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        //cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
+        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
+        cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva5pricing.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva6training.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva7hotfix.dotsys.co.uk/testdemolinks.html')
-        //cy.visit('https://insurance-testaviva8crmigration.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva9fatmigration.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva10PRODmigration.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-pre.aviva.ie/testdemolinks.html')
@@ -185,8 +182,6 @@ export class Global{
     loginPassword(){
 
         cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass, {force:true})
-
-        //cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass7Hotfix, {force:true})
         return
 
     }
@@ -209,7 +204,6 @@ export class Global{
 
         cy.get(this.LoginElementLocators.LoginPageLocators.cookies_accept).click()
 
-        //USE ON 7HOTFIX ONLY
         // if (Cypress.$(this.LoginElementLocators.LoginPageLocators.cookies_accept).length > 0) {
         //     cy.get(this.LoginElementLocators.LoginPageLocators.cookies_accept).click()
         //   }
@@ -250,7 +244,7 @@ export class Global{
 
     proposerTitle(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.proposer_mr).select(1)
+        cy.get(this.LoginElementLocators.QuotePageLocators.proposer_mr).click()
         return
 
     }
@@ -329,7 +323,7 @@ export class Global{
 
     licenceType(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.licence_type).select('Full UK')
+        cy.get(this.LoginElementLocators.QuotePageLocators.licence_type).select('Full Irish')
         return
 
     }
@@ -475,7 +469,7 @@ export class Global{
 
     additionalDriver1Title(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_titlemrs).click({force: true})
         return
 
     }
@@ -551,7 +545,7 @@ export class Global{
     additionalDriver2(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(3, {force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_titlemiss).click({force: true})
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD2_Forename)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD2_Surname)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD2_DOB)
@@ -571,7 +565,7 @@ export class Global{
     additionalDriver3(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(1)
+        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_titlemr).click()
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD3_Forename)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD3_Surname)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD3_DOB)
@@ -591,7 +585,7 @@ export class Global{
     additionalDriver4(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(1)
+        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_titlemr).click()
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD4_Forename)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD4_Surname)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD4_DOB)
@@ -608,7 +602,7 @@ export class Global{
     additionalDriver5(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_titlemrs).click({force: true})
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD5_Forename)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD5_Surname)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD5_DOB)
@@ -625,7 +619,7 @@ export class Global{
     additionalDriver6(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_titlemrs).click({force: true})
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD6_Forename)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD6_Surname)
         cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD6_DOB)
@@ -1587,18 +1581,6 @@ export class Global{
           getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
           getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
           cy.get('#continueButton').click()
-
-          //Password box
-          cy.wait(10000)
-          const getIframeDocumentPassword = () => {
-            
-            return cy.get('.adyen-checkout__iframe').its('0.contentDocument.body').should('not.be.empty')
-            .then((body) => cy.wrap(body))
-
-          }
-          getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
-          cy.get('@passwordbox').type('password')
-          getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
 
         })
         return

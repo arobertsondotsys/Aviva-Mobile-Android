@@ -25,7 +25,7 @@ Given('Customer can purchase a Temp AD',()=>
     Global_Stuff.loginPortalButton()
     
     //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
-    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    cy.get('#Main_PolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
     cy.get('#Main_btnAdjustment').click()
     cy.get('#ctl00_MainContent_ddlTempSelection').select(2, {force:true})
     cy.window().then((win) => {
@@ -44,7 +44,7 @@ Given('Customer can purchase a Temp AD',()=>
     cy.get('#ctl00_MainContent_Continue').click({force: true})
 
     //Input temp AD details
-    cy.get('#ctl00_MainContent_DDLProposerTitle').select(1, {force: true})
+    cy.get('#Mr > .a-radio > .a-radio__label').click({force: true})
     cy.get('#ctl00_MainContent_ProposerForename').type('Andy', {force: true})
     cy.get('#ctl00_MainContent_ProposerSurname').type('Test', {force: true})
     cy.get('#ctl00_MainContent_ProposerDOB').type('20/11/1980', {force: true})

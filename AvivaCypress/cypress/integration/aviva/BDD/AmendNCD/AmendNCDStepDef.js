@@ -177,9 +177,8 @@ Given('Agent can Amend an NCD',()=>
     //Amend NCD to 40% & Select Cover start date 
     //cy.get('#onetrust-accept-btn-handler').click()
     //cy.get('#accHeading3 > .m-showhide__control').click({force: true})
-    cy.get('#ctl00_MainContent_ddlNCDPercent').select(5)
+    cy.get('#ctl00_MainContent_ddlNCDPercent').select(6)
     cy.get('#ctl00_MainContent_Continue3').click()
-    cy.wait(4000)
     cy.get('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
     cy.get('#ctl00_MainContent_NCDStartTime').type('13:00')
     cy.get('#ctl00_MainContent_Continue8').click()
@@ -231,11 +230,10 @@ Given('Agent can Amend an NCD which should fail',()=>
     cy.get('[class^="dropdown selectAction"]').last().click().contains('Amend NCD').invoke("removeAttr", "target").click({force:true})
       
     //Amend NCD to 40% & Select Cover start date 
-    Global_Stuff.cookiesAccept()
+    cy.get('#onetrust-accept-btn-handler').click()
     //cy.get('#accHeading3 > .m-showhide__control').click({force: true})
-    cy.get('#ctl00_MainContent_ddlNCDPercent').select(5)
+    cy.get('#ctl00_MainContent_ddlNCDPercent').select(6)
     cy.get('#ctl00_MainContent_Continue3').click()
-    cy.wait(4000)
     cy.get('#ctl00_MainContent_StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'))
     cy.get('#ctl00_MainContent_NCDStartTime').type('13:00')
     cy.get('#ctl00_MainContent_Continue8').click({force: true})

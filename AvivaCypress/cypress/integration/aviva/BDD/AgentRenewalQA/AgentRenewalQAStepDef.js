@@ -225,13 +225,6 @@ Given('Agent can Renew a policy',()=>
     cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
     cy.get('#btnBuyNow').click()
 
-    Global_Stuff.postQuote1wnCar()
-    Global_Stuff.postQuote1PrivateIns()
-    Global_Stuff.postQuote1Continue()
-
-    Global_Stuff.postQuote2Continue()
-    cy.wait(6000)
-
     cy.get('#ctl00_MainContent_btnContinueToPayment').click({force: true})
     cy.get('#ctl00_MainContent_PaymentType').select(2)
     cy.get('#ctl00_MainContent_txtAmountReceived').type('100')

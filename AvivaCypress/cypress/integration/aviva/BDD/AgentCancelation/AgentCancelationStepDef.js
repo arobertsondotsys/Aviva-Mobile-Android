@@ -33,7 +33,7 @@ Given('Agent can cancel a policy',()=>
     cy.get('[class^="dropdown selectAction"]').last().click().contains('Cancel Policy').invoke("removeAttr", "target").click({force:true})
    
     //Select Cancelation reason 
-    Global_Stuff.cookiesAccept()
+    cy.get('#onetrust-accept-btn-handler').click()
     cy.get('.l-columns__column > .a-heading--2').should('have.text', 'Cancel policy')
     cy.get('#ctl00_MainContent_CancellationRequest').select('Insurer')
     cy.get('.m-multiselect-toggle').click()
