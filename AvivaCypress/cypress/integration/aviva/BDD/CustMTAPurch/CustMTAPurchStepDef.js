@@ -38,6 +38,7 @@ Given('Customer can purchase an MTA',()=>
       
       //Input AD details
       cy.get('#IsAdditionalDriver-True > .a-radio > .a-radio__label').click()
+      cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
       cy.get('#AddDriverTitle > #Mrs > .a-radio > .a-radio__label').click()
       cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
       cy.get('#ctl00_MainContent_DriverSurname').type('Test')

@@ -45,7 +45,7 @@ Given('Customer can purchase a Temp AD',()=>
     cy.get('#ctl00_MainContent_Continue').click({force: true})
 
     //Input temp AD details
-    cy.get('#Mr > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#ctl00_MainContent_DDLProposerTitle').select(1, {force: true})
     cy.get('#ctl00_MainContent_ProposerForename').type('Andy', {force: true})
     cy.get('#ctl00_MainContent_ProposerSurname').type('Test', {force: true})
     cy.get('#ctl00_MainContent_ProposerDOB').type('20/11/1980', {force: true})

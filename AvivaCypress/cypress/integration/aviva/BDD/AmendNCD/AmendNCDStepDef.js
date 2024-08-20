@@ -235,7 +235,7 @@ Given('Agent can Amend an NCD which should fail',()=>
     //cy.get('#accHeading3 > .m-showhide__control').click({force: true})
     cy.get('#ctl00_MainContent_ddlNCDPercent').select(5)
     cy.get('#ctl00_MainContent_Continue3').click()
-    cy.wait(2000)
+    cy.wait(4000)
     cy.get('#ctl00_MainContent_StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'))
     cy.get('#ctl00_MainContent_NCDStartTime').type('13:00')
     cy.get('#ctl00_MainContent_Continue8').click({force: true})

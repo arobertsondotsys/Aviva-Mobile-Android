@@ -50,20 +50,18 @@ async function setupNodeEvents(on, config) {
   //   'cypress/integration/aviva/BDD/AmendRenewalNCDQA.feature',
   //   'cypress/integration/aviva/BDD/ParagonQueueCheck.feature',
   //   'cypress/integration/aviva/BDD/DiaryCheck.feature',
-  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-  //   //'cypress/integration/aviva/BDD/UndoTempMTAPortalAgent.feature',
+  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature'
     
-  // ];
-
-  // //Spec Pattern for DEMO AND ALL OTHERS***
+  //  ];
+  //Spec Pattern for QA ONLY***
   config.specPattern = [
-    //'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
-    //'cypress/integration/aviva/BDD/Add7DriversCust.feature',
-    //'cypress/integration/aviva/BDD/ParagonQueueNYY.feature',
-    //'cypress/integration/aviva/BDD/ParagonQueueNNY.feature',
-    //'cypress/integration/aviva/BDD/ParagonQueueNYN.feature',
-    //'cypress/integration/aviva/BDD/DocumentPreferences.feature',
-    //'cypress/integration/aviva/BDD/AgentAdditionalDriverRemove.feature',
+    'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
+    'cypress/integration/aviva/BDD/Add7DriversCust.feature',
+    'cypress/integration/aviva/BDD/ParagonQueueNYY.feature',
+    'cypress/integration/aviva/BDD/ParagonQueueNNY.feature',
+    'cypress/integration/aviva/BDD/ParagonQueueNYN.feature',
+    'cypress/integration/aviva/BDD/DocumentPreferences.feature',
+    'cypress/integration/aviva/BDD/AgentAdditionalDriverRemove.feature',
     'cypress/integration/aviva/BDD/AgentPurch.feature',
     'cypress/integration/aviva/BDD/AgentUnlock.feature',
     'cypress/integration/aviva/BDD/CheckCookies.feature',
@@ -72,7 +70,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/BDD/AgentMTATempPurch.feature',
     'cypress/integration/aviva/BDD/AgentMTADriverNumber.feature',
     'cypress/integration/aviva/BDD/AmendNCD.feature',
-    //'cypress/integration/aviva/BDD/MedicalConditionRemove.feature',
+    'cypress/integration/aviva/BDD/MedicalConditionRemove.feature',
     'cypress/integration/aviva/BDD/AgentCancelation.feature',
     'cypress/integration/aviva/BDD/NTUCanc.feature',
     'cypress/integration/aviva/BDD/PortalLogin.feature',
@@ -83,15 +81,16 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/BDD/AgentUnlock1.feature',
     'cypress/integration/aviva/BDD/CustMTATempPurch.feature',
     'cypress/integration/aviva/BDD/CustMTAPurch.feature',
-    //'cypress/integration/aviva/BDD/MedicalConditionRenewalRemove.feature',
-    //'cypress/integration/aviva/BDD/AgentRenewal.feature',
-    //'cypress/integration/aviva/BDD/CustRenewal.feature',
-    //'cypress/integration/aviva/BDD/AmendRenewalNCD.feature',
-    //'cypress/integration/aviva/BDD/ParagonQueueCheck.feature',
-    //'cypress/integration/aviva/BDD/DiaryCheck.feature',
+    'cypress/integration/aviva/BDD/MedicalConditionRenewalRemove.feature',
+    'cypress/integration/aviva/BDD/AgentRenewal.feature',
+    'cypress/integration/aviva/BDD/CustRenewal.feature',
+    'cypress/integration/aviva/BDD/AmendRenewalNCD.feature',
+    'cypress/integration/aviva/BDD/ParagonQueueCheck.feature',
+    'cypress/integration/aviva/BDD/DiaryCheck.feature',
     'cypress/integration/aviva/BDD/PolicyOwnership.feature'
     
    ];
+
 
 //   // Make sure to return the config object as it might have been modified by the plugin.
    return config;

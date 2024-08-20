@@ -246,7 +246,7 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
     cy.get('#ctl00_MainContent_EditAdditionalDriver').click()
     Global_Stuff.additionalDriversTrue()
-    cy.get('#AddDriverTitle > #Mrs > .a-radio > .a-radio__label').click()
+    cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
     cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
     cy.get('#ctl00_MainContent_DriverSurname').type('Test')
     cy.get('#ctl00_MainContent_DriverDOB').type('28/12/1982')
