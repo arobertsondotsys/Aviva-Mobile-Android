@@ -220,7 +220,7 @@ Given('Policy Purchase with YNN',()=>
     Global_Stuff.loginEmail()
     Global_Stuff.loginPassword()
     Global_Stuff.loginPortalButton()
-    cy.get('#Main_PolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
     cy.get('#Main_btnDocPref').click()
     cy.get('#IsMyAviva-no').should('have.value', 'False')
     cy.get('#IsPostCert-yes').should('have.value', 'True')

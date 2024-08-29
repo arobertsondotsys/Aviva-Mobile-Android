@@ -18,7 +18,8 @@ async function setupNodeEvents(on, config) {
   // Modify config if needed
   //*****SPEC PATTERN FOR QA ONLY
   // config.specPattern = [
-    
+   
+  //    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
   //    'cypress/integration/aviva/BDD/AgentPurch.feature',
   //    'cypress/integration/aviva/BDD/AgentMTAQA.feature',
   //    'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
@@ -26,7 +27,6 @@ async function setupNodeEvents(on, config) {
   //    'cypress/integration/aviva/BDD/CustMTA.feature',
   //    'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
   //    'cypress/integration/aviva/BDD/AgentCancellation.feature',
-  //    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
     
     
   // ];
@@ -34,14 +34,15 @@ async function setupNodeEvents(on, config) {
   //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
   config.specPattern = [
     
+    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
     'cypress/integration/aviva/BDD/AgentPurch.feature',
     'cypress/integration/aviva/BDD/AgentMTA.feature',
     'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
     'cypress/integration/aviva/BDD/CustPurch.feature',
     'cypress/integration/aviva/BDD/CustMTA.feature',
     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
-    'cypress/integration/aviva/BDD/AgentCancellation.feature',
-    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+    //'cypress/integration/aviva/BDD/AgentCancellation.feature',
+    
       
    
  ];

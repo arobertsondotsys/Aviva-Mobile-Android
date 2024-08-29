@@ -38,7 +38,7 @@ Given('Agent purchase home policy', () => {
   Global_Stuff.postalAddressConfirm()
   Global_Stuff.occupancy()
   Global_Stuff.proposerEmployStatus()
-  Global_Stuff.bizStatus()
+  cy.wait(2000)
   Global_Stuff.bizStatus()
   cy.wait(2000)
   Global_Stuff.aboutYouContinueHome()
