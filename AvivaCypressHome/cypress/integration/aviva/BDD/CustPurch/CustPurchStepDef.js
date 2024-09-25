@@ -85,6 +85,7 @@ Given('Customer purchase home policy', () => {
 
   //Quote page
   Global_Stuff.quotePageHeading()
+  cy.pause()
   Global_Stuff.quotePageBuyNowBtn()
 
   //Complete and pay

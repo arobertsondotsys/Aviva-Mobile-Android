@@ -19,6 +19,7 @@
     "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
     "@cypress/browserify-preprocessor": "latest",
     "dayjs": "^1.11.7",
-    "nodemailer": "^6.9.4"
+    "nodemailer": "^6.9.4",
+    "pdf-parse": "^1.1.1"
   }
 }

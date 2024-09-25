@@ -179,7 +179,7 @@ Given('Policy Purchase with YNN',()=>
 
     Global_Stuff.Server1()
 
-    cy.get('#onetrust-accept-btn-handler').click({force:true});
+    Global_Stuff.cookiesAccept()
     cy.get('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible');
     Global_Stuff.loginEmail()
     Global_Stuff.loginPassword()
