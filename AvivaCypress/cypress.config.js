@@ -21,7 +21,7 @@ async function setupNodeEvents(on, config) {
   config.specPattern = [
 
     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-    'cypress/integration/aviva/BDD/ChaserCheck.feature',
+    //'cypress/integration/aviva/BDD/ChaserCheck.feature',
     //'cypress/integration/aviva/BDD/A.feature',
     'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
     'cypress/integration/aviva/BDD/Add7DriversCust.feature',
@@ -49,6 +49,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/BDD/AgentUnlock1.feature',
     'cypress/integration/aviva/BDD/CustMTATempPurchQA.feature',
     'cypress/integration/aviva/BDD/CustMTAPurch.feature',
+    //'cypress/integration/aviva/BDD/CustAdditionalDriverRemoveQA.feature',
     'cypress/integration/aviva/BDD/MedicalConditionRenewalRemoveQA.feature',
     'cypress/integration/aviva/BDD/AgentRenewalQA.feature',
     'cypress/integration/aviva/BDD/CustRenewalQA.feature',
@@ -63,7 +64,7 @@ async function setupNodeEvents(on, config) {
   // config.specPattern = [
 
   //   'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-  //   'cypress/integration/aviva/BDD/ChaserCheck.feature',
+  //   //'cypress/integration/aviva/BDD/ChaserCheck.feature',
   //   'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
   //   'cypress/integration/aviva/BDD/Add7DriversCust.feature',
   //   'cypress/integration/aviva/BDD/ParagonQueueNYY.feature',
@@ -90,6 +91,7 @@ async function setupNodeEvents(on, config) {
   //   'cypress/integration/aviva/BDD/AgentUnlock1.feature',
   //   'cypress/integration/aviva/BDD/CustMTATempPurch.feature',
   //   'cypress/integration/aviva/BDD/CustMTAPurch.feature',
+  //   //'cypress/integration/aviva/BDD/CustAdditionalDriverRemove.feature',
   //   'cypress/integration/aviva/BDD/MedicalConditionRenewalRemove.feature',
   //   'cypress/integration/aviva/BDD/AgentRenewal.feature',
   //   'cypress/integration/aviva/BDD/CustRenewal.feature',

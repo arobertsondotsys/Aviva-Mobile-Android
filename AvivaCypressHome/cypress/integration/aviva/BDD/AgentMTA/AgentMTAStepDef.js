@@ -34,6 +34,7 @@ Given('Agent MTA purchase', () => {
   Global_Stuff.addSpecifiedItemType()
   Global_Stuff.addSpecifiedItemValue()
   Global_Stuff.addSpecifiedItemAddItem()
+  cy.wait(60000)
   Global_Stuff.adjustmentBuyNowBTN()
   Global_Stuff.completeAndPayContinue()
   Global_Stuff.paymentTypeAgentCard()

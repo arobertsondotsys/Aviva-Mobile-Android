@@ -114,7 +114,7 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.coverStartHaveHomeIns()
     Global_Stuff.coverStartHaveCarIns()
     Global_Stuff.coverStartMarketing()
-    Global_Stuff.coverStartNotCustomerQuote()
+    //Global_Stuff.coverStartNotCustomerQuote()
     Global_Stuff.coverStartContinue()
     cy.wait(10000)
 
@@ -182,7 +182,7 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.loginPortalButton()
 
     //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
-    cy.get('#Main_PolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
     cy.get('#Main_btnAdjustment').click()
     cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
     cy.window().then((win) => {

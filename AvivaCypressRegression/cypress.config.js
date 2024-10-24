@@ -29,6 +29,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/BDD/AgentMTADriverNumber.feature',
     'cypress/integration/aviva/BDD/MedicalConditionRemove.feature',
     'cypress/integration/aviva/BDD/AgentUnlock1.feature',
+    'cypress/integration/aviva/BDD/CustAdditionalDriverRemoveQA.feature',
     'cypress/integration/aviva/BDD/MedicalConditionRenewalRemoveQA.feature',
   
     
@@ -45,6 +46,7 @@ async function setupNodeEvents(on, config) {
   //   'cypress/integration/aviva/BDD/AgentMTADriverNumber.feature',
   //   'cypress/integration/aviva/BDD/MedicalConditionRemove.feature',
   //   'cypress/integration/aviva/BDD/AgentUnlock1.feature',
+  //   'cypress/integration/aviva/BDD/CustAdditionalDriverRemove.feature',
   //   'cypress/integration/aviva/BDD/MedicalConditionRenewalRemove.feature',
       
   //  ];
