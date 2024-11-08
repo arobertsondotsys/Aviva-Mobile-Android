@@ -17,12 +17,24 @@ async function setupNodeEvents(on, config) {
 
   // Modify config if needed
 
+  //Spec Pattern for Batch printer checks***
+  // config.specPattern = [
+
+  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+  //   'cypress/integration/aviva/BDD/BatchprintertestNNY.feature',
+  //   'cypress/integration/aviva/BDD/BatchprintertestNYN.feature',
+  //   'cypress/integration/aviva/BDD/BatchprintertestNYY.feature',
+  //   'cypress/integration/aviva/BDD/BatchprinterCheck.feature',
+
+  // ];
+
   //Spec Pattern for QA ONLY***
   config.specPattern = [
 
+    
     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-    //'cypress/integration/aviva/BDD/ChaserCheck.feature',
-    //'cypress/integration/aviva/BDD/A.feature',
+    'cypress/integration/aviva/BDD/ChaserCheck.feature',
+    'cypress/integration/aviva/BDD/A.feature',
     'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
     'cypress/integration/aviva/BDD/Add7DriversCust.feature',
     'cypress/integration/aviva/BDD/ParagonQueueNYY.feature',

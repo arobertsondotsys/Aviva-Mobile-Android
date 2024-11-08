@@ -38,7 +38,7 @@ Given('Change policy ownership',()=>
     
 
      //Change ownership
-     cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingOct24@DOTSYS.co.uk')
+     cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingNov24@DOTSYS.co.uk')
      cy.get('#ctl00_ContentPlaceHolder1_ChangeOwnership').click()
      cy.get('#ctl00_ContentPlaceHolder1_SuccessMessage').contains('The policy has now been re-registered')
      cy.go('back')

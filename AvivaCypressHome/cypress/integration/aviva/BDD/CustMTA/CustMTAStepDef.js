@@ -28,7 +28,8 @@ Given('Customer MTA purchase', () => {
   Global_Stuff.portalMortgageProvider()
   Global_Stuff.completeAndPayCheckBox()
   Global_Stuff.completeAndPayContinue()
-  
+  Global_Stuff.thankyouHeading()
+  cy.contains('Your Notice of Bank Interest Letter')
 
   
   

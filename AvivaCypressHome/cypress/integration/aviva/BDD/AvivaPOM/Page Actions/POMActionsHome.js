@@ -1421,7 +1421,7 @@ export class Global{
 
     portalMortgageProvider(){
 
-        cy.get(this.LoginElementLocators.PortalPageLocators.portaladj_mortgageprovider).select(1)
+        cy.get(this.LoginElementLocators.PortalPageLocators.portaladj_mortgageprovider).select(7)
         return
 
 
