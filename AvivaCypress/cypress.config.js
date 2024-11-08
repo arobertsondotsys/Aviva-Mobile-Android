@@ -1,10 +1,12 @@
 const { defineConfig } = require("cypress");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
 const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
-
+const fs = require('fs');
+const pdf = require('pdf-parse');
+const path = require('path') 
 
 async function setupNodeEvents(on, config) {
-
+  
   
   
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
@@ -15,8 +17,23 @@ async function setupNodeEvents(on, config) {
 
   // Modify config if needed
 
+  //Spec Pattern for Batch printer checks***
+  // config.specPattern = [
+
+  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+  //   'cypress/integration/aviva/BDD/BatchprintertestNNY.feature',
+  //   'cypress/integration/aviva/BDD/BatchprintertestNYN.feature',
+  //   'cypress/integration/aviva/BDD/BatchprintertestNYY.feature',
+  //   'cypress/integration/aviva/BDD/BatchprinterCheck.feature',
+
+  // ];
+
   //Spec Pattern for QA ONLY***
   config.specPattern = [
+
+    
+    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+    'cypress/integration/aviva/BDD/ChaserCheck.feature',
     'cypress/integration/aviva/BDD/A.feature',
     'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
     'cypress/integration/aviva/BDD/Add7DriversCust.feature',
@@ -44,19 +61,22 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/BDD/AgentUnlock1.feature',
     'cypress/integration/aviva/BDD/CustMTATempPurchQA.feature',
     'cypress/integration/aviva/BDD/CustMTAPurch.feature',
+    //'cypress/integration/aviva/BDD/CustAdditionalDriverRemoveQA.feature',
     'cypress/integration/aviva/BDD/MedicalConditionRenewalRemoveQA.feature',
     'cypress/integration/aviva/BDD/AgentRenewalQA.feature',
     'cypress/integration/aviva/BDD/CustRenewalQA.feature',
     'cypress/integration/aviva/BDD/AmendRenewalNCDQA.feature',
     'cypress/integration/aviva/BDD/ParagonQueueCheck.feature',
     'cypress/integration/aviva/BDD/DiaryCheck.feature',
-    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-    //'cypress/integration/aviva/BDD/UndoTempMTAPortalAgent.feature',
+  
     
-  ];
+   ];
 
-  // //Spec Pattern for DEMO AND ALL OTHERS***
+  //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
   // config.specPattern = [
+
+  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+  //   //'cypress/integration/aviva/BDD/ChaserCheck.feature',
   //   'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
   //   'cypress/integration/aviva/BDD/Add7DriversCust.feature',
   //   'cypress/integration/aviva/BDD/ParagonQueueNYY.feature',
@@ -83,22 +103,25 @@ async function setupNodeEvents(on, config) {
   //   'cypress/integration/aviva/BDD/AgentUnlock1.feature',
   //   'cypress/integration/aviva/BDD/CustMTATempPurch.feature',
   //   'cypress/integration/aviva/BDD/CustMTAPurch.feature',
+  //   //'cypress/integration/aviva/BDD/CustAdditionalDriverRemove.feature',
   //   'cypress/integration/aviva/BDD/MedicalConditionRenewalRemove.feature',
   //   'cypress/integration/aviva/BDD/AgentRenewal.feature',
   //   'cypress/integration/aviva/BDD/CustRenewal.feature',
   //   'cypress/integration/aviva/BDD/AmendRenewalNCD.feature',
   //   'cypress/integration/aviva/BDD/ParagonQueueCheck.feature',
   //   'cypress/integration/aviva/BDD/DiaryCheck.feature',
-  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature'
+    
     
   //  ];
 
-  // Make sure to return the config object as it might have been modified by the plugin.
-  return config;
-}
+
+//   // Make sure to return the config object as it might have been modified by the plugin.
+   return config;
+ }
 
 
 module.exports = defineConfig({
+  
 
   redirectionLimit: 100,
   //video: true,
@@ -129,6 +152,8 @@ module.exports = defineConfig({
   e2e: {
      experimentalRunAllSpecs: true,
      setupNodeEvents,
+        
+     
      
      
       

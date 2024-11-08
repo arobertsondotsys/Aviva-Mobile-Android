@@ -1,0 +1,73 @@
+{
+    "InputData":
+    {
+        
+    "Comp": "Avivacc",
+    "User": "auto.testing1",
+    "BOPass": "Meloncrate1!",
+    "PortalPass": "Meloncrate1!",
+    "InvalidPass": "Hannah1991",
+    "Email1": "homeautotesting@dotsys.co.uk",
+    "InvalidEmail": "automatedtesting@dotsys.co.",
+    "InvalidEmail1": "automatedtestin@dotsys.co.uk",
+    "Phone1": "07950439085",
+    "DOB1": "20/11/1980",
+    "InvalidPolicy": "988303119",
+    "InvalidEmail2": "automatedtesting@dotsys.com",
+    "ProposedForename": "Andy",
+    "ProposedSurname": "Test",
+    "ProposedAddress": "1 Dub",
+    "AD1_Forename":"Sarah",
+    "AD1_Surname":"Test",
+    "AD1_DOB":"28/12/1982",
+    "AD2_Forename":"Kaitlyn",
+    "AD2_Surname":"Test",
+    "AD2_DOB":"13/06/2001",
+    "AD3_Forename":"Tommy",
+    "AD3_Surname":"Test",
+    "AD3_DOB":"05/01/2006",
+    "AD4_Forename":"Mark",
+    "AD4_Surname":"Test",
+    "AD4_DOB":"25/01/1972",
+    "AD5_Forename":"Amanda",
+    "AD5_Surname":"Test",
+    "AD5_DOB":"01/01/1985",
+    "AD6_Forename":"Betty",
+    "AD6_Surname":"Test",
+    "AD6_DOB":"08/09/1990",
+    "AD7_Forename":"Bob",
+    "AD7_Surname":"Test",
+    "AD7_DOB":"25/01/1995",
+    "Driver_Number": "123456789",
+    "CarReg": "12D151",
+    "YearBuilt": "1990",
+    "HomeValue": "200000",
+    "ContentsValue": "24000",
+    "JointPropFirstName": "Sarah",
+    "JointPropSurname": "Test",
+    "JointPropDOB": "28/12/1982"
+
+
+
+
+    },
+
+    "HeadingData":
+    {
+
+    "AboutYou_Heading": "About you",
+    "YourProperty_Heading": "Your property",
+    "AdditSecStands": "Security standards",    
+    "YourCover_Heading": "Your cover",
+    "CoverStart_Heading": "Policy start date and claims free years",
+    "QuotePage_Heading": "Aviva home insurance quote",
+
+    "CompleteAndPay_Heading": "Aviva home insurance",
+    "PostQuote2_Heading": "About the drivers",
+    "PostQuote3_Heading": "Your insurance history and inception details",
+    "DiaryCorrespondence_Heading": "Internal Diary and Correspondence",
+    "Thankyou_Heading": "Thank you"
+
+    }
+    
+}

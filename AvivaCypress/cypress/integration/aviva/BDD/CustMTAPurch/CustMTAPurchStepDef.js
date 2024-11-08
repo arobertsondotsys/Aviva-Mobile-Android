@@ -25,7 +25,7 @@ Given('Customer can purchase an MTA',()=>
     Global_Stuff.loginPortalButton()
 
     //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
-    cy.get('#Main_PolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
     cy.get('#Main_btnAdjustment').click()
     cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
     cy.window().then((win) => {
@@ -38,7 +38,8 @@ Given('Customer can purchase an MTA',()=>
       
       //Input AD details
       cy.get('#IsAdditionalDriver-True > .a-radio > .a-radio__label').click()
-      cy.get('#AddDriverTitle > #Mrs > .a-radio > .a-radio__label').click()
+      cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
+      //cy.get('#AddDriverTitle > #Mrs > .a-radio > .a-radio__label').click()
       cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
       cy.get('#ctl00_MainContent_DriverSurname').type('Test')
       cy.get('#ctl00_MainContent_DriverDOB').type('28/12/1982')

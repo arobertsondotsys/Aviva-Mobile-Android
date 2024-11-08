@@ -231,6 +231,20 @@ Given('Customer can Renew a policy',()=>
     Global_Stuff.postQuote1wnCar()
     Global_Stuff.postQuote1PrivateIns()
     Global_Stuff.postQuote1Continue()
+
+    Global_Stuff.postQuote2IsResidentTrue()
+    Global_Stuff.postQuote2IsMainDriverTrue()
+    Global_Stuff.postQuote2IsNotOtherCarTrue()
+    Global_Stuff.postQuote2IsNotOtherInsTrue()
+    Global_Stuff.postQuote2IsNoConvictionTrue()
+    Global_Stuff.postQuote2IsNoDisqualificationTrue()
+    Global_Stuff.postQuote2IsNoRefusalTrue()
+    Global_Stuff.postQuote2IsNoIncreaseTrue()
+    Global_Stuff.postQuote2IsNoMedicalTrue()
+    Global_Stuff.postQuote2DriverNumber()
+    cy.wait(3000)
+    Global_Stuff.postQuote2Continue()
+    
     Global_Stuff.postQuote3Continue()
 
     //Payment screen
