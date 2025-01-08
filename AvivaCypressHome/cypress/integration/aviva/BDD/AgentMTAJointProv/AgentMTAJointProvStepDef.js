@@ -41,6 +41,7 @@ Given('Agent MTA purchase of Joint Owner checking for correct documents', () => 
   Global_Stuff.Server()
     
     //Log in
+    cy.wait(2000)
     Global_Stuff.home()
 
     //Search for Customer file

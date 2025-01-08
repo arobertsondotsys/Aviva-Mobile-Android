@@ -135,6 +135,7 @@ Given('Agent can add a driver and remove at ADJ',()=>
     //Complete post quote 2 "About the drivers"
     Global_Stuff.postQuote2Heading()
     Global_Stuff.notes()
+    Global_Stuff.postQuote2DriverNumber1()
     Global_Stuff.postQuote2IsResidentTrue()
     Global_Stuff.postQuote2IsMainDriverTrue()
     Global_Stuff.postQuote2IsNotOtherCarTrue()
@@ -144,8 +145,9 @@ Given('Agent can add a driver and remove at ADJ',()=>
     Global_Stuff.postQuote2IsNoRefusalTrue()
     Global_Stuff.postQuote2IsNoIncreaseTrue()
     Global_Stuff.postQuote2IsNoMedicalTrue()
+    
     Global_Stuff.postQuote2DriverNumber()
-    cy.wait(3000)
+    cy.wait(2000)
     Global_Stuff.postQuote2Continue()
    
     //Complete post quote 3 "Your insurance history and inception details"
@@ -191,7 +193,7 @@ Given('Agent can add a driver and remove at ADJ',()=>
     cy.get('#btnMakePermaChange').click({force: true})
     cy.contains('Remove driver').click({force: true})
     cy.contains('Additional drivers', {force: true})
-    cy.contains('Sarah Test', {force: true})
+    cy.contains('Sarah Vader', {force: true})
     cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
     cy.wait(6000)
     cy.get('#Continue5').click({force: true})

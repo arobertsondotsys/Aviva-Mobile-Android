@@ -181,7 +181,7 @@ Given('Agent can Amend renewal NCD',()=>
       cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+2)
     })
     //cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(3)
-    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2023')
+    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')
     // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').invoke('val').then(yearString => {
     //   const year = parseInt(yearString)
     //   cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(year-1)

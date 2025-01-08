@@ -41,13 +41,14 @@ Given('Customer can purchase an MTA',()=>
       cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
       //cy.get('#AddDriverTitle > #Mrs > .a-radio > .a-radio__label').click()
       cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
-      cy.get('#ctl00_MainContent_DriverSurname').type('Test')
-      cy.get('#ctl00_MainContent_DriverDOB').type('28/12/1982')
+      cy.get('#ctl00_MainContent_DriverSurname').type('Vader')
+      cy.get('#ctl00_MainContent_DriverDOB').type('01/01/1950')
       cy.get('#DriverEmploymentStatus').select('E')
       cy.get('#txtDriverOccupation').type('shop as')
       cy.get('#ui-id-2').click()
       cy.get('#DriverLicenceType').select(1)
       cy.get('#ctl00_MainContent_DriverLicenceYearsHeld').select(3)
+      cy.get('#AdditionalDriverNumber').type('123459972')
       cy.get('#RelationshipToProposer').select(1)
       cy.get('#IsSpouseOwnVehicle-True > .a-radio > .a-radio__label').click()
       cy.get('#SaveDriver').click()
@@ -71,7 +72,7 @@ Given('Customer can purchase an MTA',()=>
       cy.get('#ctl00_MainContent_Continue8').click()
 
       //Quote screen
-      cy.get('#ctl00_MainContent_btnBuyNow').click({force: true})
+      cy.get('#ctl00_MainContent_btnContinue').click({force: true})
 
       //Post quote screen 2
       cy.get('#IsMainDriver-True > .a-radio > .a-radio__label').click()

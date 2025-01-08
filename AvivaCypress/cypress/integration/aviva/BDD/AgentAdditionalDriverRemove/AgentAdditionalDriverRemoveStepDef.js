@@ -144,6 +144,7 @@ Given('Agent can add a driver and remove at ADJ',()=>
     Global_Stuff.postQuote2IsNoRefusalTrue()
     Global_Stuff.postQuote2IsNoIncreaseTrue()
     Global_Stuff.postQuote2IsNoMedicalTrue()
+    Global_Stuff.postQuote2DriverNumber1()
     Global_Stuff.postQuote2DriverNumber()
     cy.wait(3000)
     Global_Stuff.postQuote2Continue()

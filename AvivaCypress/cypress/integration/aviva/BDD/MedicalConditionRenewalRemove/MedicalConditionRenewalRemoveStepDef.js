@@ -137,7 +137,7 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsNoMedical-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DriverNum').type('123456789',{force: true})
+    Global_Stuff.postQuote2DriverNumber()
     Global_Stuff.postQuote2Continue()
 
     //Complete post quote 3 "Your insurance history and inception details"
@@ -186,7 +186,7 @@ Given('Medical condition can be removed at renewal',()=>
       cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+2)
     })
     //cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(3)
-    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2023')
+    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')
    
 
     cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()

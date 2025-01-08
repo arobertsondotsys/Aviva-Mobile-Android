@@ -352,7 +352,7 @@ export class Global{
 
     licenceType(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.licence_type).select('Full UK')
+        cy.get(this.LoginElementLocators.QuotePageLocators.licence_type).select('Full Irish')
         return
 
     }
@@ -1112,7 +1112,14 @@ export class Global{
 
     postQuote2DriverNumber(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum).type(this.UserData.InputData.Driver_Number, {force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum).type(this.UserData.InputData.Driver_Number)
+        return
+
+    }
+
+    postQuote2DriverNumber1(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum1).type(this.UserData.InputData.Driver_Number1)
         return
 
     }

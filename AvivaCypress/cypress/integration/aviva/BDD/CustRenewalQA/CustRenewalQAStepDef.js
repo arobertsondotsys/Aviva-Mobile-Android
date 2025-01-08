@@ -177,7 +177,7 @@ Given('Customer can Renew a policy',()=>
       cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+1)
     })
   
-    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2023')
+    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')
    
 
     cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
@@ -246,7 +246,7 @@ Given('Customer can Renew a policy',()=>
     Global_Stuff.postQuote2IsNoRefusalTrue()
     Global_Stuff.postQuote2IsNoIncreaseTrue()
     Global_Stuff.postQuote2IsNoMedicalTrue()
-    Global_Stuff.postQuote2DriverNumber()
+    //Global_Stuff.postQuote2DriverNumber()
     cy.wait(3000)
     Global_Stuff.postQuote2Continue()
     

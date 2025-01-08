@@ -160,7 +160,13 @@ Given('Policy Purchase with YNN',()=>
     //Check B/O preferences match Y/N/N
     Global_Stuff.Server()
 
-    cy.get(':nth-child(1) > .level1').click()
+    //Log in
+    // Global_Stuff.company()
+    // Global_Stuff.username()
+    // Global_Stuff.password()
+    // Global_Stuff.loginButton()
+    
+    Global_Stuff.home()
     Global_Stuff.email()
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()

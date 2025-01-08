@@ -157,6 +157,7 @@
     
 
     "aboutthedrivers_drivernum": "#ctl00_MainContent_DriverRepeater_ctl00_DriverNum",
+    "aboutthedrivers_drivernum1": "#ctl00_MainContent_DriverRepeater_ctl01_DriverNum",
     "aboutthedrivers_continue": "#btnContinueDrivers",
 
     "inshistory_heading": "#div3",

@@ -172,9 +172,9 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.postQuote1wnCar()
     Global_Stuff.postQuote1PrivateIns()
     Global_Stuff.postQuote1Continue()
-
+    
+    Global_Stuff.postQuote2DriverNumber1()
     Global_Stuff.postQuote2IsNoMedicalTrue()
-
     Global_Stuff.postQuote2DriverNumber()
     Global_Stuff.postQuote2Continue()
 

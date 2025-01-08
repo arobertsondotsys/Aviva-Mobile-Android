@@ -137,8 +137,9 @@ Given('Medical condition can be removed at renewal QA',()=>
     cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsNoMedical-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DriverNum').type('123456789',{force: true})
+    Global_Stuff.postQuote2DriverNumber()
     Global_Stuff.postQuote2Continue()
+    
     //Complete post quote 3 "Your insurance history and inception details"
     cy.get('#div3').contains('Your insurance history and inception details')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
@@ -185,7 +186,7 @@ Given('Medical condition can be removed at renewal QA',()=>
       cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+2)
     })
     //cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(3)
-    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2023')
+    cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')
    
 
     cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
@@ -247,11 +248,12 @@ Given('Medical condition can be removed at renewal QA',()=>
     Global_Stuff.additionalDriversTrue()
     cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
     cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
-    cy.get('#ctl00_MainContent_DriverSurname').type('Test')
-    cy.get('#ctl00_MainContent_DriverDOB').type('28/12/1982')
+    cy.get('#ctl00_MainContent_DriverSurname').type('Vader')
+    cy.get('#ctl00_MainContent_DriverDOB').type('01/01/1950')
     cy.get('#DriverEmploymentStatus').select(2)
     cy.get('#DriverLicenceType').select('U')
     cy.get('#ctl00_MainContent_DriverLicenceYearsHeld').select(6)
+    cy.get('#AdditionalDriverNumber').type('123456799UK')
     cy.get('#RelationshipToProposer').select(1)
     cy.get('#IsSpouseOwnVehicle-False > .a-radio > .a-radio__label').click()
     cy.get('#SaveDriver').click()
@@ -332,9 +334,9 @@ Given('Medical condition can be removed at renewal QA',()=>
 
     cy.get('#IsNoMedical-yes').click({force: true})
 
-    cy.get('#ctl00_MainContent_DriverRepeater_ctl01_DriverNum').type('123123123')
+    //cy.get('#ctl00_MainContent_DriverRepeater_ctl01_DriverNum').type('123123123')
 
-    Global_Stuff.postQuote2Continue()
+    Global_Stuff.postQuote2Continue({force: true})
 
     cy.get('#ctl00_MainContent_btnContinueToPayment').click()
 

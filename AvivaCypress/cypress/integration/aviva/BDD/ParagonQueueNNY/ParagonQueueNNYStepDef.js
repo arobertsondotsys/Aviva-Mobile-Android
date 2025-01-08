@@ -102,10 +102,11 @@ Given('Policy Purchase with NNY',()=>
     Global_Stuff.claimsContinue()
 
     //Complete section 7 "Penalty points"
-    cy.get('#div7').contains('Penalty points')
-    cy.get('#ctl00_divNotes > .a-button').should('be.visible')
+    Global_Stuff.ppHeading()
+    Global_Stuff.notes()
     cy.get('[id*="IsPenaltyPoints"][value^="No"]').click({force: true})
     cy.get('#Continue7').click({force: true})
+
     //Complete section 8 "Cover start date"
     cy.get('#div8').contains('Cover start date')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
@@ -117,6 +118,7 @@ Given('Policy Purchase with NNY',()=>
     cy.get('.a-checkbox__label').should('be.not.visible')
     cy.get('#ctl00_MainContent_Continue8').click({force: true})
     cy.wait(6000)
+
     //Quote screen - Buy now 
     cy.get('.m-heading-group__item').contains('Aviva car insurance quote')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
@@ -140,8 +142,10 @@ Given('Policy Purchase with NNY',()=>
     cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsNoMedical-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DriverNum').type('123456789',{force: true})
+    Global_Stuff.postQuote2DriverNumber()
+    cy.wait(2000)
     Global_Stuff.postQuote2Continue()
+    
     //Complete post quote 3 "Your insurance history and inception details" setting NYY to preferences
     cy.get('#div3').contains('Your insurance history and inception details')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
