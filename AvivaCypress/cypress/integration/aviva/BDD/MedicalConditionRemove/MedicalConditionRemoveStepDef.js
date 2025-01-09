@@ -135,6 +135,7 @@ Given('Agent can add a Medical condition and remove ok',()=>
     //Complete post quote 2 "About the drivers"
     Global_Stuff.postQuote2Heading()
     Global_Stuff.notes()
+    Global_Stuff.postQuote2DriverNumber1()
     Global_Stuff.postQuote2IsResidentTrue()
     Global_Stuff.postQuote2IsMainDriverTrue()
     Global_Stuff.postQuote2IsNotOtherCarTrue()
@@ -173,7 +174,7 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.postQuote1PrivateIns()
     Global_Stuff.postQuote1Continue()
     
-    Global_Stuff.postQuote2DriverNumber1()
+    
     Global_Stuff.postQuote2IsNoMedicalTrue()
     Global_Stuff.postQuote2DriverNumber()
     Global_Stuff.postQuote2Continue()
