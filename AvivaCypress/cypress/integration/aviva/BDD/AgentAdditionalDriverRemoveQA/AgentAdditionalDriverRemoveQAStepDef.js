@@ -188,7 +188,6 @@ Given('Agent can add a driver and remove at ADJ',()=>
     cy.get('[class^="dropdown selectAction"]').last().click().contains('Make Adjustment').invoke("removeAttr", "target").click({force:true})
 
     //Select to perform a permanent adjustment on Additional drivers
-    
     cy.get('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers',{force: true}).should('have.value', 'AddDriver')
     cy.get('#btnMakePermaChange').click({force: true})
     cy.contains('Remove driver').click({force: true})
@@ -204,6 +203,7 @@ Given('Agent can add a driver and remove at ADJ',()=>
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
 
     //Completing post quote screen 2 questions
+
     Global_Stuff.postQuote2IsResidentTrue()
     Global_Stuff.postQuote2IsMainDriverTrue()
     Global_Stuff.postQuote2IsNotOtherCarTrue()

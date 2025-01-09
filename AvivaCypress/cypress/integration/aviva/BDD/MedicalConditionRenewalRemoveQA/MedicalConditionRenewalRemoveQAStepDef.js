@@ -125,6 +125,7 @@ Given('Medical condition can be removed at renewal QA',()=>
     cy.get('#IsOwner-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsPrivate-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#ctl00_MainContent_btnContinueVehicle').click({force: true})
+    
     //Complete post quote 2 "About the drivers"
     cy.get('#div2').contains('About the drivers')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')

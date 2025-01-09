@@ -135,6 +135,7 @@ Given('Agent can add a driver and remove at ADJ',()=>
     //Complete post quote 2 "About the drivers"
     Global_Stuff.postQuote2Heading()
     Global_Stuff.notes()
+    Global_Stuff.postQuote2DriverNumber1()
     Global_Stuff.postQuote2IsResidentTrue()
     Global_Stuff.postQuote2IsMainDriverTrue()
     Global_Stuff.postQuote2IsNotOtherCarTrue()
@@ -144,9 +145,9 @@ Given('Agent can add a driver and remove at ADJ',()=>
     Global_Stuff.postQuote2IsNoRefusalTrue()
     Global_Stuff.postQuote2IsNoIncreaseTrue()
     Global_Stuff.postQuote2IsNoMedicalTrue()
-    Global_Stuff.postQuote2DriverNumber1()
+
     Global_Stuff.postQuote2DriverNumber()
-    cy.wait(3000)
+    cy.wait(2000)
     Global_Stuff.postQuote2Continue()
    
     //Complete post quote 3 "Your insurance history and inception details"
@@ -193,8 +194,9 @@ Given('Agent can add a driver and remove at ADJ',()=>
     cy.get('#btnMakePermaChange').click({force: true})
     cy.contains('Remove driver').click({force: true})
     cy.contains('Additional drivers', {force: true})
-    cy.contains('Sarah Test', {force: true})
+    cy.contains('Sarah Vader', {force: true})
     cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
+    cy.wait(6000)
     cy.get('#Continue5').click({force: true})
     cy.get('#ctl00_MainContent_StartDate').type(day().add(1,'day').format('DD/MM/YYYY'),{force:true})
     cy.get('#ctl00_MainContent_Continue8').click({force:true})
@@ -203,15 +205,16 @@ Given('Agent can add a driver and remove at ADJ',()=>
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
 
     //Completing post quote screen 2 questions
-    cy.get('#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsMainDriver-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsNotOtherCar-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsNotOtherInsurance-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsNoConvictions-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsNoDisqualifications-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsNoMedical-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
+    Global_Stuff.postQuote2IsResidentTrue()
+    Global_Stuff.postQuote2IsMainDriverTrue()
+    Global_Stuff.postQuote2IsNotOtherCarTrue()
+    Global_Stuff.postQuote2IsNotOtherInsTrue()
+    Global_Stuff.postQuote2IsNoConvictionTrue()
+    Global_Stuff.postQuote2IsNoDisqualificationTrue()
+    Global_Stuff.postQuote2IsNoRefusalTrue()
+    Global_Stuff.postQuote2IsNoIncreaseTrue()
+    Global_Stuff.postQuote2IsNoMedicalTrue()
+    cy.wait(3000)
     Global_Stuff.postQuote2Continue()
 
     //Completing post quote screen 3 

@@ -125,6 +125,7 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#IsOwner-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsPrivate-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#ctl00_MainContent_btnContinueVehicle').click({force: true})
+
     //Complete post quote 2 "About the drivers"
     cy.get('#div2').contains('About the drivers')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
@@ -253,11 +254,12 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#DriverEmploymentStatus').select(2)
     cy.get('#DriverLicenceType').select('U')
     cy.get('#ctl00_MainContent_DriverLicenceYearsHeld').select(6)
+    cy.get('#AdditionalDriverNumber').type('123456799UK')
     cy.get('#RelationshipToProposer').select(1)
     cy.get('#IsSpouseOwnVehicle-False > .a-radio > .a-radio__label').click()
     cy.get('#SaveDriver').click()
+    cy.wait(3000)
     cy.get('#IsAdditionalDriver-False > .a-radio > .a-radio__label').click()
-    cy.wait(2000)
     Global_Stuff.additionalDriversContinue()
 
     cy.get('#accHeading5 > .m-showhide__control').contains('Additional driver added')
@@ -333,7 +335,7 @@ Given('Medical condition can be removed at renewal',()=>
 
     cy.get('#IsNoMedical-yes').click({force: true})
 
-    cy.get('#ctl00_MainContent_DriverRepeater_ctl01_DriverNum').type('123123123')
+    //cy.get('#ctl00_MainContent_DriverRepeater_ctl01_DriverNum').type('123123123')
 
     Global_Stuff.postQuote2Continue()
 
@@ -376,17 +378,17 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
 
     //Completing post quote screen 2 questions
-    cy.get('#div2').click()
-    cy.get('#IsNoMedical-False > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#accHeading2 > .m-showhide__control').click()
+    cy.get('#IsNoMedical-False > .a-radio > .a-radio__label').click()
     cy.get('#btnAddMedicalCondition').click()
     cy.get('#ctl00_MainContent_ddlDriversMedicalConditions').select(1)
-    cy.get('#ctl00_MainContent_ddlMedicalConditions').select(2)
-    cy.get('#IsInformed-False').click()
+    cy.get('#ctl00_MainContent_ddlMedicalConditions').select(2,)
+    cy.get('#IsInformed-False > .a-radio > .a-radio__label').click()
     cy.get('#SaveMedicalCondition').click()
     cy.get('#btnAddMedicalCondition').click()
     cy.get('#ctl00_MainContent_ddlDriversMedicalConditions').select(2)
     cy.get('#ctl00_MainContent_ddlMedicalConditions').select(3)
-    cy.get('#IsInformed-False').click()
+    cy.get('#IsInformed-False > .a-radio > .a-radio__label').click()
     cy.get('#SaveMedicalCondition').click()
     cy.get(':nth-child(1) > .m-card-content > .m-card-content__inner > .m-card > .m-form-row > .has-modules-loaded').click()
     cy.wait(2000)

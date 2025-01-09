@@ -92,6 +92,7 @@ Given('Customer can Renew a policy',()=>
     Global_Stuff.ppHeading()
     Global_Stuff.notes()
     Global_Stuff.ppFalse1st()
+    cy.wait(3000)
     Global_Stuff.ppContinue()
 
     //Complete section 8 "Cover start date"
@@ -172,10 +173,12 @@ Given('Customer can Renew a policy',()=>
 
     cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
       const day = parseInt(dayString)
-      cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+2)
+      cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+1)
     })
     
     cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')
+
+
     cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
     cy.get('.alert').contains('Policy has been backdated')
 
@@ -198,6 +201,8 @@ Given('Customer can Renew a policy',()=>
   })
     
     cy.get('#ctl00_ContentPlaceHolder1_Search').click()
+    cy.wait(6000)
+    //cy.get('#ctl00_ContentPlaceHolder1_btnReset').click()
     cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal').click()
     cy.get('#ctl00_ContentPlaceHolder1_BatchPrint').click()
 
@@ -221,8 +226,7 @@ Given('Customer can Renew a policy',()=>
     Global_Stuff.loginPassword()
     Global_Stuff.loginPortalButton()
     cy.get('#Renewal_Modal_Submit').click()
-    //cy.get('[id^="Main_PolicyRepeaterDesktop_BtnSelectPolicyMob"]').last().click()
-    //cy.get('#Main_btnRenewal').click()
+    
     cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Renew online to save 10%')
     cy.get('#btnPayMonthlyRNL').click()
     cy.get('#ctl00_MainContent_btnChangeToMonthly').click()
@@ -241,7 +245,7 @@ Given('Customer can Renew a policy',()=>
     Global_Stuff.postQuote2IsNoRefusalTrue()
     Global_Stuff.postQuote2IsNoIncreaseTrue()
     Global_Stuff.postQuote2IsNoMedicalTrue()
-    Global_Stuff.postQuote2DriverNumber()
+    //Global_Stuff.postQuote2DriverNumber()
     cy.wait(3000)
     Global_Stuff.postQuote2Continue()
     

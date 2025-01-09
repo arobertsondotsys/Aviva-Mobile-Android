@@ -17,35 +17,35 @@ async function setupNodeEvents(on, config) {
 
   // Modify config if needed
   //*****SPEC PATTERN FOR QA ONLY
-  config.specPattern = [
+  // config.specPattern = [
    
-     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-     'cypress/integration/aviva/BDD/AgentPurch.feature',
-     'cypress/integration/aviva/BDD/AgentMTAQA.feature',
-     'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
-     'cypress/integration/aviva/BDD/CustPurchQA.feature',
-     'cypress/integration/aviva/BDD/CustMTA.feature',
-     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
-     'cypress/integration/aviva/BDD/AgentCancellation.feature',
+  //    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+  //    'cypress/integration/aviva/BDD/AgentPurch.feature',
+  //    'cypress/integration/aviva/BDD/AgentMTAQA.feature',
+  //    'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
+  //    'cypress/integration/aviva/BDD/CustPurchQA.feature',
+  //    'cypress/integration/aviva/BDD/CustMTA.feature',
+  //    'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
+  //    'cypress/integration/aviva/BDD/AgentCancellation.feature',
     
     
-  ];
+  // ];
 
   //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
-//   config.specPattern = [
+  config.specPattern = [
     
-//     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-//     'cypress/integration/aviva/BDD/AgentPurch.feature',
-//     'cypress/integration/aviva/BDD/AgentMTA.feature',
-//     'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
-//     'cypress/integration/aviva/BDD/CustPurch.feature',
-//     'cypress/integration/aviva/BDD/CustMTA.feature',
-//     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
-//     'cypress/integration/aviva/BDD/AgentCancellation.feature',
+    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+    'cypress/integration/aviva/BDD/AgentPurch.feature',
+    'cypress/integration/aviva/BDD/AgentMTA.feature',
+    'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
+    'cypress/integration/aviva/BDD/CustPurch.feature',
+    'cypress/integration/aviva/BDD/CustMTA.feature',
+    'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
+    'cypress/integration/aviva/BDD/AgentCancellation.feature',
     
       
    
-//  ];
+ ];
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
