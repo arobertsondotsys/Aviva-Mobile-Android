@@ -175,7 +175,7 @@ Given('Agent can Renew a policy',()=>
 
     cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
       const day = parseInt(dayString)
-      cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+2)
+      cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day+1)
     })
     
     cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')

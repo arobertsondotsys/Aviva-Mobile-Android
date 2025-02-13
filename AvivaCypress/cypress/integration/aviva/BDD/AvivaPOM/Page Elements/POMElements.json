@@ -58,7 +58,7 @@
     "insurancedetails_continue": "#ctl00_MainContent_Continue3",
 
     "cardetails_title": "#div4",
-    "carreg_yes": "#IsCarReg-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "carreg_yes": "#IsCarReg-True > .a-radio > .a-radio__label",
     "carreg_input": "#VehicleRegistration",
     "findcar_btn": "#ctl00_MainContent_btnFindCar",
     "confirmcar_btn": "#ctl00_MainContent_btnConfirmReg",
@@ -109,6 +109,8 @@
     "coverstart_continue": "#ctl00_MainContent_Continue8",
 
     "quotepage_heading": ".m-heading-group__item",
+    "quotepage_staffoptions": "#MainContent_divStaffSection > .a-heading > .m-showhide__control",
+    "quotepage_discounts": "#ddlAvailableDiscounts",
     "quotepage_tpft": "#QuoteType-False > .a-radio > .a-radio__label",
     "buynow_btn": "#btnBuyNow",
     "quotepage_paymonthly": "#btnPayMonthly",
@@ -158,6 +160,7 @@
 
     "aboutthedrivers_drivernum": "#ctl00_MainContent_DriverRepeater_ctl00_DriverNum",
     "aboutthedrivers_drivernum1": "#ctl00_MainContent_DriverRepeater_ctl01_DriverNum",
+    "aboutthedrivers_drivernum2": "#ctl00_MainContent_DriverRepeater_ctl02_DriverNum",
     "aboutthedrivers_continue": "#btnContinueDrivers",
 
     "inshistory_heading": "#div3",
@@ -190,9 +193,35 @@
     {
 
     "home_page": ":nth-child(1) > .level1",
+    "livepolicy_btn": ":nth-child(2) > .card-header > .panel-title > .accordion-toggle > .btn",
     "unlock_btn": "#ctl00_ContentPlaceHolder1_LockCustomer",
     "notes": "#ctl00_divNotes > .a-button",
-    "createnewquote_btn": "#ctl00_ContentPlaceHolder1_Submit"
+    "createnewquote_btn": "#ctl00_ContentPlaceHolder1_Submit",
+    "age_policytool": "[class^='dropdown policyTools']",
+    "backdate_day": "#ctl00_ContentPlaceHolder1_BackDateDay",
+    "backdate_year":"#ctl00_ContentPlaceHolder1_BackDateYear",
+    "backdate_confirm":"#ctl00_ContentPlaceHolder1_UpdateDate",
+    "backdate_message":".alert",
+    "generate_renewal":"[class^='btn btn-sm btn-cta btn-sm']",
+    "generate_renewalcheck":".bg-info",
+    "generate_renewalcheck1":".bg-info",
+    "extract_policynumber":"[class^='badge rounded-pill text-bg-success']",
+    "select_renewals":"[class^='level2 dropdown-item dynamic'][title^='Renewals']",
+    "selectaction_cancelpolicy": "[class^='dropdown selectAction']",
+    "selectaction_diary": "[class^='dropdown selectAction']",
+    "selectaction_documents": "[class^='dropdown selectAction']",
+    "selectaction_renewal": "[class^='dropdown selectAction']",
+    "input_policynumber":"#ctl00_ContentPlaceHolder1_PolicyNumber",
+    "search_policynumber":"#ctl00_ContentPlaceHolder1_Search",
+    "tick_renewal":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal",
+    "batchprint_renewal":"#ctl00_ContentPlaceHolder1_BatchPrint",
+    "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
+    "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
+    "recall_policy":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy",
+    "staff_discountheading":"#StaffHeading > .m-showhide__control",
+    "staff_discountselect":"#ddlAvailableDiscounts",
+    "staff_discountrecalc":"#ctl00_MainContent_Recalculate",
+    "staff_nodiscountheading":"#ctl00_MainContent_UP_Price > .a-heading--2"
 
 
     }
@@ -202,8 +231,12 @@
 
 
     {
-
-    "permmta_continue": "#ctl00_MainContent_btnContinue"   
+        
+    "selectaction_makeadj": "[class^='dropdown selectAction']", 
+    "perm_additonaldriver": "#ctl00_MainContent_ddlPermaSelection",
+    "perm_adjbtn": "#btnMakePermaChange",
+    "permmta_continue": "#ctl00_MainContent_btnContinue",  
+    "permmta_buynow": "#ctl00_MainContent_btnBuyNow"  
 
     }
 

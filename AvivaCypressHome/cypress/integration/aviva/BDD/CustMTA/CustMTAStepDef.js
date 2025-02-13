@@ -23,6 +23,8 @@ Given('Customer MTA purchase', () => {
   Global_Stuff.portalMakeAdjustmentSelect()
   Global_Stuff.portalAdjustmentTypeSelect()
   Global_Stuff.portalAdjContinue()
+  // cy.get('.a-checkbox__label').click()
+  // cy.get('#MainContent_Continue4').click()
   Global_Stuff.portalMortgageSelect()
   Global_Stuff.portalMortgageIntLetterTrue()
   Global_Stuff.portalMortgageProvider()

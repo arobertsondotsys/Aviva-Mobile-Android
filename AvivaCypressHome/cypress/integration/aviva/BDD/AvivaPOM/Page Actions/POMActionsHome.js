@@ -7,9 +7,9 @@ export class Global{
     Server(){
         
         //cy.visit('https://qaaviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        //cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
+        cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
         //cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
-        cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
+        //cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva3fat.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva4e2e.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva5pricing.dotsys.co.uk/backoffice/Login.aspx?')
@@ -24,9 +24,9 @@ export class Global{
     Server1(){
         
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        //cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva5pricing.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
@@ -42,9 +42,9 @@ export class Global{
     Server2(){
 
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
+        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
         //cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
-        cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
+        //cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva5pricing.dotsys.co.uk/testdemolinks.html')
@@ -184,11 +184,22 @@ export class Global{
 
     cookiesAccept(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.cookies_accept).click()
+        //7HOTFIX ONLY
+        // cy.get('body').then(($body) => {
+        //     if ($body.find('#onetrust-accept-btn-handler').length > 0) {
+        //         cy.get('#onetrust-accept-btn-handler', {timeout: 3000}).click()
+        //     } else {
+        //         cy.log('Element not found')
+        //     }
+        // })
 
-        // if (Cypress.$(this.LoginElementLocators.LoginPageLocators.cookies_accept).length > 0) {
-        //     cy.get(this.LoginElementLocators.LoginPageLocators.cookies_accept).click()
-        //   }
+        cy.get('.ot-sdk-container > .ot-sdk-row').then(($body) => {
+            if ($body.find('#onetrust-accept-btn-handler').length > 0) {
+                cy.get('#onetrust-accept-btn-handler', {timeout: 3000}).click()
+            } else {
+                cy.log('Element not found')
+            }
+        })
         return
 
     }
@@ -318,7 +329,7 @@ export class Global{
 
     bizStatus(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.biz_status).select(1, {force:true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.biz_status).select(1, {force: true}).select(1, {force: true})
         return
 
     }
@@ -649,6 +660,14 @@ export class Global{
 
     }
 
+    quotePagepMonthlyBtnRNLswap(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswap).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswapconfirm).click()
+        return
+
+    }
+
     quotePagepOptionalCover(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_optionalcover).click({force: true})
@@ -699,6 +718,13 @@ export class Global{
     paymentTypeAgentCcard(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(1)
+        return
+
+    }
+
+    paymentTypeAgentCardRenewal(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(6)
         return
 
     }
@@ -1107,6 +1133,18 @@ export class Global{
         return
 
     }
+
+    RNLDDQA(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.enter_bic).type(this.UserData.InputData.BIC)
+        cy.get(this.LoginElementLocators.QuotePageLocators.enter_iban).type(this.UserData.InputData.IBAN)
+        cy.get(this.LoginElementLocators.QuotePageLocators.preferred_day).select(1)
+        cy.get(this.LoginElementLocators.QuotePageLocators.confirm_dd).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.deposit_paymenttype).select(3)
+        cy.get(this.LoginElementLocators.QuotePageLocators.pay_depositbtn).click()
+        return
+
+    }
         
 
     
@@ -1199,6 +1237,13 @@ export class Global{
             
     }
 
+    selectActionRenewal(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.selectaction_renewal).last().click().contains('Renewal').invoke("removeAttr", "target").click()
+        return
+            
+    }
+
     selectActionDocuments(){
 
         cy.get(this.LoginElementLocators.BOPageLocators.selectaction_documents).last().click().contains('Documents').invoke("removeAttr", "target").click()
@@ -1219,6 +1264,92 @@ export class Global{
         return
             
     }
+
+    agePolicyTool(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.age_policytool).last().click({force: true}).contains('Age Policy').invoke("removeAttr", "target").click({force: true})
+        return
+            
+    }
+
+    agePolicy(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
+            const day = parseInt(dayString)
+            cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
+          })
+
+        cy.get(this.LoginElementLocators.BOPageLocators.backdate_year).select(this.UserData.InputData.BackdateYear)
+
+        cy.get(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.backdate_message).contains(this.UserData.InputData.BackdateMessage)
+            
+    }
+
+    generateRenewal(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
+        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewalcheck).should('contain', 'RNL')
+        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewalcheck1).should('not.contain', '€ 0')
+            
+    }
+
+    inviteRenewal(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.extract_policynumber).last().invoke('text').then(policyNumString => {
+            const policy = policyNumString
+            cy.get(this.LoginElementLocators.BOPageLocators.select_renewals).click({force: true})
+            cy.get(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policy)
+        })
+
+        cy.get(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
+            
+    }
+
+    recallPolicy(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.recall_policy).click()
+        return
+
+    }
+
+    checkRenewalInviteDocs(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Email')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Schedule')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Statement Of Fact')
+        return
+
+    }
+
+    checkRenewalDocs(){
+
+        cy.wait(60000)
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Home Renewal Receipt')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
+        return
+
+    }
+
+    selectStaffDiscount(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.staff_discountheading).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.staff_discountselect).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.staff_discountrecalc).click()
+        cy.wait(2000)
+        cy.get(this.LoginElementLocators.BOPageLocators.staff_nodiscountheading).should('contain', 'Call centre customer - No online discount')
+        return
+
+    }
+
+
 
     //MTA B/O Actions
 
@@ -1432,7 +1563,29 @@ export class Global{
         cy.get(this.LoginElementLocators.PortalPageLocators.portaladj_adjcontinue).click({force:true})
         return
 
+    }
 
+    portalRenewPolicySelect(){
+
+        cy.get(this.LoginElementLocators.PortalPageLocators.portalrenew_policyselect).click()
+        return
+        
+    }
+
+    portalRenewDocsConfirm(){
+
+        cy.get(this.LoginElementLocators.PortalPageLocators.portalrenew_docsconfirm).click()
+        return
+        
+    }
+
+    portalRenewMonthlyPaymentSwap(){
+
+        cy.get(this.LoginElementLocators.PortalPageLocators.portalrenew_monthlypaymentswap).click()
+        cy.get(this.LoginElementLocators.PortalPageLocators.portalrenew_monthlypaymentswapconfirm).click({force: true})
+
+        return
+        
     }
 
 

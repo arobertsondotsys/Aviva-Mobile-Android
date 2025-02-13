@@ -11,15 +11,21 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 
 const Global_Stuff = new Global
 
-Given('Customer purchase home policy', () => {
+Given('Agent purchase home policy renewal on new DD', () => {
 
-  //Access quote link 
-  Global_Stuff.Server2()
-  Global_Stuff.removeAttr()
+  //Login to back office 
+  Global_Stuff.Server()
+  Global_Stuff.company()
+  Global_Stuff.username()
+  Global_Stuff.password()
+  Global_Stuff.loginButton()
+  Global_Stuff.agentQuote()
+  Global_Stuff.createNewQuoteBTN()
   Global_Stuff.cookiesAccept()
 
   //About you
   Global_Stuff.proposerTitleHome()
+  Global_Stuff.notes()
   Global_Stuff.proposerForenameHome()
   Global_Stuff.proposerSurnameHome()
   Global_Stuff.proposerEmailHome()
@@ -39,6 +45,7 @@ Given('Customer purchase home policy', () => {
   
   //Your Property
   Global_Stuff.yourPropertyTitle()
+  Global_Stuff.notes()
   Global_Stuff.propertyType()
   Global_Stuff.yearBuilt()
   Global_Stuff.listedBuildingFalse()
@@ -60,9 +67,11 @@ Given('Customer purchase home policy', () => {
 
   //Your cover
   Global_Stuff.yourCoverTitle() 
+  Global_Stuff.notes()
   Global_Stuff.buildingAndContentsTrue()
   Global_Stuff.buildingAndContentsFalse()
   Global_Stuff.buildingAndContentsTrue()
+  cy.wait(2000)
   Global_Stuff.homeValue()
   Global_Stuff.contentsValue()
   Global_Stuff.isClaimsFalse()
@@ -75,30 +84,92 @@ Given('Customer purchase home policy', () => {
 
   //Policy start date and claims
   Global_Stuff.coverStartTitle()
+  Global_Stuff.notes()
   Global_Stuff.claimsFreeYears()
+  cy.wait(2000)
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()
-  Global_Stuff.coverStartCustomerQuote()
+  Global_Stuff.coverStartAgentQuote()
   Global_Stuff.coverStartContinue()
 
-  //Quote page
+  //Quotepage
   Global_Stuff.quotePageHeading()
-  cy.pause()
+  Global_Stuff.notes()
+  Global_Stuff.quotePageStaffOptions()
+  Global_Stuff.quotePageStaffDiscounts()
+  Global_Stuff.quotePageStaffRecalculate()
+  cy.wait(2000)
   Global_Stuff.quotePageBuyNowBtn()
 
   //Complete and pay
   Global_Stuff.completeAndPayHeading()
+  Global_Stuff.notes()
   Global_Stuff.completeAndPayMortgage()
-  cy.wait(1000)
-  Global_Stuff.completeAndPayCheckBox()
-  cy.wait(1000)
+  Global_Stuff.completeAndPayNoCheckBox()
   Global_Stuff.completeAndPayContinue()
 
-  Global_Stuff.paymentCardQA()
+  //Select payment type
+  Global_Stuff.paymentTypeAgentNoPay()
+  Global_Stuff.paymentTypeAgentNoPayContinue()
+
+  //Thank you page
   Global_Stuff.thankyouHeading()
+  Global_Stuff.notes()
+
+  //Navigate back to the B/O
+  Global_Stuff.Server()
+  Global_Stuff.home()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
+
+  //Back date policy
+  Global_Stuff.agePolicyTool()
+  Global_Stuff.agePolicy()
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
+  // cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
+
+  //Generate and invite renewal
+  cy.go(-2)
+  Global_Stuff.generateRenewal()
+  Global_Stuff.inviteRenewal()
+
+  //Checking for renewal invite email in docs
+  Global_Stuff.recallPolicy()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkRenewalInviteDocs()
+  cy.go(-1)
   
+  //Purchase Home Renewal
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionRenewal()
+  Global_Stuff.selectStaffDiscount()
+  Global_Stuff.quotePagepMonthlyBtnRNLswap()
+  Global_Stuff.completeAndPayContinue()
   
+  Global_Stuff.RNLDDQA()
+  Global_Stuff.paymentCardDemoAgent()
+
+  //Navigate back to B/O and check renewal docs have generated
+  Global_Stuff.Server()
+  Global_Stuff.home()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkRenewalDocs()
+
+
+
+
+
+
 })
   
 

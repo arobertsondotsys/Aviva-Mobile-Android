@@ -86,6 +86,7 @@ Given('Agent purchase home policy', () => {
   Global_Stuff.coverStartTitle()
   Global_Stuff.notes()
   Global_Stuff.claimsFreeYears()
+  cy.wait(2000)
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()

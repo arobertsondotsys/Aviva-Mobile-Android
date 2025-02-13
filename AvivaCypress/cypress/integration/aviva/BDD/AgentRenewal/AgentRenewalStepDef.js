@@ -26,7 +26,7 @@ Given('Agent can Renew a policy',()=>
     Global_Stuff.createNewQuoteBTN()
       
     //Accept cookies
-    Global_Stuff.cookiesAccept()
+    //Global_Stuff.cookiesAccept()
 
     //Complete section 1 "About you"
     Global_Stuff.aboutYouTitle()

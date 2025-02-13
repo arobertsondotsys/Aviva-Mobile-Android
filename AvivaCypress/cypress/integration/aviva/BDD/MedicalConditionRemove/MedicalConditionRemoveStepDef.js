@@ -56,7 +56,7 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.insuranceDetailsTitle()
     Global_Stuff.notes()
     Global_Stuff.drivingExp()
-    cy.wait(2000)
+    cy.wait(4000)
     Global_Stuff.drivingExpYears()
     Global_Stuff.carUse()
     Global_Stuff.insuranceDetailsContinue()
@@ -67,9 +67,9 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.carRegYes()
     Global_Stuff.carRegInput()
     Global_Stuff.findCarBTN()
-    cy.wait(3000)
+    cy.wait(6000)
     Global_Stuff.confirmCarBTN()
-    cy.wait(3000)
+    cy.wait(6000)
     Global_Stuff.carValueInput()
     Global_Stuff.carModifiedFalse()
     Global_Stuff.carDetailsContinue()
@@ -106,7 +106,9 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.ppHeading()
     Global_Stuff.notes()
     Global_Stuff.ppFalse1st()
+    cy.wait(3000)
     Global_Stuff.ppFalseLast()
+    cy.wait(3000)
     Global_Stuff.ppContinue()
 
     //Complete section 8 "Cover start date"
@@ -116,7 +118,6 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.coverStartHaveHomeIns()
     Global_Stuff.coverStartHaveCarIns()
     Global_Stuff.coverStartMarketing()
-    cy.wait(3000)
     Global_Stuff.coverStartContinue()
     cy.wait(10000)
 
@@ -177,6 +178,7 @@ Given('Agent can add a Medical condition and remove ok',()=>
     
     Global_Stuff.postQuote2IsNoMedicalTrue()
     Global_Stuff.postQuote2DriverNumber()
+    cy.wait(3000)
     Global_Stuff.postQuote2Continue()
 
     //Complete post quote 3 "Your insurance history and inception details"
@@ -212,14 +214,13 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.policySelectButton()
 
     //Open policy
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     //Select Make adjustment and revert window back to current window
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Make Adjustment').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionMakeADJ()
 
     //Select to perform a permanent adjustment on Additional drivers
-    cy.get('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers',{force: true}).should('have.value', 'AddDriver')
-    cy.get('#btnMakePermaChange').click({force: true})
+    Global_Stuff.permADJAdditionalDriver()
   
     Global_Stuff.additionalDriversContinue()
     Global_Stuff.coverStartDate()
@@ -241,12 +242,13 @@ Given('Agent can add a Medical condition and remove ok',()=>
     cy.get('#ctl00_MainContent_ddlMedicalConditions').select(3)
     cy.get('#IsInformed-False').click()
     cy.get('#SaveMedicalCondition').click()
-    cy.get(':nth-child(1) > .m-card-content > .m-card-content__inner > .m-card > .m-form-row > .has-modules-loaded').click()
+    cy.get('#RemoveCondition').click()
     cy.wait(2000)
     cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
 
-    cy.get('#div2').click()
-    cy.get('.m-form-row > .has-modules-loaded').click()
+    cy.get('#accHeading2 > .m-showhide__control').click()
+    //cy.get('#btnContinueDrivers').click()
+    cy.get('#RemoveCondition').click()
     cy.wait(2000)
     cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click({force: true})
 

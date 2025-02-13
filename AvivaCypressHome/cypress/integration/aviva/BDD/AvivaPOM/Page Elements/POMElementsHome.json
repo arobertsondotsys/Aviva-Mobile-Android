@@ -106,6 +106,8 @@
     "quotepage_recalculate": "#MainContent_Recalculate", 
     "quotepage_buynowbtn": "#btnBuyNow",
     "quotepage_paymonthly": "#btnPayMonthly",
+    "quotepage_paymonthlyswap": "#MainContent_btnPayMonthlyRNLSwap",
+    "quotepage_paymonthlyswapconfirm": "#MainContent_btnChangeToMonthly",
     "quotepage_addaccidentaldamage": "#AccidentalDamageViewOptions",
     "quotepage_optionalcover": "#OptionalCoverViewOptions",
     "quotepage_manageexcess": "#ManageExcessViewOptions",
@@ -159,6 +161,14 @@
     "paymenttype_agentnopaycontinue": "#MainContent_NoPay",
     "paymenttype_agentcardpaycontinue": "#MainContent_PayNow",
 
+    "enter_bic": "#MainContent_txtBIC",
+    "enter_iban": "#MainContent_txtIBAN",
+    "preferred_day": "#MainContent_ddlPaymentDayOfMonth",
+    "confirm_dd": "#MainContent_BtnConfirmDD",
+    "deposit_paymenttype": "#MainContent_DDDepositPaymentType",
+    "pay_depositbtn": "#MainContent_BtnPayDeposit",
+
+
     "diarycorres_heading": ".a-heading--1",
     "diarycorres_continue": "#MainContent_Summary",
 
@@ -182,13 +192,31 @@
     "selectaction_cancelpolicy": "[class^='dropdown selectAction']",
     "selectaction_diary": "[class^='dropdown selectAction']",
     "selectaction_documents": "[class^='dropdown selectAction']",
-    "policydocs_check": "tbody > :nth-child(3) > :nth-child(4)"
+    "selectaction_renewal": "[class^='dropdown selectAction']",
+    "policydocs_check": "tbody > :nth-child(3) > :nth-child(4)",
+    "age_policytool": "[class^='dropdown policyTools']",
+    "backdate_day": "#ctl00_ContentPlaceHolder1_BackDateDay",
+    "backdate_year":"#ctl00_ContentPlaceHolder1_BackDateYear",
+    "backdate_confirm":"#ctl00_ContentPlaceHolder1_UpdateDate",
+    "backdate_message":".alert",
+    "generate_renewal":"[class^='btn btn-sm btn-cta btn-sm']",
+    "generate_renewalcheck":"#ctl00_ContentPlaceHolder1_QuoteTabs_2 > .table > tbody > :nth-child(2) > :nth-child(1)",
+    "generate_renewalcheck1":"#ctl00_ContentPlaceHolder1_QuoteTabs_2 > .table > tbody > :nth-child(2) > :nth-child(4)",
+    "extract_policynumber":"[class^='badge rounded-pill text-bg-success']",
+    "select_renewals":"[class^='level2 dropdown-item dynamic'][title^='Renewals']",
+    "input_policynumber":"#ctl00_ContentPlaceHolder1_PolicyNumber",
+    "search_policynumber":"#ctl00_ContentPlaceHolder1_Search",
+    "tick_renewal":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal",
+    "batchprint_renewal":"#ctl00_ContentPlaceHolder1_BatchPrint",
+    "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
+    "recall_policy":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy",
+    "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
+    "staff_discountheading":"#StaffHeading > .m-showhide__control",
+    "staff_discountselect":"#ddlAvailableDiscounts",
+    "staff_discountrecalc":"#MainContent_Recalculate",
+    "staff_nodiscountheading":".TextAvivaFontBlue"
     
     
-
-    
-
-
     }
 
 
@@ -242,7 +270,17 @@
     "portaladj_adjcontinue": "#btnMakePermaChange",
     "portaladj_mortgageselect": "#MortgageDDL",
     "portaladj_mortgageintlettertrue": "#IsNoticeBankInterest-True > .a-radio > .a-radio__label",
-    "portaladj_mortgageprovider": "#MortgageProviderDDl"
+    "portaladj_mortgageprovider": "#MortgageProviderDDl",
+    "portalrenew_policyselect": "#Renewal_Modal_Submit",
+    "portalrenew_docsconfirm": "#NavigationTabs_btnRnlDocConfirmation",
+    "portalrenew_monthlypaymentswap": "#MainContent_btnPayMonthlyRNLSwap",
+    "portalrenew_monthlypaymentswapconfirm": "#MainContent_btnChangeToMonthly"
+    
+
+    
+    
+    
+    
     
           
 

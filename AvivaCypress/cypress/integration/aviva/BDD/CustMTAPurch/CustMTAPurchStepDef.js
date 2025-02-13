@@ -48,7 +48,9 @@ Given('Customer can purchase an MTA',()=>
       cy.get('#ui-id-2').click()
       cy.get('#DriverLicenceType').select(1)
       cy.get('#ctl00_MainContent_DriverLicenceYearsHeld').select(3)
+      cy.wait(2000)
       cy.get('#AdditionalDriverNumber').type('123459972')
+      cy.wait(2000)
       cy.get('#RelationshipToProposer').select(1)
       cy.get('#IsSpouseOwnVehicle-True > .a-radio > .a-radio__label').click()
       cy.get('#SaveDriver').click()
@@ -72,7 +74,7 @@ Given('Customer can purchase an MTA',()=>
       cy.get('#ctl00_MainContent_Continue8').click()
 
       //Quote screen
-      cy.get('#ctl00_MainContent_btnContinue').click({force: true})
+      Global_Stuff.permMTABuyNow()
 
       //Post quote screen 2
       cy.get('#IsMainDriver-True > .a-radio > .a-radio__label').click()

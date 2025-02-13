@@ -11,7 +11,7 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 
 const Global_Stuff = new Global
 
-Given('Customer purchase home policy', () => {
+Given('Customer purchase home policy renewal on new DD', () => {
 
   //Access quote link 
   Global_Stuff.Server2()
@@ -63,6 +63,7 @@ Given('Customer purchase home policy', () => {
   Global_Stuff.buildingAndContentsTrue()
   Global_Stuff.buildingAndContentsFalse()
   Global_Stuff.buildingAndContentsTrue()
+  cy.wait(2000)
   Global_Stuff.homeValue()
   Global_Stuff.contentsValue()
   Global_Stuff.isClaimsFalse()
@@ -76,29 +77,92 @@ Given('Customer purchase home policy', () => {
   //Policy start date and claims
   Global_Stuff.coverStartTitle()
   Global_Stuff.claimsFreeYears()
+  cy.wait(2000)
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()
   Global_Stuff.coverStartCustomerQuote()
   Global_Stuff.coverStartContinue()
 
-  //Quote page
+  //Quotepage
   Global_Stuff.quotePageHeading()
-  cy.pause()
+  cy.wait(2000)
   Global_Stuff.quotePageBuyNowBtn()
 
   //Complete and pay
   Global_Stuff.completeAndPayHeading()
   Global_Stuff.completeAndPayMortgage()
-  cy.wait(1000)
   Global_Stuff.completeAndPayCheckBox()
-  cy.wait(1000)
   Global_Stuff.completeAndPayContinue()
 
+  //Select payment type
   Global_Stuff.paymentCardQA()
+
+  //Thank you page
   Global_Stuff.thankyouHeading()
+
+  //Navigate to the B/O and login
+  Global_Stuff.Server()
+  Global_Stuff.company()
+  Global_Stuff.username()
+  Global_Stuff.password()
+  Global_Stuff.loginButton()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
+
+  //Back date policy
+  Global_Stuff.agePolicyTool()
+  Global_Stuff.agePolicy()
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
+  // cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
+
+  //Generate and invite renewal
+  cy.go(-2)
+  Global_Stuff.generateRenewal()
+  Global_Stuff.inviteRenewal()
+
+  //Checking for renewal invite email in docs
+  Global_Stuff.recallPolicy()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkRenewalInviteDocs()
+  cy.go(-1)
   
+  //Purchase Home Renewal as customer
+  Global_Stuff.Server1()
+  Global_Stuff.loginEmail()
+  Global_Stuff.loginPassword()
+  Global_Stuff.loginPortalButton()
+  Global_Stuff.portalRenewPolicySelect()
+  Global_Stuff.portalRenewDocsConfirm()
+  cy.wait(2000)
+  Global_Stuff.portalRenewMonthlyPaymentSwap()
+  cy.wait(2000)
+  Global_Stuff.coverStartCustomerQuote()
+  Global_Stuff.completeAndPayContinue()
   
+  Global_Stuff.paymentDDQA()
+  cy.wait(4000)
+
+  //Navigate back to B/O and check renewal docs have generated
+  Global_Stuff.Server()
+  Global_Stuff.home()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkRenewalDocs()
+
+
+
+
+
+
 })
   
 

@@ -45,7 +45,12 @@
     "ContentsValue": "24000",
     "JointPropFirstName": "Sarah",
     "JointPropSurname": "Test",
-    "JointPropDOB": "28/12/1982"
+    "JointPropDOB": "28/12/1982",
+    "BackdateYear": "2024",
+    "BackdateMessage": "Policy has been backdated",
+    "BIC": "BOFIIE2D",
+    "IBAN": "IE87BOFI90491561068076"
+
 
 
 
