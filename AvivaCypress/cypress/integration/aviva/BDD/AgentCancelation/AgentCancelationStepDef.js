@@ -42,6 +42,7 @@ Given('Agent can cancel a policy',()=>
 
     //Select Cancelation date (+5 days from current date)
     cy.get('.a-label').should('have.text', 'What date would you like to cancel from?')
+    cy.wait(2000)
     cy.get('#ctl00_MainContent_staffCancelDate').type(day().add(6, 'day').format('DD/MM/YYYY'))
     cy.get('#ctl00_MainContent_staffDateContinue').click()
 

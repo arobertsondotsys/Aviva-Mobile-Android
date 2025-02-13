@@ -76,6 +76,7 @@ Given('Customer purchase home policy', () => {
   //Policy start date and claims
   Global_Stuff.coverStartTitle()
   Global_Stuff.claimsFreeYears()
+  cy.wait(2000)
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()

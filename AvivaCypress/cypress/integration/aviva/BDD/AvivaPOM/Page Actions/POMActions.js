@@ -187,9 +187,9 @@ export class Global{
 
     loginPassword(){
 
-        //cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass, {force:true})
+        cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass, {force:true})
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass7Hotfix, {force:true})
+        //cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass7Hotfix, {force:true})
         return
 
     }
@@ -210,22 +210,22 @@ export class Global{
 
     cookiesAccept(){
 
-        //7HOTFIX ONLY
-        cy.get('body').then(($body) => {
-            if ($body.find('#onetrust-accept-btn-handler').length > 0) {
-                cy.get('#onetrust-accept-btn-handler', {timeout: 3000}).click()
-            } else {
-                cy.log('Element not found')
-            }
-        })
-
-        // cy.get('.ot-sdk-container > .ot-sdk-row').then(($body) => {
+        // //7HOTFIX ONLY
+        // cy.get('body').then(($body) => {
         //     if ($body.find('#onetrust-accept-btn-handler').length > 0) {
         //         cy.get('#onetrust-accept-btn-handler', {timeout: 3000}).click()
         //     } else {
         //         cy.log('Element not found')
         //     }
         // })
+
+        cy.get('.ot-sdk-container > .ot-sdk-row').then(($body) => {
+            if ($body.find('#onetrust-accept-btn-handler').length > 0) {
+                cy.get('#onetrust-accept-btn-handler', {timeout: 3000}).click()
+            } else {
+                cy.log('Element not found')
+            }
+        })
         return
 
     }
@@ -1351,6 +1351,7 @@ export class Global{
             .then((body) => cy.wrap(body))
 
           }
+          cy.wait(4000)
           getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
           cy.get('@passwordbox').type('password')
           getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
