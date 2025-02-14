@@ -11,7 +11,7 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 
 const Global_Stuff = new Global
 
-Given('Customer purchase home policy renewal on new DD', () => {
+Given('Customer purchase home policy renewal as PIF', () => {
 
   //Access quote link 
   Global_Stuff.Server2()
@@ -140,12 +140,12 @@ Given('Customer purchase home policy renewal on new DD', () => {
   Global_Stuff.portalRenewPolicySelect()
   Global_Stuff.portalRenewDocsConfirm()
   cy.wait(2000)
-  Global_Stuff.portalRenewMonthlyPaymentSwap()
+  Global_Stuff.quotePageBuyNowBtn()
   cy.wait(2000)
   Global_Stuff.coverStartCustomerQuote()
   Global_Stuff.completeAndPayContinue()
   
-  Global_Stuff.paymentDDQA()
+  Global_Stuff.paymentCardQA()
   cy.wait(4000)
 
   Global_Stuff.thankyouHeading()

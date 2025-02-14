@@ -155,6 +155,8 @@ Given('Agent purchase home policy renewal on new DD', () => {
   Global_Stuff.RNLDDQA()
   Global_Stuff.paymentCardDemoAgent()
 
+  Global_Stuff.thankyouHeading()
+
   //Navigate back to B/O and check renewal docs have generated
   Global_Stuff.Server()
   Global_Stuff.home()

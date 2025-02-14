@@ -712,6 +712,13 @@ export class Global{
 
     }
 
+    completeAndPayRNLPayNow(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.completeandpay_paynow).click()
+        return
+
+    }
+
 
     //Global Quote Actions - Payment type screen
 
@@ -724,7 +731,7 @@ export class Global{
 
     paymentTypeAgentCardRenewal(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(6)
+        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(3)
         return
 
     }
@@ -889,6 +896,7 @@ export class Global{
           getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
           getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
           cy.get('#continueButton').click()
+          cy.wait(4000)
 
         })
         return
@@ -1134,6 +1142,79 @@ export class Global{
 
     }
 
+    paymentDDDemoCust(){
+
+        cy.origin('https://www.direct.stg-aviva.co.uk', () => 
+        {
+          Cypress.on('uncaught:exception', (err, runnable) =>
+          {
+          return false
+          })
+          const bic= 'BOFIIE2D'
+          const iban= 'IE87BOFI90491561068076'
+          const CCnumber='4917610000000000'
+          const Exp1='03'
+          const Exp2='30'
+          const CVC='737'
+          
+          cy.wait(10000)
+          cy.get('.payment-heading').contains('Payment')
+
+          cy.get('#BIC').type(bic)
+          cy.get('#IBAN').type(iban)
+          cy.get('#PaymentDayOfMonth').select(1)
+          cy.get('.a-checkbox__label').click()
+          cy.get('#continueButton').click()
+
+          const getIframeDocumentCard = () => {
+            return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentMonth = () => {
+            return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentYear = () => {
+            return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentCVC = () => {
+            return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+          
+            
+          getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
+          getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
+          getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
+          getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
+          cy.get('#continueButton').click()
+
+        })
+
+        //Password box
+        cy.wait(10000)
+        const getIframeDocumentPassword = () => {
+          
+          return cy.get('.adyen-checkout__iframe').its('0.contentDocument.body').should('not.be.empty')
+          .then((body) => cy.wrap(body))
+
+        }
+        cy.wait(4000)
+        getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
+        cy.get('@passwordbox').type('password')
+        getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
+        return
+
+    }
+
     RNLDDQA(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.enter_bic).type(this.UserData.InputData.BIC)
@@ -1328,7 +1409,7 @@ export class Global{
 
     checkRenewalDocs(){
 
-        cy.wait(60000)
+        cy.wait(80000)
         cy.reload()
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')

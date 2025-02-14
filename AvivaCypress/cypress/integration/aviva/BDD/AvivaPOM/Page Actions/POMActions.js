@@ -1471,6 +1471,7 @@ export class Global{
             .then((body) => cy.wrap(body))
 
           }
+          cy.wait(4000)
           getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
           cy.get('@passwordbox').type('password')
           getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()

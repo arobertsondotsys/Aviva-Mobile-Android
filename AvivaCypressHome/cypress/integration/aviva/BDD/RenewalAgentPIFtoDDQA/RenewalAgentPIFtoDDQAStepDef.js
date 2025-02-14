@@ -156,6 +156,8 @@ Given('Agent purchase home policy renewal on new DD', () => {
   Global_Stuff.paymentCardQAAgent()
   cy.wait(4000)
 
+  Global_Stuff.thankyouHeading()
+
   //Navigate back to B/O and check renewal docs have generated
   Global_Stuff.Server()
   Global_Stuff.home()

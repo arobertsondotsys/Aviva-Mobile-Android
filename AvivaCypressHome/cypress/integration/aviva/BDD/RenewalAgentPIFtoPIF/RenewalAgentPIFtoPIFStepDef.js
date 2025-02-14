@@ -11,15 +11,21 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 
 const Global_Stuff = new Global
 
-Given('Customer purchase home policy renewal on new DD', () => {
+Given('Agent purchase home policy renewal as PIF', () => {
 
-  //Access quote link 
-  Global_Stuff.Server2()
-  Global_Stuff.removeAttr()
+  //Login to back office 
+  Global_Stuff.Server()
+  Global_Stuff.company()
+  Global_Stuff.username()
+  Global_Stuff.password()
+  Global_Stuff.loginButton()
+  Global_Stuff.agentQuote()
+  Global_Stuff.createNewQuoteBTN()
   Global_Stuff.cookiesAccept()
 
   //About you
   Global_Stuff.proposerTitleHome()
+  Global_Stuff.notes()
   Global_Stuff.proposerForenameHome()
   Global_Stuff.proposerSurnameHome()
   Global_Stuff.proposerEmailHome()
@@ -39,6 +45,7 @@ Given('Customer purchase home policy renewal on new DD', () => {
   
   //Your Property
   Global_Stuff.yourPropertyTitle()
+  Global_Stuff.notes()
   Global_Stuff.propertyType()
   Global_Stuff.yearBuilt()
   Global_Stuff.listedBuildingFalse()
@@ -60,6 +67,7 @@ Given('Customer purchase home policy renewal on new DD', () => {
 
   //Your cover
   Global_Stuff.yourCoverTitle() 
+  Global_Stuff.notes()
   Global_Stuff.buildingAndContentsTrue()
   Global_Stuff.buildingAndContentsFalse()
   Global_Stuff.buildingAndContentsTrue()
@@ -76,37 +84,42 @@ Given('Customer purchase home policy renewal on new DD', () => {
 
   //Policy start date and claims
   Global_Stuff.coverStartTitle()
+  Global_Stuff.notes()
   Global_Stuff.claimsFreeYears()
   cy.wait(2000)
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()
-  Global_Stuff.coverStartCustomerQuote()
+  Global_Stuff.coverStartAgentQuote()
   Global_Stuff.coverStartContinue()
 
   //Quotepage
   Global_Stuff.quotePageHeading()
+  Global_Stuff.notes()
+  Global_Stuff.quotePageStaffOptions()
+  Global_Stuff.quotePageStaffDiscounts()
+  Global_Stuff.quotePageStaffRecalculate()
   cy.wait(2000)
   Global_Stuff.quotePageBuyNowBtn()
 
   //Complete and pay
   Global_Stuff.completeAndPayHeading()
+  Global_Stuff.notes()
   Global_Stuff.completeAndPayMortgage()
-  Global_Stuff.completeAndPayCheckBox()
+  Global_Stuff.completeAndPayNoCheckBox()
   Global_Stuff.completeAndPayContinue()
 
   //Select payment type
-  Global_Stuff.paymentCardQA()
+  Global_Stuff.paymentTypeAgentNoPay()
+  Global_Stuff.paymentTypeAgentNoPayContinue()
 
   //Thank you page
   Global_Stuff.thankyouHeading()
+  Global_Stuff.notes()
 
-  //Navigate to the B/O and login
+  //Navigate back to the B/O
   Global_Stuff.Server()
-  Global_Stuff.company()
-  Global_Stuff.username()
-  Global_Stuff.password()
-  Global_Stuff.loginButton()
+  Global_Stuff.home()
   Global_Stuff.email()
   Global_Stuff.searchButton()
   Global_Stuff.policySelectButton()
@@ -132,21 +145,16 @@ Given('Customer purchase home policy renewal on new DD', () => {
   Global_Stuff.checkRenewalInviteDocs()
   cy.go(-1)
   
-  //Purchase Home Renewal as customer
-  Global_Stuff.Server1()
-  Global_Stuff.loginEmail()
-  Global_Stuff.loginPassword()
-  Global_Stuff.loginPortalButton()
-  Global_Stuff.portalRenewPolicySelect()
-  Global_Stuff.portalRenewDocsConfirm()
-  cy.wait(2000)
-  Global_Stuff.portalRenewMonthlyPaymentSwap()
-  cy.wait(2000)
-  Global_Stuff.coverStartCustomerQuote()
+  //Purchase Home Renewal
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionRenewal()
+  Global_Stuff.selectStaffDiscount()
+  Global_Stuff.quotePageBuyNowBtn()
   Global_Stuff.completeAndPayContinue()
-  
-  Global_Stuff.paymentDDQA()
-  cy.wait(4000)
+
+  Global_Stuff.paymentTypeAgentCardRenewal()
+  Global_Stuff.completeAndPayRNLPayNow()
+  Global_Stuff.paymentCardDemoAgent()
 
   Global_Stuff.thankyouHeading()
 

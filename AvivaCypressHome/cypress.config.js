@@ -28,7 +28,9 @@ async function setupNodeEvents(on, config) {
      'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
      'cypress/integration/aviva/BDD/AgentCancellation.feature',
      'cypress/integration/aviva/BDD/RenewalAgentPIFtoDDQA.feature',
-     'cypress/integration/aviva/BDD/RenewalCustPIFtoDDQA.feature'
+     'cypress/integration/aviva/BDD/RenewalCustPIFtoDDQA.feature',
+     'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIFQA.feature',
+     'cypress/integration/aviva/BDD/RenewalCustPIFtoPIFQA.feature'
     
     
   ];
@@ -45,7 +47,9 @@ async function setupNodeEvents(on, config) {
 //     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
 //     'cypress/integration/aviva/BDD/AgentCancellation.feature',
 //     'cypress/integration/aviva/BDD/RenewalAgentPIFtoDD.feature',
-//     'cypress/integration/aviva/BDD/RenewalCustPIFtoDD.feature'
+//     'cypress/integration/aviva/BDD/RenewalCustPIFtoDD.feature',
+//     'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIF.feature',
+//     'cypress/integration/aviva/BDD/RenewalCustPIFtoPIF.feature'
     
       
    
