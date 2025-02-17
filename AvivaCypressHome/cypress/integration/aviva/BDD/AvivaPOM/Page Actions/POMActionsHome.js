@@ -7,8 +7,8 @@ export class Global{
     Server(){
         
         //cy.visit('https://qaaviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        //cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
+        //cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
+        cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
         //cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva3fat.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva4e2e.dotsys.co.uk/backoffice/Login.aspx?')
@@ -24,8 +24,8 @@ export class Global{
     Server1(){
         
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
@@ -42,8 +42,8 @@ export class Global{
     Server2(){
 
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        //cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
+        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
+        cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/testdemolinks.html')
@@ -745,7 +745,7 @@ export class Global{
 
     paymentTypeAgentDD(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(3)
+        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(2)
         return
 
     }
@@ -753,6 +753,13 @@ export class Global{
     paymentTypeAgentNoPayContinue(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agentnopaycontinue).click({force: true})
+        return
+
+    }
+
+    paymentTypeAgentMonthlypay(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.completeandpay_paymonthly).click()
         return
 
     }
@@ -1226,6 +1233,17 @@ export class Global{
         return
 
     }
+
+    NBDDQA(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.enter_bic).type(this.UserData.InputData.BIC)
+        cy.get(this.LoginElementLocators.QuotePageLocators.enter_iban).type(this.UserData.InputData.IBAN)
+        cy.get(this.LoginElementLocators.QuotePageLocators.preferred_day).select(1)
+        cy.get(this.LoginElementLocators.QuotePageLocators.confirm_dd).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.pay_depositbtn).click()
+        return
+
+    }
         
 
     
@@ -1414,6 +1432,16 @@ export class Global{
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Home Renewal Receipt')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
+        return
+
+    }
+    checkRenewalDocsAutoRolover(){
+
+        cy.wait(80000)
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
         return
 

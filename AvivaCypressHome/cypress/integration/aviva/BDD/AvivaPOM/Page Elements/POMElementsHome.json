@@ -126,6 +126,7 @@
     "completeandpay_nocheckbox": ".a-checkbox__label",
     "completeandpay_continue": "#btnContinueToPayment",
     "completeandpay_paynow": "#MainContent_PayNow",
+    "completeandpay_paymonthly": "#MainContent_PayMonthly",
     
 
     
