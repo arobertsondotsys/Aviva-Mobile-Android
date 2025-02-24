@@ -49,7 +49,15 @@
     "BackdateYear": "2024",
     "BackdateMessage": "Policy has been backdated",
     "BIC": "BOFIIE2D",
-    "IBAN": "IE87BOFI90491561068076"
+    "IBAN": "IE87BOFI90491561068076",
+    "SpecifiedItemDescription": "Ring",
+    "SpecifiedItemValue": "8000",
+    "CaravanMake": "Superior",
+    "CaravanSerial": "90001",
+    "CaravanYear": "2010",
+    "CaravanValue": "30000",
+    "PBValue": "1000"
+
 
 
 

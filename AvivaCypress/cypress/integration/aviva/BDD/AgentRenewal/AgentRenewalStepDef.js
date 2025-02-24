@@ -29,6 +29,7 @@ Given('Agent can Renew a policy',()=>
     //Global_Stuff.cookiesAccept()
 
     //Complete section 1 "About you"
+    Global_Stuff.cookiesAccept()
     Global_Stuff.aboutYouTitle()
     Global_Stuff.notes()
     Global_Stuff.proposerTitle()
