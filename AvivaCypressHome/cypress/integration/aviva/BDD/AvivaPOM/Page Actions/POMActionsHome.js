@@ -823,6 +823,13 @@ export class Global{
 
     }
 
+    completeAndMyAvivaDocsNo(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.completeandpay_myavivadocsno).click()
+        return
+
+    }
+
     completeAndPayCheckBox(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.completeandpay_checkbox).click()
@@ -840,6 +847,13 @@ export class Global{
     completeAndPayContinue(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.completeandpay_continue).click()
+        return
+
+    }
+
+    completeAndPayNBPayNow(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.completeandpay_paynow).click()
         return
 
     }
@@ -1600,6 +1614,71 @@ export class Global{
         return
 
     }
+
+    checkNBParagonDocs(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        cy.wait(80000)
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Welcome Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Statement Of Fact')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Policy Schedule')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).should('not.contain', 'Receipt')
+        return
+
+    }
+
+    checkNBParagonDocsWithReceipt(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        cy.wait(80000)
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Welcome Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Statement Of Fact')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Receipt')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Policy Schedule')
+        return
+
+    }
+
+    checkMTAParagonDocs(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        cy.wait(80000)
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Home MTA Confirmation Letter')
+        // cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Receipt')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Policy Schedule')
+        return
+
+    }
+
+    checkRNLParagonDocs(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        cy.wait(80000)
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Policy Schedule')
+        return
+
+    }
+
+    checkRNLMTAParagonDocs(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        cy.wait(80000)
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Home MTA Confirmation Letter')
+        //cy.get(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Receipt')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Policy Schedule')
+        return
+
+    }
+
+    printqueue_view
 
     selectStaffDiscount(){
 

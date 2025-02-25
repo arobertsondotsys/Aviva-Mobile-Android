@@ -11,7 +11,7 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 
 const Global_Stuff = new Global
 
-Given('Agent purchase home policy with docs set to post at RNL MTA', () => {
+Given('Agent purchase home policy with docs set to post at NB', () => {
 
   //Login to back office 
   Global_Stuff.Server()
@@ -101,6 +101,22 @@ Given('Agent purchase home policy with docs set to post at RNL MTA', () => {
   Global_Stuff.quotePageStaffDiscounts()
   Global_Stuff.quotePageStaffRecalculate()
 
+  //Adding all Optional covers
+  Global_Stuff.quotePagepAccidentalDamageViewOptions()
+  Global_Stuff.quotePagepAccidentalDamageAddCover()
+  cy.wait(2000)
+  Global_Stuff.quotePagepOptionalCoverViewOptions()
+  Global_Stuff.quotePagepOptionalCoverAddSpecifiedItem()
+  cy.wait(2000)
+  Global_Stuff.quotePagepManageYourExcessViewOptions()
+  Global_Stuff.quotePagepManageYourExcess500()
+  cy.wait(2000)
+  Global_Stuff.quotePagepGardenCoverViewOptions()
+  Global_Stuff.quotePagepGardenCover1000()
+  cy.wait(2000)
+  Global_Stuff.quotePagepCaravanCoverViewOptions()
+  Global_Stuff.quotePagepCaravanCoverAddWithPersonal()
+
   cy.pause()
   cy.wait(2000)
   Global_Stuff.quotePageBuyNowBtn()
@@ -117,10 +133,13 @@ Given('Agent purchase home policy with docs set to post at RNL MTA', () => {
   Global_Stuff.paymentTypeAgentNoPay()
   Global_Stuff.paymentTypeAgentNoPayContinue()
   
-  
+  //Diary and Correspondence page
+  Global_Stuff.diaryCorrespondenceHeading()
+  Global_Stuff.diaryCorrespondenceContinue()
 
   //Thank you page
   Global_Stuff.thankyouHeading()
+  Global_Stuff.adjustmentReceiptAssert()
   Global_Stuff.notes()
 
   Global_Stuff.Server()
@@ -130,95 +149,11 @@ Given('Agent purchase home policy with docs set to post at RNL MTA', () => {
   Global_Stuff.policySelectButton()
   Global_Stuff.livePoliciesBTN()
   Global_Stuff.homePolicyTab()
-
-  //Navigate back to the B/O
-  Global_Stuff.Server()
-  Global_Stuff.home()
-  Global_Stuff.email()
-  Global_Stuff.searchButton()
-  Global_Stuff.policySelectButton()
-  Global_Stuff.livePoliciesBTN()
-
-  //Back date policy
-  Global_Stuff.agePolicyTool()
-  Global_Stuff.agePolicy()
-  // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
-  // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
-  // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
-  // cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
-
-  //Generate and invite renewal
-  cy.go(-2)
-  Global_Stuff.generateRenewal()
-  Global_Stuff.inviteRenewal()
-
-  //Checking for renewal invite email in docs
-  Global_Stuff.recallPolicy()
-  Global_Stuff.livePoliciesBTN()
   Global_Stuff.selectActionDocuments()
-  Global_Stuff.checkRenewalInviteDocs()
-  cy.go(-1)
+  Global_Stuff.checkNBParagonDocs()
+
   
-  //Purchase Home Renewal
-  Global_Stuff.livePoliciesBTN()
-  Global_Stuff.selectActionRenewal()
-  Global_Stuff.selectStaffDiscount()
-  Global_Stuff.paymentTypeAgentCardRenewal()
-  Global_Stuff.completeAndPayRNLPayNow()
-  Global_Stuff.paymentCardDemoAgent()
-
-  //Add all optional covers at MTA
-  Global_Stuff.Server()
-  Global_Stuff.home()
-  Global_Stuff.email()
-  Global_Stuff.searchButton()
-  Global_Stuff.policySelectButton()
-  Global_Stuff.livePoliciesBTN()
-  Global_Stuff.homePolicyTab()
-  Global_Stuff.selectActionMakeAdjustment()
-  Global_Stuff.adjustmentType()
-  Global_Stuff.adjustmentContinue()
-//Adding all Optional covers
-Global_Stuff.quotePagepAccidentalDamageViewOptions()
-Global_Stuff.quotePagepAccidentalDamageAddCover()
-cy.wait(2000)
-Global_Stuff.quotePagepOptionalCoverViewOptions()
-Global_Stuff.quotePagepOptionalCoverAddSpecifiedItem()
-cy.wait(2000)
-Global_Stuff.quotePagepManageYourExcessViewOptions()
-Global_Stuff.quotePagepManageYourExcess500()
-cy.wait(2000)
-Global_Stuff.quotePagepGardenCoverViewOptions()
-Global_Stuff.quotePagepGardenCover1000()
-cy.wait(2000)
-Global_Stuff.quotePagepCaravanCoverViewOptions()
-Global_Stuff.quotePagepCaravanCoverAddWithPersonal()
-Global_Stuff.adjustmentBuyNowBTN()
-Global_Stuff.completeAndPayContinue()
-Global_Stuff.paymentTypeAgentCard()
-Global_Stuff.paymentTypeAgentPayNow()
-Global_Stuff.paymentCardDemo()
-
-//Diary and Correspondence page
-Global_Stuff.diaryCorrespondenceHeading()
-Global_Stuff.diaryCorrespondenceContinue()
-
-// Thank you page
-Global_Stuff.thankyouHeading()
-Global_Stuff.adjustmentReceiptAssert()
-Global_Stuff.notes()
-
-//Check correct dicuments have been added to print queue
-Global_Stuff.Server()
-Global_Stuff.home()
-Global_Stuff.email()
-Global_Stuff.searchButton()
-Global_Stuff.policySelectButton()
-Global_Stuff.livePoliciesBTN()
-Global_Stuff.homePolicyTab()
-Global_Stuff.selectActionDocuments()
-Global_Stuff.checkRNLMTAParagonDocs()
-
+  
 })
   
 

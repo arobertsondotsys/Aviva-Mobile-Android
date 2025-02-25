@@ -147,6 +147,7 @@
 
     "completeandpay_heading": ".a-heading--1",
     "completeandpay_mortgage": "#MortgageDDL",
+    "completeandpay_myavivadocsno": "#MyAvivaConsent-False > .a-radio > .a-radio__label",
     "completeandpay_checkbox": ".a-checkbox__label",
     "completeandpay_nocheckbox": ".a-checkbox__label",
     "completeandpay_continue": "#btnContinueToPayment",
@@ -154,8 +155,6 @@
     "completeandpay_paymonthly": "#MainContent_PayMonthly",
     
 
-    
-    
     "aboutthedrivers_ismaindrivertrue": "#IsMainDriver-True > .a-radio > .a-radio__label > .a-radio__label-inner",
     "aboutthedrivers_isnotothercartrue": "#IsNotOtherCar-True > .a-radio > .a-radio__label > .a-radio__label-inner",
     "aboutthedrivers_isnototherinstrue": "#IsNotOtherInsurance-True > .a-radio > .a-radio__label > .a-radio__label-inner",
@@ -240,7 +239,10 @@
     "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
     "recall_policy":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy",
     "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
-    "check_renewaldocspost":"tbody > :nth-child(3) > :nth-child(3)",
+    "check_nbdocspost":"tbody > :nth-child(3) > :nth-child(3)",
+    "check_mtadocspost":"tbody > :nth-child(4) > :nth-child(3)",
+    "check_renewaldocspost":"tbody > :nth-child(4) > :nth-child(3)",
+    "check_renewalmtadocspost":"tbody > :nth-child(5) > :nth-child(3)",
     "staff_discountheading":"#StaffHeading > .m-showhide__control",
     "staff_discountselect":"#ddlAvailableDiscounts",
     "staff_discountrecalc":"#MainContent_Recalculate",

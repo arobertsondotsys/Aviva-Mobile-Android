@@ -109,6 +109,7 @@ Given('Agent purchase home policy with docs set to post at RNL', () => {
   Global_Stuff.completeAndPayHeading()
   Global_Stuff.notes()
   Global_Stuff.completeAndPayMortgage()
+  Global_Stuff.completeAndMyAvivaDocsNo()
   Global_Stuff.completeAndPayNoCheckBox()
   Global_Stuff.completeAndPayContinue()
 
@@ -166,16 +167,16 @@ Given('Agent purchase home policy with docs set to post at RNL', () => {
   //Adding all Optional covers
   Global_Stuff.quotePagepAccidentalDamageViewOptions()
   Global_Stuff.quotePagepAccidentalDamageAddCover()
-  cy.wait(1000)
+  cy.wait(2000)
   Global_Stuff.quotePagepOptionalCoverViewOptions()
   Global_Stuff.quotePagepOptionalCoverAddSpecifiedItem()
   cy.wait(2000)
   Global_Stuff.quotePagepManageYourExcessViewOptions()
   Global_Stuff.quotePagepManageYourExcess500()
-  cy.wait(1000)
+  cy.wait(2000)
   Global_Stuff.quotePagepGardenCoverViewOptions()
   Global_Stuff.quotePagepGardenCover1000()
-  cy.wait(1000)
+  cy.wait(2000)
   Global_Stuff.quotePagepCaravanCoverViewOptions()
   Global_Stuff.quotePagepCaravanCoverAddWithPersonal()
   Global_Stuff.quotePageBuyNowBtn()
@@ -194,6 +195,17 @@ Given('Agent purchase home policy with docs set to post at RNL', () => {
   Global_Stuff.thankyouHeading()
   Global_Stuff.adjustmentReceiptAssert()
   Global_Stuff.notes()
+
+  //Check correct dicuments have been added to print queue
+  Global_Stuff.Server()
+  Global_Stuff.home()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.homePolicyTab()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkRNLParagonDocs()
 
 })
   
