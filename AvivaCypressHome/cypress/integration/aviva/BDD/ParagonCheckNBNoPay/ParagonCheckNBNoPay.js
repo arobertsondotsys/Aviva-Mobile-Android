@@ -105,9 +105,6 @@ Given('Agent purchase home policy with docs set to post at NB', () => {
   Global_Stuff.quotePagepAccidentalDamageViewOptions()
   Global_Stuff.quotePagepAccidentalDamageAddCover()
   cy.wait(2000)
-  Global_Stuff.quotePagepOptionalCoverViewOptions()
-  Global_Stuff.quotePagepOptionalCoverAddSpecifiedItem()
-  cy.wait(2000)
   Global_Stuff.quotePagepManageYourExcessViewOptions()
   Global_Stuff.quotePagepManageYourExcess500()
   cy.wait(2000)
@@ -132,14 +129,9 @@ Given('Agent purchase home policy with docs set to post at NB', () => {
   //Select payment type
   Global_Stuff.paymentTypeAgentNoPay()
   Global_Stuff.paymentTypeAgentNoPayContinue()
-  
-  //Diary and Correspondence page
-  Global_Stuff.diaryCorrespondenceHeading()
-  Global_Stuff.diaryCorrespondenceContinue()
 
   //Thank you page
   Global_Stuff.thankyouHeading()
-  Global_Stuff.adjustmentReceiptAssert()
   Global_Stuff.notes()
 
   Global_Stuff.Server()

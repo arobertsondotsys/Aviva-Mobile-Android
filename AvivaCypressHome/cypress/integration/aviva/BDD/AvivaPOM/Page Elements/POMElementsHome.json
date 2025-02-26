@@ -246,7 +246,14 @@
     "staff_discountheading":"#StaffHeading > .m-showhide__control",
     "staff_discountselect":"#ddlAvailableDiscounts",
     "staff_discountrecalc":"#MainContent_Recalculate",
-    "staff_nodiscountheading":".TextAvivaFontBlue"
+    "staff_nodiscountheading":".TextAvivaFontBlue",
+    "diary_entry":".card-footer > .btn",
+    "diary_typeddl":"#ctl00_ContentPlaceHolder1_DiaryType",
+    "diary_lettertypeddl":"#ctl00_ContentPlaceHolder1_LetterType",
+    "diary_saveletter":"#ctl00_ContentPlaceHolder1_SaveLetter",
+    "diaryletter_postorprint":"#ctl00_ContentPlaceHolder1_MediumList",
+    "diaryletter_printsend":"#ctl00_ContentPlaceHolder1_PrintSend",
+    "diaryletter_preview":"#ctl00_ContentPlaceHolder1_Preview"
     
     
     }

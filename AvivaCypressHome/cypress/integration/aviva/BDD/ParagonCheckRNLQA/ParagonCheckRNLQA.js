@@ -151,13 +151,15 @@ Given('Agent purchase home policy with docs set to post at RNL', () => {
   cy.go(-2)
   Global_Stuff.generateRenewal()
   Global_Stuff.inviteRenewal()
+  
 
   //Checking for renewal invite email in docs
   Global_Stuff.recallPolicy()
   Global_Stuff.livePoliciesBTN()
   Global_Stuff.selectActionDocuments()
-  Global_Stuff.checkRenewalInviteDocs()
-  cy.go(-1)
+  Global_Stuff.checkRNLInviteParagonDocs()
+  cy.go(-2)
+  cy.wait(2000)
   
   //Purchase Home Renewal
   Global_Stuff.livePoliciesBTN()

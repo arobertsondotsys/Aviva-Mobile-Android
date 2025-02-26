@@ -1417,7 +1417,7 @@ export class Global{
     
     
 
-    //BO Actions
+    //B/O Actions
 
     home(){
 
@@ -1653,6 +1653,17 @@ export class Global{
 
     }
 
+    checkRNLInviteParagonDocs(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
+        return
+
+    }
+
     checkRNLParagonDocs(){
 
         cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
@@ -1687,6 +1698,44 @@ export class Global{
         cy.get(this.LoginElementLocators.BOPageLocators.staff_discountrecalc).click()
         cy.wait(2000)
         cy.get(this.LoginElementLocators.BOPageLocators.staff_nodiscountheading).should('contain', 'Call centre customer - No online discount')
+        return
+
+    }
+
+    diaryAddAdHocLetters(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_entry).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(0)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
+        cy.wait(1000)
+        cy.go(-3)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_entry).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
+        cy.wait(1000)
+        cy.go(-3)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_entry).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(2)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
+        cy.wait(1000)
+        cy.go(-3)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_entry).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(3)
+        cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
+        cy.wait(1000)
+        cy.go(-3)
         return
 
     }

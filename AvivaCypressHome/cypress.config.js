@@ -34,7 +34,9 @@ async function setupNodeEvents(on, config) {
     //  'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRolloverQA.feature',
      'cypress/integration/aviva/BDD/ParagonCheckNB.feature',
      'cypress/integration/aviva/BDD/ParagonCheckNBNoPay.feature',
+     'cypress/integration/aviva/BDD/ParagonCheckNBNoPayAdHocLetters.feature',
      'cypress/integration/aviva/BDD/ParagonCheckMTAQA.feature',
+     'cypress/integration/aviva/BDD/ParagonCheckMTAQANoDocsWithCharge.feature',
      'cypress/integration/aviva/BDD/ParagonCheckRNLQA.feature',
      'cypress/integration/aviva/BDD/ParagonCheckRNLMTAQA.feature'
     
@@ -58,9 +60,13 @@ async function setupNodeEvents(on, config) {
     // 'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRollover.feature',
     // 'cypress/integration/aviva/BDD/AgentCancellation.feature',
     // 'cypress/integration/aviva/BDD/ParagonCheckNB.feature',
+    // 'cypress/integration/aviva/BDD/ParagonCheckNBNoPay.feature',
+    // 'cypress/integration/aviva/BDD/ParagonCheckNBNoPayAdHocLetters.feature',
     // 'cypress/integration/aviva/BDD/ParagonCheckMTA.feature',
+    // 'cypress/integration/aviva/BDD/ParagonCheckMTAQANoDocsWithCharge.feature',
     // 'cypress/integration/aviva/BDD/ParagonCheckRNL.feature'
     // 'cypress/integration/aviva/BDD/ParagonCheckRNLMTA.feature'
+
     
       
    
@@ -90,8 +96,8 @@ module.exports = defineConfig({
 
   defaultCommandTimeout: 10000,
 
-  viewportWidth: 1280,
-  viewportHeight: 1000,
+  viewportWidth: 1920,
+  viewportHeight: 1080,
 
   pageLoadTimeout: 80000,
 
