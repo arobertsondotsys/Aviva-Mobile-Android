@@ -672,7 +672,7 @@ export class Global{
     quotePageMonthlyBtnRNLswap(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswap).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswapmessage).contains('change your payment method to paying in full')
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswapmessage).contains('change your payment method to paying in installments')
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswapconfirm).click()
         return
 
