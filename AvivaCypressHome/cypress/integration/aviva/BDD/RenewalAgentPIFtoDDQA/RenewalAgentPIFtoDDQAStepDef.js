@@ -90,7 +90,7 @@ Given('Agent purchase home policy renewal on new DD', () => {
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()
-  Global_Stuff.coverStartAgentQuote()
+  //Global_Stuff.coverStartAgentQuote()
   Global_Stuff.coverStartContinue()
 
   //Quotepage
@@ -149,7 +149,7 @@ Given('Agent purchase home policy renewal on new DD', () => {
   Global_Stuff.livePoliciesBTN()
   Global_Stuff.selectActionRenewal()
   Global_Stuff.selectStaffDiscount()
-  Global_Stuff.quotePagepMonthlyBtnRNLswap()
+  Global_Stuff.quotePageMonthlyBtnRNLswap()
   Global_Stuff.completeAndPayContinue()
   
   Global_Stuff.RNLDDQA()

@@ -147,7 +147,9 @@ Given('Medical condition can be removed at renewal QA',()=>
     cy.get('#IsNCDROI-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsNotOtherNCD-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
     cy.get('#IsWithinExpiry-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-    cy.get('#IsMyAviva-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
+    Global_Stuff.postQuote3IsMyAvivaFalse()
+    Global_Stuff.postQuote3PostCert()
+    Global_Stuff.postQuote3PostDocs()
     cy.get('.a-checkbox__label').should('not.exist')
     cy.get('#ctl00_MainContent_btnContinueToPayment').click({force: true})
     //Payment type screen - selecting "No payment required"

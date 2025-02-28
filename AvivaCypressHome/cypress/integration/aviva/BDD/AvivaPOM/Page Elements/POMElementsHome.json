@@ -107,7 +107,12 @@
     "quotepage_buynowbtn": "#btnBuyNow",
     "quotepage_paymonthly": "#btnPayMonthly",
     "quotepage_paymonthlyswap": "#MainContent_btnPayMonthlyRNLSwap",
+    "quotepage_payfullswap": "#MainContent_btnBuyNowRNLSwap",
     "quotepage_paymonthlyswapconfirm": "#MainContent_btnChangeToMonthly",
+    "quotepage_paymonthlyswapmessage": ".CustomerModal > p",
+    "quotepage_payfullswapconfirm": "#MainContent_btnChangeToFull",
+    "quotepage_payfullswapmessage": ".CustomerModal > p",
+    
     "quotepage_accidentaldamage": "#AccidentalDamageViewOptions",
     "quotepage_addaccidentaldamage": "#IsAccidentalDamageCover-True > .a-radio > .a-radio__label",
     "quotepage_optionalcover": "#OptionalCoverViewOptions",

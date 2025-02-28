@@ -90,7 +90,7 @@ Given('Agent purchase home policy renewal as autorollover', () => {
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()
-  Global_Stuff.coverStartAgentQuote()
+  //Global_Stuff.coverStartAgentQuote()
   Global_Stuff.coverStartContinue()
 
   //Quotepage
@@ -100,7 +100,7 @@ Given('Agent purchase home policy renewal as autorollover', () => {
   Global_Stuff.quotePageStaffDiscounts()
   Global_Stuff.quotePageStaffRecalculate()
   cy.wait(2000)
-  Global_Stuff.quotePagepMonthlyBtn()
+  Global_Stuff.quotePageMonthlyBtn()
 
   //Complete and pay
   Global_Stuff.completeAndPayHeading()

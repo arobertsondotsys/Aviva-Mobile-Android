@@ -28,7 +28,7 @@ Given('Agent MTA purchase', () => {
   Global_Stuff.cookiesAccept()
   Global_Stuff.adjustmentType()
   Global_Stuff.adjustmentContinue()
-  Global_Stuff.quotePagepOptionalCover()
+  Global_Stuff.quotePageOptionalCoverViewOptions()
   Global_Stuff.addSpecifiedItemBTN()
   Global_Stuff.addSpecifiedItemDescription()
   Global_Stuff.addSpecifiedItemType()

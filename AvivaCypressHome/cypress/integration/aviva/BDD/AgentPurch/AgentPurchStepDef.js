@@ -90,7 +90,7 @@ Given('Agent purchase home policy', () => {
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()
-  Global_Stuff.coverStartAgentQuote()
+  // Global_Stuff.coverStartAgentQuote()
   Global_Stuff.coverStartContinue()
 
   //Quotepage
@@ -107,6 +107,7 @@ Given('Agent purchase home policy', () => {
   Global_Stuff.completeAndPayHeading()
   Global_Stuff.notes()
   Global_Stuff.completeAndPayMortgage()
+  Global_Stuff.completeAndPayMyAvivaDocsNo()
   Global_Stuff.completeAndPayNoCheckBox()
   Global_Stuff.completeAndPayContinue()
 

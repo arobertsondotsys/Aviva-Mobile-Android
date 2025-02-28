@@ -653,50 +653,60 @@ export class Global{
 
     }
 
-    quotePagepMonthlyBtn(){
+    quotePageMonthlyBtn(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthly).click()
         return
 
     }
 
-    quotePagepMonthlyBtnRNLswap(){
+    quotePageFullBtnRNLswap(){
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_payfullswap).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_payfullswapmessage).contains('change your payment method to paying in full')
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_payfullswapconfirm).click()
+        return
+
+    }
+
+    quotePageMonthlyBtnRNLswap(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswap).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswapmessage).contains('change your payment method to paying in full')
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_paymonthlyswapconfirm).click()
         return
 
     }
 
-    quotePagepAccidentalDamageViewOptions(){
+    quotePageAccidentalDamageViewOptions(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_accidentaldamage).click()
         return
 
     }
 
-    quotePagepAccidentalDamageAddCover(){
+    quotePageAccidentalDamageAddCover(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addaccidentaldamage).click()
         return
 
     }
 
-    quotePagepOptionalCoverViewOptions(){
+    quotePageOptionalCoverViewOptions(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_optionalcover).click()
         return
 
     }
 
-    quotePagepOptionalCoverAddUnpecifiedCover(){
+    quotePageOptionalCoverAddUnpecifiedCover(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_unspecifieditems).select(1)
         return
 
     }
 
-    quotePagepOptionalCoverAddSpecifiedItem(){
+    quotePageOptionalCoverAddSpecifiedItem(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_specifieditem).click()
         cy.get(this.LoginElementLocators.QuotePageLocators.specifieditem_itemdescription).type(this.UserData.InputData.SpecifiedItemDescription)
@@ -707,49 +717,49 @@ export class Global{
 
     }
 
-    quotePagepManageYourExcessViewOptions(){
+    quotePageManageYourExcessViewOptions(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess).click()
         return
 
     }
 
-    quotePagepManageYourExcess275(){
+    quotePageManageYourExcess275(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess275).click()
         return
 
     }
     
-    quotePagepManageYourExcess500(){
+    quotePageManageYourExcess500(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess500).click()
         return
 
     }
 
-    quotePagepManageYourExcess750(){
+    quotePageManageYourExcess750(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess750).click()
         return
 
     }
 
-    quotePagepManageYourExcess1000(){
+    quotePageManageYourExcess1000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess1000).click()
         return
 
     }
 
-    quotePagepGardenCoverViewOptions(){
+    quotePageGardenCoverViewOptions(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencover).click()
         return
 
     }
 
-    quotePagepGardenCover1000(){
+    quotePageGardenCover1000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(1)
         return
@@ -758,28 +768,28 @@ export class Global{
         
     }
 
-    quotePagepGardenCover2000(){
+    quotePageGardenCover2000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(2)
         return
 
     }
 
-    quotePagepGardenCover3000(){
+    quotePageGardenCover3000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(3)
         return
 
     }
 
-    quotePagepCaravanCoverViewOptions(){
+    quotePageCaravanCoverViewOptions(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_caravancover).click()
         return
 
     }
 
-    quotePagepCaravanCoverAddWithoutPersonal(){
+    quotePageCaravanCoverAddWithoutPersonal(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addcaravancover).click()
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_make).type(this.UserData.InputData.CaravanMake)
@@ -792,7 +802,7 @@ export class Global{
 
     }
 
-    quotePagepCaravanCoverAddWithPersonal(){
+    quotePageCaravanCoverAddWithPersonal(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addcaravancover).click()
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_make).type(this.UserData.InputData.CaravanMake)
@@ -823,7 +833,7 @@ export class Global{
 
     }
 
-    completeAndMyAvivaDocsNo(){
+    completeAndPayMyAvivaDocsNo(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.completeandpay_myavivadocsno).click()
         return
@@ -1070,7 +1080,7 @@ export class Global{
           const CVC='737'
           
           cy.wait(10000)
-          cy.get('.payment-heading').contains('Payment')
+          cy.get('.l-section > .a-heading').contains('Pay €')
           cy.wait(3000)
           cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
           
@@ -1191,7 +1201,7 @@ export class Global{
           const CVC='737'
           
           cy.wait(10000)
-          cy.get('.payment-heading').contains('Payment')
+          cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
 
           cy.get('#BIC').type(bic)
           cy.get('#IBAN').type(iban)
@@ -1231,6 +1241,18 @@ export class Global{
           cy.get('#continueButton').click()
 
         })
+
+        //Password box
+        cy.wait(10000)
+        const getIframeDocumentPassword = () => {
+          
+          return cy.get('.adyen-checkout__iframe').its('0.contentDocument.body').should('not.be.empty')
+          .then((body) => cy.wrap(body))
+
+        }
+        getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
+        cy.get('@passwordbox').type('password')
+        getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
         return
 
     }
@@ -1311,7 +1333,7 @@ export class Global{
           const CVC='737'
           
           cy.wait(10000)
-          cy.get('.payment-heading').contains('Payment')
+          cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
 
           cy.get('#BIC').type(bic)
           cy.get('#IBAN').type(iban)
@@ -1519,11 +1541,12 @@ export class Global{
 
     agePolicy(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
-            const day = parseInt(dayString)
-            cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
-          })
-
+        // cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
+        //     const day = parseInt(dayString)
+        //     cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
+        //   })
+        cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(9)
+        cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(3)
         cy.get(this.LoginElementLocators.BOPageLocators.backdate_year).select(this.UserData.InputData.BackdateYear)
 
         cy.get(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()

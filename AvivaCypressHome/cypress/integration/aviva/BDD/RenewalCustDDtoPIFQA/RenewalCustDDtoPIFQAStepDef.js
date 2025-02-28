@@ -11,21 +11,15 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 
 const Global_Stuff = new Global
 
-Given('Agent purchase home policy with a joint provider', () => {
+Given('Customer purchase home policy renewal as PIF from DD', () => {
 
-  //Login to back office 
-  Global_Stuff.Server()
-  Global_Stuff.company()
-  Global_Stuff.username()
-  Global_Stuff.password()
-  Global_Stuff.loginButton()
-  Global_Stuff.agentQuote()
-  Global_Stuff.createNewQuoteBTN()
+  //Access quote link 
+  Global_Stuff.Server2()
+  Global_Stuff.removeAttr()
   Global_Stuff.cookiesAccept()
 
   //About you
   Global_Stuff.proposerTitleHome()
-  Global_Stuff.notes()
   Global_Stuff.proposerForenameHome()
   Global_Stuff.proposerSurnameHome()
   Global_Stuff.proposerEmailHome()
@@ -45,7 +39,6 @@ Given('Agent purchase home policy with a joint provider', () => {
   
   //Your Property
   Global_Stuff.yourPropertyTitle()
-  Global_Stuff.notes()
   Global_Stuff.propertyType()
   Global_Stuff.yearBuilt()
   Global_Stuff.listedBuildingFalse()
@@ -67,7 +60,6 @@ Given('Agent purchase home policy with a joint provider', () => {
 
   //Your cover
   Global_Stuff.yourCoverTitle() 
-  Global_Stuff.notes()
   Global_Stuff.buildingAndContentsTrue()
   Global_Stuff.buildingAndContentsFalse()
   Global_Stuff.buildingAndContentsTrue()
@@ -79,74 +71,100 @@ Given('Agent purchase home policy with a joint provider', () => {
   Global_Stuff.isRefusedFalse()
   Global_Stuff.isSpecialFalse()
   Global_Stuff.isCancelledFalse()
-  Global_Stuff.yourCoverJointOwner()
-  Global_Stuff.yourCoverJointOwner1()
   cy.wait(2000)
-  cy.pause()
   Global_Stuff.yourCoverContinue()
 
   //Policy start date and claims
   Global_Stuff.coverStartTitle()
-  Global_Stuff.notes()
   Global_Stuff.claimsFreeYears()
   cy.wait(2000)
   Global_Stuff.coverStartDate()
   Global_Stuff.coverStartHaveCarIns()
   Global_Stuff.coverStartMarketing()
-  //Global_Stuff.coverStartAgentQuote()
+  Global_Stuff.coverStartCustomerQuote()
   Global_Stuff.coverStartContinue()
 
   //Quotepage
   Global_Stuff.quotePageHeading()
-  Global_Stuff.notes()
-  cy.pause()
-  Global_Stuff.quotePageStaffOptions()
-  Global_Stuff.quotePageStaffDiscounts()
-  Global_Stuff.quotePageStaffRecalculate()
   cy.wait(2000)
-  Global_Stuff.quotePageBuyNowBtn()
+  Global_Stuff.quotePageMonthlyBtn()
 
   //Complete and pay
   Global_Stuff.completeAndPayHeading()
-  Global_Stuff.notes()
   Global_Stuff.completeAndPayMortgage()
-  Global_Stuff.completeAndPayNoCheckBox()
+  Global_Stuff.completeAndPayCheckBox()
   Global_Stuff.completeAndPayContinue()
 
   //Select payment type
-  Global_Stuff.paymentTypeAgentNoPay()
-  Global_Stuff.paymentTypeAgentNoPayContinue()
-  
-  //Diary and Correspondence page
-  //Global_Stuff.diaryCorrespondenceHeading()
-  //Global_Stuff.diaryCorrespondenceContinue()
+  Global_Stuff.paymentDDQA()
 
   //Thank you page
   Global_Stuff.thankyouHeading()
-  Global_Stuff.notes()
 
+  //Navigate to the B/O and login
   Global_Stuff.Server()
-    
-    //Log in
-    Global_Stuff.home()
+  Global_Stuff.company()
+  Global_Stuff.username()
+  Global_Stuff.password()
+  Global_Stuff.loginButton()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
 
-    //Search for Customer file
-    Global_Stuff.email()
-    Global_Stuff.searchButton()
-    Global_Stuff.policySelectButton()
+  //Back date policy
+  Global_Stuff.agePolicyTool()
+  Global_Stuff.agePolicy()
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
+  // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
+  // cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
 
-    //Unlock customer file
-    Global_Stuff.livePoliciesBTN()
-    Global_Stuff.homePolicyTab()
-    Global_Stuff.selectActionDocuments()
-    cy.wait(60000)
-    cy.reload()
-    Global_Stuff.policyDocsSOF()
-    Global_Stuff.policyDocsSchedule()
+  //Generate and invite renewal
+  cy.go(-2)
+  Global_Stuff.generateRenewal()
+  Global_Stuff.inviteRenewal()
 
-    
+  //Checking for renewal invite email in docs
+  Global_Stuff.recallPolicy()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkRenewalInviteDocs()
+  cy.go(-1)
   
+  //Purchase Home Renewal as customer
+  Global_Stuff.Server1()
+  Global_Stuff.loginEmail()
+  Global_Stuff.loginPassword()
+  Global_Stuff.loginPortalButton()
+  Global_Stuff.portalRenewPolicySelect()
+  Global_Stuff.portalRenewDocsConfirm()
+  cy.wait(2000)
+  Global_Stuff.quotePageFullBtnRNLswap()
+  cy.wait(2000)
+  Global_Stuff.coverStartCustomerQuote()
+  Global_Stuff.completeAndPayContinue()
   
+  Global_Stuff.paymentCardQA()
+  cy.wait(4000)
+
+  Global_Stuff.thankyouHeading()
+
+  //Navigate back to B/O and check renewal docs have generated
+  Global_Stuff.Server()
+  Global_Stuff.home()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkRenewalDocs()
+
+
+
+
+
+
 })
   
 

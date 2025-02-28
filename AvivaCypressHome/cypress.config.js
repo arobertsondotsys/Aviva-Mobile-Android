@@ -19,53 +19,57 @@ async function setupNodeEvents(on, config) {
   //*****SPEC PATTERN FOR QA ONLY
   config.specPattern = [
    
-    //  'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-    //  'cypress/integration/aviva/BDD/AgentPurch.feature',
-    //  'cypress/integration/aviva/BDD/AgentMTAQA.feature',
-    //  'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
-    //  'cypress/integration/aviva/BDD/CustPurchQA.feature',
-    //  'cypress/integration/aviva/BDD/CustMTA.feature',
-    //  'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
-    //  'cypress/integration/aviva/BDD/AgentCancellation.feature',
-    //  'cypress/integration/aviva/BDD/RenewalAgentPIFtoDDQA.feature',
-    //  'cypress/integration/aviva/BDD/RenewalCustPIFtoDDQA.feature',
-    //  'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIFQA.feature',
-    //  'cypress/integration/aviva/BDD/RenewalCustPIFtoPIFQA.feature',
-    //  'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRolloverQA.feature',
+     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+     'cypress/integration/aviva/BDD/AgentPurch.feature',
+     'cypress/integration/aviva/BDD/AgentMTAQA.feature',
+     'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
+     'cypress/integration/aviva/BDD/CustPurchQA.feature',
+     'cypress/integration/aviva/BDD/CustMTA.feature',
+     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
+     'cypress/integration/aviva/BDD/RenewalAgentPIFtoDDQA.feature',
+     'cypress/integration/aviva/BDD/RenewalCustPIFtoDDQA.feature',
+     'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIFQA.feature',
+     'cypress/integration/aviva/BDD/RenewalCustPIFtoPIFQA.feature',
+     'cypress/integration/aviva/BDD/RenewalAgentDDtoPIFQA.feature',
+     'cypress/integration/aviva/BDD/RenewalCustDDtoPIFQA.feature',
+     'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRolloverQA.feature',
      'cypress/integration/aviva/BDD/ParagonCheckNB.feature',
      'cypress/integration/aviva/BDD/ParagonCheckNBNoPay.feature',
      'cypress/integration/aviva/BDD/ParagonCheckNBNoPayAdHocLetters.feature',
      'cypress/integration/aviva/BDD/ParagonCheckMTAQA.feature',
      'cypress/integration/aviva/BDD/ParagonCheckMTAQANoDocsWithCharge.feature',
      'cypress/integration/aviva/BDD/ParagonCheckRNLQA.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckRNLMTAQA.feature'
+     'cypress/integration/aviva/BDD/ParagonCheckRNLMTAQA.feature',
+     'cypress/integration/aviva/BDD/AgentCancellation.feature'
     
     
   ];
 
   //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
-  // config.specPattern = [
+//   config.specPattern = [
     
-    // 'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-    // 'cypress/integration/aviva/BDD/AgentPurch.feature',
-    // 'cypress/integration/aviva/BDD/AgentMTA.feature',
-    // 'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
-    // 'cypress/integration/aviva/BDD/CustPurch.feature',
-    // 'cypress/integration/aviva/BDD/CustMTA.feature',
-    // 'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
-    // 'cypress/integration/aviva/BDD/RenewalAgentPIFtoDD.feature',
-    // 'cypress/integration/aviva/BDD/RenewalCustPIFtoDD.feature',
-    // 'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIF.feature',
-    // 'cypress/integration/aviva/BDD/RenewalCustPIFtoPIF.feature',
-    // 'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRollover.feature',
-    // 'cypress/integration/aviva/BDD/AgentCancellation.feature',
-    // 'cypress/integration/aviva/BDD/ParagonCheckNB.feature',
-    // 'cypress/integration/aviva/BDD/ParagonCheckNBNoPay.feature',
-    // 'cypress/integration/aviva/BDD/ParagonCheckNBNoPayAdHocLetters.feature',
-    // 'cypress/integration/aviva/BDD/ParagonCheckMTA.feature',
-    // 'cypress/integration/aviva/BDD/ParagonCheckMTAQANoDocsWithCharge.feature',
-    // 'cypress/integration/aviva/BDD/ParagonCheckRNL.feature'
-    // 'cypress/integration/aviva/BDD/ParagonCheckRNLMTA.feature'
+//     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
+//     'cypress/integration/aviva/BDD/AgentPurch.feature',
+//     'cypress/integration/aviva/BDD/AgentMTA.feature',
+//     'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
+//     'cypress/integration/aviva/BDD/CustPurch.feature',
+//     'cypress/integration/aviva/BDD/CustMTA.feature',
+//     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
+//     'cypress/integration/aviva/BDD/RenewalAgentPIFtoDD.feature',
+//     'cypress/integration/aviva/BDD/RenewalCustPIFtoDD.feature',
+//     'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIF.feature',
+//     'cypress/integration/aviva/BDD/RenewalCustPIFtoPIF.feature',
+//     'cypress/integration/aviva/BDD/RenewalAgentDDtoPIF.feature',
+//     'cypress/integration/aviva/BDD/RenewalCustDDtoPIF.feature',
+//     'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRollover.feature',
+//     'cypress/integration/aviva/BDD/ParagonCheckNB.feature',
+//     'cypress/integration/aviva/BDD/ParagonCheckNBNoPay.feature',
+//     'cypress/integration/aviva/BDD/ParagonCheckNBNoPayAdHocLetters.feature',
+//     'cypress/integration/aviva/BDD/ParagonCheckMTA.feature',
+//     'cypress/integration/aviva/BDD/ParagonCheckMTAQANoDocsWithCharge.feature',
+//     'cypress/integration/aviva/BDD/ParagonCheckRNL.feature',
+//     'cypress/integration/aviva/BDD/ParagonCheckRNLMTA.feature',
+//     'cypress/integration/aviva/BDD/AgentCancellation.feature',
 
     
       
@@ -97,7 +101,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
 
   viewportWidth: 1920,
-  viewportHeight: 1080,
+  viewportHeight: 1400,
 
   pageLoadTimeout: 80000,
 

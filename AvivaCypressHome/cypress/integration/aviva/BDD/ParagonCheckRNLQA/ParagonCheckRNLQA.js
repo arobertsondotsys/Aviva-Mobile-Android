@@ -109,7 +109,7 @@ Given('Agent purchase home policy with docs set to post at RNL', () => {
   Global_Stuff.completeAndPayHeading()
   Global_Stuff.notes()
   Global_Stuff.completeAndPayMortgage()
-  Global_Stuff.completeAndMyAvivaDocsNo()
+  Global_Stuff.completeAndPayMyAvivaDocsNo()
   Global_Stuff.completeAndPayNoCheckBox()
   Global_Stuff.completeAndPayContinue()
 
@@ -158,7 +158,7 @@ Given('Agent purchase home policy with docs set to post at RNL', () => {
   Global_Stuff.livePoliciesBTN()
   Global_Stuff.selectActionDocuments()
   Global_Stuff.checkRNLInviteParagonDocs()
-  cy.go(-2)
+  cy.go(-3)
   cy.wait(2000)
   
   //Purchase Home Renewal
@@ -167,20 +167,20 @@ Given('Agent purchase home policy with docs set to post at RNL', () => {
   Global_Stuff.selectStaffDiscount()
 
   //Adding all Optional covers
-  Global_Stuff.quotePagepAccidentalDamageViewOptions()
-  Global_Stuff.quotePagepAccidentalDamageAddCover()
+  Global_Stuff.quotePageAccidentalDamageViewOptions()
+  Global_Stuff.quotePageAccidentalDamageAddCover()
   cy.wait(2000)
-  Global_Stuff.quotePagepOptionalCoverViewOptions()
-  Global_Stuff.quotePagepOptionalCoverAddSpecifiedItem()
+  Global_Stuff.quotePageOptionalCoverViewOptions()
+  Global_Stuff.quotePageOptionalCoverAddSpecifiedItem()
   cy.wait(2000)
-  Global_Stuff.quotePagepManageYourExcessViewOptions()
-  Global_Stuff.quotePagepManageYourExcess500()
+  Global_Stuff.quotePageManageYourExcessViewOptions()
+  Global_Stuff.quotePageManageYourExcess500()
   cy.wait(2000)
-  Global_Stuff.quotePagepGardenCoverViewOptions()
-  Global_Stuff.quotePagepGardenCover1000()
+  Global_Stuff.quotePageGardenCoverViewOptions()
+  Global_Stuff.quotePageGardenCover1000()
   cy.wait(2000)
-  Global_Stuff.quotePagepCaravanCoverViewOptions()
-  Global_Stuff.quotePagepCaravanCoverAddWithPersonal()
+  Global_Stuff.quotePageCaravanCoverViewOptions()
+  Global_Stuff.quotePageCaravanCoverAddWithPersonal()
   Global_Stuff.quotePageBuyNowBtn()
   Global_Stuff.completeAndPayContinue()
 
