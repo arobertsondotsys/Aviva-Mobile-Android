@@ -92,7 +92,6 @@ Given('Customer purchase home policy', () => {
   //Complete and pay
   Global_Stuff.completeAndPayHeading()
   Global_Stuff.completeAndPayMortgage()
-  Global_Stuff.completeAndPayMyAvivaDocsNo()
   Global_Stuff.completeAndPayCheckBox()
   Global_Stuff.completeAndPayContinue()
 

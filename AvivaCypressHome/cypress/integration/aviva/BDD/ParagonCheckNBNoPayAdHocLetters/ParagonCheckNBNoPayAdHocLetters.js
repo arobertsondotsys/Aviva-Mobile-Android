@@ -150,6 +150,16 @@ Given('Agent purchase home policy with docs set to post at NB', () => {
   Global_Stuff.selectActionDiary()
   Global_Stuff.diaryAddAdHocLetters()
   
+  Global_Stuff.Server()
+  Global_Stuff.home()
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.homePolicyTab()
+  Global_Stuff.selectActionDocuments()
+  Global_Stuff.checkAdhocParagonDocs()
+  
 
 
   

@@ -7,8 +7,8 @@ export class Global{
     Server(){
         
         //cy.visit('https://qaaviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        //cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
+        //cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
+        cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
         //cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva3fat.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva4e2e.dotsys.co.uk/backoffice/Login.aspx?')
@@ -24,8 +24,8 @@ export class Global{
     Server1(){
         
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
@@ -42,8 +42,8 @@ export class Global{
     Server2(){
 
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        //cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
+        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
+        cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/testdemolinks.html')
@@ -680,7 +680,7 @@ export class Global{
 
     quotePageAccidentalDamageViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_accidentaldamage).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_accidentaldamage).click({force: true})
         return
 
     }
@@ -694,7 +694,7 @@ export class Global{
 
     quotePageOptionalCoverViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_optionalcover).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_optionalcover).click({force: true})
         return
 
     }
@@ -719,7 +719,7 @@ export class Global{
 
     quotePageManageYourExcessViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess).click({force: true})
         return
 
     }
@@ -754,7 +754,7 @@ export class Global{
 
     quotePageGardenCoverViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencover).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencover).click({force: true})
         return
 
     }
@@ -784,7 +784,7 @@ export class Global{
 
     quotePageCaravanCoverViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_caravancover).click()
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_caravancover).click({force: true})
         return
 
     }
@@ -1541,12 +1541,12 @@ export class Global{
 
     agePolicy(){
 
-        // cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
-        //     const day = parseInt(dayString)
-        //     cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
-        //   })
-        cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(9)
-        cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(3)
+        cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
+            const day = parseInt(dayString)
+            cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
+          })
+        // cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(9)
+        // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(3)
         cy.get(this.LoginElementLocators.BOPageLocators.backdate_year).select(this.UserData.InputData.BackdateYear)
 
         cy.get(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()
@@ -1651,6 +1651,19 @@ export class Global{
 
     }
 
+    checkAdhocParagonDocs(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        // cy.wait(80000)
+        // cy.reload()
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Notice of Interest')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('One Off Letter - ADIL')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('One Off Letter - AIIDAC')
+        
+        return
+
+    }
+
     checkNBParagonDocsWithReceipt(){
 
         cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
@@ -1731,7 +1744,7 @@ export class Global{
         cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
         cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(0)
         cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(0)
         cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
         cy.wait(1000)
         cy.go(-3)
@@ -1739,7 +1752,7 @@ export class Global{
         cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
         cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(1)
         cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(0)
         cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
         cy.wait(1000)
         cy.go(-3)
@@ -1747,18 +1760,18 @@ export class Global{
         cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
         cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(2)
         cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(0)
         cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
         cy.wait(1000)
         cy.go(-3)
-        cy.get(this.LoginElementLocators.BOPageLocators.diary_entry).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
-        cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(3)
-        cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
-        cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
-        cy.wait(1000)
-        cy.go(-3)
+        // cy.get(this.LoginElementLocators.BOPageLocators.diary_entry).click()
+        // cy.get(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
+        // cy.get(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(3)
+        // cy.get(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
+        // cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
+        // cy.get(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
+        // cy.wait(1000)
+        // cy.go(-3)
         return
 
     }

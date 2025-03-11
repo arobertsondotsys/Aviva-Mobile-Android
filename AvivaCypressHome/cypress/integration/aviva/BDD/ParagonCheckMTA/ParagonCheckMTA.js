@@ -109,7 +109,6 @@ Given('Agent purchase home policy with docs set to post at MTA', () => {
   Global_Stuff.completeAndPayHeading()
   Global_Stuff.notes()
   Global_Stuff.completeAndPayMortgage()
-  Global_Stuff.completeAndMyAvivaDocsNo()
   Global_Stuff.completeAndPayMyAvivaDocsNo()
   Global_Stuff.completeAndPayContinue()
 

@@ -38,25 +38,24 @@ Given('Agent MTA purchase of Joint Owner checking for correct documents', () => 
   Global_Stuff.adjustmentBuyContinue()
   Global_Stuff.adjustmentContinueToPayment()
 
+  //Log in to back office
   Global_Stuff.Server()
+  cy.wait(2000)
+  Global_Stuff.home()
     
-    //Log in
-    cy.wait(6000)
-    Global_Stuff.home()
+  //Search for Customer file
+  Global_Stuff.email()
+  Global_Stuff.searchButton()
+  Global_Stuff.policySelectButton()
 
-    //Search for Customer file
-    Global_Stuff.email()
-    Global_Stuff.searchButton()
-    Global_Stuff.policySelectButton()
-
-    //Unlock customer file
-    Global_Stuff.livePoliciesBTN()
-    Global_Stuff.homePolicyTab()
-    Global_Stuff.selectActionDocuments()
-    cy.wait(60000)
-    cy.reload()
-    Global_Stuff.policyDocsSOF()
-    Global_Stuff.policyDocsSchedule()
+  //Unlock customer file
+  Global_Stuff.livePoliciesBTN()
+  Global_Stuff.homePolicyTab()
+  Global_Stuff.selectActionDocuments()
+  cy.wait(60000)
+  cy.reload()
+  Global_Stuff.policyDocsSOF()
+  Global_Stuff.policyDocsSchedule()
 
 
   

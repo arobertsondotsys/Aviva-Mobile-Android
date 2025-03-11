@@ -149,7 +149,7 @@ Given('Agent purchase home policy with docs set to post at MTA', () => {
   Global_Stuff.completeAndPayContinue()
   Global_Stuff.paymentTypeAgentCard()
   Global_Stuff.paymentTypeAgentPayNow()
-  Global_Stuff.paymentCardQAAgent()
+  Global_Stuff.paymentCardDemoAgent()
 
   //Thank you page
   Global_Stuff.thankyouHeading()

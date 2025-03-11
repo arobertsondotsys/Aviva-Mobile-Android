@@ -133,7 +133,7 @@ Given('Agent purchase home policy with docs set to post at NB', () => {
   Global_Stuff.paymentTypeAgentCcard()
   Global_Stuff.completeAndPayNBPayNow()
 
-  Global_Stuff.paymentCardQAAgent()
+  Global_Stuff.paymentCardDemoAgent()
   
   //Diary and Correspondence page
   Global_Stuff.diaryCorrespondenceHeading()
