@@ -130,7 +130,8 @@ Given('Customer can purchase a policy via website',()=>
     Global_Stuff.paymentCardQA()
 
     //Thank you page
-    Global_Stuff.thankyouHeading()     
+    Global_Stuff.thankyouHeading()
+    Global_Stuff.retreivePolicyNumber()    
 
 
  });

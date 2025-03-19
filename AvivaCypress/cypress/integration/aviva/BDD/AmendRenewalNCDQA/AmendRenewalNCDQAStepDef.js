@@ -155,25 +155,22 @@ Given('Agent can Amend renewal NCD',()=>
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
     cy.get('#ctl00_MainContent_Summary').click({force: true})
     //Thank you page
-    cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
-    cy.get('#ctl00_divNotes > .a-button').should('be.visible')
+    Global_Stuff.thankyouHeading
+    Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
+
 
     //Back dating policy 
     Global_Stuff.Server()
     Global_Stuff.home()
-    // cy.visit('https://devaviva.dotsys.co.uk/BackOffice/Login.aspx?ReturnUrl=%2fBackOffice%2fLogin.aspx&Session=Expired')
-    // Global_Stuff.company()
-    // Global_Stuff.username()
-    // Global_Stuff.password()
-    // Global_Stuff.loginButton()
     Global_Stuff.email()
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()
     Global_Stuff.unlockBTN()
 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown policyTools"]').last().click({force: true}).contains('Age Policy').invoke("removeAttr", "target").click({force: true})
+   Global_Stuff.policyToolsAgePolicyWithPolicyNumber()
 
 
     cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
@@ -193,15 +190,6 @@ Given('Agent can Amend renewal NCD',()=>
     //Generating and Printing renewal
     Global_Stuff.Server()
     Global_Stuff.home()
-    // Global_Stuff.company()
-    // Global_Stuff.username()
-    // Global_Stuff.password()
-    // Global_Stuff.loginButton()
-    // Global_Stuff.company()
-    // Global_Stuff.username()
-    // Global_Stuff.password()
-    // Global_Stuff.loginButton()
-
     Global_Stuff.email()
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()
@@ -228,16 +216,16 @@ Given('Agent can Amend renewal NCD',()=>
 
     //Checking for renewal invite email in docs
     cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     //Amend the renewal NCD
     cy.get('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
     cy.go('back')
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Amend Renewal NCD').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionAmendRNLNCDWithPolicyNumber()
     cy.get('#ctl00_ContentPlaceHolder1_Edit').click()
     cy.get('#ctl00_ContentPlaceHolder1_ddlNCDYears').select(5)
     cy.get('#ctl00_ContentPlaceHolder1_ddlNCDPercent').select(5)

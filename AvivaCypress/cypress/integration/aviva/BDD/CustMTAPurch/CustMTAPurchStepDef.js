@@ -25,7 +25,7 @@ Given('Customer can purchase an MTA',()=>
     Global_Stuff.loginPortalButton()
 
     //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
-    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnAdjustment').click()
     cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
     cy.window().then((win) => {
@@ -59,13 +59,12 @@ Given('Customer can purchase an MTA',()=>
       cy.get('#Continue5').click()
 
       //Claims screen
-      cy.get('[id*="IsClaims"][value^="False"]').click({force: true})
-      cy.get('#Continue6').click({force: true})
+      Global_Stuff.claimsFalseLast()
+      Global_Stuff.claimsContinue()
 
       //Penalty points screen
-      cy.get('[id*="IsPenaltyPoints"][value^="No"]').click({force: true})
-      cy.get('#Continue7').click({force: true})
-      cy.wait(6000)
+      Global_Stuff.ppFalseLast()
+      Global_Stuff.ppContinue()
 
       //Start date
       cy.get('#div8').contains('Cover start date')

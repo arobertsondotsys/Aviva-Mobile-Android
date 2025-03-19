@@ -27,9 +27,9 @@ Given('Agent can upload document',()=>
      Global_Stuff.policySelectButton()
     
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
     
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     //Open PDF
     cy.contains('Welcome Letter Temp Cover').invoke("removeAttr", "target").click()

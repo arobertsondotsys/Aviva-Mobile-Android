@@ -7,8 +7,8 @@ export class Global{
     Server(){
         
         //cy.visit('https://qaaviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        //cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
+        cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
+        //cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
         //cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva3fat.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva4e2e.dotsys.co.uk/backoffice/Login.aspx?')
@@ -24,8 +24,8 @@ export class Global{
     Server1(){
         
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        //cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
@@ -42,8 +42,8 @@ export class Global{
     Server2(){
 
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
+        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
+        //cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/testdemolinks.html')
@@ -329,7 +329,7 @@ export class Global{
 
     bizStatus(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.biz_status).select(1, {force: true}).select(1, {force: true})
+        cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status).select(1)
         return
 
     }
@@ -680,7 +680,7 @@ export class Global{
 
     quotePageAccidentalDamageViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_accidentaldamage).click({force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_accidentaldamage).click()
         return
 
     }
@@ -688,13 +688,14 @@ export class Global{
     quotePageAccidentalDamageAddCover(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addaccidentaldamage).click()
+        cy.wait(4000)
         return
 
     }
 
     quotePageOptionalCoverViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_optionalcover).click({force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_optionalcover).click()
         return
 
     }
@@ -702,6 +703,7 @@ export class Global{
     quotePageOptionalCoverAddUnpecifiedCover(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_unspecifieditems).select(1)
+        cy.wait(4000)
         return
 
     }
@@ -713,13 +715,14 @@ export class Global{
         cy.get(this.LoginElementLocators.QuotePageLocators.specifieditem_itemtype).select(1)
         cy.get(this.LoginElementLocators.QuotePageLocators.specifieditem_itemvalue).type(this.UserData.InputData.SpecifiedItemValue)
         cy.get(this.LoginElementLocators.QuotePageLocators.specifieditem_additem).click()
+        cy.wait(4000)
         return
 
     }
 
     quotePageManageYourExcessViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess).click({force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess).click()
         return
 
     }
@@ -727,6 +730,7 @@ export class Global{
     quotePageManageYourExcess275(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess275).click()
+        cy.wait(4000)
         return
 
     }
@@ -734,6 +738,7 @@ export class Global{
     quotePageManageYourExcess500(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess500).click()
+        cy.wait(4000)
         return
 
     }
@@ -741,6 +746,7 @@ export class Global{
     quotePageManageYourExcess750(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess750).click()
+        cy.wait(4000)
         return
 
     }
@@ -748,13 +754,14 @@ export class Global{
     quotePageManageYourExcess1000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess1000).click()
+        cy.wait(4000)
         return
 
     }
 
     quotePageGardenCoverViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencover).click({force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencover).click()
         return
 
     }
@@ -762,6 +769,7 @@ export class Global{
     quotePageGardenCover1000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(1)
+        cy.wait(4000)
         return
 
 
@@ -771,6 +779,7 @@ export class Global{
     quotePageGardenCover2000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(2)
+        cy.wait(4000)
         return
 
     }
@@ -778,13 +787,14 @@ export class Global{
     quotePageGardenCover3000(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(3)
+        cy.wait(4000)
         return
 
     }
 
     quotePageCaravanCoverViewOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_caravancover).click({force: true})
+        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_caravancover).click()
         return
 
     }
@@ -798,6 +808,7 @@ export class Global{
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_suminsured).type(this.UserData.InputData.CaravanValue)
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_personalbelongingsno).click()
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_addcoverbtn).click()
+        cy.wait(4000)
         return
 
     }
@@ -812,6 +823,7 @@ export class Global{
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_personalbelongingsyes).click()
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_personalbelongingsvalue).type(this.UserData.InputData.PBValue)
         cy.get(this.LoginElementLocators.QuotePageLocators.caravancover_addcoverbtn).click()
+        cy.wait(4000)
 
         return
 
@@ -1257,6 +1269,67 @@ export class Global{
 
     }
 
+    paymentDDQACust(){
+
+        cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
+        {
+          Cypress.on('uncaught:exception', (err, runnable) =>
+          {
+          return false
+          })
+          const bic= 'BOFIIE2D'
+          const iban= 'IE87BOFI90491561068076'
+          const CCnumber='4917610000000000'
+          const Exp1='03'
+          const Exp2='30'
+          const CVC='737'
+          
+          cy.wait(10000)
+          cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
+
+          cy.get('#BIC').type(bic)
+          cy.get('#IBAN').type(iban)
+          cy.get('#PaymentDayOfMonth').select(1)
+          cy.get('.a-checkbox__label').click()
+          cy.get('#continueButton').click()
+
+          const getIframeDocumentCard = () => {
+            return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentMonth = () => {
+            return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentYear = () => {
+            return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentCVC = () => {
+            return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+          
+            
+          getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
+          getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
+          getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
+          getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
+          cy.get('#continueButton').click()
+
+        })
+
+        return
+
+    }
+
     paymentDDDemo(){
 
         cy.origin('https://www.direct.stg-aviva.co.uk', () => 
@@ -1518,6 +1591,172 @@ export class Global{
             
     }
 
+    selectActionRenewalWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Renewal']")
+             })
+            return
+            
+    }
+    
+
+    selectActionMakeADJWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Make Adjustment']")
+             })
+            return
+            
+    }
+
+    selectActionCancelWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Cancel Policy']")
+             })
+            return
+            
+    }
+
+    selectActionDiaryWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
+             })
+            return
+            
+    }
+
+    selectActionAccountsWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Accounts']")
+             })
+            return
+            
+    }
+
+    selectActionRefundsWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Refunds']")
+             })
+            return
+            
+    }
+
+    selectActionDocumentsWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+             })
+            return
+            
+    }
+
+    selectActionDPAWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' DPA / Preferences']")
+             })
+            return
+            
+    }
+
+    selectActionPolicyOwnershipWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Policy Owenership']")
+             })
+            return
+            
+    }
+
+    selectActionScrutinyWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Scrutiny']")
+             })
+            return
+            
+    }
+
+    retreivePolicyNumber(){
+
+        cy.get('.m-card-content__inner > p > strong')
+        .invoke('text') 
+        .then((text) => {
+        const numberOnly = text.match(/\d+/)[0]
+        cy.wrap(numberOnly).as('policyNumber')
+        cy.writeFile('policy.json', { policyNumber: numberOnly })
+        })
+
+        cy.get('@policyNumber').then((policyNumber) => {
+        cy.log(`Extracted policy number: ${policyNumber}`)
+        
+        })
+        return
+            
+    }
+
+    policyToolsAgePolicyWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
+            
+             })
+            return
+            
+    }
+
+    
+
+
     policyDocsSOF(){
 
         cy.get(this.LoginElementLocators.BOPageLocators.policydocs_check).contains('Statement Of Fact')
@@ -1554,6 +1793,16 @@ export class Global{
             
     }
 
+    optOutRollover(){
+
+        cy.get(this.LoginElementLocators.BOPageLocators.dpa_edit).click()
+        cy.get(this.LoginElementLocators.BOPageLocators.optout_rollover).select(1)
+        cy.get(this.LoginElementLocators.BOPageLocators.save_rollover).click()
+        cy.go(-3)
+        return
+            
+    }
+
     generateRenewal(){
 
         cy.get(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
@@ -1564,10 +1813,10 @@ export class Global{
 
     inviteRenewal(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.extract_policynumber).last().invoke('text').then(policyNumString => {
-            const policy = policyNumString
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
             cy.get(this.LoginElementLocators.BOPageLocators.select_renewals).click({force: true})
-            cy.get(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policy)
+            cy.get(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policyNumber)
         })
 
         cy.get(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
@@ -1683,7 +1932,7 @@ export class Global{
         cy.wait(80000)
         cy.reload()
         cy.get(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Home MTA Confirmation Letter')
-        // cy.get(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Receipt')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Receipt')
         cy.get(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Policy Schedule')
         return
 
@@ -1705,8 +1954,8 @@ export class Global{
         cy.get(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
         cy.wait(80000)
         cy.reload()
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Letter')
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Letter')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Cover Letter')
+        //cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Letter')
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Policy Schedule')
         return
@@ -1719,13 +1968,11 @@ export class Global{
         cy.wait(80000)
         cy.reload()
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Home MTA Confirmation Letter')
-        //cy.get(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Receipt')
+        cy.get(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Receipt')
         cy.get(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Policy Schedule')
         return
 
     }
-
-    printqueue_view
 
     selectStaffDiscount(){
 
@@ -1966,6 +2213,22 @@ export class Global{
         cy.get(this.LoginElementLocators.PortalPageLocators.portaladj_adjtypeselect).select(4, {force:true})
         return
 
+    }
+
+    portalMakeADJWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+        
+            cy.get('.policypanels')
+                .contains(policyNumber)
+                .closest('.d-flex.flex-column')
+                .within(() => {
+                    cy.contains('Manage Policy').click({force: true});
+                });
+        });
+            return
+            
     }
 
     portalMortgageSelect(){

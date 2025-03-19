@@ -159,6 +159,7 @@ Given('Agent can purchase a policy via back office',()=>
     //Thank you page
     Global_Stuff.thankyouHeading()
     Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
 
 
 

@@ -31,7 +31,7 @@ Given('Agent can back date a policy',()=>
     Global_Stuff.policySelectButton()
     
     //Select policy and Age policy
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
     cy.get('[title^="Policy Tools"]').last().click({force: true})
     cy.window().then((win) => {
         cy.get('[id^="bs-select"]').last().click()

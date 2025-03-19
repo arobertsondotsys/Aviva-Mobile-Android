@@ -33,7 +33,7 @@ When('User enters email, password and click  logged in button',()=>
 
 Then('Enters account to cancel policy',()=>
 {
-    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnCancel').click()
     cy.get('.a-heading--2').contains('Cancel policy')
     cy.get('#ctl00_MainContent_cancelReason').select(1)

@@ -25,10 +25,10 @@ Given('Check Paragon Queue for correct documents',()=>
     Global_Stuff.email()
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     //Select Documents and revert window back to current window
-    cy.get('[class^="dropdown selectAction"]').eq(0).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithParagonPolicyNumber1()
 
   
 
@@ -42,12 +42,10 @@ Given('Check Paragon Queue for correct documents',()=>
     cy.get(':nth-child(1) > .level1').click()
 
     //Search for Customer file for second policy
-    Global_Stuff.email()
-    Global_Stuff.searchButton()
-    Global_Stuff.policySelectButton()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    cy.go(-3)
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').eq(1).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithParagonPolicyNumber2()
 
     
     //NNY 1
@@ -58,12 +56,10 @@ Given('Check Paragon Queue for correct documents',()=>
     cy.get(':nth-child(1) > .level1').click()
 
     //Search for Customer file for third policy
-    Global_Stuff.email()
-    Global_Stuff.searchButton()
-    Global_Stuff.policySelectButton()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    cy.go(-3)
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').eq(2).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithParagonPolicyNumber3()
   
     
 

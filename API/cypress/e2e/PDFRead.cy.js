@@ -1,6 +1,6 @@
 describe('PDF Test', () => {
   it('should read, verify PDF content, and count occurrences of various phrases', () => {
-    cy.task('getPdfContentAndRead', 'C:/Users/a.robertson/Downloads/DOTSYS-PIADMR_PROD_MON_03032025-114753_DIRECT.PDF').then(({ text, fileName, numPages, yesCount, piadmrCount, piadhCount, estagCount, emdocCount, iwhitCount, noCount, dotsysCount }) => {
+    cy.task('getPdfContentAndRead', 'C:/Users/a.robertson/Downloads/DOTSYS-PIADHR_TEST_MON_07032025-095301_DIRECT.PDF').then(({ text, fileName, numPages, yesCount, piadmrCount, piadhCount, estagCount, emdocCount, iwhitCount, noCount, dotsysCount, telCount }) => {
       const lastNumberPattern = /\d+$/;
       const match = text.match(lastNumberPattern);
   
@@ -22,6 +22,7 @@ describe('PDF Test', () => {
       cy.log(`IWHIT: ${iwhitCount}`);
       cy.log(`Pages with word "no": ${noCount}`);
       cy.log(`Trailer Page(s): ${dotsysCount}`);
+      cy.log(`TEL as 001000: ${telCount}`);
 
       if (yesCount !== extractedYesCount) {
         cy.log(`Mismatch: 'No' count (${yesCount}) does not match trailer page (${extractedYesCount})`);

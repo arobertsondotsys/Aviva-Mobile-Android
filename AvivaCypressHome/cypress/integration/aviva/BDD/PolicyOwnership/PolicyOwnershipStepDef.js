@@ -11,22 +11,22 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global
+const Global_stuff = new Global
 
 Given('Change policy ownership',()=>
 { 
-    Global_Stuff.Server()
+    Global_stuff.Server()
 
     //Log in
-    Global_Stuff.company()
-    Global_Stuff.username()
-    Global_Stuff.password()
-    Global_Stuff.loginButton()
+    Global_stuff.company()
+    Global_stuff.username()
+    Global_stuff.password()
+    Global_stuff.loginButton()
 
     //Search for Customer file
-    Global_Stuff.email()
-    Global_Stuff.searchButton()
-    Global_Stuff.policySelectButton()
+    Global_stuff.email()
+    Global_stuff.searchButton()
+    Global_stuff.policySelectButton()
 
     
     function ChangePolicyOwnerShip()
@@ -38,7 +38,7 @@ Given('Change policy ownership',()=>
     
 
      //Change ownership
-     cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('loadtesting@DOTSYS.co.uk')
+     cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingMar25@DOTSYS.co.uk')
      cy.get('#ctl00_ContentPlaceHolder1_ChangeOwnership').click()
      cy.get('#ctl00_ContentPlaceHolder1_SuccessMessage').contains('The policy has now been re-registered')
      cy.go('back')

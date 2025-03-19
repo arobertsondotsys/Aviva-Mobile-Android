@@ -28,10 +28,10 @@ Given('Agent can purchase MTA',()=>
      Global_Stuff.policySelectButton()
      
     //Open policy
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     //Select Make adjustment and revert window back to current window
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Make Adjustment').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionMakeADJWithPolicyNumber()
     
     
     //Select to perform a permanent adjustment on contact details

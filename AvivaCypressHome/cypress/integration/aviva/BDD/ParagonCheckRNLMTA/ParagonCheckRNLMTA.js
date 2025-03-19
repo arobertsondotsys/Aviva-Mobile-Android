@@ -9,215 +9,220 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global
+const Global_stuff = new Global
 
 Given('Agent purchase home policy with docs set to post at RNL MTA', () => {
 
-  //Login to back office 
-  Global_Stuff.Server()
-  Global_Stuff.company()
-  Global_Stuff.username()
-  Global_Stuff.password()
-  Global_Stuff.loginButton()
-  Global_Stuff.agentQuote()
-  Global_Stuff.createNewQuoteBTN()
-  Global_Stuff.cookiesAccept()
+//Login to back office 
+Global_stuff.Server()
+Global_stuff.company()
+Global_stuff.username()
+Global_stuff.password()
+Global_stuff.loginButton()
+Global_stuff.agentQuote()
+Global_stuff.createNewQuoteBTN()
+Global_stuff.cookiesAccept()
 
-  //About you
-  Global_Stuff.proposerTitleHome()
-  Global_Stuff.notes()
-  Global_Stuff.proposerForenameHome()
-  Global_Stuff.proposerSurnameHome()
-  Global_Stuff.proposerEmailHome()
-  Global_Stuff.phone()
-  Global_Stuff.dob()
-  Global_Stuff.addressInput()
-  Global_Stuff.addressSuggest()
-  Global_Stuff.addressSelect()
-  Global_Stuff.addressConfirm()
-  Global_Stuff.postalAddressConfirm()
-  Global_Stuff.occupancy()
-  Global_Stuff.proposerEmployStatus()
-  cy.wait(2000)
-  Global_Stuff.bizStatus()
-  cy.wait(2000)
-  Global_Stuff.aboutYouContinueHome()
+//About you
+Global_stuff.proposerTitleHome()
+Global_stuff.notes()
+
+Global_stuff.proposerForenameHome()
+Global_stuff.proposerSurnameHome()
+Global_stuff.proposerEmailHome()
+Global_stuff.phone()
+Global_stuff.dob()
+Global_stuff.addressInput()
+Global_stuff.addressSuggest()
+Global_stuff.addressSelect()
+Global_stuff.addressConfirm()
+Global_stuff.postalAddressConfirm()
+Global_stuff.occupancy()
+Global_stuff.proposerEmployStatus()
+cy.wait(2000)
+Global_stuff.bizStatus()
+cy.wait(2000)
+Global_stuff.aboutYouContinueHome()
   
-  //Your Property
-  Global_Stuff.yourPropertyTitle()
-  Global_Stuff.notes()
-  Global_Stuff.propertyType()
-  Global_Stuff.yearBuilt()
-  Global_Stuff.listedBuildingFalse()
-  Global_Stuff.flatRoofFlase()
-  Global_Stuff.standardMaterialsTrue()
-  Global_Stuff.burglarAlarm()
-  Global_Stuff.smokeAlarmTrue()
+//Your Property
+Global_stuff.yourPropertyTitle()
+Global_stuff.notes()
+Global_stuff.propertyType()
+Global_stuff.yearBuilt()
+Global_stuff.listedBuildingFalse()
+Global_stuff.flatRoofFlase()
+Global_stuff.standardMaterialsTrue()
+Global_stuff.burglarAlarm()
+Global_stuff.smokeAlarmTrue()
 
-  //Additional security standards
-  Global_Stuff.additSecStandsTitle()
-  Global_Stuff.securityLocks()
-  Global_Stuff.noOfBedrooms()
-  Global_Stuff.noOfBathrooms()
-  Global_Stuff.heatingType()
-  Global_Stuff.goodStateOfRepairTrue()
-  Global_Stuff.floodSubsidenceFalse()
-  cy.wait(2000)
-  Global_Stuff.yourPropertyContinue()
+//Additional security standards
+Global_stuff.additSecStandsTitle()
+Global_stuff.securityLocks()
+Global_stuff.noOfBedrooms()
+Global_stuff.noOfBathrooms()
+Global_stuff.heatingType()
+Global_stuff.goodStateOfRepairTrue()
+Global_stuff.floodSubsidenceFalse()
+cy.wait(2000)
+Global_stuff.yourPropertyContinue()
 
-  //Your cover
-  Global_Stuff.yourCoverTitle() 
-  Global_Stuff.notes()
-  Global_Stuff.buildingAndContentsTrue()
-  Global_Stuff.buildingAndContentsFalse()
-  Global_Stuff.buildingAndContentsTrue()
-  cy.wait(2000)
-  Global_Stuff.homeValue()
-  Global_Stuff.contentsValue()
-  Global_Stuff.isClaimsFalse()
-  Global_Stuff.isConvictionsFalse()
-  Global_Stuff.isRefusedFalse()
-  Global_Stuff.isSpecialFalse()
-  Global_Stuff.isCancelledFalse()
-  cy.wait(2000)
-  Global_Stuff.yourCoverContinue()
+//Your cover
+Global_stuff.yourCoverTitle() 
+Global_stuff.notes()
+Global_stuff.buildingAndContentsTrue()
+Global_stuff.buildingAndContentsFalse()
+Global_stuff.buildingAndContentsTrue()
+cy.wait(2000)
+Global_stuff.homeValue()
+Global_stuff.contentsValue()
+Global_stuff.isClaimsFalse()
+Global_stuff.isConvictionsFalse()
+Global_stuff.isRefusedFalse()
+Global_stuff.isSpecialFalse()
+Global_stuff.isCancelledFalse()
+cy.wait(2000)
+Global_stuff.yourCoverContinue()
 
-  //Policy start date and claims
-  Global_Stuff.coverStartTitle()
-  Global_Stuff.notes()
-  Global_Stuff.claimsFreeYears()
-  cy.wait(2000)
-  Global_Stuff.coverStartDate()
-  Global_Stuff.coverStartHaveCarIns()
-  Global_Stuff.coverStartMarketing()
-  //Global_Stuff.coverStartAgentQuote()
-  Global_Stuff.coverStartContinue()
+//Policy start date and claims
+Global_stuff.coverStartTitle()
+Global_stuff.notes()
+Global_stuff.claimsFreeYears()
+cy.wait(2000)
+Global_stuff.coverStartDate()
+Global_stuff.coverStartHaveCarIns()
+Global_stuff.coverStartMarketing()
 
-  //Quotepage
-  Global_Stuff.quotePageHeading()
-  Global_Stuff.notes()
+//Global_stuff.coverStartAgentQuote()
+Global_stuff.coverStartContinue()
+
+//Quotepage
+Global_stuff.quotePageHeading()
+Global_stuff.notes()
   
-  Global_Stuff.quotePageStaffOptions()
-  Global_Stuff.quotePageStaffDiscounts()
-  Global_Stuff.quotePageStaffRecalculate()
+Global_stuff.quotePageStaffOptions()
+Global_stuff.quotePageStaffDiscounts()
+Global_stuff.quotePageStaffRecalculate()
 
-  cy.pause()
-  cy.wait(2000)
-  Global_Stuff.quotePageBuyNowBtn()
+cy.pause()
+cy.wait(2000)
+Global_stuff.quotePageBuyNowBtn()
 
-  //Complete and pay
-  Global_Stuff.completeAndPayHeading()
-  Global_Stuff.notes()
-  Global_Stuff.completeAndPayMortgage()
-  Global_Stuff.completeAndPayMyAvivaDocsNo()
-  Global_Stuff.completeAndPayNoCheckBox()
-  Global_Stuff.completeAndPayContinue()
+//Complete and pay
+Global_stuff.completeAndPayHeading()
+Global_stuff.notes()
+Global_stuff.completeAndPayMortgage()
+Global_stuff.completeAndPayMyAvivaDocsNo()
+Global_stuff.completeAndPayNoCheckBox()
+Global_stuff.completeAndPayContinue()
 
-  //Select payment type
-  Global_Stuff.paymentTypeAgentNoPay()
-  Global_Stuff.paymentTypeAgentNoPayContinue()
+//Select payment type
+Global_stuff.paymentTypeAgentNoPay()
+Global_stuff.paymentTypeAgentNoPayContinue()
   
+//Thank you page
+Global_stuff.thankyouHeading()
+Global_stuff.notes()
+Global_stuff.retreivePolicyNumber()
+
+Global_stuff.Server()
+Global_stuff.home()
+Global_stuff.email()
+Global_stuff.searchButton()
+Global_stuff.policySelectButton()
+Global_stuff.livePoliciesBTN()
+Global_stuff.homePolicyTab()
+
+//Navigate back to the B/O
+Global_stuff.Server()
+Global_stuff.home()
+Global_stuff.email()
+Global_stuff.searchButton()
+Global_stuff.policySelectButton()
+Global_stuff.livePoliciesBTN()
+
+//Back date policy
+Global_stuff.policyToolsAgePolicyWithPolicyNumber()
+Global_stuff.agePolicy()
+// cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
+// cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
+// cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
+// cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
+
+//Generate and invite renewal
+cy.go(-2)
+Global_stuff.generateRenewal()
+Global_stuff.inviteRenewal()
+
+//Checking for renewal invite email in docs
+Global_stuff.recallPolicy()
+Global_stuff.livePoliciesBTN()
+Global_stuff.selectActionDocumentsWithPolicyNumber()
+Global_stuff.checkRenewalInviteDocs()
+cy.go(-1)
   
-
-  //Thank you page
-  Global_Stuff.thankyouHeading()
-  Global_Stuff.notes()
-
-  Global_Stuff.Server()
-  Global_Stuff.home()
-  Global_Stuff.email()
-  Global_Stuff.searchButton()
-  Global_Stuff.policySelectButton()
-  Global_Stuff.livePoliciesBTN()
-  Global_Stuff.homePolicyTab()
-
-  //Navigate back to the B/O
-  Global_Stuff.Server()
-  Global_Stuff.home()
-  Global_Stuff.email()
-  Global_Stuff.searchButton()
-  Global_Stuff.policySelectButton()
-  Global_Stuff.livePoliciesBTN()
-
-  //Back date policy
-  Global_Stuff.agePolicyTool()
-  Global_Stuff.agePolicy()
-  // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
-  // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
-  // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
-  // cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
-
-  //Generate and invite renewal
-  cy.go(-2)
-  Global_Stuff.generateRenewal()
-  Global_Stuff.inviteRenewal()
-
-  //Checking for renewal invite email in docs
-  Global_Stuff.recallPolicy()
-  Global_Stuff.livePoliciesBTN()
-  Global_Stuff.selectActionDocuments()
-  Global_Stuff.checkRenewalInviteDocs()
-  cy.go(-1)
+//Purchase Home Renewal
+Global_stuff.livePoliciesBTN()
+Global_stuff.selectActionRenewalWithPolicyNumber()
+Global_stuff.selectStaffDiscount()
+Global_stuff.quotePageBuyNowBtn()
+Global_stuff.completeAndPayContinue()
   
-  //Purchase Home Renewal
-  Global_Stuff.livePoliciesBTN()
-  Global_Stuff.selectActionRenewal()
-  Global_Stuff.selectStaffDiscount()
-  Global_Stuff.paymentTypeAgentCardRenewal()
-  Global_Stuff.completeAndPayRNLPayNow()
-  Global_Stuff.paymentCardDemoAgent()
+Global_stuff.paymentTypeAgentCardRenewal()
+Global_stuff.completeAndPayRNLPayNow()
+Global_stuff.paymentCardDemoAgent()
 
-  //Add all optional covers at MTA
-  Global_Stuff.Server()
-  Global_Stuff.home()
-  Global_Stuff.email()
-  Global_Stuff.searchButton()
-  Global_Stuff.policySelectButton()
-  Global_Stuff.livePoliciesBTN()
-  Global_Stuff.homePolicyTab()
-  Global_Stuff.selectActionMakeAdjustment()
-  Global_Stuff.adjustmentType()
-  Global_Stuff.adjustmentContinue()
+//Add all optional covers at MTA
+Global_stuff.Server()
+Global_stuff.home()
+Global_stuff.email()
+Global_stuff.searchButton()
+Global_stuff.policySelectButton()
+Global_stuff.livePoliciesBTN()
+Global_stuff.homePolicyTab()
+Global_stuff.selectActionMakeADJWithPolicyNumber()
+Global_stuff.adjustmentType()
+Global_stuff.adjustmentContinue()
+
 //Adding all Optional covers
-Global_Stuff.quotePageAccidentalDamageViewOptions()
-Global_Stuff.quotePageAccidentalDamageAddCover()
-cy.wait(2000)
-Global_Stuff.quotePageOptionalCoverViewOptions()
-Global_Stuff.quotePageOptionalCoverAddSpecifiedItem()
-cy.wait(2000)
-Global_Stuff.quotePageManageYourExcessViewOptions()
-Global_Stuff.quotePageManageYourExcess500()
-cy.wait(2000)
-Global_Stuff.quotePageGardenCoverViewOptions()
-Global_Stuff.quotePageGardenCover1000()
-cy.wait(2000)
-Global_Stuff.quotePageCaravanCoverViewOptions()
-Global_Stuff.quotePageCaravanCoverAddWithPersonal()
-Global_Stuff.adjustmentBuyNowBTN()
-Global_Stuff.completeAndPayContinue()
-Global_Stuff.paymentTypeAgentCard()
-Global_Stuff.paymentTypeAgentPayNow()
-Global_Stuff.paymentCardDemo()
+Global_stuff.quotePageAccidentalDamageViewOptions()
+Global_stuff.quotePageAccidentalDamageAddCover()
+
+Global_stuff.quotePageOptionalCoverViewOptions()
+Global_stuff.quotePageOptionalCoverAddSpecifiedItem()
+
+Global_stuff.quotePageManageYourExcessViewOptions()
+Global_stuff.quotePageManageYourExcess500()
+
+Global_stuff.quotePageGardenCoverViewOptions()
+Global_stuff.quotePageGardenCover1000()
+
+Global_stuff.quotePageCaravanCoverViewOptions()
+Global_stuff.quotePageCaravanCoverAddWithPersonal()
+Global_stuff.adjustmentBuyContinue()
+Global_stuff.completeAndPayContinue()
+//Global_stuff.paymentTypeAgentCard()
+//Global_stuff.paymentTypeAgentPayNow()
+//Global_stuff.paymentCardDemo()
 
 //Diary and Correspondence page
-Global_Stuff.diaryCorrespondenceHeading()
-Global_Stuff.diaryCorrespondenceContinue()
+Global_stuff.diaryCorrespondenceHeading()
+Global_stuff.diaryCorrespondenceContinue()
 
 // Thank you page
-Global_Stuff.thankyouHeading()
-Global_Stuff.adjustmentReceiptAssert()
-Global_Stuff.notes()
+Global_stuff.thankyouHeading()
+Global_stuff.adjustmentReceiptAssert()
+Global_stuff.notes()
 
 //Check correct dicuments have been added to print queue
-Global_Stuff.Server()
-Global_Stuff.home()
-Global_Stuff.email()
-Global_Stuff.searchButton()
-Global_Stuff.policySelectButton()
-Global_Stuff.livePoliciesBTN()
-Global_Stuff.homePolicyTab()
-Global_Stuff.selectActionDocuments()
-Global_Stuff.checkRNLMTAParagonDocs()
+Global_stuff.Server()
+Global_stuff.home()
+Global_stuff.email()
+Global_stuff.searchButton()
+Global_stuff.policySelectButton()
+Global_stuff.livePoliciesBTN()
+Global_stuff.homePolicyTab()
+Global_stuff.selectActionDocumentsWithPolicyNumber()
+Global_stuff.checkRNLMTAParagonDocs()
 
 })
   

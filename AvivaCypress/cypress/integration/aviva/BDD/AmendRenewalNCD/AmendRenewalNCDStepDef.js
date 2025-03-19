@@ -171,9 +171,9 @@ Given('Agent can Amend renewal NCD',()=>
     Global_Stuff.policySelectButton()
     Global_Stuff.unlockBTN()
 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown policyTools"]').last().click().contains('Age Policy').invoke("removeAttr", "target").click()
+    Global_Stuff.policyToolsAgePolicyWithPolicyNumber()
 
 
     cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
@@ -227,14 +227,14 @@ Given('Agent can Amend renewal NCD',()=>
 
     //Checking for renewal invite email in docs
     cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     //Amend the renewal NCD
     cy.get('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
     cy.go('back')
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Amend Renewal NCD').invoke("removeAttr", "target").click({force:true})
     cy.get('#ctl00_ContentPlaceHolder1_Edit').click()

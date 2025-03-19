@@ -129,6 +129,7 @@ Given('Customer can purchase a policy via website',()=>
 
     //Thank you page
     Global_Stuff.thankyouHeading()
+    Global_Stuff.retreivePolicyNumber()
 
 
  });

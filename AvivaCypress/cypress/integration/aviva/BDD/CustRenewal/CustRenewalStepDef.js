@@ -160,6 +160,7 @@ Given('Customer can Renew a policy',()=>
     //Thank you page
     Global_Stuff.thankyouHeading()
     Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
 
     //Back dating policy 
     Global_Stuff.Server()
@@ -169,9 +170,9 @@ Given('Customer can Renew a policy',()=>
     Global_Stuff.policySelectButton()
     Global_Stuff.unlockBTN()
 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown policyTools"]').last().click().contains('Age Policy').invoke("removeAttr", "target").click()
+    Global_Stuff.policyToolsAgePolicyWithPolicyNumber()
 
     cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
       const day = parseInt(dayString)
@@ -210,9 +211,9 @@ Given('Customer can Renew a policy',()=>
 
     //Checking for renewal invite email in docs
     cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
     
-    cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     
     cy.get('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
@@ -227,7 +228,10 @@ Given('Customer can Renew a policy',()=>
     Global_Stuff.loginEmail()
     Global_Stuff.loginPassword()
     Global_Stuff.loginPortalButton()
-    cy.get('#Renewal_Modal_Submit').click()
+    cy.get('#RenewalDueModal > .CloseBtnMockup').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
+    cy.get('#Main_btnRenewal').click()
+    cy.get('#ctl00_NavigationTabs_btnRnlDocConfirmation').click()
     
     cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Renew online to save 10%')
     cy.get('#btnPayMonthlyRNL').click()

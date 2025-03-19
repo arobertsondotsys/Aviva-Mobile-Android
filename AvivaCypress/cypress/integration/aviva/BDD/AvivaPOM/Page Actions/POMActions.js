@@ -7,10 +7,10 @@ export class Global{
     Server(){
         
         //cy.visit('https://qaaviva.dotsys.co.uk/BackOffice/Login.aspx?')
-        //cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
+        cy.visit('https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?')
         //cy.visit('https://qa3aviva.dotsys.co.uk/BackOffice/Login.aspx?')
         //cy.visit('https://testaviva2loaded.dotsys.co.uk/backoffice/Login.aspx')
-        cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
+        //cy.visit('https://testaviva3.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva3fat.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva4e2e.dotsys.co.uk/backoffice/Login.aspx?')
         //cy.visit('https://testaviva5pricing.dotsys.co.uk/backoffice/Login.aspx?')
@@ -25,10 +25,10 @@ export class Global{
     Server1(){
         
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://qa3insurance-aviva.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva2loaded.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
-        cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
+        //cy.visit('https://insurance-testaviva3.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
         //cy.visit('https://insurance-testaviva5pricing.dotsys.co.uk/myaviva/login.aspx?enc=NUic3N57azQgnbRz7sSkmPFhx9xImevrRZEzdbut0G3NmTIoa2l9m5bTXKZMS7Jy')
@@ -44,10 +44,10 @@ export class Global{
     Server2(){
 
         //cy.visit('https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html#')
-        //cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
+        cy.visit('https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#')
         //cy.visit('https://qa3insurance-aviva.dotsys.co.uk/testdemolinks.html#')clear
         //cy.visit('http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html')
-        cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
+        //cy.visit('https://insurance-testaviva3.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva3fat.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva4e2e.dotsys.co.uk/testdemolinks.html')
         //cy.visit('https://insurance-testaviva5pricing.dotsys.co.uk/testdemolinks.html')
@@ -769,6 +769,15 @@ export class Global{
 
     }
 
+    coverStartDatePlus1(){
+
+        const day = require('dayjs')
+
+        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().add(1, 'day').format('DD/MM/YYYY'),{force: true})
+        return
+
+    }
+
     coverStartHaveHomeIns(){
 
         cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_havehomefalse).click({force: true})
@@ -1425,7 +1434,7 @@ export class Global{
           const CVC='737'
           
           cy.wait(10000)
-          cy.get('.payment-heading').contains('Payment')
+          //cy.get('.payment-heading').contains('Payment')
           cy.wait(3000)
           cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
           
@@ -1774,6 +1783,356 @@ export class Global{
             
     }
 
+    selectActionRenewalWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Renewal']")
+             })
+            return
+            
+    }
+
+    selectActionMakeADJWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Make Adjustment']")
+             })
+            return
+            
+    }
+
+    selectActionCancelWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Cancel Policy']")
+             })
+            return
+            
+    }
+
+    selectActionAmendNCDWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.='  Amend NCD']")
+             })
+            return
+            
+    }
+
+    selectActionAmendRNLNCDWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.='  Amend Renewal NCD']")
+             })
+            return
+            
+    }
+
+    selectActionDiaryWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
+             })
+            return
+            
+    }
+
+    selectActionDiaryWithParagonPolicyNumber1(){
+
+        cy.readFile('policy.json').then((data) => {
+            const paragonPolicyNumber1 = data.paragonPolicyNumber1
+            cy.get('.panel-title')
+            .contains(paragonPolicyNumber1)
+            cy.xpath("//span[normalize-space()='"+paragonPolicyNumber1+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
+             })
+            return
+            
+    }
+
+    selectActionDiaryWithParagonPolicyNumber2(){
+
+        cy.readFile('policy.json').then((data) => {
+            const paragonPolicyNumber2 = data.paragonPolicyNumber2
+            cy.get('.panel-title')
+            .contains(paragonPolicyNumber2)
+            cy.xpath("//span[normalize-space()='"+paragonPolicyNumber2+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
+             })
+            return
+            
+    }
+
+    selectActionDiaryWithParagonPolicyNumber3(){
+
+        cy.readFile('policy.json').then((data) => {
+            const paragonPolicyNumber3 = data.paragonPolicyNumber3
+            cy.get('.panel-title')
+            .contains(paragonPolicyNumber3)
+            cy.xpath("//span[normalize-space()='"+paragonPolicyNumber3+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
+             })
+            return
+            
+    }
+
+    selectActionAccountsWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Accounts']")
+             })
+            return
+            
+    }
+
+    selectActionRefundsWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Refunds']")
+             })
+            return
+            
+    }
+
+    selectActionDocumentsWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+             })
+            return
+            
+    }
+    
+    selectActionDocumentsWithParagonPolicyNumber1(){
+
+        cy.readFile('policy.json').then((data) => {
+            const paragonPolicyNumber1 = data.paragonPolicyNumber1
+            cy.get('.panel-title')
+            .contains(paragonPolicyNumber1)
+            cy.xpath("//span[normalize-space()='"+paragonPolicyNumber1+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+             })
+            return
+            
+    }
+
+    selectActionDocumentsWithParagonPolicyNumber2(){
+
+        cy.readFile('policy.json').then((data) => {
+            const paragonPolicyNumber2 = data.paragonPolicyNumber2
+            cy.get('.panel-title')
+            .contains(paragonPolicyNumber2)
+            cy.xpath("//span[normalize-space()='"+paragonPolicyNumber2+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+             })
+            return
+            
+    }
+
+    selectActionDocumentsWithParagonPolicyNumber3(){
+
+        cy.readFile('policy.json').then((data) => {
+            const paragonPolicyNumber3 = data.paragonPolicyNumber3
+            cy.get('.panel-title')
+            .contains(paragonPolicyNumber3)
+            cy.xpath("//span[normalize-space()='"+paragonPolicyNumber3+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+             })
+            return
+            
+    }
+
+    selectActionDPAWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' DPA / Preferences']")
+             })
+            return
+            
+    }
+
+    selectActionPolicyOwnershipWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Policy Owenership']")
+             })
+            
+    }
+
+    selectActionScrutinyWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Scrutiny']")
+             })
+            return
+            
+    }
+
+    ntuWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+                .contains(policyNumber)
+                .click()
+            cy.stopWindow("//span[normalize-space()='"+policyNumber+"']/../../../..//span[contains(text(),'NTU')]")
+            })
+            return
+            
+    }
+
+    policyToolsAgePolicyWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+            cy.get('.panel-title')
+            .contains(policyNumber)
+            cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+            cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
+            
+             })
+            return
+            
+    }
+
+    retreivePolicyNumber(){
+
+        cy.get('.m-card-content__inner > p > strong')
+        .invoke('text') 
+        .then((text) => {
+        
+        const numberOnly = text.match(/\d+/)[0]
+
+        cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+            const updatedData = { ...data, policyNumber: numberOnly }
+            cy.writeFile('policy.json', updatedData)
+        })
+
+        cy.wrap(numberOnly).as('policyNumber')
+        })
+
+        cy.get('@policyNumber').then((policyNumber) => {
+        cy.log(`Extracted policy number: ${policyNumber}`)
+        })
+            
+    }
+
+    retreiveParagonPolicyNumber1(){
+
+        cy.get('.m-card-content__inner > p > strong')
+        .invoke('text') 
+        .then((text) => {
+        
+        const numberOnly = text.match(/\d+/)[0]
+
+        cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+            const updatedData = { ...data, paragonPolicyNumber1: numberOnly }
+            cy.writeFile('policy.json', updatedData)
+        })
+
+        cy.wrap(numberOnly).as('paragonPolicyNumber1')
+        })
+
+        cy.get('@paragonPolicyNumber1').then((paragonPolicyNumber1) => {
+        cy.log(`Extracted policy number: ${paragonPolicyNumber1}`)
+        })
+            
+    }
+
+    retreiveParagonPolicyNumber2(){
+
+        cy.get('.m-card-content__inner > p > strong')
+        .invoke('text') 
+        .then((text) => {
+        
+        const numberOnly = text.match(/\d+/)[0]
+
+        cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+            const updatedData = { ...data, paragonPolicyNumber2: numberOnly }
+            cy.writeFile('policy.json', updatedData)
+        })
+
+        cy.wrap(numberOnly).as('paragonPolicyNumber2')
+        })
+
+        cy.get('@paragonPolicyNumber2').then((paragonPolicyNumber2) => {
+        cy.log(`Extracted policy number: ${paragonPolicyNumber2}`)
+        })
+        return
+            
+    }
+
+    retreiveParagonPolicyNumber3(){
+
+        cy.get('.m-card-content__inner > p > strong')
+        .invoke('text') 
+        .then((text) => {
+        
+        const numberOnly = text.match(/\d+/)[0]
+
+        cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+            const updatedData = { ...data, paragonPolicyNumber3: numberOnly }
+            cy.writeFile('policy.json', updatedData)
+        })
+
+        cy.wrap(numberOnly).as('paragonPolicyNumber3')
+        })
+
+        cy.get('@paragonPolicyNumber3').then((paragonPolicyNumber3) => {
+        cy.log(`Extracted policy number: ${paragonPolicyNumber3}`)
+        })
+        return
+            
+    }
+
     generateRenewal(){
 
         cy.get(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
@@ -1837,12 +2196,6 @@ export class Global{
 
 
 
-
-
-
-
-
-
     //MTA B/O Actions
 
     selectActionMakeADJ(){
@@ -1873,6 +2226,28 @@ export class Global{
         return
             
     }
+
+
+
+    //Portal Actions
+
+    portalManagePolicyWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber;
+        
+            cy.get('.policypanels')
+                .contains(policyNumber)
+                .closest('.d-flex.flex-column')
+                .within(() => {
+                    cy.contains('Manage Policy').click({force: true});
+                });
+        });
+            return
+            
+    }
+
+    
     
 
     

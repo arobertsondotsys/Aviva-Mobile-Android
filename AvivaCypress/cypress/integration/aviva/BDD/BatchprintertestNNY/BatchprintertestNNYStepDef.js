@@ -184,9 +184,9 @@ Given('Policy Purchase with NNY',()=>
     Global_Stuff.policySelectButton()
 
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
     cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
@@ -207,9 +207,9 @@ Given('Policy Purchase with NNY',()=>
     Global_Stuff.policySelectButton()
 
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Diary').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDiaryWithPolicyNumber()
    
     cy.get(':nth-child(7) > .btn > span').click()
     cy.get('#ctl00_ContentPlaceHolder1_DocumentGrid_ctl02_IsReceived').click()
@@ -232,7 +232,7 @@ Given('Policy Purchase with NNY',()=>
     Global_Stuff.policySelectButton()
     Global_Stuff.unlockBTN()
 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     cy.get('[class^="dropdown policyTools"]').last().click({force:true}).contains('Age Policy').invoke("removeAttr", "target").click({force:true})
 
@@ -271,14 +271,14 @@ Given('Policy Purchase with NNY',()=>
 
     //Checking for renewal invite email in docs
     cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     //Purchase renewal quote
     cy.get('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
     cy.go('back')
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
   
 
 

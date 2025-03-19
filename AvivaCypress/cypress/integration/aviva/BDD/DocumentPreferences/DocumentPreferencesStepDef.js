@@ -156,6 +156,7 @@ Given('Policy Purchase with YNN',()=>
   //Thank you page
   Global_Stuff.thankyouHeading()
   Global_Stuff.notes()
+  Global_Stuff.retreivePolicyNumber()
     
     //Check B/O preferences match Y/N/N
     Global_Stuff.Server()
@@ -172,9 +173,9 @@ Given('Policy Purchase with YNN',()=>
     Global_Stuff.policySelectButton()
 
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
-
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.livePoliciesBTN()
+    
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
     cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_0').should('have.value', 'True')
@@ -190,7 +191,7 @@ Given('Policy Purchase with YNN',()=>
     Global_Stuff.loginEmail()
     Global_Stuff.loginPassword()
     Global_Stuff.loginPortalButton()
-    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnDocPref').click()
     cy.get('#IsMyAviva-yes').should('have.value', 'True')
 
@@ -203,9 +204,9 @@ Given('Policy Purchase with YNN',()=>
     Global_Stuff.policySelectButton()
     
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
     cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').click({force: true})
@@ -226,7 +227,7 @@ Given('Policy Purchase with YNN',()=>
     Global_Stuff.loginEmail()
     Global_Stuff.loginPassword()
     Global_Stuff.loginPortalButton()
-    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnDocPref').click()
     cy.get('#IsMyAviva-no').should('have.value', 'False')
     cy.get('#IsPostCert-yes').should('have.value', 'True')
@@ -247,9 +248,9 @@ Given('Policy Purchase with YNN',()=>
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
    
     cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
     cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')

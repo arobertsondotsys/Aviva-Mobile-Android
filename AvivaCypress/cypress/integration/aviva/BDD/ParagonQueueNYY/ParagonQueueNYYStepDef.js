@@ -171,6 +171,7 @@ Given('Policy Purchase with NYY',()=>
     //Thank you page
     cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
     cy.get('#ctl00_divNotes > .a-button').should('be.visible')
+    Global_Stuff.retreiveParagonPolicyNumber1()
     
     //Check B/O preferences match Y/N/N
     Global_Stuff.Server()
@@ -181,8 +182,8 @@ Given('Policy Purchase with NYY',()=>
     Global_Stuff.policySelectButton()
 
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.livePoliciesBTN()
+    Global_Stuff.selectActionDocumentsWithParagonPolicyNumber1()
     //cy.get('[class^="dropdown-item"]').contains('Documents').invoke("removeAttr", "target").click({force:true})
     cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
     cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
@@ -203,8 +204,8 @@ Given('Policy Purchase with NYY',()=>
     Global_Stuff.policySelectButton()
 
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Diary').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.livePoliciesBTN()
+    Global_Stuff.selectActionDiaryWithParagonPolicyNumber1()
     cy.get(':nth-child(7) > .btn > span').click()
     cy.get('#ctl00_ContentPlaceHolder1_DocumentGrid_ctl02_IsReceived').click()
     cy.get(':nth-child(2) > :nth-child(6)').should('not.have.text', '')

@@ -166,6 +166,7 @@ Given('Medical condition can be removed at renewal',()=>
     //Thank you page
     Global_Stuff.thankyouHeading()
     Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
 
     //Back date policy
     Global_Stuff.Server()
@@ -179,7 +180,7 @@ Given('Medical condition can be removed at renewal',()=>
     Global_Stuff.livePoliciesBTN()
 
     //Back date policy
-    Global_Stuff.agePolicyTool()
+    Global_Stuff.policyToolsAgePolicyWithPolicyNumber()
     Global_Stuff.agePolicy()
 
     //Generate and invite renewal
@@ -196,13 +197,13 @@ Given('Medical condition can be removed at renewal',()=>
     //Checking for renewal invite email in docs
     Global_Stuff.recallPolicy()
     Global_Stuff.livePoliciesBTN()
-    Global_Stuff.selectActionDocuments()
+    Global_Stuff.selectActionDocumentsWithPolicyNumber
     Global_Stuff.checkRenewalInviteDocs()
     cy.go(-1)
     
     //Purchase Home Renewal
     Global_Stuff.livePoliciesBTN()
-    Global_Stuff.selectActionRenewal()
+    Global_Stuff.selectActionRenewalWithPolicyNumber()
     cy.wait(4000)
     Global_Stuff.selectStaffDiscount()
     cy.get('#ctl00_MainContent_EditAdditionalDriver').click()
@@ -226,14 +227,11 @@ Given('Medical condition can be removed at renewal',()=>
 
     cy.get('#accHeading5 > .m-showhide__control').contains('Additional driver added')
     cy.reload()
-    //cy.wait(6000)
-    cy.get('[id*="IsClaims"][value^="False"]').last().click({force:true})
-    //cy.wait(3000)
-    cy.get('#Continue6').click({force:true})
+    Global_Stuff.claimsFalseLast()
+    Global_Stuff.claimsContinue()
 
-    cy.get('[id*="IsPenaltyPoints"][value^="No"]').last().click({force:true})
-    //cy.wait(3000)
-    cy.get('#Continue7').click({force:true})
+    Global_Stuff.ppFalseLast()
+    Global_Stuff.ppContinue()
 
     //Complete section 8 "Cover start date"
     cy.get('#div8').contains('Renewal date')
@@ -241,11 +239,6 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#IsHome-False > .a-radio > .a-radio__label').click({force:true})
     cy.get('#IsHouseholdCar-False > .a-radio > .a-radio__label').click({force:true})
     cy.get('#ctl00_MainContent_Continue8').click({force:true})
-    // cy.get('[id*="IsClaims"][value^="False"]').last().click({force:true})
-    // cy.get('#Continue6').click()
-    // cy.get('[id*="IsPenaltyPoints"][value^="No"]').last().click({force:true})
-    // cy.get('#Continue7').click({force:true})
-    // cy.get('#ctl00_MainContent_Continue8').click({force:true})
     cy.wait(10000)
 
     cy.get('#StaffHeading > .m-showhide__control').click()
@@ -321,10 +314,10 @@ Given('Medical condition can be removed at renewal',()=>
     Global_Stuff.policySelectButton()
 
     //Open policy
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     //Select Make adjustment and revert window back to current window
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Make Adjustment').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionMakeADJWithPolicyNumber()
 
     //Select to perform a permanent adjustment on Additional drivers
     //Global_Stuff.cookiesAccept()
@@ -366,48 +359,6 @@ Given('Medical condition can be removed at renewal',()=>
     cy.get('#ctl00_MainContent_btnContinueToPayment').click({force: true})
 
     cy.get('.m-card-content > p').should('contain', 'Go back to make a change to your details')
-
-    
-
-
-
-    
-
-    
-
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

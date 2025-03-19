@@ -90,6 +90,7 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.additionalDriver1Relationship()
     Global_Stuff.additionalDriver1SpouseOwnVehFalse()
     Global_Stuff.additionalDriver1Save()
+    Global_Stuff.additionalDriversFalse()
     Global_Stuff.additionalDriversContinue()
     
     //Complete section 6 "Your claims"
@@ -114,9 +115,8 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.coverStartHaveHomeIns()
     Global_Stuff.coverStartHaveCarIns()
     Global_Stuff.coverStartMarketing()
-    Global_Stuff.coverStartNotCustomerQuote()
     Global_Stuff.coverStartContinue()
-    cy.wait(10000)
+    //cy.wait(10000)
 
     //Quote screen - Buy now 
     Global_Stuff.quotePageHeading()
@@ -133,6 +133,7 @@ Given('Customer can add a driver and remove at ADJ',()=>
     //Complete post quote 2 "About the drivers"
     Global_Stuff.postQuote2Heading()
     Global_Stuff.notes()
+    Global_Stuff.postQuote2DriverNumber1()
     Global_Stuff.postQuote2IsResidentTrue()
     Global_Stuff.postQuote2IsMainDriverTrue()
     Global_Stuff.postQuote2IsNotOtherCarTrue()
@@ -160,15 +161,27 @@ Given('Customer can add a driver and remove at ADJ',()=>
     //Payment type screen - selecting "No payment required"
     Global_Stuff.notes()
     cy.wait(4000)
-    cy.get('#ctl00_MainContent_PaymentType').select(2)
-    cy.get('#ctl00_MainContent_NoPay').click({force: true})
+    Global_Stuff.paymentTypeAgentNoPay()
+    Global_Stuff.paymentTypeAgentNoPayContinue()
+
     //Diary & correspondence page 
-    cy.get('.a-heading--1').contains('Internal Diary and Correspondence')
-    cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-    cy.get('#ctl00_MainContent_Summary').click({force: true})
+    Global_Stuff.diaryCorrespondenceHeading()
+    Global_Stuff.notes()
+    Global_Stuff.diaryCorrespondenceContinue()
+
     //Thank you page
-    cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
-    cy.get('#ctl00_divNotes > .a-button').should('be.visible')
+    Global_Stuff.thankyouHeading()
+    Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
+
+    Global_Stuff.Server()
+    Global_Stuff.home()
+
+    //Unlock customer file
+    Global_Stuff.email()
+    Global_Stuff.searchButton()
+    Global_Stuff.policySelectButton()
+    Global_Stuff.unlockBTN()
 
     Global_Stuff.Server1()
 
@@ -180,7 +193,7 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.loginPortalButton()
 
     //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
-    cy.get('#Main_PolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnAdjustment').click()
     cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
     cy.window().then((win) => {
@@ -194,95 +207,37 @@ Given('Customer can add a driver and remove at ADJ',()=>
     //Select to perform a permanent adjustment on Additional drivers
     cy.contains('Remove driver').click({force: true})
     cy.contains('Additional drivers', {force: true})
-    cy.contains('Sarah Test', {force: true})
+    cy.contains('Sarah Vader', {force: true})
     cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
     cy.get('#Continue5').click()
     cy.get('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'),{force:true})
     cy.get('#ctl00_MainContent_Continue8').click({force:true})
+    Global_Stuff.coverStartCustomerQuote()
+    Global_Stuff.coverStartContinue()
     cy.get('#ctl00_MainContent_btnBuyNow').click({force:true})
     cy.get('#div2').contains('About the drivers')
     
 
-     //Completing post quote screen 2 questions
-     cy.get('#IsMainDriver-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNotOtherCar-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNotOtherInsurance-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoConvictions-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoDisqualifications-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoMedical-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#ctl00_MainContent_btnContinueDrivers').click({force: true})
+    //Completing post quote screen 2 questions
+    cy.get('#IsMainDriver-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNotOtherCar-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNotOtherInsurance-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoConvictions-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoDisqualifications-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoMedical-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#btnContinueDrivers').click({force: true})
 
     //Completing post quote screen 3 
-    cy.get('.a-checkbox__label').click()
-    cy.get('#ctl00_MainContent_btnContinueToPayment').click()
+    Global_Stuff.coverStartCustomerQuote1()
+    Global_Stuff.postQuote3Continue()
 
-     //Payment screen
-     cy.origin('https://www.direct.stg-aviva.co.uk', () => 
-     {
-       Cypress.on('uncaught:exception', (err, runnable) =>
-     {
-     return false
-     })
-       const CCnumber='4917610000000000'
-       const Exp1='03'
-       const Exp2='30'
-       const CVC='737'
-       
-       cy.wait(10000)
-       cy.get('.payment-heading').contains('Payment')
-       cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
-       
-         
-      
-       const getIframeDocumentCard = () => {
-         return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
-         .then((body) => cy.wrap(body))
-         
-       }
+    //Payment screen
+    Global_Stuff.paymentCardDemo()
 
-       const getIframeDocumentMonth = () => {
-         return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
-         .then((body) => cy.wrap(body))
-         
-       }
-
-       const getIframeDocumentYear = () => {
-         return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
-         .then((body) => cy.wrap(body))
-         
-       }
-
-       const getIframeDocumentCVC = () => {
-         return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
-         .then((body) => cy.wrap(body))
-         
-       }
-       
-         
-       getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
-       getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
-       getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
-       getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
-       cy.get('#continueButton').click()
-
-     })
-
-       //Password box
-       cy.wait(10000)
-       const getIframeDocumentPassword = () => {
-         
-         return cy.get('.adyen-checkout__iframe').its('0.contentDocument.body').should('not.be.empty')
-         .then((body) => cy.wrap(body))
-
-       }
-       getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
-       cy.get('@passwordbox').type('password')
-       getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
-
-       //Thank you page
-       cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
+    //Thank you page
+    Global_Stuff.thankyouHeading()
 
 
 

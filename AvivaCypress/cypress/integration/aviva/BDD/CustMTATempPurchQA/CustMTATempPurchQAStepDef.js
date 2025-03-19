@@ -25,7 +25,7 @@ Given('Customer can purchase a Temp AD',()=>
     Global_Stuff.loginPortalButton()
     
     //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
-    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnAdjustment').click()
     cy.get('#ctl00_MainContent_ddlTempSelection').select(2, {force:true})
     cy.window().then((win) => {

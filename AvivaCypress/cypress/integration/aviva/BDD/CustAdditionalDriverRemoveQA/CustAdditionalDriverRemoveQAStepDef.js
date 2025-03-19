@@ -90,6 +90,7 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.additionalDriver1Relationship()
     Global_Stuff.additionalDriver1SpouseOwnVehFalse()
     Global_Stuff.additionalDriver1Save()
+    Global_Stuff.additionalDriversFalse()
     Global_Stuff.additionalDriversContinue()
     
     //Complete section 6 "Your claims"
@@ -114,9 +115,8 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.coverStartHaveHomeIns()
     Global_Stuff.coverStartHaveCarIns()
     Global_Stuff.coverStartMarketing()
-    Global_Stuff.coverStartNotCustomerQuote()
     Global_Stuff.coverStartContinue()
-    cy.wait(10000)
+    //cy.wait(10000)
 
     //Quote screen - Buy now 
     Global_Stuff.quotePageHeading()
@@ -133,6 +133,7 @@ Given('Customer can add a driver and remove at ADJ',()=>
     //Complete post quote 2 "About the drivers"
     Global_Stuff.postQuote2Heading()
     Global_Stuff.notes()
+    Global_Stuff.postQuote2DriverNumber1()
     Global_Stuff.postQuote2IsResidentTrue()
     Global_Stuff.postQuote2IsMainDriverTrue()
     Global_Stuff.postQuote2IsNotOtherCarTrue()
@@ -171,6 +172,15 @@ Given('Customer can add a driver and remove at ADJ',()=>
     //Thank you page
     Global_Stuff.thankyouHeading()
     Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
+
+    //Unlock customer file
+    Global_Stuff.Server()
+    Global_Stuff.home()
+    Global_Stuff.email()
+    Global_Stuff.searchButton()
+    Global_Stuff.policySelectButton()
+    Global_Stuff.unlockBTN()
 
     Global_Stuff.Server1()
 
@@ -180,9 +190,9 @@ Given('Customer can add a driver and remove at ADJ',()=>
     Global_Stuff.loginEmail()
     Global_Stuff.loginPassword()
     Global_Stuff.loginPortalButton()
-
+  
     //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
-    cy.get('#Main_PolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnAdjustment').click()
     cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
     cy.window().then((win) => {
@@ -196,29 +206,31 @@ Given('Customer can add a driver and remove at ADJ',()=>
     //Select to perform a permanent adjustment on Additional drivers
     cy.contains('Remove driver').click({force: true})
     cy.contains('Additional drivers', {force: true})
-    cy.contains('Sarah Test', {force: true})
+    cy.contains('Sarah Vader', {force: true})
     cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
     cy.get('#Continue5').click()
     cy.get('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'),{force:true})
     cy.get('#ctl00_MainContent_Continue8').click({force:true})
+    Global_Stuff.coverStartCustomerQuote()
+    Global_Stuff.coverStartContinue()
     cy.get('#ctl00_MainContent_btnBuyNow').click({force:true})
     cy.get('#div2').contains('About the drivers')
     
 
-     //Completing post quote screen 2 questions
-     cy.get('#IsMainDriver-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNotOtherCar-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNotOtherInsurance-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoConvictions-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoDisqualifications-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#IsNoMedical-True > .a-radio > .a-radio__label').click({force: true})
-     cy.get('#ctl00_MainContent_btnContinueDrivers').click({force: true})
+    //Completing post quote screen 2 questions
+    cy.get('#IsMainDriver-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNotOtherCar-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNotOtherInsurance-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoConvictions-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoDisqualifications-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#IsNoMedical-True > .a-radio > .a-radio__label').click({force: true})
+    cy.get('#btnContinueDrivers').click({force: true})
 
     //Completing post quote screen 3 
-    cy.get('.a-checkbox__label').click()
-    cy.get('#ctl00_MainContent_btnContinueToPayment').click()
+    Global_Stuff.coverStartCustomerQuote1()
+    Global_Stuff.postQuote3Continue()
 
     //Payment screen
     Global_Stuff.paymentCardQA()

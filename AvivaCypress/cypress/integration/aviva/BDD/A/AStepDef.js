@@ -178,7 +178,7 @@ Given('Agent can purchase a policy via back office',()=>
      Global_Stuff.policySelectButton()
 
      //Select policy and Scrutiny
-    // cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    // Global_Stuff.livePoliciesBTN()
     
     // cy.get('[class^="dropdown selectAction"]').last().click().contains('Scrutiny').invoke("removeAttr", "target").click({force:true})
     // cy.get('#ctl00_ContentPlaceHolder1_Edit').click()
@@ -189,8 +189,8 @@ Given('Agent can purchase a policy via back office',()=>
 
     // cy.go('back')
 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
-    cy.get('[class^="dropdown policyTools"]').last().click().contains('Age Policy').invoke("removeAttr", "target").click()
+    Global_Stuff.livePoliciesBTN()
+    Global_Stuff.policyToolsAgePolicyWithPolicyNumber()
 
     cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
       const day = parseInt(dayString)
@@ -224,17 +224,17 @@ Given('Agent can purchase a policy via back office',()=>
 
     //Checking for renewal invite email in docs
     cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
     
     //Purchase renewal quote
     cy.get('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
     cy.go('back')
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
 
-    // cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    // Global_Stuff.livePoliciesBTN()
     // cy.get('[class^="dropdown selectAction"]').last().click().contains('Renewal').invoke("removeAttr", "target").click({force:true})
 
     // Global_Stuff.cookiesAccept()

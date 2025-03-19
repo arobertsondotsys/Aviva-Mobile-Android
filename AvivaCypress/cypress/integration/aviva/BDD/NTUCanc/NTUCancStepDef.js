@@ -27,15 +27,10 @@ Given('Agent can NTU a cancellation',()=>
     Global_Stuff.policySelectButton()
 
     //Open customer file Live policies
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
+    Global_Stuff.ntuWithPolicyNumber()
     //Click to NTU last cancellation and keep in same window 
-    cy.window().then((win) => {
-        cy.get('[class^="squarebuttonred"]').last().click({force: true})
-        const orig = win.open
-        win.open = function (url, target, features) {
-          return orig.call(this, url, '_self', features)
-        }
-      })
+    
       //Click to NTU cancellation and check successful
       Global_Stuff.cookiesAccept()
       cy.get('#ctl00_MainContent_NTUButton').click()

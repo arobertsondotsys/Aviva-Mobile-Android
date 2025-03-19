@@ -150,14 +150,16 @@ Given('Agent can Amend an NCD',()=>
     cy.wait(4000)
     cy.get('#ctl00_MainContent_PaymentType').select(2)
     cy.get('#ctl00_MainContent_NoPay').click({force: true})
+
     //Diary & correspondence page 
-    cy.get('.a-heading--1').contains('Internal Diary and Correspondence')
-    cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-    cy.get('#ctl00_MainContent_Summary').click({force: true})
+    Global_Stuff.diaryCorrespondenceHeading()
+    Global_Stuff.notes()
+    Global_Stuff.diaryCorrespondenceContinue()
+
     //Thank you page
-    cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
-    cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-    
+    Global_Stuff.thankyouHeading()
+    Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
     
     Global_Stuff.Server()
     
@@ -170,13 +172,14 @@ Given('Agent can Amend an NCD',()=>
     Global_Stuff.policySelectButton()
     
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
     
-    cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Amend NCD').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionAmendNCDWithPolicyNumber()
       
     //Amend NCD to 40% & Select Cover start date 
     //cy.get('#onetrust-accept-btn-handler').click()
     //cy.get('#accHeading3 > .m-showhide__control').click({force: true})
+    cy.wait(4000)
     cy.get('#ctl00_MainContent_ddlNCDPercent').select(5)
     cy.get('#ctl00_MainContent_Continue3').click()
     cy.wait(4000)
@@ -226,9 +229,9 @@ Given('Agent can Amend an NCD which should fail',()=>
     Global_Stuff.policySelectButton()
     
     //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
     
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Amend NCD').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionAmendNCDWithPolicyNumber()
       
     //Amend NCD to 40% & Select Cover start date 
     Global_Stuff.cookiesAccept()

@@ -33,7 +33,7 @@ Given('Change policy ownership',()=>
     {
 
      //Select last policy and Policy Ownership 
-     cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+     Global_Stuff.livePoliciesBTN()
      cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Policy Ownership').invoke("removeAttr", "target").click({force:true})
     
 

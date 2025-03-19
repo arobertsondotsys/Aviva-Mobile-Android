@@ -174,6 +174,7 @@ Given('Agent can add a driver and remove at ADJ',()=>
     //Thank you page
     Global_Stuff.thankyouHeading()
     Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
 
     Global_Stuff.Server()
     Global_Stuff.home()
@@ -182,10 +183,10 @@ Given('Agent can add a driver and remove at ADJ',()=>
     Global_Stuff.policySelectButton()
 
     //Open policy
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     //Select Make adjustment and revert window back to current window
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Make Adjustment').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionMakeADJWithPolicyNumber()
 
     //Select to perform a permanent adjustment on Additional drivers
     cy.get('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers',{force: true}).should('have.value', 'AddDriver')
@@ -227,6 +228,7 @@ Given('Agent can add a driver and remove at ADJ',()=>
 
     //Thank you page
     Global_Stuff.thankyouHeading()
+    
 
 
 

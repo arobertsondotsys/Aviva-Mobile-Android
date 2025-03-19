@@ -160,7 +160,8 @@ Given('Check Diary Chaser function',()=>
   //Thank you page
   Global_Stuff.thankyouHeading()
   Global_Stuff.notes()
-    
+  Global_Stuff.retreivePolicyNumber()
+
   Global_Stuff.Server()
     
     
@@ -170,9 +171,9 @@ Given('Check Diary Chaser function',()=>
   Global_Stuff.policySelectButton()
 
    //Select Diary
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
 
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Diary').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDiaryWithPolicyNumber()
     
     
     cy.get(':nth-child(7) > .btn > span').click()

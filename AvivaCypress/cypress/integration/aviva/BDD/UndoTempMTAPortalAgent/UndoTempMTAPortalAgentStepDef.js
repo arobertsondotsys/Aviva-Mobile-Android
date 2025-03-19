@@ -93,7 +93,7 @@ Global_Stuff.Server()
      Global_Stuff.policySelectButton()
     
     //Select policy and Undo
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    Global_Stuff.livePoliciesBTN()
     cy.get(':nth-child(6) > .panel-heading > .panel-title > .accordion-toggle > .label').last().click({force: true})
     cy.get(':nth-child(5) > :nth-child(4) > a').invoke("removeAttr", "target").click()
 

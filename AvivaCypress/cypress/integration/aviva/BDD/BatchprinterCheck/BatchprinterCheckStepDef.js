@@ -25,10 +25,10 @@ Given('Check Paragon Queue for correct documents',()=>
     Global_Stuff.email()
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     //Select Documents and revert window back to current window
-    cy.get('[class^="dropdown selectAction"]').eq(0).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionDocumentsWithPolicyNumber()
 
   
 
@@ -43,7 +43,7 @@ Given('Check Paragon Queue for correct documents',()=>
     Global_Stuff.email()
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     cy.get('[class^="dropdown selectAction"]').eq(1).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
 
@@ -57,7 +57,7 @@ Given('Check Paragon Queue for correct documents',()=>
     Global_Stuff.email()
     Global_Stuff.searchButton()
     Global_Stuff.policySelectButton()
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click()
+    Global_Stuff.livePoliciesBTN()
 
     cy.get('[class^="dropdown selectAction"]').eq(2).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
     

@@ -27,10 +27,10 @@ Given('Agent can cancel a policy',()=>
      Global_Stuff.searchButton()
      Global_Stuff.policySelectButton()
     
-    //Select policy and Documents 
-    cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force:true})
+    //Select policy
+    Global_Stuff.livePoliciesBTN()
     
-    cy.get('[class^="dropdown selectAction"]').last().click().contains('Cancel Policy').invoke("removeAttr", "target").click({force:true})
+    Global_Stuff.selectActionCancelWithPolicyNumber()
    
     //Select Cancelation reason 
     Global_Stuff.cookiesAccept()

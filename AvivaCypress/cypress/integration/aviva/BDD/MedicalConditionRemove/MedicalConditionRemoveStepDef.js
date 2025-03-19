@@ -205,6 +205,7 @@ Given('Agent can add a Medical condition and remove ok',()=>
     //Thank you page
     Global_Stuff.thankyouHeading()
     Global_Stuff.notes()
+    Global_Stuff.retreivePolicyNumber()
     
     //Add and remove medical condition at MTA via B/O
     Global_Stuff.Server()
@@ -217,13 +218,13 @@ Given('Agent can add a Medical condition and remove ok',()=>
     Global_Stuff.livePoliciesBTN()
 
     //Select Make adjustment and revert window back to current window
-    Global_Stuff.selectActionMakeADJ()
+    Global_Stuff.selectActionMakeADJWithPolicyNumber()
 
     //Select to perform a permanent adjustment on Additional drivers
     Global_Stuff.permADJAdditionalDriver()
   
     Global_Stuff.additionalDriversContinue()
-    Global_Stuff.coverStartDate()
+    Global_Stuff.coverStartDatePlus1()
     Global_Stuff.coverStartContinue()
     Global_Stuff.permMTAContinue()
     Global_Stuff.postQuote2Heading()

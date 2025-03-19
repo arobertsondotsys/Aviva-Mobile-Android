@@ -9,28 +9,28 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global
+const Global_stuff = new Global
 
 Given('Customer MTA purchase', () => {
 
   //Access quote link 
-  Global_Stuff.Server1()
-  Global_Stuff.cookiesAccept()
-  Global_Stuff.loginEmail()
-  Global_Stuff.loginPassword()
-  Global_Stuff.loginPortalButton()
-  Global_Stuff.portalPolicySelect()
-  Global_Stuff.portalMakeAdjustmentSelect()
-  Global_Stuff.portalAdjustmentTypeSelect()
-  Global_Stuff.portalAdjContinue()
+  Global_stuff.Server1()
+  Global_stuff.cookiesAccept()
+  Global_stuff.loginEmail()
+  Global_stuff.loginPassword()
+  Global_stuff.loginPortalButton()
+  Global_stuff.portalMakeADJWithPolicyNumber()
+  Global_stuff.portalMakeAdjustmentSelect()
+  Global_stuff.portalAdjustmentTypeSelect()
+  Global_stuff.portalAdjContinue()
   // cy.get('.a-checkbox__label').click()
   // cy.get('#MainContent_Continue4').click()
-  Global_Stuff.portalMortgageSelect()
-  Global_Stuff.portalMortgageIntLetterTrue()
-  Global_Stuff.portalMortgageProvider()
-  Global_Stuff.completeAndPayCheckBox()
-  Global_Stuff.completeAndPayContinue()
-  Global_Stuff.thankyouHeading()
+  Global_stuff.portalMortgageSelect()
+  Global_stuff.portalMortgageIntLetterTrue()
+  Global_stuff.portalMortgageProvider()
+  Global_stuff.completeAndPayCheckBox()
+  Global_stuff.completeAndPayContinue()
+  Global_stuff.thankyouHeading()
   cy.contains('Your Notice of Bank Interest Letter')
 
   

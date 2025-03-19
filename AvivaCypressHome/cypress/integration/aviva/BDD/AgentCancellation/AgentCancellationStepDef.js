@@ -9,34 +9,34 @@ Cypress.on('uncaught:exception', (err, runnable) =>
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global
+const Global_stuff = new Global
 
 Given('Agent can cancel a policy', () => {
 
   //Login to back office 
-  Global_Stuff.Server()
-  Global_Stuff.company()
-  Global_Stuff.username()
-  Global_Stuff.password()
-  Global_Stuff.loginButton()
-  Global_Stuff.email()
-  Global_Stuff.searchButton()
-  Global_Stuff.policySelectButton()
-  Global_Stuff.livePoliciesBTN()
-  Global_Stuff.homePolicyTab()
-  Global_Stuff.selectActionCancelPolicy()
-  Global_Stuff.cookiesAccept()
-  Global_Stuff.cancellationRequest()
-  Global_Stuff.cancellationReason1()
-  Global_Stuff.cancellationReasonContinue()
+  Global_stuff.Server()
+  Global_stuff.company()
+  Global_stuff.username()
+  Global_stuff.password()
+  Global_stuff.loginButton()
+  Global_stuff.email()
+  Global_stuff.searchButton()
+  Global_stuff.policySelectButton()
+  Global_stuff.livePoliciesBTN()
+  Global_stuff.homePolicyTab()
+  Global_stuff.selectActionCancelWithPolicyNumber()
+  Global_stuff.cookiesAccept()
+  Global_stuff.cancellationRequest()
+  Global_stuff.cancellationReason1()
+  Global_stuff.cancellationReasonContinue()
   cy.wait(2000)
-  //Global_Stuff.cancellationInception()
+  //Global_stuff.cancellationInception()
   cy.contains('Cancel the policy back to inception').click()
   cy.wait(2000)
-  Global_Stuff.cancellationContinue()
+  Global_stuff.cancellationContinue()
   cy.wait(2000)
-  Global_Stuff.cancellationAccept()
-  Global_Stuff.cancellationDone()
+  Global_stuff.cancellationAccept()
+  Global_stuff.cancellationDone()
   
 
   

@@ -23,7 +23,7 @@ Given('Customer can upload a document',()=>
     Global_Stuff.loginPassword()
     Global_Stuff.loginPortalButton()
 
-    cy.get('#Main_MotorPolicyRepeaterDesktop_BtnSelectPolicyMob_0').click()
+    Global_Stuff.portalManagePolicyWithPolicyNumber()
     cy.get('#Main_btnUploadDocuments').click()
     cy.get('#Main_ddlDocumentUpload').select(1)
     cy.get('.a-file-upload__label').click()
