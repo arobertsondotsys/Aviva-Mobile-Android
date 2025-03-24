@@ -148,7 +148,7 @@ Given('Agent purchase home policy with docs set to post at NB', () => {
   cy.go(-3)
   Global_stuff.livePoliciesBTN()
   Global_stuff.homePolicyTab()
-  Global_stuff.selectActionDiaryWithPolicyNumber()WithPolicyNumber()
+  Global_stuff.selectActionDiaryWithPolicyNumber()
   Global_stuff.diaryAddAdHocLetters()
   
   Global_stuff.Server()

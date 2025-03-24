@@ -105,6 +105,7 @@ Given('Agent purchase home policy renewal as PIF from DD', () => {
   Global_stuff.completeAndPayHeading()
   Global_stuff.notes()
   Global_stuff.completeAndPayMortgage()
+  Global_stuff.completeAndPayMyAvivaDocsNo()
   Global_stuff.completeAndPayContinue()
 
   //Select payment type
