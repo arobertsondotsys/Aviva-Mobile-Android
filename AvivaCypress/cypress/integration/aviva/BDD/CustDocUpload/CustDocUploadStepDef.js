@@ -27,7 +27,7 @@ Given('Customer can upload a document',()=>
     cy.get('#Main_btnUploadDocuments').click()
     cy.get('#Main_ddlDocumentUpload').select(1)
     cy.get('.a-file-upload__label').click()
-    cy.get('input[type="file"]').selectFile("C:/Users/a.robertson/Pictures/Example.jpg", {force:true})
+    cy.get('input[type="file"]').selectFile("C:/Aviva/AvivaCypress/cypress/support/Example.jpg", {force:true})
     cy.get('#Main_btnUpload').click()
     cy.get('#Main_divSuccessMessage > .l-columns > .l-columns__column > .m-card > .m-card-content > .m-heading-group__item').contains('Upload successful')
        

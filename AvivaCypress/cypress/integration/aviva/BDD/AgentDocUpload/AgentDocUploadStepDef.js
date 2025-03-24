@@ -35,7 +35,7 @@ Given('Agent can upload document',()=>
     cy.get('#Upload').click()
     cy.get('#ctl00_ContentPlaceHolder1_DocumentTypeList').select("49")
     cy.get('#ctl00_ContentPlaceHolder1_ReferenceNumber').type('123')
-    cy.get('#ctl00_ContentPlaceHolder1_FileUpload').selectFile("C:/Users/a.robertson/Pictures/Example.jpg", {force: true})
+    cy.get('#ctl00_ContentPlaceHolder1_FileUpload').selectFile("C:/Aviva/AvivaCypress/cypress/support/Example.jpg", {force: true})
     cy.get('#ctl00_ContentPlaceHolder1_btnUpload').click()
     cy.get('[id^="ctl00_ContentPlaceHolder1_gvScannedDocuments_ctl"]').last().should('have.text', 'View') 
     
