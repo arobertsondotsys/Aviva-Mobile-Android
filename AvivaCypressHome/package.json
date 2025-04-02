@@ -15,7 +15,6 @@
     "cypress-mochawesome-reporter": "^3.8.2"
   },
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
     "@cypress/browserify-preprocessor": "latest",
     "cypress-xpath": "^2.0.1",
     "dayjs": "^1.11.7",

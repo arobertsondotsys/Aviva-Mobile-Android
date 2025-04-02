@@ -1,166 +1,127 @@
-const { defineConfig } = require("cypress");
-const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
-const fs = require('fs');
-const pdf = require('pdf-parse');
-const path = require('path') 
+const { defineConfig } = require("cypress")
+const fs = require('fs')
+const pdf = require('pdf-parse')
+const path = require('path')
+require('cypress-mochawesome-reporter/plugin')
 
 async function setupNodeEvents(on, config) {
-  
-  
-  
-  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
-  await preprocessor.addCucumberPreprocessorPlugin(on, config);
+  // Define the spec patterns
+  const qaSpecPattern = [
+    'cypress/integration/aviva/Tests/PolicyOwnership.cy.js',
+    //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
+    //'cypress/integration/aviva/Tests/A.cy.js',
+    'cypress/integration/aviva/Tests/Add7DriversAgent.cy.js',
+    'cypress/integration/aviva/Tests/Add7DriversCust.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueNYY.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueNNY.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueNYN.cy.js',
+    'cypress/integration/aviva/Tests/DocumentPreferences.cy.js',
+    'cypress/integration/aviva/Tests/AgentAdditionalDriverRemoveQA.cy.js',
+    'cypress/integration/aviva/Tests/AgentPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentUnlock.cy.js',
+    'cypress/integration/aviva/Tests/CheckCookies.cy.js',
+    'cypress/integration/aviva/Tests/AgentDocUpload.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTAPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTATempPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTADriverNumber.cy.js',
+    'cypress/integration/aviva/Tests/AmendNCD.cy.js',
+    'cypress/integration/aviva/Tests/MedicalConditionRemove.cy.js',
+    'cypress/integration/aviva/Tests/AgentCancelation.cy.js',
+    'cypress/integration/aviva/Tests/NTUCanc.cy.js',
+    'cypress/integration/aviva/Tests/PortalLogin.cy.js',
+    'cypress/integration/aviva/Tests/CustDocUpload.cy.js',
+    'cypress/integration/aviva/Tests/CustCancellation.cy.js',
+    'cypress/integration/aviva/Tests/PasswordReset.cy.js',
+    'cypress/integration/aviva/Tests/CustPurchQA.cy.js',
+    'cypress/integration/aviva/Tests/AgentUnlock1.cy.js',
+    'cypress/integration/aviva/Tests/CustMTATempPurchQA.cy.js',
+    'cypress/integration/aviva/Tests/CustMTAPurch.cy.js',
+    'cypress/integration/aviva/Tests/CustAdditionalDriverRemoveQA.cy.js',
+    'cypress/integration/aviva/Tests/MedicalConditionRenewalRemoveQA.cy.js',
+    'cypress/integration/aviva/Tests/AgentRenewalQA.cy.js',
+    'cypress/integration/aviva/Tests/CustRenewalQA.cy.js',
+    'cypress/integration/aviva/Tests/AmendRenewalNCDQA.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueCheck.cy.js',
+    'cypress/integration/aviva/Tests/DiaryCheck.cy.js',
+  ]
 
-  on("file:preprocessor", browserify.default(config));
-  require('cypress-mochawesome-reporter/plugin')(on);  
+  const demoSpecPattern = [
+    'cypress/integration/aviva/Tests/PolicyOwnership.cy.js',
+    //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
+    'cypress/integration/aviva/Tests/Add7DriversAgent.cy.js',
+    'cypress/integration/aviva/Tests/Add7DriversCust.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueNYY.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueNNY.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueNYN.cy.js',
+    'cypress/integration/aviva/Tests/DocumentPreferences.cy.js',
+    'cypress/integration/aviva/Tests/AgentAdditionalDriverRemove.cy.js',
+    'cypress/integration/aviva/Tests/AgentPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentUnlock.cy.js',
+    'cypress/integration/aviva/Tests/CheckCookies.cy.js',
+    'cypress/integration/aviva/Tests/AgentDocUpload.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTAPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTATempPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTADriverNumber.cy.js',
+    'cypress/integration/aviva/Tests/AmendNCD.cy.js',
+    'cypress/integration/aviva/Tests/MedicalConditionRemove.cy.js',
+    'cypress/integration/aviva/Tests/AgentCancelation.cy.js',
+    'cypress/integration/aviva/Tests/NTUCanc.cy.js',
+    'cypress/integration/aviva/Tests/PortalLogin.cy.js',
+    'cypress/integration/aviva/Tests/CustDocUpload.cy.js',
+    'cypress/integration/aviva/Tests/CustCancellation.cy.js',
+    'cypress/integration/aviva/Tests/PasswordReset.cy.js',
+    'cypress/integration/aviva/Tests/CustPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentUnlock1.cy.js',
+    'cypress/integration/aviva/Tests/CustMTATempPurch.cy.js',
+    'cypress/integration/aviva/Tests/CustMTAPurch.cy.js',
+    'cypress/integration/aviva/Tests/CustAdditionalDriverRemove.cy.js',
+    'cypress/integration/aviva/Tests/MedicalConditionRenewalRemove.cy.js',
+    'cypress/integration/aviva/Tests/AgentRenewal.cy.js',
+    'cypress/integration/aviva/Tests/CustRenewal.cy.js',
+    'cypress/integration/aviva/Tests/AmendRenewalNCD.cy.js',
+    'cypress/integration/aviva/Tests/ParagonQueueCheck.cy.js',
+    'cypress/integration/aviva/Tests/DiaryCheck.cy.js',
+  ]
 
-  // Modify config if needed
+  // Determine the spec pattern based on the environment variable
+  const serverKey = config.env.serverKey
 
-  //Spec Pattern for Batch printer checks***
-  // config.specPattern = [
+  if (['QA', 'QA2', 'QA3'].includes(serverKey)) {
+    config.specPattern = qaSpecPattern
+  } else if (['TEST2LOADED', 'DEMO', 'TEST3FAT', 'TEST4E2E', 'TEST5PRICING', 'TEST6TRAINING', 'TEST7HOTFIX', 'TEST8CRMIGRATION', 'TEST9FATMIGRATION', 'TEST10PRODMIGRATION', 'GCCPRE'].includes(serverKey)) {
+    config.specPattern = demoSpecPattern
+  }
 
-  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-  //   'cypress/integration/aviva/BDD/BatchprintertestNNY.feature',
-  //   'cypress/integration/aviva/BDD/BatchprintertestNYN.feature',
-  //   'cypress/integration/aviva/BDD/BatchprintertestNYY.feature',
-  //   'cypress/integration/aviva/BDD/BatchprinterCheck.feature',
-
-  // ];
-
-  //Spec Pattern for QA ONLY***
-  config.specPattern = [
-
-    
-    'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-    //'cypress/integration/aviva/BDD/ChaserCheck.feature',
-    //'cypress/integration/aviva/BDD/A.feature',
-    'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
-    'cypress/integration/aviva/BDD/Add7DriversCust.feature',
-    'cypress/integration/aviva/BDD/ParagonQueueNYY.feature',
-    'cypress/integration/aviva/BDD/ParagonQueueNNY.feature',
-    'cypress/integration/aviva/BDD/ParagonQueueNYN.feature',
-    'cypress/integration/aviva/BDD/DocumentPreferences.feature',
-    'cypress/integration/aviva/BDD/AgentAdditionalDriverRemoveQA.feature',
-    'cypress/integration/aviva/BDD/AgentPurch.feature',
-    'cypress/integration/aviva/BDD/AgentUnlock.feature',
-    'cypress/integration/aviva/BDD/CheckCookies.feature',
-    'cypress/integration/aviva/BDD/AgentDocUpload.feature',
-    'cypress/integration/aviva/BDD/AgentMTAPurch.feature',
-    'cypress/integration/aviva/BDD/AgentMTATempPurch.feature',
-    'cypress/integration/aviva/BDD/AgentMTADriverNumber.feature',
-    'cypress/integration/aviva/BDD/AmendNCD.feature',
-    'cypress/integration/aviva/BDD/MedicalConditionRemove.feature',
-    'cypress/integration/aviva/BDD/AgentCancelation.feature',
-    'cypress/integration/aviva/BDD/NTUCanc.feature',
-    'cypress/integration/aviva/BDD/PortalLogin.feature',
-    'cypress/integration/aviva/BDD/CustDocUpload.feature',
-    'cypress/integration/aviva/BDD/CustCancellation.feature',
-    'cypress/integration/aviva/BDD/PasswordReset.feature',
-    'cypress/integration/aviva/BDD/CustPurchQA.feature',
-    'cypress/integration/aviva/BDD/AgentUnlock1.feature',
-    'cypress/integration/aviva/BDD/CustMTATempPurchQA.feature',
-    'cypress/integration/aviva/BDD/CustMTAPurch.feature',
-    'cypress/integration/aviva/BDD/CustAdditionalDriverRemoveQA.feature',
-    'cypress/integration/aviva/BDD/MedicalConditionRenewalRemoveQA.feature',
-    'cypress/integration/aviva/BDD/AgentRenewalQA.feature',
-    'cypress/integration/aviva/BDD/CustRenewalQA.feature',
-    'cypress/integration/aviva/BDD/AmendRenewalNCDQA.feature',
-    'cypress/integration/aviva/BDD/ParagonQueueCheck.feature',
-    'cypress/integration/aviva/BDD/DiaryCheck.feature',
-  
-    
-   ];
-
-  //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
-  // config.specPattern = [
-
-  //   'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-  //   //'cypress/integration/aviva/BDD/ChaserCheck.feature',
-  //   'cypress/integration/aviva/BDD/Add7DriversAgent.feature',
-  //   'cypress/integration/aviva/BDD/Add7DriversCust.feature',
-  //   'cypress/integration/aviva/BDD/ParagonQueueNYY.feature',
-  //   'cypress/integration/aviva/BDD/ParagonQueueNNY.feature',
-  //   'cypress/integration/aviva/BDD/ParagonQueueNYN.feature',
-  //   'cypress/integration/aviva/BDD/DocumentPreferences.feature',
-  //   'cypress/integration/aviva/BDD/AgentAdditionalDriverRemove.feature',
-  //   'cypress/integration/aviva/BDD/AgentPurch.feature',
-  //   'cypress/integration/aviva/BDD/AgentUnlock.feature',
-  //   'cypress/integration/aviva/BDD/CheckCookies.feature',
-  //   'cypress/integration/aviva/BDD/AgentDocUpload.feature',
-  //   'cypress/integration/aviva/BDD/AgentMTAPurch.feature',
-  //   'cypress/integration/aviva/BDD/AgentMTATempPurch.feature',
-  //   'cypress/integration/aviva/BDD/AgentMTADriverNumber.feature',
-  //   'cypress/integration/aviva/BDD/AmendNCD.feature',
-  //   'cypress/integration/aviva/BDD/MedicalConditionRemove.feature',
-  //   'cypress/integration/aviva/BDD/AgentCancelation.feature',
-  //   'cypress/integration/aviva/BDD/NTUCanc.feature',
-  //   'cypress/integration/aviva/BDD/PortalLogin.feature',
-  //   'cypress/integration/aviva/BDD/CustDocUpload.feature',
-  //   'cypress/integration/aviva/BDD/CustCancellation.feature',
-  //   'cypress/integration/aviva/BDD/PasswordReset.feature',
-  //   'cypress/integration/aviva/BDD/CustPurch.feature',
-  //   'cypress/integration/aviva/BDD/AgentUnlock1.feature',
-  //   'cypress/integration/aviva/BDD/CustMTATempPurch.feature',
-  //   'cypress/integration/aviva/BDD/CustMTAPurch.feature',
-  //   'cypress/integration/aviva/BDD/CustAdditionalDriverRemove.feature',
-  //   'cypress/integration/aviva/BDD/MedicalConditionRenewalRemove.feature',
-  //   'cypress/integration/aviva/BDD/AgentRenewal.feature',
-  //   'cypress/integration/aviva/BDD/CustRenewal.feature',
-  //   'cypress/integration/aviva/BDD/AmendRenewalNCD.feature',
-  //   'cypress/integration/aviva/BDD/ParagonQueueCheck.feature',
-  //   'cypress/integration/aviva/BDD/DiaryCheck.feature',
-    
-    
-  //  ];
-
-
-//   // Make sure to return the config object as it might have been modified by the plugin.
-   return config;
- }
-
+  // Make sure to return the config object as it might have been modified by the plugin.
+  return config
+}
 
 module.exports = defineConfig({
-  
-
   redirectionLimit: 100,
   //video: true,
   reporter: 'cypress-mochawesome-reporter',
-    reporterOptions: {
-      charts: true,
-      useInlineDiffs: true,
-      embeddedScreenshots: true,
-      videoOnFailOnly: true,
-      reportFilename: 'Aviva Automation results',
-    
-
-    },
-  "chromeWebSecurity": false,
-
+  reporterOptions: {
+    charts: true,
+    useInlineDiffs: true,
+    embeddedScreenshots: true,
+    videoOnFailOnly: true,
+    reportFilename: 'Aviva Automation results',
+  },
+  chromeWebSecurity: false,
   defaultCommandTimeout: 10000,
-
   viewportWidth: 1920,
   viewportHeight: 1400,
-
   pageLoadTimeout: 200000,
-
-  retries: 
-  {
+  retries: {
     runMode: 1,
     openMode: 0,
   },
   e2e: {
-     experimentalRunAllSpecs: true,
-     setupNodeEvents,
-        
-     
-     
-     
-      
-
-
-    }, 
-  
-  
-  
-});
+    experimentalRunAllSpecs: true,
+    setupNodeEvents,
+    specPattern: '**/*.cy.js', // Default pattern
+    env: {
+      serverKey: 'QA2' // Set the default serverKey here
+    }
+  },
+})

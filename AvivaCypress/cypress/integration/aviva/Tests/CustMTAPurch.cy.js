@@ -1,0 +1,99 @@
+import { Global } from "../AvivaPOM/Page Actions/POMActions"
+
+// Uncaught exception errors are bypassed when found to stop test from failing
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+})
+
+/// <reference types= "Cypress"/>
+
+const Global_Stuff = new Global()
+const day = require('dayjs')
+
+describe('Customer can purchase an MTA', () => {
+    it('should complete the process of purchasing an MTA', () => {
+        Global_Stuff.Server1()
+
+        Global_Stuff.cookiesAccept()
+        cy.get('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
+
+        Global_Stuff.loginEmail()
+        Global_Stuff.loginPassword()
+        Global_Stuff.loginPortalButton()
+
+        // cy.get('#RenewalDueModal > .CloseBtnMockup').click()
+        Global_Stuff.portalManagePolicyWithPolicyNumber()
+        cy.get('#Main_btnAdjustment').click()
+        cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force: true})
+        cy.window().then((win) => {
+            cy.get('#btnMakePermaChange').click({force: true})
+            const orig = win.open
+            win.open = function (url, target, features) {
+                return orig.call(this, url, '_self', features)
+            }
+        })
+
+        // Input AD details
+        cy.get('#IsAdditionalDriver-True > .a-radio > .a-radio__label').click()
+        cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
+        cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
+        cy.get('#ctl00_MainContent_DriverSurname').type('Vader')
+        cy.get('#ctl00_MainContent_DriverDOB').type('01/01/1950')
+        cy.get('#DriverEmploymentStatus').select('E')
+        cy.get('#txtDriverOccupation').type('shop as')
+        cy.get('#ui-id-2').click()
+        cy.get('#DriverLicenceType').select(1)
+        cy.get('#ctl00_MainContent_DriverLicenceYearsHeld').select(3)
+        cy.wait(2000)
+        cy.get('#AdditionalDriverNumber').type('123459972')
+        cy.wait(2000)
+        cy.get('#RelationshipToProposer').select(1)
+        cy.get('#IsSpouseOwnVehicle-True > .a-radio > .a-radio__label').click()
+        cy.get('#SaveDriver').click()
+        cy.get('#IsAdditionalDriver-False > .a-radio > .a-radio__label').click()
+        cy.wait(2000)
+        cy.get('#Continue5').click()
+
+        // Claims screen
+        Global_Stuff.claimsFalseLast()
+        Global_Stuff.claimsContinue()
+
+        // Penalty points screen
+        Global_Stuff.ppFalseLast()
+        Global_Stuff.ppContinue()
+
+        // Start date
+        cy.get('#div8').contains('Cover start date')
+        cy.get('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
+        cy.get('#TermsAndConditions > .a-checkbox > .a-checkbox__label').click()
+        cy.get('#ctl00_MainContent_Continue8').click()
+
+        // Quote screen
+        Global_Stuff.permMTABuyNow()
+
+        // Complete post quote 2 "About the drivers"
+        Global_Stuff.postQuote2Heading()
+        Global_Stuff.postQuote2IsMainDriverTrue()
+        Global_Stuff.postQuote2IsNotOtherCarTrue()
+        Global_Stuff.postQuote2IsNotOtherInsTrue()
+        Global_Stuff.postQuote2IsNoConvictionTrue()
+        Global_Stuff.postQuote2IsNoDisqualificationTrue()
+        Global_Stuff.postQuote2IsNoRefusalTrue()
+        Global_Stuff.postQuote2IsNoIncreaseTrue()
+        Global_Stuff.postQuote2IsNoMedicalTrue()
+        Global_Stuff.postQuote2Continue()
+
+        // Post quote screen 3
+        Global_Stuff.coverStartCustomerQuote()
+        Global_Stuff.postQuote3Continue()
+
+        // Thank you page
+        Global_Stuff.thankyouHeading()
+    })
+})
+
+
+
+  
+
+

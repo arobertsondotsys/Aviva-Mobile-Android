@@ -1,83 +1,78 @@
-const { defineConfig } = require("cypress");
-const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
-
-
+const { defineConfig } = require("cypress")
 
 
 async function setupNodeEvents(on, config) {
   
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
-  await preprocessor.addCucumberPreprocessorPlugin(on, config);
-
-  on("file:preprocessor", browserify.default(config));
-  require('cypress-mochawesome-reporter/plugin')(on);  
+  
+  require('cypress-mochawesome-reporter/plugin')(on)  
 
   
 
   // Modify config if needed
   //*****SPEC PATTERN FOR QA ONLY
-  config.specPattern = [
-   
-     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-     'cypress/integration/aviva/BDD/AgentPurch.feature',
-     'cypress/integration/aviva/BDD/AgentMTAQA.feature',
-     'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
-     'cypress/integration/aviva/BDD/CustPurchQA.feature',
-     'cypress/integration/aviva/BDD/CustMTA.feature',
-     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
-     'cypress/integration/aviva/BDD/RenewalAgentPIFtoDDQA.feature',
-     'cypress/integration/aviva/BDD/RenewalCustPIFtoDDQA.feature',
-     'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIFQA.feature',
-     'cypress/integration/aviva/BDD/RenewalCustPIFtoPIFQA.feature',
-     'cypress/integration/aviva/BDD/RenewalAgentDDtoPIFQA.feature',
-     'cypress/integration/aviva/BDD/RenewalCustDDtoPIFQA.feature',
-     'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRolloverQA.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckNBQA.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckNBNoPay.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckNBNoPayAdHocLetters.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckMTAQA.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckMTAQANoDocsWithCharge.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckRNLQA.feature',
-     'cypress/integration/aviva/BDD/ParagonCheckRNLMTAQA.feature',
-     'cypress/integration/aviva/BDD/AgentCancellation.feature'
-    
-    
-  ];
+  const qaSpecPattern = [
+     'cypress/integration/aviva/Tests/PolicyOwnership.cy.js',
+     'cypress/integration/aviva/Tests/AgentPurch.cy.js',
+     'cypress/integration/aviva/Tests/AgentMTAQA.cy.js',
+     'cypress/integration/aviva/Tests/AgentMTAJointProv.cy.js',
+     'cypress/integration/aviva/Tests/CustPurchQA.cy.js',
+     'cypress/integration/aviva/Tests/CustMTA.cy.js',
+     'cypress/integration/aviva/Tests/AgentPurchJointProv.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentPIFtoDDQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalCustPIFtoDDQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentPIFtoPIFQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalCustPIFtoPIFQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentDDtoPIFQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalCustDDtoPIFQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentDDtoDDAutoRolloverQA.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckNBQA.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckNBNoPay.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckNBNoPayAdHocLetters.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckMTAQA.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckMTAQANoDocsWithCharge.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckRNLQA.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckRNLMTAQA.cy.js',
+     'cypress/integration/aviva/Tests/AgentCancellation.cy.js'
+  ]
 
   //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
-//   config.specPattern = [
-    
-//     'cypress/integration/aviva/BDD/PolicyOwnership.feature',
-//     'cypress/integration/aviva/BDD/AgentPurch.feature',
-//     'cypress/integration/aviva/BDD/AgentMTA.feature',
-//     'cypress/integration/aviva/BDD/AgentMTAJointProv.feature',
-//     'cypress/integration/aviva/BDD/CustPurch.feature',
-//     'cypress/integration/aviva/BDD/CustMTA.feature',
-//     'cypress/integration/aviva/BDD/AgentPurchJointProv.feature',
-//     'cypress/integration/aviva/BDD/RenewalAgentPIFtoDD.feature',
-//     'cypress/integration/aviva/BDD/RenewalCustPIFtoDD.feature',
-//     'cypress/integration/aviva/BDD/RenewalAgentPIFtoPIF.feature',
-//     'cypress/integration/aviva/BDD/RenewalCustPIFtoPIF.feature',
-//     'cypress/integration/aviva/BDD/RenewalAgentDDtoPIF.feature',
-//     'cypress/integration/aviva/BDD/RenewalCustDDtoPIF.feature',
-//     'cypress/integration/aviva/BDD/RenewalAgentDDtoDDAutoRollover.feature',
-//     'cypress/integration/aviva/BDD/ParagonCheckNB.feature',
-//     'cypress/integration/aviva/BDD/ParagonCheckNBNoPay.feature',
-//     'cypress/integration/aviva/BDD/ParagonCheckNBNoPayAdHocLetters.feature',
-//     'cypress/integration/aviva/BDD/ParagonCheckMTA.feature',
-//     'cypress/integration/aviva/BDD/ParagonCheckMTANoDocsWithCharge.feature',
-//     'cypress/integration/aviva/BDD/ParagonCheckRNL.feature',
-//     'cypress/integration/aviva/BDD/ParagonCheckRNLMTA.feature',
-//     'cypress/integration/aviva/BDD/AgentCancellation.feature',
+  const demoSpecPattern = [
+    'cypress/integration/aviva/Tests/PolicyOwnership.cy.js',
+    'cypress/integration/aviva/Tests/AgentPurch.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTA.cy.js',
+    'cypress/integration/aviva/Tests/AgentMTAJointProv.cy.js',
+    'cypress/integration/aviva/Tests/CustPurch.cy.js',
+    'cypress/integration/aviva/Tests/CustMTA.cy.js',
+    'cypress/integration/aviva/Tests/AgentPurchJointProv.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentPIFtoDD.cy.js',
+    'cypress/integration/aviva/Tests/RenewalCustPIFtoDD.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentPIFtoPIF.cy.js',
+    'cypress/integration/aviva/Tests/RenewalCustPIFtoPIF.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentDDtoPIF.cy.js',
+    'cypress/integration/aviva/Tests/RenewalCustDDtoPIF.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentDDtoDDAutoRollover.cy.js',
+    'cypress/integration/aviva/Tests/ParagonCheckNB.cy.js',
+    'cypress/integration/aviva/Tests/ParagonCheckNBNoPay.cy.js',
+    'cypress/integration/aviva/Tests/ParagonCheckNBNoPayAdHocLetters.cy.js',
+    'cypress/integration/aviva/Tests/ParagonCheckMTA.cy.js',
+    'cypress/integration/aviva/Tests/ParagonCheckMTANoDocsWithCharge.cy.js',
+    'cypress/integration/aviva/Tests/ParagonCheckRNL.cy.js',
+    'cypress/integration/aviva/Tests/ParagonCheckRNLMTA.cy.js',
+    'cypress/integration/aviva/Tests/AgentCancellation.cy.js', 
+ ]
 
-    
-      
-   
-//  ];
+ // Determine the spec pattern based on the environment variable
+ const serverKey = config.env.serverKey
 
-  // Make sure to return the config object as it might have been modified by the plugin.
-  return config;
+ if (['QA', 'QA2', 'QA3'].includes(serverKey)) {
+   config.specPattern = qaSpecPattern
+ } else if (['TEST2LOADED', 'DEMO', 'TEST3FAT', 'TEST4E2E', 'TEST5PRICING', 'TEST6TRAINING', 'TEST7HOTFIX', 'TEST8CRMIGRATION', 'TEST9FATMIGRATION', 'TEST10PRODMIGRATION', 'GCCPRE'].includes(serverKey)) {
+   config.specPattern = demoSpecPattern
+ }
+
+ // Make sure to return the config object as it might have been modified by the plugin.
+ return config
 }
 
 
@@ -114,9 +109,13 @@ module.exports = defineConfig({
     experimentalRunAllSpecs: true,
     experimentalOriginDependencies: true,
     setupNodeEvents,
+    specPattern: '**/*.cy.js', // Default pattern
+    env: {
+      serverKey: 'QA2' // Set the default serverKey here
+    }
     
   
   }
   
-});
+})
 

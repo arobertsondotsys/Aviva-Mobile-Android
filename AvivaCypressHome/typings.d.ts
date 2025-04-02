@@ -1,1 +1,1 @@
-declare module 'cypress-email-results';
+declare module 'cypress-email-results'
