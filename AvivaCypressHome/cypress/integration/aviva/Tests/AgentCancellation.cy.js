@@ -27,12 +27,12 @@ describe('Agent can cancel a policy', () => {
     Global_stuff.cancellationRequest()
     Global_stuff.cancellationReason1()
     Global_stuff.cancellationReasonContinue()
-    cy.wait(2000)
+    
     // Global_stuff.cancellationInception()
     cy.contains('Cancel the policy back to inception').click()
-    cy.wait(2000)
+    
     Global_stuff.cancellationContinue()
-    cy.wait(2000)
+    
     Global_stuff.cancellationAccept()
     Global_stuff.cancellationDone()
   })

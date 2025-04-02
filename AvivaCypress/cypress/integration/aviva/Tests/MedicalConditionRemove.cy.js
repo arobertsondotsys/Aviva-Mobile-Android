@@ -39,7 +39,6 @@ describe('Agent can add a Medical condition and remove ok', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(2000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -48,13 +47,11 @@ describe('Agent can add a Medical condition and remove ok', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(2000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -65,9 +62,7 @@ describe('Agent can add a Medical condition and remove ok', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -91,22 +86,17 @@ describe('Agent can add a Medical condition and remove ok', () => {
         
         // Complete section 6 "Your claims"
         Global_Stuff.additionalDriverAddedHeading()
-        cy.reload()
         Global_Stuff.notes()
         Global_Stuff.claimsHeading()
         Global_Stuff.claimsFalse1st()
-        cy.wait(2000)
         Global_Stuff.claimsFalseLast()
-        cy.wait(2000)
         Global_Stuff.claimsContinue()
 
         // Complete section 7 "Penalty points"
         Global_Stuff.ppHeading()
         Global_Stuff.notes()
         Global_Stuff.ppFalse1st()
-        cy.wait(3000)
         Global_Stuff.ppFalseLast()
-        cy.wait(3000)
         Global_Stuff.ppContinue()
 
         // Complete section 8 "Cover start date"
@@ -117,7 +107,6 @@ describe('Agent can add a Medical condition and remove ok', () => {
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -157,25 +146,21 @@ describe('Agent can add a Medical condition and remove ok', () => {
         Global_Stuff.postQuote2addMedicalConditionSave()
         
         Global_Stuff.postQuote2MedicalDeleteBTN()
-        cy.wait(2000)
         Global_Stuff.postQuote2MedicalRemoveBTN()
         
-        Global_Stuff.postQuote1wnCar()
-        Global_Stuff.postQuote1PrivateIns()
-        Global_Stuff.postQuote1Continue()
+        // Global_Stuff.postQuote1wnCar()
+        // Global_Stuff.postQuote1PrivateIns()
+        // Global_Stuff.postQuote1Continue()
 
         Global_Stuff.postQuote2MedicalDeleteBTN1()
-        cy.wait(2000)
         Global_Stuff.postQuote2MedicalRemoveBTN()
-        cy.wait(2000)
 
-        Global_Stuff.postQuote1wnCar()
-        Global_Stuff.postQuote1PrivateIns()
-        Global_Stuff.postQuote1Continue()
+        // Global_Stuff.postQuote1wnCar()
+        // Global_Stuff.postQuote1PrivateIns()
+        // Global_Stuff.postQuote1Continue()
         
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -185,12 +170,10 @@ describe('Agent can add a Medical condition and remove ok', () => {
         Global_Stuff.postQuote3NoOtherNCDTrue()
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
         Global_Stuff.paymentTypeAgentNoPay()
         Global_Stuff.paymentTypeAgentNoPayContinue()
 
@@ -223,11 +206,12 @@ describe('Agent can add a Medical condition and remove ok', () => {
         Global_Stuff.coverStartDatePlus1()
         Global_Stuff.coverStartContinue()
         Global_Stuff.permMTAContinue()
-        Global_Stuff.postQuote2Heading()
-        Global_Stuff.notes()
+        
 
         // Completing post quote screen 2 questions - adding medical condition to drivers and removing
+        Global_Stuff.postQuote2Headingselect()
         Global_Stuff.postQuote2Heading()
+        Global_Stuff.notes()
         Global_Stuff.postQuote2IsNoMedicalFalse()
         Global_Stuff.postQuote2addMedicalConditionBTN()
         Global_Stuff.postQuote2addMedicalConditionDriver()
@@ -239,21 +223,20 @@ describe('Agent can add a Medical condition and remove ok', () => {
         Global_Stuff.postQuote2addMedicalConditionSelect1()
         Global_Stuff.postQuote2addMedicalConditionInformed()
         Global_Stuff.postQuote2addMedicalConditionSave()
-        cy.get('#RemoveCondition').click({force: true})
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click({force: true})
-        cy.wait(2000)
-        cy.get('#accHeading2 > .m-showhide__control').click({force: true})
-        cy.get('#RemoveCondition').click({force: true})
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click({force: true})
-        cy.wait(2000)
+        cy.wait(1000)
+        cy.getAndWait('#RemoveCondition').click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
+        cy.wait(1000)
+        Global_Stuff.postQuote2Headingselect()
+        cy.getAndWait('#RemoveCondition').click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
+        cy.wait(1000)
+        Global_Stuff.postQuote2Headingselect()
         Global_Stuff.postQuote2IsNoMedicalTrue()
-        Global_Stuff.postQuote2Continue()
         
         // Completing post quote screen 3 
         Global_Stuff.postQuote3Continue()
 
-        cy.get('.m-card-content > p').should('contain', 'Go back to make a change to your details')
+        cy.getAndWait('.m-card-content > p').should('contain', 'Go back to make a change to your details')
     })
 })

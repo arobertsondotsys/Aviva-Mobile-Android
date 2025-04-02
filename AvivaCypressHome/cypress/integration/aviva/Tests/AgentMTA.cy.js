@@ -1,4 +1,4 @@
-import { Global } from "../BDD/AvivaPOM/Page Actions/POMActionsHome"
+import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -32,7 +32,7 @@ describe('Agent MTA purchase', () => {
     Global_stuff.addSpecifiedItemType()
     Global_stuff.addSpecifiedItemValue()
     Global_stuff.addSpecifiedItemAddItem()
-    cy.wait(10000)
+    //cy.wait(120000)
     Global_stuff.adjustmentBuyNowBTN()
     Global_stuff.completeAndPayContinue()
     Global_stuff.paymentTypeAgentCard()

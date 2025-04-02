@@ -31,7 +31,6 @@ describe('Customer can purchase a policy via website', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -40,12 +39,10 @@ describe('Customer can purchase a policy via website', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.insuranceDetailsContinue()
 
@@ -54,9 +51,7 @@ describe('Customer can purchase a policy via website', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -84,7 +79,6 @@ describe('Customer can purchase a policy via website', () => {
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartCustomerQuote()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -109,7 +103,6 @@ describe('Customer can purchase a policy via website', () => {
         Global_Stuff.postQuote2IsNoIncreaseTrue()
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -119,7 +112,6 @@ describe('Customer can purchase a policy via website', () => {
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
         Global_Stuff.coverStartCustomerQuote1()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment screen

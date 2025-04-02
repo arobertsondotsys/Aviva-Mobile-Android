@@ -40,7 +40,6 @@ describe('Customer can add a driver and remove at ADJ', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -49,13 +48,11 @@ describe('Customer can add a driver and remove at ADJ', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -66,9 +63,7 @@ describe('Customer can add a driver and remove at ADJ', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -141,7 +136,6 @@ describe('Customer can add a driver and remove at ADJ', () => {
         Global_Stuff.postQuote2IsNoIncreaseTrue()
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -152,12 +146,10 @@ describe('Customer can add a driver and remove at ADJ', () => {
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
         //Global_Stuff.coverStartNotCustomerQuote()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
         Global_Stuff.paymentTypeAgentNoPay()
         Global_Stuff.paymentTypeAgentNoPayContinue()
 
@@ -183,20 +175,20 @@ describe('Customer can add a driver and remove at ADJ', () => {
         Global_Stuff.Server1()
 
         Global_Stuff.cookiesAccept()
-        cy.get('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
+        cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
 
         Global_Stuff.loginEmail()
         Global_Stuff.loginPassword()
         Global_Stuff.loginPortalButton()
 
-        //cy.get('#RenewalDueModal > .CloseBtnMockup').click()
+        //cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()
         Global_Stuff.portalManagePolicyWithPolicyNumber()
-        cy.get('#Main_btnAdjustment').click()
-        cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
+        cy.getAndWait('#Main_btnAdjustment').click()
+        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
         cy.window().then((win) => {
-            cy.get('#btnMakePermaChange').click({force:true})
+            cy.getAndWait('#btnMakePermaChange').click({force:true})
             const orig = win.open
-            win.open = function (url, target, features) {
+            win.open = function (url, targetAndWait, features) {
                 return orig.call(this, url, '_self', features)
             }
         })
@@ -205,16 +197,17 @@ describe('Customer can add a driver and remove at ADJ', () => {
         cy.contains('Remove driver').click({force: true})
         cy.contains('Additional drivers', {force: true})
         cy.contains('Sarah Vader', {force: true})
-        cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
         cy.wait(2000)
-        cy.get('#Continue5').click()
-        cy.get('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'),{force:true})
-        cy.get('#ctl00_MainContent_Continue8').click({force:true})
+        cy.getAndWait('#Continue5').click()
+        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'),{force:true})
+        cy.getAndWait('#ctl00_MainContent_Continue8').click({force:true})
         Global_Stuff.coverStartCustomerQuote()
         Global_Stuff.coverStartContinue()
+        cy.wait(120000)
 
-        cy.get('#ctl00_MainContent_btnBuyNow').click({force:true})
-        cy.get('#div2').contains('About the drivers')
+        cy.getAndWait('#ctl00_MainContent_btnBuyNow').click({force:true})
+        cy.getAndWait('#div2').contains('About the drivers')
 
         // Completing post quote screen 2 questions
         Global_Stuff.postQuote2Heading()

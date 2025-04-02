@@ -36,9 +36,9 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     Global_stuff.postalAddressConfirm()
     Global_stuff.occupancy()
     Global_stuff.proposerEmployStatus()
-    cy.wait(2000)
+    
     Global_stuff.bizStatus()
-    cy.wait(2000)
+    
     Global_stuff.aboutYouContinueHome()
   
     // Your Property
@@ -60,7 +60,7 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     Global_stuff.heatingType()
     Global_stuff.goodStateOfRepairTrue()
     Global_stuff.floodSubsidenceFalse()
-    cy.wait(2000)
+    
     Global_stuff.yourPropertyContinue()
 
     // Your cover
@@ -69,7 +69,7 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     Global_stuff.buildingAndContentsTrue()
     Global_stuff.buildingAndContentsFalse()
     Global_stuff.buildingAndContentsTrue()
-    cy.wait(2000)
+    
     Global_stuff.homeValue()
     Global_stuff.contentsValue()
     Global_stuff.isClaimsFalse()
@@ -77,14 +77,14 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     Global_stuff.isRefusedFalse()
     Global_stuff.isSpecialFalse()
     Global_stuff.isCancelledFalse()
-    cy.wait(2000)
+    
     Global_stuff.yourCoverContinue()
 
     // Policy start date and claims
     Global_stuff.coverStartTitle()
     Global_stuff.notes()
     Global_stuff.claimsFreeYears()
-    cy.wait(2000)
+    
     Global_stuff.coverStartDate()
     Global_stuff.coverStartHaveCarIns()
     Global_stuff.coverStartMarketing()
@@ -102,21 +102,21 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     // Adding all Optional covers
     Global_stuff.quotePageAccidentalDamageViewOptions()
     Global_stuff.quotePageAccidentalDamageAddCover()
-    cy.wait(2000)
+    
     Global_stuff.quotePageOptionalCoverViewOptions()
     Global_stuff.quotePageOptionalCoverAddSpecifiedItem()
-    cy.wait(2000)
+    
     Global_stuff.quotePageManageYourExcessViewOptions()
     Global_stuff.quotePageManageYourExcess500()
-    cy.wait(2000)
+    
     Global_stuff.quotePageGardenCoverViewOptions()
     Global_stuff.quotePageGardenCover1000()
-    cy.wait(2000)
+    
     Global_stuff.quotePageCaravanCoverViewOptions()
     Global_stuff.quotePageCaravanCoverAddWithPersonal()
 
     cy.pause()
-    cy.wait(2000)
+    
     Global_stuff.quotePageBuyNowBtn()
 
     // Complete and pay
@@ -124,7 +124,7 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     Global_stuff.notes()
     Global_stuff.completeAndPayMortgage()
     Global_stuff.completeAndPayMyAvivaDocsNo()
-    Global_stuff.completeAndPayNoCheckBox()
+    
     Global_stuff.completeAndPayContinue()
 
     // Select payment type

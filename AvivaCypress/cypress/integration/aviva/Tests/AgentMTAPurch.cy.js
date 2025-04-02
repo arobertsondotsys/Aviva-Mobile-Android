@@ -33,42 +33,41 @@ describe('Agent can purchase MTA', () => {
         
         // Select to perform a permanent adjustment on contact details
         Global_Stuff.cookiesAccept()
-        cy.get('#ctl00_MainContent_ddlPermaSelection').select('Contacts', {force: true}).should('have.value', 'Contacts')
-        cy.get('#btnMakePermaChange').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select('Contacts', {force: true}).should('have.value', 'Contacts')
+        cy.getAndWait('#btnMakePermaChange').click({force: true})
         
         // Amend Contact number
-        cy.get('#ctl00_MainContent_ProposerMobile').clear().type('07950439086')
-        cy.get('#ctl00_MainContent_Continue1').click()
+        cy.getAndWait('#ctl00_MainContent_ProposerMobile').clear().type('07950439086')
+        cy.getAndWait('#ctl00_MainContent_Continue1').click()
         
         // Input date for MTA to start
-        cy.get('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'), {force: true})
-        cy.get('#ctl00_MainContent_Continue8').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'), {force: true})
+        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
         
         // Checking the heading, Note box present 
-        cy.get('#ctl00_MainContent_NoPaymentPerma > .a-heading').contains('No payment required')
-        cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-        cy.get('#ctl00_MainContent_btnContinue').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_NoPaymentPerma > .a-heading').contains('No payment required')
+        Global_Stuff.notes()
+        cy.getAndWait('#ctl00_MainContent_btnContinue').click({force: true})
         
         // Completing post quote screen 2 questions
-        cy.wait(4000)
-        cy.get('#div2').contains('About the drivers')
-        cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-        cy.get('#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsMainDriver-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNotOtherCar-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNotOtherInsurance-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoConvictions-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoDisqualifications-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoMedical-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
+        Global_Stuff.postQuote2Heading()
+        Global_Stuff.notes()
+        Global_Stuff.postQuote2IsResidentTrue()
+        Global_Stuff.postQuote2IsMainDriverTrue()
+        Global_Stuff.postQuote2IsNotOtherCarTrue()
+        Global_Stuff.postQuote2IsNotOtherInsTrue()
+        Global_Stuff.postQuote2IsNoConvictionTrue()
+        Global_Stuff.postQuote2IsNoDisqualificationTrue()
+        Global_Stuff.postQuote2IsNoRefusalTrue()
+        Global_Stuff.postQuote2IsNoIncreaseTrue()
+        Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2Continue()
         
         // Completing post quote screen 3 
-        cy.get('#ctl00_MainContent_btnContinueToPayment').click()
+        Global_Stuff.postQuote3Continue()
         
         // Thank you page
-        cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
-        cy.get('#ctl00_divNotes > .a-button').should('be.visible')
+        Global_Stuff.thankyouHeading()
+        Global_Stuff.notes()
     })
 })

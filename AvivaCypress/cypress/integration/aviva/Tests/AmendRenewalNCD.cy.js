@@ -40,7 +40,6 @@ describe('Agent can Amend renewal NCD', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -49,13 +48,11 @@ describe('Agent can Amend renewal NCD', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -66,9 +63,7 @@ describe('Agent can Amend renewal NCD', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -82,9 +77,7 @@ describe('Agent can Amend renewal NCD', () => {
         // Complete section 6 "Your claims"
         Global_Stuff.claimsHeading()
         Global_Stuff.notes()
-        cy.wait(2000)
         Global_Stuff.claimsFalse1st()
-        cy.wait(2000)
         Global_Stuff.claimsContinue()
 
         // Complete section 7 "Penalty points"
@@ -101,7 +94,6 @@ describe('Agent can Amend renewal NCD', () => {
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -128,7 +120,6 @@ describe('Agent can Amend renewal NCD', () => {
         Global_Stuff.postQuote2IsNoIncreaseTrue()
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -138,19 +129,17 @@ describe('Agent can Amend renewal NCD', () => {
         Global_Stuff.postQuote3NoOtherNCDTrue()
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
-        cy.get('#ctl00_MainContent_PaymentType').select(2)
-        cy.get('#ctl00_MainContent_NoPay').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_PaymentType').select(2)
+        cy.getAndWait('#ctl00_MainContent_NoPay').click({force: true})
 
         // Diary & correspondence page 
-        cy.get('.a-heading--1').contains('Internal Diary and Correspondence')
-        cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-        cy.get('#ctl00_MainContent_Summary').click({force: true})
+        cy.getAndWait('.a-heading--1').contains('Internal Diary and Correspondence')
+        cy.getAndWait('#ctl00_divNotes > .a-button').should('be.visible')
+        cy.getAndWait('#ctl00_MainContent_Summary').click({force: true})
 
         // Thank you page
         Global_Stuff.thankyouHeading()
@@ -169,13 +158,13 @@ describe('Agent can Amend renewal NCD', () => {
 
         Global_Stuff.policyToolsAgePolicyWithPolicyNumber()
 
-        cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
             const day = parseInt(dayString)
-            cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(day + 2)
+            cy.getAndWait('#ctl00_ContentPlaceHolder1_BackDateDay').select(day + 2)
         })
-        cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')
-        cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
-        cy.get('.alert').contains('Policy has been backdated')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_BackDateYear').select('2024')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_UpdateDate').click()
+        cy.getAndWait('.alert').contains('Policy has been backdated')
 
         // Generating and Printing renewal
         Global_Stuff.Server()
@@ -183,38 +172,38 @@ describe('Agent can Amend renewal NCD', () => {
         Global_Stuff.email()
         Global_Stuff.searchButton()
         Global_Stuff.policySelectButton()
-        cy.get('[class^="btn btn-sm btn-cta btn-sm"]').last().click()
+        cy.getAndWait('[class^="btn btn-sm btn-cta btn-sm"]').last().click()
 
-        cy.get('.bg-info').should('contain', 'RNL')
-        cy.get('.bg-info').should('not.contain', '€ 0')
+        cy.getAndWait('.bg-info').should('contain', 'RNL')
+        cy.getAndWait('.bg-info').should('not.contain', '€ 0')
 
-        cy.get('[class^="badge rounded-pill text-bg-success"]').last().invoke('text').then(policyNumString => {
+        cy.getAndWait('[class^="badge rounded-pill text-bg-success"]').last().invoke('text').then(policyNumString => {
             const policy = policyNumString
-            cy.get('[class^="level2 dropdown-item dynamic"][title^="Renewals"]').click({force: true})
-            cy.get('#ctl00_ContentPlaceHolder1_PolicyNumber').type(policy)
+            cy.getAndWait('[class^="level2 dropdown-item dynamic"][title^="Renewals"]').click({force: true})
+            cy.getAndWait('#ctl00_ContentPlaceHolder1_PolicyNumber').type(policy)
         })
 
-        cy.get('#ctl00_ContentPlaceHolder1_Search > .fa').click()
-        cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal').click()
-        cy.get('#ctl00_ContentPlaceHolder1_BatchPrint').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_Search > .fa').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_BatchPrint').click()
 
         // Checking for renewal invite email in docs
-        cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
         Global_Stuff.livePoliciesBTN()
 
         Global_Stuff.selectActionDocumentsWithPolicyNumber()
 
         // Amend the renewal NCD
-        cy.get('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
+        cy.getAndWait('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
         cy.go('back')
         Global_Stuff.livePoliciesBTN()
 
-        cy.get('[class^="dropdown selectAction"]').last().click({force:true}).contains('Amend Renewal NCD').invoke("removeAttr", "target").click({force:true})
-        cy.get('#ctl00_ContentPlaceHolder1_Edit').click()
-        cy.get('#ctl00_ContentPlaceHolder1_ddlNCDYears').select(5)
-        cy.get('#ctl00_ContentPlaceHolder1_ddlNCDPercent').select(5)
-        cy.get('#ctl00_ContentPlaceHolder1_ShowContinuePopup').click()
-        cy.get('#ctl00_ContentPlaceHolder1_Save').click()
+        Global_Stuff.selectActionAmendRNLNCDWithPolicyNumber()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_Edit').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_ddlNCDYears').select(5)
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_ddlNCDPercent').select(5)
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_ShowContinuePopup').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_Save').click()
         cy.go('back')
     })
 })

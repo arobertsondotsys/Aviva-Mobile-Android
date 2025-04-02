@@ -54,3 +54,20 @@ Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) =
       cy.get(webElement).invoke("removeAttr", "target").click()
     }
   })
+
+  Cypress.Commands.add('getAndWait', (selector, options = {}) => {
+    const { timeout = 40000, allowHidden = false } = options;
+
+    cy.get(selector, { timeout }).should(($elements) => {
+        // Filter elements based on visibility unless `allowHidden` is true
+        const visibleElements = $elements.filter((index, element) => {
+            const style = window.getComputedStyle(element);
+            return allowHidden || (style.opacity !== '0' && style.display !== 'none' && style.visibility !== 'hidden');
+        });
+
+        // Assert that at least one element exists
+        expect(visibleElements.length, `No. of elements found for selector: ${selector}`).to.be.greaterThan(0);
+    });
+
+    return cy.get(selector, { timeout });
+})

@@ -56,19 +56,19 @@ export class Global {
         }
     }
 
-    Server(serverKey = 'QA2') {
+    Server(serverKey = 'DEMO') {
         const url = this.serverUrls[serverKey] || this.serverUrls['QA2'] // Default to QA2 if no valid serverKey is provided
         Cypress.env('serverKey', serverKey) // Set the environment variable
         cy.visit(url)
     }
 
-    Server1(serverKey = 'QA2') {
+    Server1(serverKey = 'DEMO') {
         const url = this.server1Urls[serverKey] || this.server1Urls['QA2'] // Default to QA2 if no valid serverKey is provided
         Cypress.env('serverKey', serverKey) // Set the environment variable
         cy.visit(url)
     }
 
-    Server2(serverKey = 'QA2') {
+    Server2(serverKey = 'DEMO') {
         const url = this.server2Urls[serverKey] || this.server2Urls['QA2'] // Default to QA2 if no valid serverKey is provided
         Cypress.env('serverKey', serverKey) // Set the environment variable
         cy.visit(url)
@@ -79,144 +79,144 @@ export class Global {
 
     company(){
        
-        cy.get(this.LoginElementLocators.LoginPageLocators.company_element).click().type(this.UserData.InputData.Comp)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.company_element).click().type(this.UserData.InputData.Comp)
         return
 
     }
     username(){
        
-        cy.get(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User)
         return
 
     }
 
     password(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass)
         return
 
     }
 
     phone(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.phone_element).type(this.UserData.InputData.Phone1)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.phone_element).type(this.UserData.InputData.Phone1)
         return
 
     }
 
     dob(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.dob_element).type(this.UserData.InputData.DOB1)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.dob_element).type(this.UserData.InputData.DOB1)
         return
 
     }
 
     forgotEmailPassDOB(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.forgotep_dob).type(this.UserData.InputData.DOB1)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.forgotep_dob).type(this.UserData.InputData.DOB1)
         return
 
     }
 
     registerDOB(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.register_dob).type(this.UserData.InputData.DOB1)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.register_dob).type(this.UserData.InputData.DOB1)
         return
 
     }
 
     forgotEmailPassPolicy(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.forgotep_policy).type(this.UserData.InputData.InvalidPolicy)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.forgotep_policy).type(this.UserData.InputData.InvalidPolicy)
         return
 
     }
 
     forgotEmail(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.forgot_email).type(this.UserData.InputData.InvalidEmail2)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.forgot_email).type(this.UserData.InputData.InvalidEmail2)
         return
 
     }
 
     registerPolicy(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.register_policy).type(this.UserData.InputData.InvalidPolicy)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.register_policy).type(this.UserData.InputData.InvalidPolicy)
         return
 
     }
 
     proposerEmail(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.proposeremail_element).type(this.UserData.InputData.Email1)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.proposeremail_element).type(this.UserData.InputData.Email1)
         return
 
     }
 
     loginButton(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.loginBtn_element).click()
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.loginBtn_element).click()
         return
     }
 
     email(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.emailsearch_element).type(this.UserData.InputData.Email1)
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.emailsearch_element).type(this.UserData.InputData.Email1)
         return
     }
 
     searchButton(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.searchBtn_element).click()
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.searchBtn_element).click()
         return
     }
 
     policySelectButton(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.policyslctbtn_element).click()
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.policyslctbtn_element).click()
         return
 
     }
 
     loginEmail(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.portal_email).clear().type(this.UserData.InputData.Email1).should('have.value', this.UserData.InputData.Email1.substring(0,50))
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_email).clear().type(this.UserData.InputData.Email1).should('have.value', this.UserData.InputData.Email1.substring(0,50))
         return
     }
 
     loginEmail1(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.portal_email).clear().type(this.UserData.InputData.InvalidEmail).should('have.value', this.UserData.InputData.InvalidEmail.substring(0,50))
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_email).clear().type(this.UserData.InputData.InvalidEmail).should('have.value', this.UserData.InputData.InvalidEmail.substring(0,50))
         return
     
     }
 
     loginEmail2(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.portal_email).clear().type(this.UserData.InputData.InvalidEmail1).should('have.value', this.UserData.InputData.InvalidEmail1.substring(0,50))
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_email).clear().type(this.UserData.InputData.InvalidEmail1).should('have.value', this.UserData.InputData.InvalidEmail1.substring(0,50))
         return
     
     }
 
     loginPassword(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass, {force:true})
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass, {force:true})
 
-        //cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass7Hotfix, {force:true})
+        //cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass7Hotfix, {force:true})
         return
 
     }
 
     loginPassword1(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.portal_password).type(this.UserData.InputData.InvalidPass, {force:true})
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_password).type(this.UserData.InputData.InvalidPass, {force:true})
         return
 
     }
 
     loginPortalButton(){
 
-        cy.get(this.LoginElementLocators.LoginPageLocators.portal_login_btn).click()
+        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_login_btn).click()
         return
 
     }
@@ -224,18 +224,18 @@ export class Global {
     cookiesAccept(){
 
         // //7HOTFIX ONLY
-        // cy.get('body').then(($body) => {
+        // cy.getAndWait('body').then(($body) => {
         //     if ($body.find('#onetrust-accept-btn-handler').length > 0) {
-        //         cy.get('#onetrust-accept-btn-handler', {timeout: 3000}).click()
+        //         cy.getAndWait('#onetrust-accept-btn-handler', {timeout: 3000}).click()
         //     } else {
         //         cy.log('Element not found')
         //     }
         // })
 
 
-        cy.get('.ot-sdk-container > .ot-sdk-row').then(($body) => {
+        cy.getAndWait('.ot-sdk-container > .ot-sdk-row').then(($body) => {
             if ($body.find('#onetrust-accept-btn-handler').length > 0) {
-                cy.get('#onetrust-accept-btn-handler').click()
+                cy.getAndWait('#onetrust-accept-btn-handler').click()
             } else {
                 cy.log('Element not found')
             }
@@ -246,14 +246,14 @@ export class Global {
 
     removeAttr(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quote_linkbtn).invoke("removeAttr", "target").click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quote_linkbtn).invoke("removeAttr", "target").click()
         return
 
     }
 
     agentQuote(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.agent_quote).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.agent_quote).select(1)
         cy.window().then((win) => {
             const orig = win.open
           
@@ -270,36 +270,35 @@ export class Global {
 
     aboutYouTitle(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutyou_title).contains(this.UserData.HeadingData.AboutYou_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyou_title).contains(this.UserData.HeadingData.AboutYou_Heading)
         return
 
     }
 
     proposerTitle(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.proposer_mr).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.proposer_mr).select(1)
         return
 
     }
 
     proposerForename(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.proposer_forename).type(this.UserData.InputData.ProposedForename, {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.proposer_forename).type(this.UserData.InputData.ProposedForename, {force: true})
         return
 
     }
 
     proposerSurname(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.proposer_surname).type(this.UserData.InputData.ProposedSurname)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.proposer_surname).type(this.UserData.InputData.ProposedSurname)
         return
 
     }
 
     aboutYouContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutyou_continue).click()
-        cy.wait(2000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyou_continue).click()
         return
 
     }
@@ -308,71 +307,70 @@ export class Global {
 
     personalDetailsTitle(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.personaldetails_title).contains(this.UserData.HeadingData.PersonDetails_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.personaldetails_title).contains(this.UserData.HeadingData.PersonDetails_Heading)
         return
 
     }
 
     addressInput(){
 
-        cy.wait(2000)
-        cy.get(this.LoginElementLocators.QuotePageLocators.address_input).type(this.UserData.InputData.ProposedAddress)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.address_input).type(this.UserData.InputData.ProposedAddress)
         return
 
     }
 
     addressSuggest(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.address_suggest).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.address_suggest).click()
         return
 
     }
 
     addressSelect(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.address_select).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.address_select).click()
         return
 
     }
 
     addressConfirm(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.address_confirm).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.address_confirm).click()
         return
 
     }
 
     proposerDOB(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.proposer_dob).type(this.UserData.InputData.DOB1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.proposer_dob).type(this.UserData.InputData.DOB1)
         return
 
     }
 
     proposerEmployStatus(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.employment_status).select('C')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.employment_status).select('C')
         return
 
     }
 
     licenceType(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.licence_type).select('Full Irish')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.licence_type).select('Full Irish')
         return
 
     }
 
     licenceYears(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.licence_years).select('5')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.licence_years).select('5')
         return
 
     }
 
     personlaDetailsContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.personaldetails_continue).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.personaldetails_continue).click()
         return
 
     }
@@ -381,35 +379,35 @@ export class Global {
 
     insuranceDetailsTitle(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.insurancedetails_title).contains(this.UserData.HeadingData.InsuranceDetails_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.insurancedetails_title).contains(this.UserData.HeadingData.InsuranceDetails_Heading)
         return
 
     }
 
     drivingExp(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.drivingexp_ddl,({waitForAnimations: false},{force: true})).select(1,{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.drivingexp_ddl).select(1, { force: true });
         return
 
     }
 
     drivingExpYears(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.drivingexp_years).select(6,{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.drivingexp_years).select(6,{force: true})
         return
 
     }
 
     carUse(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.caruse_ddl).select(1,{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.caruse_ddl).select(1,{force: true})
         return
 
     }
 
     insuranceDetailsContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.insurancedetails_continue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.insurancedetails_continue).click({force: true})
         return
 
     }
@@ -418,56 +416,57 @@ export class Global {
 
     carDetailsTitle(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.cardetails_title).contains(this.UserData.HeadingData.CarDetails_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.cardetails_title).contains(this.UserData.HeadingData.CarDetails_Heading)
         return
 
     }
 
     carRegYes(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.carreg_yes).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carreg_yes).click()
         return
 
     }
 
     carRegInput(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.carreg_input).type(this.UserData.InputData.CarReg, {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carreg_input).type(this.UserData.InputData.CarReg, {force: true})
         return
 
     }
 
     findCarBTN(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.findcar_btn).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.findcar_btn).click({force: true})
         return
 
     }
 
     confirmCarBTN(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.confirmcar_btn).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.confirmcar_btn).click()
         return
 
     }
 
     carValueInput(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.carvalue_input).select('75000', {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carvalue_input).select('75000', {force: true})
         return
 
     }
 
     carModifiedFalse(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.carmodified_false).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carmodified_false).click({force: true})
         return
 
     }
 
     carDetailsContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.cardetails_continue).click({force: true})
+        cy.wait(2000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.cardetails_continue).click({force: true})
         return
 
     }
@@ -476,49 +475,50 @@ export class Global {
     
     additionalDriversHeading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldrivers_heading).contains(this.UserData.HeadingData.AdditionalDrivers_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldrivers_heading).contains(this.UserData.HeadingData.AdditionalDrivers_Heading)
         return
 
     }
 
     additionalDriversFalse(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_false).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_false).click({force: true})
         return
 
     }
 
     additionalDriversTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click({force: true})
         return
 
     }
 
     additionalDriversContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_continue).click({force: true})
+        cy.wait(1000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_continue).click({force: true})
         return
 
     }
 
     additionalDriver1Title(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
         return
 
     }
 
     additionalDriver1Forename(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).type(this.UserData.InputData.AD1_Forename)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).type(this.UserData.InputData.AD1_Forename)
         return
 
     }
 
     additionalDriver1Surname(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).type(this.UserData.InputData.AD1_Surname)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).type(this.UserData.InputData.AD1_Surname)
         return
 
 
@@ -527,108 +527,114 @@ export class Global {
 
     additionalDriver1DOB(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).type(this.UserData.InputData.AD1_DOB)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).type(this.UserData.InputData.AD1_DOB)
         return
 
     }
 
     additionalDriver1EmploymentStatus(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(2)
+        
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(2)
         return
 
     }
 
     additionalDriver1LicenceType(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(1)
+        
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(1)
         return
 
     }
 
     additionalDriver1LicenceYears(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
+        cy.wait(1000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
+        return
+
+    }
+
+    addionalDriver1DriverNumber(){
+
+        cy.wait(1000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_drivernumber).type(this.UserData.InputData.AD1_DriverNum)
+        cy.wait(1000)
         return
 
     }
 
     additionalDriver1Relationship(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(1)
         return
 
     }
 
     additionalDriver1SpouseOwnVehFalse(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_spousefalse).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_spousefalse).click()
         return
 
     }
 
     additionalDriver1Save(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
         cy.wait(2000)
         return
-
-        
 
     }
 
     additionalDriver2(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(3, {force: true})
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD2_Forename)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD2_Surname)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD2_DOB)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(1)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_occupation).type('shop')
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_occuseggest).contains('Shop Assistant').click()
-        cy.wait(2000)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(2)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(5)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
-        cy.wait(2000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(3, {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD2_Forename)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD2_Surname)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD2_DOB)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_occupation).type('shop')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_occuseggest).contains('Shop Assistant').click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(5)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
         return
 
     }
 
     additionalDriver3(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(1)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD3_Forename)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD3_Surname)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD3_DOB)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(1)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_occupation).type('shop')
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_occuseggest1).contains('Shop Assistant').click({force: true})
-        cy.wait(2000)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(1)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(4)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
-        cy.wait(3000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD3_Forename)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD3_Surname)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD3_DOB)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_occupation).type('shop')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_occuseggest1).contains('Shop Assistant').click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(4)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
         return
 
     }
 
     additionalDriver4(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(1)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD4_Forename)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD4_Surname)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD4_DOB)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(4)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(2)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD4_Forename)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD4_Surname)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD4_DOB)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(4)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
         cy.wait(2000)
         return
 
@@ -636,16 +642,16 @@ export class Global {
 
     additionalDriver5(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD5_Forename)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD5_Surname)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD5_DOB)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(4)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(8)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD5_Forename)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD5_Surname)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD5_DOB)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(4)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(8)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
         cy.wait(2000)
         return
 
@@ -653,16 +659,16 @@ export class Global {
 
     additionalDriver6(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD6_Forename)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD6_Surname)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD6_DOB)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(4)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(7)
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_forename).clear().type(this.UserData.InputData.AD6_Forename)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_surname).clear().type(this.UserData.InputData.AD6_Surname)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_dob).clear().type(this.UserData.InputData.AD6_DOB)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_empstatus).select(4)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_lictype).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(7)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
         cy.wait(2000)
         return
 
@@ -670,21 +676,21 @@ export class Global {
 
     additionalDriver7(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).should('not.be.visible')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).should('not.be.visible')
         return
 
     }
 
     additionalDriverAddedHeading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_added_heading).contains(this.UserData.HeadingData.AD_Added)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_added_heading).contains(this.UserData.HeadingData.AD_Added)
         return
 
     }
 
     additionalDriverAddedHeading1(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.additionaldriver_added_heading1).contains(this.UserData.HeadingData.AD_Added6)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_added_heading1).contains(this.UserData.HeadingData.AD_Added6)
         return
 
     }
@@ -693,14 +699,14 @@ export class Global {
 
     claimsHeading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.claims_heading).contains(this.UserData.HeadingData.Claims_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_heading).contains(this.UserData.HeadingData.Claims_Heading)
         return
 
     }
 
     claimsTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.claims_true).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_true, { allowHidden: true }).click({force: true})
         return
 
     }
@@ -708,21 +714,23 @@ export class Global {
 
     claimsFalse1st(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.claims_false).first().click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_false, { allowHidden: true }).first().click({force: true})
         return
 
     }
 
     claimsFalseLast(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.claims_false).last().click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_false, { allowHidden: true }).last().click({force: true})
+        //cy.xpath("(//span[text()='No'])[7]").click()
         return
 
     }
 
     claimsContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.claims_continue).click({force: true})
+        cy.wait(1000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_continue).click({force: true})
         return
 
     }
@@ -731,35 +739,36 @@ export class Global {
     
     ppHeading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.pp_heading).contains(this.UserData.HeadingData.PP_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_heading).contains(this.UserData.HeadingData.PP_Heading)
         return
 
     }
 
     ppTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.pp_true).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_true).click({force: true})
         return
 
     }
 
     ppFalse1st(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.pp_false).first().click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_false, { allowHidden: true }).first().click({force: true})
         return
 
     }
 
     ppFalseLast(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.pp_false).last().click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_false, { allowHidden: true }).last().click({force: true})
         return
 
     }
 
     ppContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.pp_continue).click({force: true})
+        cy.wait(1000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_continue).click({force: true})
         return
 
     }
@@ -768,7 +777,7 @@ export class Global {
     //Global Quote Actions (Cover start date)
 
     coverStartHeading(){
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_heading).contains(this.UserData.HeadingData.CoverStart_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_heading).contains(this.UserData.HeadingData.CoverStart_Heading)
         return
 
     }
@@ -777,7 +786,7 @@ export class Global {
 
         const day = require('dayjs')
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().format('DD/MM/YYYY'),{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().format('DD/MM/YYYY'),{force: true})
         return
 
     }
@@ -786,76 +795,76 @@ export class Global {
 
         const day = require('dayjs')
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().add(1, 'day').format('DD/MM/YYYY'),{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().add(1, 'day').format('DD/MM/YYYY'),{force: true})
         return
 
     }
 
     coverStartHaveHomeIns(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_havehomefalse).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_havehomefalse, { allowHidden: true }).click({force: true})
         return
 
     }
 
     coverStartHaveHomeInsTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_havehometrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_havehometrue, { allowHidden: true }).click({force: true})
         return
 
     }
 
     coverStartHaveCarIns(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_havecarfalse).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_havecarfalse, { allowHidden: true }).click({force: true})
         return
 
     }
 
     coverStartHaveCarInsTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_havecartrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_havecartrue, { allowHidden: true }).click({force: true})
         return
 
     }
 
     coverStartPromoCode(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_promocode).type(this.UserData.InputData.PromoCode, {force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_promocode).type(this.UserData.InputData.PromoCode, {force: true})
         return
 
     }
 
     coverStartMarketing(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_marketing).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_marketing).click({force: true})
         return
 
     }
 
     coverStartNotCustomerQuote(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_notcustcheck).should('not.be.visible')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_notcustcheck).should('not.be.visible')
         return
 
     }
 
     coverStartCustomerQuote(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck).click({force: true})
         return
 
     }
     coverStartCustomerQuote1(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck1).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck1).click({force: true})
         return
 
     }
 
     coverStartContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.coverstart_continue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_continue).click({force: true})
         return
 
     }
@@ -864,101 +873,101 @@ export class Global {
 
     quotePageHeading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_heading).contains(this.UserData.HeadingData.QuotePage_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_heading).contains(this.UserData.HeadingData.QuotePage_Heading)
         return
 
     }
 
     quotePageAddOpenDrive(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addopendriving).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_addopendriving).click()
         return
 
     }
 
     quotePageExcess125(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_excess125).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_excessconfirm).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_excess125).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_excessconfirm).click()
         return
 
     }
 
     quotePageExcess300(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_excess300).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_excessconfirm).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_excess300).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_excessconfirm).click()
         return
 
     }
 
     quotePageExcess600(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_excess600).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_excessconfirm).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_excess600).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_excessconfirm).click()
         return
 
     }
 
     quotePageAddJourneywise(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_journeywise).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_journeywise).click()
         return
 
     }
 
     quotePageStepBack(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_stepback).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addncdcover).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_stepback).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_addncdcover).click()
         return
 
     }
 
     quotePagePNCD(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_protected).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addncdcover).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_protected).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_addncdcover).click()
         return
 
     }
 
     quotePagePNCDStepBack(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_protectedstepback).click()
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_addncdcover).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_protectedstepback).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_addncdcover).click()
         return
 
     }
     
     buyNowBtn(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.buynow_btn).click({force:true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.buynow_btn).click()
         return
 
     }
 
     quotePageStaffOptions(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_staffoptions).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_staffoptions).click()
         return
 
     }
 
     quotePageStaffDiscounts(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.quotepage_discounts).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_discounts).select(2)
         return
 
     }
 
     selectStaffDiscount(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.staff_discountheading).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.staff_discountselect).select(1)
-        cy.get(this.LoginElementLocators.BOPageLocators.staff_discountrecalc).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountheading).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountselect).select(1)
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountrecalc).click()
         cy.wait(2000)
-        cy.get(this.LoginElementLocators.BOPageLocators.staff_nodiscountheading).should('contain', 'Call centre customer - No online discount')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_nodiscountheading).should('contain', 'Call centre customer - No online discount')
         return
 
     }
@@ -967,28 +976,31 @@ export class Global {
     
     postQuote1Heading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutyourcar_heading).contains(this.UserData.HeadingData.PostQuote1_Heading)
+        cy.reload()
+        cy.wait(2000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyourcar_heading).contains(this.UserData.HeadingData.PostQuote1_Heading)
         return
 
     }
 
     postQuote1wnCar(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutyourcar_owncar).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyourcar_owncar).click({force: true})
         return
 
     }
 
     postQuote1PrivateIns(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutyourcar_privins).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyourcar_privins).click({force: true})
+        cy.wait(1000)
         return
 
     }
 
     postQuote1Continue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutyourcar_continue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyourcar_continue).click({force: true})
         return
 
     }
@@ -997,147 +1009,155 @@ export class Global {
 
     postQuote2Heading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_heading).contains(this.UserData.HeadingData.PostQuote2_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_heading).contains(this.UserData.HeadingData.PostQuote2_Heading)
+        return
+
+    }
+
+    postQuote2Headingselect(){
+
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_heading).click()
         return
 
     }
 
     postQuote2IsResidentTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isresidenttrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isresidenttrue).click()
         return
 
     }
 
     postQuote2IsMainDriverTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_ismaindrivertrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_ismaindrivertrue).click()
         return
 
     }
 
     postQuote2IsNotOtherCarTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnotothercartrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnotothercartrue).click()
         return
 
     }
 
     postQuote2IsNotOtherCarTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnotothercartrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnotothercartrue).click()
         return
 
     }
 
     postQuote2IsNotOtherInsTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnototherinstrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnototherinstrue).click()
         return
 
     }
 
     postQuote2IsNoConvictionTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnoconvtrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnoconvtrue).click()
         return
 
     }
     
     postQuote2IsNoDisqualificationTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnodisqualtrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnodisqualtrue).click()
         return
 
     }
 
     postQuote2IsNoRefusalTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnorefusaltrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnorefusaltrue).click()
         return
 
     }
 
     postQuote2IsNoIncreaseTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnoincreasetrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnoincreasetrue).click()
         return
 
     }
 
     postQuote2IsNoMedicalTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicaltrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicaltrue).click({force: true})
         return
         
     }
 
     postQuote2IsNoMedicalFalse(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicalfalse).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicalfalse).click({force: true})
         return
         
     }
 
     postQuote2addMedicalConditionBTN(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_btn).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_btn).click({force: true})
         return
         
     }
 
     postQuote2addMedicalConditionDriver(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_driver).select(1,{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_driver).select(1,{force: true})
         return
         
     }
 
     postQuote2addMedicalConditionAD(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_driver).select(2,{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_driver).select(2,{force: true})
         return
         
     }
 
     postQuote2addMedicalConditionSelect(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_select).select(2,{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_select).select(2,{force: true})
         return
         
     }
 
     postQuote2addMedicalConditionSelect1(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_select).select(3,{force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_select).select(3,{force: true})
         return
         
     }
 
     postQuote2addMedicalConditionInformed(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_informed).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_informed).click({force: true})
         return
         
     }
 
     postQuote2addMedicalConditionSave(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_save).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_save).click({force: true})
+        cy.wait(1000)
         return
         
     }
 
     postQuote2MedicalDeleteBTN(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_medicaldelete_btn).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_medicaldelete_btn).click({force: true})
         return
         
     }
 
     postQuote2MedicalDeleteBTN1(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_medicaldelete_btn1).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_medicaldelete_btn1).click({force: true})
         return
         
     }
@@ -1145,35 +1165,36 @@ export class Global {
 
     postQuote2MedicalRemoveBTN(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_medicalremove_btn).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_medicalremove_btn).click({force: true})
         return
         
     }
 
     postQuote2DriverNumber(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum).type(this.UserData.InputData.Driver_Number)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum).type(this.UserData.InputData.Driver_Number)
+        cy.wait(2000)
         return
 
     }
 
     postQuote2DriverNumber1(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum1).type(this.UserData.InputData.Driver_Number1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum1).type(this.UserData.InputData.Driver_Number1)
         return
 
     }
 
     postQuote2DriverNumber2(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum2).type(this.UserData.InputData.Driver_Number1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum2).type(this.UserData.InputData.Driver_Number1)
         return
 
     }
 
     postQuote2Continue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_continue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_continue).click()
         return
 
     }
@@ -1182,77 +1203,84 @@ export class Global {
 
     postQuote3Heading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_heading).contains(this.UserData.HeadingData.PostQuote3_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_heading, { allowHidden: true }).contains(this.UserData.HeadingData.PostQuote3_Heading)
         return
 
     }
 
     postQuote3NCDROITrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_isncdroitrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_isncdroitrue).click({force: true})
         return
 
     }
 
     postQuote3NoOtherNCDTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_nootherncdtrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_nootherncdtrue).click({force: true})
         return
 
     }
 
     postQuote3WithinExpiryTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_withinexptrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_withinexptrue).click({force: true})
         return
 
     }
 
     postQuote3OtherHome(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_othercarpolicy).type(this.UserData.InputData.OtherHomePol)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_othercarpolicy).type(this.UserData.InputData.OtherHomePol)
         return
 
     }
 
     postQuote3OtherCar(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_otherhomepolicy).type(this.UserData.InputData.OtherCarPol)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_otherhomepolicy).type(this.UserData.InputData.OtherCarPol)
         return
 
     }
 
     postQuote3IsMyAvivaTrue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click({force: true})
         return
 
     }
 
     postQuote3IsMyAvivaFalse(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click({force: true})
         return
 
     }
 
     postQuote3PostCert(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_ispostcerttrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ispostcerttrue, { allowHidden: true }).click({force: true})
+        return
+
+    }
+
+    postQuote3PostCertFalse(){
+
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ispostcertfalse, { allowHidden: true }).click({force: true})
         return
 
     }
 
     postQuote3PostDocs(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_ispostdocstrue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ispostdocstrue, { allowHidden: true }).click({force: true})
         return
 
     }
 
     postQuote3PostDocsFalse(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_ispostdocsfalse).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ispostdocsfalse, { allowHidden: true }).click({force: true})
         return
 
     }
@@ -1260,7 +1288,7 @@ export class Global {
 
     postQuote3Continue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.inshistory_continue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_continue).click({force: true})
         return
 
     }
@@ -1269,28 +1297,28 @@ export class Global {
 
     paymentTypeAgentCcard(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(1)
         return
 
     }
 
     paymentTypeAgentNoPay(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(2)
         return
 
     }
 
     paymentTypeAgentDD(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(3)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(3)
         return
 
     }
 
     paymentTypeAgentNoPayContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.paymenttype_agentnopaycontinue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.paymenttype_agentnopaycontinue).click({force: true})
         return
 
     }
@@ -1299,14 +1327,14 @@ export class Global {
 
     diaryCorrespondenceHeading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.diarycorres_heading).contains(this.UserData.HeadingData.DiaryCorrespondence_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.diarycorres_heading).contains(this.UserData.HeadingData.DiaryCorrespondence_Heading)
         return
 
     }
 
     diaryCorrespondenceContinue(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.diarycorres_continue).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.diarycorres_continue).click({force: true})
         return
 
     }
@@ -1315,7 +1343,7 @@ export class Global {
 
     thankyouHeading(){
 
-        cy.get(this.LoginElementLocators.QuotePageLocators.thankyou_heading).contains(this.UserData.HeadingData.Thankyou_Heading)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.thankyou_heading).contains(this.UserData.HeadingData.Thankyou_Heading)
         return
 
     }
@@ -1455,7 +1483,7 @@ export class Global {
           const CVC='737'
           
           cy.wait(10000)
-          //cy.get('.payment-heading').contains('Payment')
+          //cy.getAndWait('.payment-heading').contains('Payment')
           cy.wait(3000)
           cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
           
@@ -1722,85 +1750,85 @@ export class Global {
 
     home(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.home_page).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.home_page).click()
         return
 
     }
 
     livePoliciesBTN(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click()
         return
             
     }
 
     unlockBTN(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.unlock_btn).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.unlock_btn).click()
         return
     
     }
 
     notes(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.notes).should('be.visible')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.notes).should('be.visible')
         return
         
     }
     
     createNewQuoteBTN(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.createnewquote_btn).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.createnewquote_btn).click()
         return
             
     }
 
     selectActionDocuments(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.selectaction_documents).last().click().contains('Documents').invoke("removeAttr", "target").click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.selectaction_documents).last().click().contains('Documents').invoke("removeAttr", "target").click()
         return
             
     }
 
     selectActionCancelPolicy(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.selectaction_cancelpolicy).last().click().contains('Cancel Policy').invoke("removeAttr", "target").click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.selectaction_cancelpolicy).last().click().contains('Cancel Policy').invoke("removeAttr", "target").click()
         return
             
     }
 
     selectActionDiary(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.selectaction_diary).last().click().contains('Diary').invoke("removeAttr", "target").click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.selectaction_diary).last().click().contains('Diary').invoke("removeAttr", "target").click()
         return
             
     }
 
     selectActionRenewal(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.selectaction_renewal).last().click().contains('Renewal').invoke("removeAttr", "target").click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.selectaction_renewal).last().click().contains('Renewal').invoke("removeAttr", "target").click()
         return
             
     }
 
     agePolicyTool(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.age_policytool).last().click({force: true}).contains('Age Policy').invoke("removeAttr", "target").click({force: true})
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.age_policytool).last().click({force: true}).contains('Age Policy').invoke("removeAttr", "target").click({force: true})
         return
             
     }
 
     agePolicy(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
             const day = parseInt(dayString)
-            cy.get(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
           })
 
-        cy.get(this.LoginElementLocators.BOPageLocators.backdate_year).select(this.UserData.InputData.BackdateYear)
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_year).select(this.UserData.InputData.BackdateYear)
 
-        cy.get(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.backdate_message).contains(this.UserData.InputData.BackdateMessage)
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_message).contains(this.UserData.InputData.BackdateMessage)
             
     }
 
@@ -1808,7 +1836,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Renewal']")
@@ -1821,7 +1849,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Make Adjustment']")
@@ -1834,7 +1862,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Cancel Policy']")
@@ -1847,7 +1875,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.='  Amend NCD']")
@@ -1860,7 +1888,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.='  Amend Renewal NCD']")
@@ -1873,7 +1901,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
@@ -1886,7 +1914,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const paragonPolicyNumber1 = data.paragonPolicyNumber1
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(paragonPolicyNumber1)
             cy.xpath("//span[normalize-space()='"+paragonPolicyNumber1+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
@@ -1899,7 +1927,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const paragonPolicyNumber2 = data.paragonPolicyNumber2
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(paragonPolicyNumber2)
             cy.xpath("//span[normalize-space()='"+paragonPolicyNumber2+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
@@ -1912,7 +1940,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const paragonPolicyNumber3 = data.paragonPolicyNumber3
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(paragonPolicyNumber3)
             cy.xpath("//span[normalize-space()='"+paragonPolicyNumber3+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Diary']")
@@ -1925,7 +1953,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Accounts']")
@@ -1938,7 +1966,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Refunds']")
@@ -1951,7 +1979,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
@@ -1964,7 +1992,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const paragonPolicyNumber1 = data.paragonPolicyNumber1
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(paragonPolicyNumber1)
             cy.xpath("//span[normalize-space()='"+paragonPolicyNumber1+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
@@ -1977,7 +2005,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const paragonPolicyNumber2 = data.paragonPolicyNumber2
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(paragonPolicyNumber2)
             cy.xpath("//span[normalize-space()='"+paragonPolicyNumber2+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
@@ -1990,7 +2018,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const paragonPolicyNumber3 = data.paragonPolicyNumber3
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(paragonPolicyNumber3)
             cy.xpath("//span[normalize-space()='"+paragonPolicyNumber3+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
@@ -2003,7 +2031,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' DPA / Preferences']")
@@ -2016,7 +2044,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Policy Owenership']")
@@ -2028,7 +2056,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Scrutiny']")
@@ -2041,7 +2069,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
                 .contains(policyNumber)
                 .click()
             cy.stopWindow("//span[normalize-space()='"+policyNumber+"']/../../../..//span[contains(text(),'NTU')]")
@@ -2054,7 +2082,7 @@ export class Global {
 
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
-            cy.get('.panel-title')
+            cy.getAndWait('.panel-title')
             .contains(policyNumber)
             cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
             cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
@@ -2066,7 +2094,7 @@ export class Global {
 
     retreivePolicyNumber(){
 
-        cy.get('.m-card-content__inner > p > strong')
+        cy.getAndWait('.m-card-content__inner > p > strong')
         .invoke('text') 
         .then((text) => {
         
@@ -2088,7 +2116,7 @@ export class Global {
 
     retreiveParagonPolicyNumber1(){
 
-        cy.get('.m-card-content__inner > p > strong')
+        cy.getAndWait('.m-card-content__inner > p > strong')
         .invoke('text') 
         .then((text) => {
         
@@ -2110,7 +2138,7 @@ export class Global {
 
     retreiveParagonPolicyNumber2(){
 
-        cy.get('.m-card-content__inner > p > strong')
+        cy.getAndWait('.m-card-content__inner > p > strong')
         .invoke('text') 
         .then((text) => {
         
@@ -2133,7 +2161,7 @@ export class Global {
 
     retreiveParagonPolicyNumber3(){
 
-        cy.get('.m-card-content__inner > p > strong')
+        cy.getAndWait('.m-card-content__inner > p > strong')
         .invoke('text') 
         .then((text) => {
         
@@ -2156,48 +2184,48 @@ export class Global {
 
     generateRenewal(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
-        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewalcheck).should('contain', 'RNL')
-        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewalcheck1).should('not.contain', '€ 0')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewalcheck).should('contain', 'RNL')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewalcheck1).should('not.contain', '€ 0')
             
     }
 
     generateRenewal(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
-        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewalcheck).should('contain', 'RNL')
-        cy.get(this.LoginElementLocators.BOPageLocators.generate_renewalcheck1).should('not.contain', '€ 0')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewalcheck).should('contain', 'RNL')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewalcheck1).should('not.contain', '€ 0')
             
     }
 
     inviteRenewal(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.extract_policynumber).last().invoke('text').then(policyNumString => {
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.extract_policynumber).last().invoke('text').then(policyNumString => {
             const policy = policyNumString
-            cy.get(this.LoginElementLocators.BOPageLocators.select_renewals).click({force: true})
-            cy.get(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policy)
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.select_renewals).click({force: true})
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policy)
         })
 
-        cy.get(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(0)
-        cy.get(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
-        cy.get(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(0)
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
             
     }
 
     recallPolicy(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.recall_policy).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.recall_policy).click()
         return
 
     }
 
     checkRenewalInviteDocs(){
 
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Email')
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Letter')
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Schedule')
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Statement Of Fact')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Email')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Letter')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Invite Schedule')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Statement Of Fact')
         return
 
     }
@@ -2206,10 +2234,10 @@ export class Global {
 
         cy.wait(120000)
         cy.reload()
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Email')
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Home Renewal Receipt')
-        cy.get(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Email')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Home Renewal Receipt')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
         return
 
     }
@@ -2221,29 +2249,29 @@ export class Global {
 
     selectActionMakeADJ(){
 
-        cy.get(this.LoginElementLocators.PermMTAPageLocators.selectaction_makeadj).last().click().contains('Make Adjustment').invoke("removeAttr", "target").click()
+        cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.selectaction_makeadj).last().click().contains('Make Adjustment').invoke("removeAttr", "target").click()
         return
             
     }
 
     permADJAdditionalDriver(){
 
-        cy.get(this.LoginElementLocators.PermMTAPageLocators.perm_additonaldriver).select('Additional drivers',{force: true}).should('have.value', 'AddDriver')
-        cy.get(this.LoginElementLocators.PermMTAPageLocators.perm_adjbtn).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.perm_additonaldriver).select('Additional drivers',{force: true}).should('have.value', 'AddDriver')
+        cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.perm_adjbtn).click({force: true})
         return
             
     }
 
     permMTAContinue(){
 
-        cy.get(this.LoginElementLocators.PermMTAPageLocators.permmta_continue).click({force:true})
+        cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.permmta_continue).click({force:true})
         return
             
     }
 
     permMTABuyNow(){
 
-        cy.get(this.LoginElementLocators.PermMTAPageLocators.permmta_buynow).click({force:true})
+        cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.permmta_buynow).click({force:true})
         return
             
     }
@@ -2257,7 +2285,7 @@ export class Global {
         cy.readFile('policy.json').then((data) => {
             const policyNumber = data.policyNumber
         
-            cy.get('.policypanels')
+            cy.getAndWait('.policypanels')
                 .contains(policyNumber)
                 .closest('.d-flex.flex-column')
                 .within(() => {

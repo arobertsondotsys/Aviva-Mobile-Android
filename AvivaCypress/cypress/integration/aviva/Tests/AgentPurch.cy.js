@@ -39,7 +39,6 @@ describe('Agent can purchase a policy via back office', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -48,13 +47,11 @@ describe('Agent can purchase a policy via back office', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -65,9 +62,7 @@ describe('Agent can purchase a policy via back office', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -98,7 +93,6 @@ describe('Agent can purchase a policy via back office', () => {
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -127,7 +121,6 @@ describe('Agent can purchase a policy via back office', () => {
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
         cy.pause()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -139,12 +132,10 @@ describe('Agent can purchase a policy via back office', () => {
         Global_Stuff.postQuote3IsMyAvivaFalse()
         Global_Stuff.postQuote3PostCert()
         Global_Stuff.postQuote3PostDocs()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
         Global_Stuff.paymentTypeAgentNoPay()
         Global_Stuff.paymentTypeAgentNoPayContinue()
 

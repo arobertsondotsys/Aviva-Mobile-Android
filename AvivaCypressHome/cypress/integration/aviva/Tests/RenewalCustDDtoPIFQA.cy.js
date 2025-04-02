@@ -30,9 +30,9 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.postalAddressConfirm()
     Global_stuff.occupancy()
     Global_stuff.proposerEmployStatus()
-    cy.wait(2000)
+    
     Global_stuff.bizStatus()
-    cy.wait(2000)
+    
     Global_stuff.aboutYouContinueHome()
   
     // Your Property
@@ -53,7 +53,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.heatingType()
     Global_stuff.goodStateOfRepairTrue()
     Global_stuff.floodSubsidenceFalse()
-    cy.wait(2000)
+    
     Global_stuff.yourPropertyContinue()
 
     // Your cover
@@ -61,7 +61,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.buildingAndContentsTrue()
     Global_stuff.buildingAndContentsFalse()
     Global_stuff.buildingAndContentsTrue()
-    cy.wait(2000)
+    
     Global_stuff.homeValue()
     Global_stuff.contentsValue()
     Global_stuff.isClaimsFalse()
@@ -69,13 +69,13 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.isRefusedFalse()
     Global_stuff.isSpecialFalse()
     Global_stuff.isCancelledFalse()
-    cy.wait(2000)
+    
     Global_stuff.yourCoverContinue()
 
     // Policy start date and claims
     Global_stuff.coverStartTitle()
     Global_stuff.claimsFreeYears()
-    cy.wait(2000)
+    
     Global_stuff.coverStartDate()
     Global_stuff.coverStartHaveCarIns()
     Global_stuff.coverStartMarketing()
@@ -84,7 +84,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
 
     // Quotepage
     Global_stuff.quotePageHeading()
-    cy.wait(2000)
+    
     Global_stuff.quotePageMonthlyBtn()
 
     // Complete and pay
@@ -143,9 +143,9 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.loginPortalButton()
     Global_stuff.portalRenewPolicySelect()
     Global_stuff.portalRenewDocsConfirm()
-    cy.wait(2000)
+    
     Global_stuff.quotePageFullBtnRNLswap()
-    cy.wait(2000)
+    
     Global_stuff.coverStartCustomerQuote()
     Global_stuff.completeAndPayContinue()
   

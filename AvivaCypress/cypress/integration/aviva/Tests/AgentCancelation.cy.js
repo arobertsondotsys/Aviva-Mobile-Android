@@ -32,24 +32,23 @@ describe('Agent can cancel a policy', () => {
 
         // Select Cancelation reason 
         Global_Stuff.cookiesAccept()
-        cy.get('.l-columns__column > .a-heading--2').should('have.text', 'Cancel policy')
-        cy.get('#ctl00_MainContent_CancellationRequest').select('Insurer')
-        cy.get('.m-multiselect-toggle').click()
-        cy.get(':nth-child(4) > .a-checkbox > .a-checkbox__label').click()
-        cy.get('#ctl00_MainContent_insurerReasonContinue').click()
+        cy.getAndWait('.l-columns__column > .a-heading--2').should('have.text', 'Cancel policy')
+        cy.getAndWait('#ctl00_MainContent_CancellationRequest').select('Insurer')
+        cy.getAndWait('.m-multiselect-toggle').click()
+        cy.getAndWait(':nth-child(4) > .a-checkbox > .a-checkbox__label').click()
+        cy.getAndWait('#ctl00_MainContent_insurerReasonContinue').click()
 
         // Select Cancelation date (+5 days from current date)
-        cy.get('.a-label').should('have.text', 'What date would you like to cancel from?')
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_staffCancelDate').type(day().add(6, 'day').format('DD/MM/YYYY'))
-        cy.get('#ctl00_MainContent_staffDateContinue').click()
+        cy.getAndWait('.a-label').should('have.text', 'What date would you like to cancel from?')
+        cy.getAndWait('#ctl00_MainContent_staffCancelDate').type(day().add(6, 'day').format('DD/MM/YYYY'))
+        cy.getAndWait('#ctl00_MainContent_staffDateContinue').click()
 
         // Quote screen for cancelation
-        cy.get('#ctl00_MainContent_divStaffInsurer > .a-heading--3').should('have.text', 'Amount to be refunded')
-        cy.get('#ctl00_MainContent_Continue').click()
+        cy.getAndWait('#ctl00_MainContent_divStaffInsurer > .a-heading--3').should('have.text', 'Amount to be refunded')
+        cy.getAndWait('#ctl00_MainContent_Continue').click()
 
         // Confirmation page check
-        cy.get('.m-heading-group__item').should('have.text', 'Your policy has been cancelled')
+        cy.getAndWait('.m-heading-group__item').should('have.text', 'Your policy has been cancelled')
     })
 })
 

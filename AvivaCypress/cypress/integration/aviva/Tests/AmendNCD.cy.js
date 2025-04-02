@@ -40,7 +40,6 @@ describe('Agent can Amend an NCD', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -49,13 +48,11 @@ describe('Agent can Amend an NCD', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -66,9 +63,7 @@ describe('Agent can Amend an NCD', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -82,9 +77,7 @@ describe('Agent can Amend an NCD', () => {
         // Complete section 6 "Your claims"
         Global_Stuff.claimsHeading()
         Global_Stuff.notes()
-        cy.wait(2000)
         Global_Stuff.claimsFalse1st()
-        cy.wait(2000)
         Global_Stuff.claimsContinue()
 
         // Complete section 7 "Penalty points"
@@ -101,7 +94,6 @@ describe('Agent can Amend an NCD', () => {
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -128,7 +120,6 @@ describe('Agent can Amend an NCD', () => {
         Global_Stuff.postQuote2IsNoIncreaseTrue()
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -138,14 +129,12 @@ describe('Agent can Amend an NCD', () => {
         Global_Stuff.postQuote3NoOtherNCDTrue()
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
-        cy.get('#ctl00_MainContent_PaymentType').select(2)
-        cy.get('#ctl00_MainContent_NoPay').click({force: true})
+        Global_Stuff.paymentTypeAgentNoPay()
+        Global_Stuff.paymentTypeAgentNoPayContinue()
 
         // Diary & correspondence page 
         Global_Stuff.diaryCorrespondenceHeading()
@@ -174,37 +163,35 @@ describe('Agent can Amend an NCD', () => {
           
         // Amend NCD to 40% & Select Cover start date 
         //Global_Stuff.cookiesAccept()
-        cy.wait(4000)
-        cy.get('#ctl00_MainContent_ddlNCDPercent').select(5)
-        cy.get('#ctl00_MainContent_Continue3').click()
-        cy.wait(4000)
-        cy.get('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
-        cy.get('#ctl00_MainContent_NCDStartTime').type('13:00')
-        cy.get('#ctl00_MainContent_Continue8').click()
+        cy.getAndWait('#ctl00_MainContent_ddlNCDPercent').select(5)
+        cy.getAndWait('#ctl00_MainContent_Continue3').click()
+        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
+        cy.getAndWait('#ctl00_MainContent_NCDStartTime').type('13:00')
+        cy.getAndWait('#ctl00_MainContent_Continue8').click()
         
         // Quote Page 
-        cy.get('.marginTop30Important').should('have.text', 'Total adjustment premium')
-        cy.get(':nth-child(4) > .l-columns > :nth-child(2) > .bold').contains('No protection')
-        cy.get('#ctl00_MainContent_ddlAmendNCD').select(2, {force: true})
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_NCDRecalculate').click({force: true})
-        cy.wait(6000)
-        cy.contains('View premium breakdown').click({force: true})
+        cy.getAndWait('.marginTop30Important').should('have.text', 'Total adjustment premium')
+        cy.getAndWait(':nth-child(4) > .l-columns > :nth-child(2) > .bold').contains('No protection')
+        cy.wait(1000)
+        cy.getAndWait('#ctl00_MainContent_ddlAmendNCD').select(2)
+        cy.wait(1000)
+        cy.getAndWait('#ctl00_MainContent_NCDRecalculate').click()
+        cy.wait(5000)
+        cy.contains('View premium breakdown').click()
         cy.get('[data-origin="#SinglePaymentBreakdown"]').contains('Step-back NCD')
-        cy.get('.o-modal__cancel').click()
+        cy.getAndWait('.o-modal__cancel').click()
         
-        cy.get('#ctl00_MainContent_btnBuyNow').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_btnBuyNow').click({force: true})
         
-        cy.wait(8000)
-        cy.get('#ctl00_MainContent_btnContinueToPayment').click()
-        cy.get('#ctl00_MainContent_PaymentType').select(2)
-        cy.get('#ctl00_MainContent_txtAmountReceived').type('100')
-        cy.get('#ctl00_MainContent_txtPayRef').type('test')
-        cy.get('#ctl00_MainContent_PayCheque').click()
-        cy.get('#ctl00_MainContent_btnPayNSPayment').click()
+        Global_Stuff.postQuote3Continue()
+        cy.getAndWait('#ctl00_MainContent_PaymentType').select(2)
+        cy.getAndWait('#ctl00_MainContent_txtAmountReceived').type('100')
+        cy.getAndWait('#ctl00_MainContent_txtPayRef').type('test')
+        cy.getAndWait('#ctl00_MainContent_PayCheque').click()
+        cy.getAndWait('#ctl00_MainContent_btnPayNSPayment').click()
         
         // Thank you page
-        cy.get('.m-heading-group__item').should('have.text', 'Thank you')
+        cy.getAndWait('.m-heading-group__item').should('have.text', 'Thank you')
     })
 
     it('should fail to amend an NCD', () => {
@@ -228,14 +215,13 @@ describe('Agent can Amend an NCD', () => {
           
         // Amend NCD to 40% & Select Cover start date 
         Global_Stuff.cookiesAccept()
-        cy.get('#ctl00_MainContent_ddlNCDPercent').select(5)
-        cy.get('#ctl00_MainContent_Continue3').click()
-        cy.wait(4000)
-        cy.get('#ctl00_MainContent_StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'))
-        cy.get('#ctl00_MainContent_NCDStartTime').type('13:00')
-        cy.get('#ctl00_MainContent_Continue8').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlNCDPercent').select(5)
+        cy.getAndWait('#ctl00_MainContent_Continue3').click()
+        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'))
+        cy.getAndWait('#ctl00_MainContent_NCDStartTime').type('13:00')
+        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
 
-        cy.get('#ctl00_MainContent_CV__StartDate').should('contain', 'NCD can not start before the effective date of the latest adjustment')
+        cy.getAndWait('#ctl00_MainContent_CV__StartDate').should('contain', 'NCD can not start before the effective date of the latest adjustment')
     })
 })
 

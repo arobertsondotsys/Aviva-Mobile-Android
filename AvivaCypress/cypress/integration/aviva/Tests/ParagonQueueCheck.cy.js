@@ -29,13 +29,13 @@ describe('Check Paragon Queue for correct documents', () => {
         Global_Stuff.selectActionDocumentsWithParagonPolicyNumber1()
 
         // NYY 0
-        cy.get('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
 
-        cy.get(':nth-child(1) > .level1').click()
+        cy.getAndWait(':nth-child(1) > .level1').click()
 
         // Search for Customer file for second policy
         cy.go(-3)
@@ -43,11 +43,11 @@ describe('Check Paragon Queue for correct documents', () => {
         Global_Stuff.selectActionDocumentsWithParagonPolicyNumber2()
 
         // NNY 1
-        cy.get('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
 
-        cy.get(':nth-child(1) > .level1').click()
+        cy.getAndWait(':nth-child(1) > .level1').click()
 
         // Search for Customer file for third policy
         cy.go(-3)
@@ -55,9 +55,9 @@ describe('Check Paragon Queue for correct documents', () => {
         Global_Stuff.selectActionDocumentsWithParagonPolicyNumber3()
 
         // NYN 2
-        cy.get('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
     })
 })
 

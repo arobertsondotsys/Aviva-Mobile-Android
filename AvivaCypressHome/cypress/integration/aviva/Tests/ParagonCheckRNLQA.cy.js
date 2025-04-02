@@ -36,9 +36,9 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.postalAddressConfirm()
     Global_stuff.occupancy()
     Global_stuff.proposerEmployStatus()
-    cy.wait(2000)
+    
     Global_stuff.bizStatus()
-    cy.wait(2000)
+    
     Global_stuff.aboutYouContinueHome()
   
     // Your Property
@@ -60,7 +60,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.heatingType()
     Global_stuff.goodStateOfRepairTrue()
     Global_stuff.floodSubsidenceFalse()
-    cy.wait(2000)
+    
     Global_stuff.yourPropertyContinue()
 
     // Your cover
@@ -69,7 +69,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.buildingAndContentsTrue()
     Global_stuff.buildingAndContentsFalse()
     Global_stuff.buildingAndContentsTrue()
-    cy.wait(2000)
+    
     Global_stuff.homeValue()
     Global_stuff.contentsValue()
     Global_stuff.isClaimsFalse()
@@ -77,14 +77,14 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.isRefusedFalse()
     Global_stuff.isSpecialFalse()
     Global_stuff.isCancelledFalse()
-    cy.wait(2000)
+    
     Global_stuff.yourCoverContinue()
 
     // Policy start date and claims
     Global_stuff.coverStartTitle()
     Global_stuff.notes()
     Global_stuff.claimsFreeYears()
-    cy.wait(2000)
+    
     Global_stuff.coverStartDate()
     Global_stuff.coverStartHaveCarIns()
     Global_stuff.coverStartMarketing()
@@ -100,7 +100,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.quotePageStaffRecalculate()
 
     cy.pause()
-    cy.wait(2000)
+    
     Global_stuff.quotePageBuyNowBtn()
 
     // Complete and pay
@@ -108,7 +108,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.notes()
     Global_stuff.completeAndPayMortgage()
     Global_stuff.completeAndPayMyAvivaDocsNo()
-    Global_stuff.completeAndPayNoCheckBox()
+    
     Global_stuff.completeAndPayContinue()
 
     // Select payment type
@@ -155,7 +155,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.selectActionDocumentsWithPolicyNumber()
     Global_stuff.checkRNLInviteParagonDocs()
     cy.go(-3)
-    cy.wait(2000)
+    
   
     // Purchase Home Renewal
     Global_stuff.livePoliciesBTN()

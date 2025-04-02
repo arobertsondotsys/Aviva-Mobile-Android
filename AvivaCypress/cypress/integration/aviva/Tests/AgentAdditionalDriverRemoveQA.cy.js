@@ -40,7 +40,6 @@ describe('Agent can add a driver and remove at ADJ', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -49,13 +48,11 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -66,9 +63,7 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -96,7 +91,6 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.notes()
         Global_Stuff.claimsHeading()
         Global_Stuff.claimsFalse1st()
-        cy.wait(3000)
         Global_Stuff.claimsFalseLast()
         Global_Stuff.claimsContinue()
         
@@ -114,9 +108,7 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.coverStartHaveHomeIns()
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
-        cy.wait(3000)
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -145,7 +137,6 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.postQuote2IsNoMedicalTrue()
         
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(2000)
         Global_Stuff.postQuote2Continue()
    
         // Complete post quote 3 "Your insurance history and inception details"
@@ -155,12 +146,10 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.postQuote3NoOtherNCDTrue()
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
         Global_Stuff.paymentTypeAgentNoPay()
         Global_Stuff.paymentTypeAgentNoPayContinue()
 
@@ -187,19 +176,18 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.selectActionMakeADJWithPolicyNumber()
 
         // Select to perform a permanent adjustment on Additional drivers
-        cy.get('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers', {force: true}).should('have.value', 'AddDriver')
-        cy.get('#btnMakePermaChange').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers', {force: true}).should('have.value', 'AddDriver')
+        cy.getAndWait('#btnMakePermaChange').click({force: true})
         cy.contains('Remove driver').click({force: true})
         cy.contains('Additional drivers', {force: true})
         cy.contains('Sarah Vader', {force: true})
-        cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
-        cy.wait(6000)
-        cy.get('#Continue5').click({force: true})
-        cy.get('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'), {force: true})
-        cy.get('#ctl00_MainContent_Continue8').click({force: true})
-        cy.get('#ctl00_MainContent_btnBuyNow').click({force: true})
-        cy.get('#div2').contains('About the drivers')
-        cy.get('#ctl00_divNotes > .a-button').should('be.visible')
+        cy.getAndWait('#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver').click({force: true})
+        cy.getAndWait('#Continue5').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'), {force: true})
+        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_btnBuyNow').click({force: true})
+        cy.getAndWait('#div2').contains('About the drivers')
+        cy.getAndWait('#ctl00_divNotes > .a-button').should('be.visible')
 
         // Completing post quote screen 2 questions
         Global_Stuff.postQuote2IsResidentTrue()
@@ -211,14 +199,13 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Global_Stuff.postQuote2IsNoRefusalTrue()
         Global_Stuff.postQuote2IsNoIncreaseTrue()
         Global_Stuff.postQuote2IsNoMedicalTrue()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Completing post quote screen 3 
-        cy.get('#ctl00_MainContent_btnContinueToPayment').click()
+        Global_Stuff.postQuote3Continue()
 
-        cy.get('#ctl00_MainContent_PaymentType').select(3)
-        cy.get('#ctl00_MainContent_PayNow').click()
+        cy.getAndWait('#ctl00_MainContent_PaymentType').select(3)
+        cy.getAndWait('#ctl00_MainContent_PayNow').click()
 
         // Payment screen
         Global_Stuff.paymentCardQAAgent()

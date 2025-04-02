@@ -21,10 +21,10 @@ describe('Policy Purchase with NYN', () => {
         Global_Stuff.loginButton()
         
         // Revert new window that opens back to original window 
-        cy.get('#ctl00_ContentPlaceHolder1_ProductList').select(1)
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_ProductList').select(1)
         cy.window().then((win) => {
             const orig = win.open
-            win.open = function (url, target, features) {
+            win.open = function (url, targetAndWait, features) {
                 return orig.call(this, url, '_self', features)
             }
         })
@@ -47,7 +47,6 @@ describe('Policy Purchase with NYN', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(2000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -56,13 +55,11 @@ describe('Policy Purchase with NYN', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(2000)
         
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(2000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -73,9 +70,7 @@ describe('Policy Purchase with NYN', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(3000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(3000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -89,9 +84,7 @@ describe('Policy Purchase with NYN', () => {
         // Complete section 6 "Your claims"
         Global_Stuff.notes()
         Global_Stuff.claimsHeading()
-        cy.wait(2000)
         Global_Stuff.claimsFalse1st()
-        cy.wait(2000)
         Global_Stuff.claimsContinue()
 
         // Complete section 7 "Penalty points"
@@ -108,7 +101,6 @@ describe('Policy Purchase with NYN', () => {
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -135,7 +127,6 @@ describe('Policy Purchase with NYN', () => {
        Global_Stuff.postQuote2IsNoIncreaseTrue()
        Global_Stuff.postQuote2IsNoMedicalTrue()
        Global_Stuff.postQuote2DriverNumber()
-       cy.wait(2000)
        Global_Stuff.postQuote2Continue()
         
         // Complete post quote 3 "Your insurance history and inception details"
@@ -147,12 +138,10 @@ describe('Policy Purchase with NYN', () => {
         Global_Stuff.postQuote3IsMyAvivaFalse()
         Global_Stuff.postQuote3PostCert()
         Global_Stuff.postQuote3PostDocsFalse()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
         Global_Stuff.paymentTypeAgentNoPay()
         Global_Stuff.paymentTypeAgentNoPayContinue()
         
@@ -168,7 +157,7 @@ describe('Policy Purchase with NYN', () => {
         
         // Check B/O preferences match Y/N/N
         Global_Stuff.Server()
-        cy.get(':nth-child(1) > .level1').click()
+        Global_Stuff.home()
         Global_Stuff.email()
         Global_Stuff.searchButton()
         Global_Stuff.policySelectButton()
@@ -177,17 +166,17 @@ describe('Policy Purchase with NYN', () => {
         Global_Stuff.livePoliciesBTN()
         Global_Stuff.selectActionDocumentsWithParagonPolicyNumber3()
         
-        cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
-        cy.get('#ctl00_ContentPlaceHolder1_rblCertByPost_0').should('have.value', 'True')
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPost_1').should('have.value', 'False')
-        cy.get('#CorrespondenceModal > .modal-dialog > .modal-content > .modal-footer > .btn').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblCertByPost_0').should('have.value', 'True')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPost_1').should('have.value', 'False')
+        cy.getAndWait('#CorrespondenceModal > .modal-dialog > .modal-content > .modal-footer > .btn').click()
         cy.wait(60000)
-        cy.get('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.get('tbody > :nth-child(3) > :nth-child(3)').contains('No Documents In Queue')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('No Documents In Queue')
 
         // Completing Diary chaser to move policy to full cover and check for cert being added to print queue
-        cy.get(':nth-child(1) > .level1').click()
+        cy.getAndWait(':nth-child(1) > .level1').click()
         Global_Stuff.email()
         Global_Stuff.searchButton()
         Global_Stuff.policySelectButton()
@@ -196,9 +185,9 @@ describe('Policy Purchase with NYN', () => {
         Global_Stuff.livePoliciesBTN()
         Global_Stuff.selectActionDiaryWithParagonPolicyNumber3()
         
-        cy.get(':nth-child(7) > .btn > span').click()
-        cy.get('#ctl00_ContentPlaceHolder1_DocumentGrid_ctl02_IsReceived').click()
-        cy.get(':nth-child(2) > :nth-child(6)').should('not.have.text', '')
+        cy.getAndWait(':nth-child(7) > .btn > span').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_DocumentGrid_ctl02_IsReceived').click()
+        cy.getAndWait(':nth-child(2) > :nth-child(6)').should('not.have.text', '')
     })
 })
     

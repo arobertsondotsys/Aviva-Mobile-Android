@@ -23,7 +23,7 @@ describe('Check reports download', () => {
         cy.get('[title="Reports"]').trigger('mouseenter', { force: true })
         cy.get('[title="Scheduled Reports"]').click({ force: true })
         cy.get('#ctl00_ContentPlaceHolder1_ReportTypeList').select('Payment Report')
-        cy.get('#ctl00_ContentPlaceHolder1_FromFulfilmentDateYear').select('2023')
+        cy.get('#ctl00_ContentPlaceHolder1_FromFulfilmentDateYear').select('2024')
         cy.get('#ctl00_ContentPlaceHolder1_ScheduleReport > span').click()
         cy.get('.alert').should('have.text', 'Report Successfully Added!')
         cy.wait(40000)

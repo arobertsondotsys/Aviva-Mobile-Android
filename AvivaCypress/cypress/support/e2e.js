@@ -20,3 +20,17 @@ require('cypress-xpath')
 //import 'cypress-email-results'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+// Add this utility function to format milliseconds into minutes and seconds
+function formatDuration(ms) {
+    const minutes = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+    return `${minutes}m ${seconds}s`;
+}
+
+// Use Cypress's `afterEach` hook to log the duration
+afterEach(function () {
+    const duration = this.currentTest.duration; // Get the test duration in ms
+    const formattedDuration = formatDuration(duration);
+    console.log(`Test Duration: ${formattedDuration}`);
+});

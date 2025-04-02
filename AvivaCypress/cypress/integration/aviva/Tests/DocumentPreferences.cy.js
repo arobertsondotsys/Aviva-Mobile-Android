@@ -40,7 +40,6 @@ describe('Policy Purchase with YNN', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -49,13 +48,11 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -66,9 +63,7 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -82,9 +77,7 @@ describe('Policy Purchase with YNN', () => {
         // Complete section 6 "Your claims"
         Global_Stuff.claimsHeading()
         Global_Stuff.notes()
-        cy.wait(2000)
         Global_Stuff.claimsFalse1st()
-        cy.wait(2000)
         Global_Stuff.claimsContinue()
 
         // Complete section 7 "Penalty points"
@@ -101,7 +94,6 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -128,7 +120,6 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.postQuote2IsNoIncreaseTrue()
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -138,12 +129,10 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.postQuote3NoOtherNCDTrue()
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
         Global_Stuff.paymentTypeAgentNoPay()
         Global_Stuff.paymentTypeAgentNoPayContinue()
 
@@ -169,27 +158,27 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.livePoliciesBTN()
         Global_Stuff.selectActionDocumentsWithPolicyNumber()
         
-        cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_0').should('have.value', 'True')
-        cy.get('#ctl00_ContentPlaceHolder1_rblCertByPost_1').should('have.value', 'False')
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPost_1').should('have.value', 'False')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPortal_0').should('have.value', 'True')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblCertByPost_1').should('have.value', 'False')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPost_1').should('have.value', 'False')
 
         // Check Portal preferences match Y/N/N
         Global_Stuff.Server1()
 
         Global_Stuff.cookiesAccept()
-        cy.get('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
+        cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
         Global_Stuff.loginEmail()
         Global_Stuff.loginPassword()
         Global_Stuff.loginPortalButton()
         Global_Stuff.portalManagePolicyWithPolicyNumber()
-        cy.get('#Main_btnDocPref').click()
-        cy.get('#IsMyAviva-yes').should('have.value', 'True')
+        cy.getAndWait('#Main_btnDocPref').click()
+        cy.getAndWait('#IsMyAviva-yes', { allowHidden: true } ).should('have.value', 'True')
 
         // Enter B/O and amend preferences to N/Y/Y
         Global_Stuff.Server()
 
-        cy.get(':nth-child(1) > .level1').click()
+        cy.getAndWait(':nth-child(1) > .level1').click()
         Global_Stuff.email()
         Global_Stuff.searchButton()
         Global_Stuff.policySelectButton()
@@ -198,39 +187,39 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.livePoliciesBTN()
         Global_Stuff.selectActionDocumentsWithPolicyNumber()
         
-        cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').click({force: true})
-        cy.get('#ctl00_ContentPlaceHolder1_rblCertByPost_0').click({force: true})
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPost_0').click({force: true})
-        cy.get('#ctl00_ContentPlaceHolder1_btnSave').click()
-        cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
-        cy.get('#ctl00_ContentPlaceHolder1_rblCertByPost_0').should('have.value', 'True')
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPost_0').should('have.value', 'True')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').click({force: true})
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblCertByPost_0').click({force: true})
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPost_0').click({force: true})
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnSave').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblCertByPost_0').should('have.value', 'True')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPost_0').should('have.value', 'True')
 
         // Check Portal preferences match N/Y/Y
         Global_Stuff.Server1()
 
-        cy.get('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
+        cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
         Global_Stuff.loginEmail()
         Global_Stuff.loginPassword()
         Global_Stuff.loginPortalButton()
         Global_Stuff.portalManagePolicyWithPolicyNumber()
-        cy.get('#Main_btnDocPref').click()
-        cy.get('#IsMyAviva-no').should('have.value', 'False')
-        cy.get('#IsPostCert-yes').should('have.value', 'True')
-        cy.get('#IsPostDocs-yes').should('have.value', 'True')
+        cy.getAndWait('#Main_btnDocPref').click()
+        cy.getAndWait('#IsMyAviva-no', { allowHidden: true }).should('have.value', 'False')
+        cy.getAndWait('#IsPostCert-yes', { allowHidden: true }).should('have.value', 'True')
+        cy.getAndWait('#IsPostDocs-yes', { allowHidden: true }).should('have.value', 'True')
 
         // Amend Portal preferences to N/N/Y
-        cy.get('#IsMyAviva-False > .a-radio > .a-radio__label > .a-radio__label-inner').click()
-        cy.get('#IsPostCert-False > .a-radio > .a-radio__label > .a-radio__label-inner').click()
-        cy.get('#IsPostDocs-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#Main_btnSave').click()
+        cy.getAndWait('#IsMyAviva-False > .a-radio > .a-radio__label > .a-radio__label-inner').click()
+        cy.getAndWait('#IsPostCert-False > .a-radio > .a-radio__label > .a-radio__label-inner').click()
+        cy.getAndWait('#IsPostDocs-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
+        cy.getAndWait('#Main_btnSave').click()
 
         // Enter B/O and check preferences match N/N/Y
         Global_Stuff.Server()
 
-        cy.get(':nth-child(1) > .level1').click()
+        cy.getAndWait(':nth-child(1) > .level1').click()
         Global_Stuff.email()
         Global_Stuff.searchButton()
         Global_Stuff.policySelectButton()
@@ -239,11 +228,11 @@ describe('Policy Purchase with YNN', () => {
         Global_Stuff.livePoliciesBTN()
         Global_Stuff.selectActionDocumentsWithPolicyNumber()
        
-        cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
-        cy.get('#ctl00_ContentPlaceHolder1_rblCertByPost_1').should('have.value', 'False')
-        cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPost_0').should('have.value', 'True')
-        cy.get('#CorrespondenceModal > .modal-dialog > .modal-content > .modal-footer > .btn').click()
-        cy.get('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblCertByPost_1').should('have.value', 'False')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPost_0').should('have.value', 'True')
+        cy.getAndWait('#CorrespondenceModal > .modal-dialog > .modal-content > .modal-footer > .btn').click()
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
     })
 })

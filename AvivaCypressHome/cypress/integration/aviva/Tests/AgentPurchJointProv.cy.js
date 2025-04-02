@@ -36,9 +36,7 @@ describe('Agent purchase home policy with a joint provider', () => {
     Global_stuff.postalAddressConfirm()
     Global_stuff.occupancy()
     Global_stuff.proposerEmployStatus()
-    cy.wait(2000)
     Global_stuff.bizStatus()
-    cy.wait(2000)
     Global_stuff.aboutYouContinueHome()
   
     // Your Property
@@ -60,7 +58,6 @@ describe('Agent purchase home policy with a joint provider', () => {
     Global_stuff.heatingType()
     Global_stuff.goodStateOfRepairTrue()
     Global_stuff.floodSubsidenceFalse()
-    cy.wait(2000)
     Global_stuff.yourPropertyContinue()
 
     // Your cover
@@ -69,7 +66,6 @@ describe('Agent purchase home policy with a joint provider', () => {
     Global_stuff.buildingAndContentsTrue()
     Global_stuff.buildingAndContentsFalse()
     Global_stuff.buildingAndContentsTrue()
-    cy.wait(2000)
     Global_stuff.homeValue()
     Global_stuff.contentsValue()
     Global_stuff.isClaimsFalse()
@@ -79,7 +75,6 @@ describe('Agent purchase home policy with a joint provider', () => {
     Global_stuff.isCancelledFalse()
     Global_stuff.yourCoverJointOwner()
     Global_stuff.yourCoverJointOwner1()
-    cy.wait(2000)
     cy.pause()
     Global_stuff.yourCoverContinue()
 
@@ -87,7 +82,6 @@ describe('Agent purchase home policy with a joint provider', () => {
     Global_stuff.coverStartTitle()
     Global_stuff.notes()
     Global_stuff.claimsFreeYears()
-    cy.wait(2000)
     Global_stuff.coverStartDate()
     Global_stuff.coverStartHaveCarIns()
     Global_stuff.coverStartMarketing()
@@ -101,14 +95,12 @@ describe('Agent purchase home policy with a joint provider', () => {
     Global_stuff.quotePageStaffOptions()
     Global_stuff.quotePageStaffDiscounts()
     Global_stuff.quotePageStaffRecalculate()
-    cy.wait(2000)
     Global_stuff.quotePageBuyNowBtn()
 
     // Complete and pay
     Global_stuff.completeAndPayHeading()
     Global_stuff.notes()
     Global_stuff.completeAndPayMortgage()
-    Global_stuff.completeAndPayNoCheckBox()
     Global_stuff.completeAndPayContinue()
 
     // Select payment type

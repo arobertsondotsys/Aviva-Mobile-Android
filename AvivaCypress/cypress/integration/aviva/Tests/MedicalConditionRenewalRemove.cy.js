@@ -21,10 +21,10 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.loginButton()
 
         // Revert new window that opens back to original window 
-        cy.get('#ctl00_ContentPlaceHolder1_ProductList').select(1)
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_ProductList').select(1)
         cy.window().then((win) => {
             const orig = win.open
-            win.open = function (url, target, features) {
+            win.open = function (url, targetAndWait, features) {
                 return orig.call(this, url, '_self', features)
             }
         })
@@ -47,7 +47,6 @@ describe('Medical condition can be removed at renewal', () => {
         // Complete section 2 "Personal details"
         Global_Stuff.personalDetailsTitle()
         Global_Stuff.addressInput()
-        cy.wait(4000)
         Global_Stuff.addressSuggest()
         Global_Stuff.addressSelect()
         Global_Stuff.addressConfirm()
@@ -56,13 +55,11 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.licenceType()
         Global_Stuff.licenceYears()
         Global_Stuff.personlaDetailsContinue()
-        cy.wait(4000)
 
         // Complete section 3 "Insurance details"
         Global_Stuff.insuranceDetailsTitle()
         Global_Stuff.notes()
         Global_Stuff.drivingExp()
-        cy.wait(4000)
         Global_Stuff.drivingExpYears()
         Global_Stuff.carUse()
         Global_Stuff.insuranceDetailsContinue()
@@ -73,9 +70,7 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.carRegYes()
         Global_Stuff.carRegInput()
         Global_Stuff.findCarBTN()
-        cy.wait(6000)
         Global_Stuff.confirmCarBTN()
-        cy.wait(6000)
         Global_Stuff.carValueInput()
         Global_Stuff.carModifiedFalse()
         Global_Stuff.carDetailsContinue()
@@ -89,16 +84,13 @@ describe('Medical condition can be removed at renewal', () => {
         // Complete section 6 "Your claims"
         Global_Stuff.notes()
         Global_Stuff.claimsHeading()
-        cy.wait(2000)
         Global_Stuff.claimsFalse1st()
-        cy.wait(2000)
         Global_Stuff.claimsContinue()
 
         // Complete section 7 "Penalty points"
         Global_Stuff.ppHeading()
         Global_Stuff.notes()
         Global_Stuff.ppFalse1st()
-        cy.wait(3000)
         Global_Stuff.ppContinue()
 
         // Complete section 8 "Cover start date"
@@ -109,7 +101,6 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.coverStartHaveCarIns()
         Global_Stuff.coverStartMarketing()
         Global_Stuff.coverStartContinue()
-        cy.wait(10000)
 
         // Quote screen - Buy now 
         Global_Stuff.quotePageHeading()
@@ -136,7 +127,6 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.postQuote2IsNoIncreaseTrue()
         Global_Stuff.postQuote2IsNoMedicalTrue()
         Global_Stuff.postQuote2DriverNumber()
-        cy.wait(3000)
         Global_Stuff.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
@@ -146,12 +136,10 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.postQuote3NoOtherNCDTrue()
         Global_Stuff.postQuote3WithinExpiryTrue()
         Global_Stuff.postQuote3IsMyAvivaTrue()
-        cy.wait(3000)
         Global_Stuff.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
         Global_Stuff.notes()
-        cy.wait(4000)
         Global_Stuff.paymentTypeAgentNoPay()
         Global_Stuff.paymentTypeAgentNoPayContinue()
 
@@ -199,29 +187,24 @@ describe('Medical condition can be removed at renewal', () => {
         // Purchase Home Renewal
         Global_Stuff.livePoliciesBTN()
         Global_Stuff.selectActionRenewalWithPolicyNumber()
-        cy.wait(4000)
         Global_Stuff.selectStaffDiscount()
-        cy.get('#ctl00_MainContent_EditAdditionalDriver').click()
+        cy.getAndWait('#ctl00_MainContent_EditAdditionalDriver').click()
         Global_Stuff.additionalDriversTrue()
-        cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
-        cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
-        cy.get('#ctl00_MainContent_DriverSurname').type('Test')
-        cy.get('#ctl00_MainContent_DriverDOB').type('28/12/1982')
-        cy.get('#DriverEmploymentStatus').select(2)
-        cy.get('#DriverLicenceType').select('U')
-        cy.get('#ctl00_MainContent_DriverLicenceYearsHeld').select(6)
-        cy.wait(2000)
-        cy.get('#AdditionalDriverNumber').type('123456799UK')
-        cy.wait(2000)
-        cy.get('#RelationshipToProposer').select(1)
-        cy.get('#IsSpouseOwnVehicle-False > .a-radio > .a-radio__label').click()
-        cy.get('#SaveDriver').click()
-        cy.wait(3000)
-        cy.get('#IsAdditionalDriver-False > .a-radio > .a-radio__label').click()
+        Global_Stuff.additionalDriver1Title()
+        Global_Stuff.additionalDriver1Forename()
+        Global_Stuff.additionalDriver1Surname()
+        Global_Stuff.additionalDriver1DOB()
+        Global_Stuff.additionalDriver1EmploymentStatus()
+        Global_Stuff.additionalDriver1LicenceType()
+        Global_Stuff.additionalDriver1LicenceYears()
+        Global_Stuff.addionalDriver1DriverNumber()
+        Global_Stuff.additionalDriver1Relationship()
+        Global_Stuff.additionalDriver1SpouseOwnVehFalse()
+        Global_Stuff.additionalDriver1Save()
+        Global_Stuff.additionalDriversFalse()
         Global_Stuff.additionalDriversContinue()
 
-        cy.get('#accHeading5 > .m-showhide__control').contains('Additional driver added')
-        cy.reload()
+        cy.getAndWait('#accHeading5 > .m-showhide__control').contains('Additional driver added')
         Global_Stuff.claimsFalseLast()
         Global_Stuff.claimsContinue()
 
@@ -229,18 +212,17 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.ppContinue()
 
         // Complete section 8 "Cover start date"
-        cy.get('#div8').contains('Renewal date')
-        cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-        cy.get('#IsHome-False > .a-radio > .a-radio__label').click({force: true})
-        cy.get('#IsHouseholdCar-False > .a-radio > .a-radio__label').click({force: true})
-        cy.get('#ctl00_MainContent_Continue8').click({force: true})
-        cy.wait(10000)
+        cy.getAndWait('#div8').contains('Renewal date')
+        Global_Stuff.notes()
+        cy.getAndWait('#IsHome-False > .a-radio > .a-radio__label').click({force: true})
+        cy.getAndWait('#IsHouseholdCar-False > .a-radio > .a-radio__label').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
 
-        cy.get('#StaffHeading > .m-showhide__control').click()
-        cy.get('#ddlAvailableDiscounts').select(1)
-        cy.get('#ctl00_MainContent_Recalculate').click()
-        cy.get('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
-        cy.get('#btnBuyNow').click({force: true})
+        cy.getAndWait('#StaffHeading > .m-showhide__control').click()
+        cy.getAndWait('#ddlAvailableDiscounts').select(1)
+        cy.getAndWait('#ctl00_MainContent_Recalculate').click()
+        cy.getAndWait('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
+        cy.getAndWait('#btnBuyNow').click({force: true})
 
         Global_Stuff.postQuote1wnCar()
         Global_Stuff.postQuote1PrivateIns()
@@ -268,36 +250,26 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.postQuote2addMedicalConditionSelect1()
         Global_Stuff.postQuote2addMedicalConditionInformed()
         Global_Stuff.postQuote2addMedicalConditionSave()
-        cy.get(':nth-child(1) > .m-card-content > .m-card-content__inner > .m-card > .m-form-row > .has-modules-loaded').click({force: true})
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
+        cy.getAndWait('#RemoveCondition').first().click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
 
-        // cy.get('#IsOwner-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        // cy.get('#IsPrivate-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        // cy.get('#ctl00_MainContent_btnContinueVehicle').click({force: true})
+        cy.getAndWait('#RemoveCondition').last().click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
 
-        cy.get('.m-form-row > .has-modules-loaded').click({force: true})
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click({force: true})
-        cy.wait(2000)
-        // cy.get('#IsOwner-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        // cy.get('#IsPrivate-True > .a-radio__label').click({force: true})
-        // cy.get('#ctl00_MainContent_btnContinueVehicle').click({force: true})
-
-        cy.get('#IsNoMedical-yes').click({force: true})
+        Global_Stuff.postQuote2IsNoMedicalTrue()
 
         Global_Stuff.postQuote2Continue()
 
-        cy.get('#ctl00_MainContent_btnContinueToPayment').click()
+        Global_Stuff.postQuote3Continue()
 
-        cy.get('#ctl00_MainContent_PaymentType').select(2)
-        cy.get('#ctl00_MainContent_txtAmountReceived').type('100')
-        cy.get('#ctl00_MainContent_txtPayRef').type('test')
+        cy.getAndWait('#ctl00_MainContent_PaymentType').select(2)
+        cy.getAndWait('#ctl00_MainContent_txtAmountReceived').type('100')
+        cy.getAndWait('#ctl00_MainContent_txtPayRef').type('test')
 
-        cy.get('#ctl00_MainContent_PayCheque').click()
-        cy.get('#ctl00_MainContent_btnPayNSPayment').click()
+        cy.getAndWait('#ctl00_MainContent_PayCheque').click()
+        cy.getAndWait('#ctl00_MainContent_btnPayNSPayment').click()
 
-        cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
+        Global_Stuff.thankyouHeading()
 
         // Attempting to remove medical condition at MTA
         Global_Stuff.Server()
@@ -313,16 +285,16 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.selectActionMakeADJWithPolicyNumber()
 
         // Select to perform a permanent adjustment on Additional drivers
-        cy.get('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers', {force: true}).should('have.value', 'AddDriver')
-        cy.get('#btnMakePermaChange').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers', {force: true}).should('have.value', 'AddDriver')
+        cy.getAndWait('#btnMakePermaChange').click({force: true})
         
-        cy.get('#Continue5').click()
-        cy.get('#ctl00_MainContent_StartDate').type(day().add(3, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.get('#ctl00_MainContent_Continue8').click({force: true})
-        cy.get('#ctl00_MainContent_btnContinue').click({force: true})
+        cy.getAndWait('#Continue5').click()
+        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(3, 'day').format('DD/MM/YYYY'), {force: true})
+        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_btnContinue').click({force: true})
         
-        cy.get('#div2').contains('About the drivers')
-        cy.get('#ctl00_divNotes > .a-button').should('be.visible')
+        cy.getAndWait('#div2').contains('About the drivers')
+        cy.getAndWait('#ctl00_divNotes > .a-button').should('be.visible')
 
         // Completing post quote screen 2 questions
         Global_Stuff.postQuote2Heading()
@@ -337,20 +309,20 @@ describe('Medical condition can be removed at renewal', () => {
         Global_Stuff.postQuote2addMedicalConditionSelect1()
         Global_Stuff.postQuote2addMedicalConditionInformed()
         Global_Stuff.postQuote2addMedicalConditionSave()
-        cy.get(':nth-child(1) > .m-card-content > .m-card-content__inner > .m-card > .m-form-row > .has-modules-loaded').click()
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
-        cy.wait(2000)
-        cy.get('#accHeading2 > .m-showhide__control').click()
-        cy.wait(2000)
-        cy.get('#RemoveCondition').click()
-        cy.wait(2000)
-        cy.get('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
-        cy.wait(2000)
+        
+        Global_Stuff.postQuote2Headingselect()
+        
+        cy.getAndWait('#RemoveCondition').first().click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
+
+        Global_Stuff.postQuote2Headingselect()
+
+        cy.getAndWait('#RemoveCondition').last().click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
         
         // Completing post quote screen 3 
-        cy.get('#ctl00_MainContent_btnContinueToPayment').click({force: true})
+        Global_Stuff.postQuote3Continue()
 
-        cy.get('.m-card-content > p').should('contain', 'Go back to make a change to your details')
+        cy.getAndWait('.m-card-content > p').should('contain', 'Go back to make a change to your details')
     })
 })

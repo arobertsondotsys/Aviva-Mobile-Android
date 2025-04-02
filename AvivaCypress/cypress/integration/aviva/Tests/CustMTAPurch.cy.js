@@ -15,44 +15,39 @@ describe('Customer can purchase an MTA', () => {
         Global_Stuff.Server1()
 
         Global_Stuff.cookiesAccept()
-        cy.get('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
+        cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
 
         Global_Stuff.loginEmail()
         Global_Stuff.loginPassword()
         Global_Stuff.loginPortalButton()
 
-        // cy.get('#RenewalDueModal > .CloseBtnMockup').click()
+        // cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()
         Global_Stuff.portalManagePolicyWithPolicyNumber()
-        cy.get('#Main_btnAdjustment').click()
-        cy.get('#ctl00_MainContent_ddlPermaSelection').select(4, {force: true})
+        cy.getAndWait('#Main_btnAdjustment').click()
+        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select(4, {force: true})
         cy.window().then((win) => {
-            cy.get('#btnMakePermaChange').click({force: true})
+            cy.getAndWait('#btnMakePermaChange').click({force: true})
             const orig = win.open
-            win.open = function (url, target, features) {
+            win.open = function (url, targetAndWait, features) {
                 return orig.call(this, url, '_self', features)
             }
         })
 
         // Input AD details
-        cy.get('#IsAdditionalDriver-True > .a-radio > .a-radio__label').click()
-        cy.get('#ctl00_MainContent_DDL_AddDriverTitle').select(2)
-        cy.get('#ctl00_MainContent_DriverForename').type('Sarah')
-        cy.get('#ctl00_MainContent_DriverSurname').type('Vader')
-        cy.get('#ctl00_MainContent_DriverDOB').type('01/01/1950')
-        cy.get('#DriverEmploymentStatus').select('E')
-        cy.get('#txtDriverOccupation').type('shop as')
-        cy.get('#ui-id-2').click()
-        cy.get('#DriverLicenceType').select(1)
-        cy.get('#ctl00_MainContent_DriverLicenceYearsHeld').select(3)
-        cy.wait(2000)
-        cy.get('#AdditionalDriverNumber').type('123459972')
-        cy.wait(2000)
-        cy.get('#RelationshipToProposer').select(1)
-        cy.get('#IsSpouseOwnVehicle-True > .a-radio > .a-radio__label').click()
-        cy.get('#SaveDriver').click()
-        cy.get('#IsAdditionalDriver-False > .a-radio > .a-radio__label').click()
-        cy.wait(2000)
-        cy.get('#Continue5').click()
+        Global_Stuff.additionalDriversTrue()
+        Global_Stuff.additionalDriver1Title()
+        Global_Stuff.additionalDriver1Forename()
+        Global_Stuff.additionalDriver1Surname()
+        Global_Stuff.additionalDriver1DOB()
+        Global_Stuff.additionalDriver1EmploymentStatus()
+        Global_Stuff.additionalDriver1LicenceType()
+        Global_Stuff.additionalDriver1LicenceYears()
+        Global_Stuff.addionalDriver1DriverNumber()
+        Global_Stuff.additionalDriver1Relationship()
+        Global_Stuff.additionalDriver1SpouseOwnVehFalse()
+        Global_Stuff.additionalDriver1Save()
+        Global_Stuff.additionalDriversFalse()
+        Global_Stuff.additionalDriversContinue()
 
         // Claims screen
         Global_Stuff.claimsFalseLast()
@@ -63,10 +58,10 @@ describe('Customer can purchase an MTA', () => {
         Global_Stuff.ppContinue()
 
         // Start date
-        cy.get('#div8').contains('Cover start date')
-        cy.get('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
-        cy.get('#TermsAndConditions > .a-checkbox > .a-checkbox__label').click()
-        cy.get('#ctl00_MainContent_Continue8').click()
+        cy.getAndWait('#div8').contains('Cover start date')
+        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
+        cy.getAndWait('#TermsAndConditions > .a-checkbox > .a-checkbox__label').click()
+        cy.getAndWait('#ctl00_MainContent_Continue8').click()
 
         // Quote screen
         Global_Stuff.permMTABuyNow()

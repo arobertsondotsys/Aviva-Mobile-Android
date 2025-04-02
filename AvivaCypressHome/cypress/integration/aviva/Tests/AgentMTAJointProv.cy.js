@@ -28,17 +28,16 @@ describe('Agent MTA purchase of Joint Owner checking for correct documents', () 
     Global_stuff.adjustmentContinue()
     Global_stuff.yourCoverJointOwner()
     Global_stuff.yourCoverJointOwner1()
-    cy.wait(2000)
     Global_stuff.yourCoverContinue()
-    cy.wait(2000)
     Global_stuff.coverStartDate()
     Global_stuff.coverStartContinue()
     Global_stuff.adjustmentBuyContinue()
     Global_stuff.adjustmentContinueToPayment()
 
+    Global_stuff.thankyouHeading()
+
     // Log in to back office
     Global_stuff.Server()
-    cy.wait(2000)
     Global_stuff.home()
     
     // Search for Customer file

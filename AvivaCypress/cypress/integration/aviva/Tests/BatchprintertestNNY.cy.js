@@ -128,14 +128,14 @@ describe('Policy Purchase with NNY', () => {
         cy.get('#div2').contains('About the drivers')
         cy.get('#ctl00_divNotes > .a-button').should('be.visible')
         cy.get('#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsMainDriver-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNotOtherCar-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNotOtherInsurance-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoConvictions-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoDisqualifications-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoRefusal-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoIncrease-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.get('#IsNoMedical-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
+        Global_Stuff.postQuote2IsMainDriverTrue()
+        Global_Stuff.postQuote2IsNotOtherCarTrue()
+        Global_Stuff.postQuote2IsNotOtherInsTrue()
+        Global_Stuff.postQuote2IsNoConvictionTrue()
+        Global_Stuff.postQuote2IsNoDisqualificationTrue()
+        Global_Stuff.postQuote2IsNoRefusalTrue()
+        Global_Stuff.postQuote2IsNoIncreaseTrue()
+        Global_Stuff.postQuote2IsNoMedicalTrue()
         cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DriverNum').type('123456789', {force: true})
         Global_Stuff.postQuote2Continue()
 
@@ -167,7 +167,7 @@ describe('Policy Purchase with NNY', () => {
         cy.get('#ctl00_MainContent_Summary').click({force: true})
 
         // Thank you page
-        cy.get('.m-heading-group > .m-heading-group__item').contains('Thank you')
+        Global_Stuff.thankyouHeading()
         cy.get('#ctl00_divNotes > .a-button').should('be.visible')
         
         // Check B/O preferences match Y/N/N
