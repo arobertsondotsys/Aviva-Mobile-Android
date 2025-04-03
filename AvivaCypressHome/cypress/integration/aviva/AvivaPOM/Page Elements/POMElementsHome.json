@@ -123,6 +123,8 @@
     "specifieditem_itemvalue": "#AdditionalCoverItemValue",
     "specifieditem_additem": "#btnSubmitSpecifiedItem",
     "specifieditem_backbtn": "#MainContent_OptionalExtraControl_divSpecifiedItemValue > button.a-button",
+    "specifieditem_edit": "#OptionalCoverEdit",
+    "specifieditem_removeitem": "//input[@id='MainContent_OptionalExtraControl_RemoveSpecifiedItem']",
     "quotepage_manageexcess": "#ManageExcessViewOptions",
     "quotepage_manageexcess275": "#ExcessAmount-min > .a-radio > .a-radio__label",
     "quotepage_manageexcess500": "#ExcessAmount-midOne > .a-radio > .a-radio__label",
@@ -203,6 +205,8 @@
 
     "diarycorres_heading": ".a-heading--1",
     "diarycorres_continue": "#MainContent_Summary",
+    "diarycorres_valuationreciept": "[style='font-style:normal;'] > :nth-child(1",   
+    
 
     "thankyou_heading": ".m-heading-group__item"
 
@@ -322,6 +326,8 @@
     "portaladj_mortgageintlettertrue": "#IsNoticeBankInterest-True > .a-radio > .a-radio__label",
     "portaladj_mortgageprovider": "#MortgageProviderDDl",
     "portalrenew_policyselect": "#Renewal_Modal_Submit",
+    "portalrenew_closemodal": "#RenewalDueModal > .CloseBtnMockup",
+    "portalrenew_renewthispolicy": "#Main_btnRenewal",
     "portalrenew_docsconfirm": "#NavigationTabs_btnRnlDocConfirmation",
     "portalrenew_monthlypaymentswap": "#MainContent_btnPayMonthlyRNLSwap",
     "portalrenew_monthlypaymentswapconfirm": "#MainContent_btnChangeToMonthly"

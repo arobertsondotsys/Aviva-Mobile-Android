@@ -123,7 +123,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: '**/*.cy.js', // Default pattern
     env: {
-      serverKey: 'DEMO' // Set the default serverKey here
+      serverKey: 'QA2' // Set the default serverKey here
     }
   },
 })

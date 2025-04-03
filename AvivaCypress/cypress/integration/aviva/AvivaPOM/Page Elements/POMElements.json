@@ -208,6 +208,10 @@
     "generate_renewal":"[class^='btn btn-sm btn-cta btn-sm']",
     "generate_renewalcheck":".bg-info",
     "generate_renewalcheck1":".bg-info",
+    "generate_renewaldashboard":"[class^='level2 dropdown-item dynamic'][title^='Renewals']",
+    "generate_renewalpolicynumber":"#ctl00_ContentPlaceHolder1_PolicyNumber",
+    
+    
     "extract_policynumber":"[class^='badge rounded-pill text-bg-success']",
     "select_renewals":"[class^='level2 dropdown-item dynamic'][title^='Renewals']",
     "selectaction_cancelpolicy": "[class^='dropdown selectAction']",

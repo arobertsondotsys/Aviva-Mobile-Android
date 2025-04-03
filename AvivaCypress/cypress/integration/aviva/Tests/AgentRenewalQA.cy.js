@@ -175,34 +175,19 @@ describe('Agent can Renew a policy', () => {
         Global_Stuff.email()
         Global_Stuff.searchButton()
         Global_Stuff.policySelectButton()
-        cy.getAndWait('[class^="btn btn-sm btn-cta btn-sm"]').last().click()
-
-        cy.getAndWait('.bg-info').should('contain', 'RNL')
-        cy.getAndWait('.bg-info').should('not.contain', '€ 0')
-
-        cy.getAndWait('[class^="badge rounded-pill text-bg-success"]').last().invoke('text').then(policyNumString => {
-            const policy = policyNumString
-            cy.getAndWait('[class^="level2 dropdown-item dynamic"][title^="Renewals"]').click({force: true})
-            cy.getAndWait('#ctl00_ContentPlaceHolder1_PolicyNumber').type(policy)
-        })
-
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_Search').click()
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal').click()
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_BatchPrint').click()
+        Global_Stuff.generateRenewal()
+        Global_Stuff.inviteRenewal()
 
         // Checking for renewal invite email in docs
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
+        Global_Stuff.recallPolicy()
         Global_Stuff.livePoliciesBTN()
-
         Global_Stuff.selectActionDocumentsWithPolicyNumber()
+        Global_Stuff.checkRenewalInviteDocs()
+        cy.go(-1)
 
         // Purchase renewal quote
-        cy.getAndWait('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
-        cy.go('back')
         Global_Stuff.livePoliciesBTN()
-
         Global_Stuff.selectActionRenewalWithPolicyNumber()
-
         cy.getAndWait('#StaffHeading > .m-showhide__control').click()
         cy.getAndWait('#ddlAvailableDiscounts').select(1)
         cy.getAndWait('#ctl00_MainContent_Recalculate').click()
@@ -224,4 +209,5 @@ describe('Agent can Renew a policy', () => {
 
         Global_Stuff.thankyouHeading()
     })
+
 })

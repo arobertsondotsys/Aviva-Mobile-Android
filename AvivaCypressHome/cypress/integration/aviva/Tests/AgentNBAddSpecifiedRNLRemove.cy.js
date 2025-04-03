@@ -9,8 +9,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 const Global_stuff = new Global
 
-describe('Agent purchase home policy with docs set to post at RNL', () => {
-  it('should allow an agent to purchase a home policy with docs set to post at RNL', () => {
+describe('Agent purchase home policy', () => {
+  it('should allow an agent to purchase a home policy', () => {
     // Login to back office 
     Global_stuff.Server()
     Global_stuff.company()
@@ -20,7 +20,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.agentQuote()
     Global_stuff.createNewQuoteBTN()
     Global_stuff.cookiesAccept()
-
+    
     // About you
     Global_stuff.proposerTitleHome()
     Global_stuff.notes()
@@ -36,11 +36,9 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.postalAddressConfirm()
     Global_stuff.occupancy()
     Global_stuff.proposerEmployStatus()
-    
     Global_stuff.bizStatus()
-    
     Global_stuff.aboutYouContinueHome()
-  
+
     // Your Property
     Global_stuff.yourPropertyTitle()
     Global_stuff.notes()
@@ -60,16 +58,14 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.heatingType()
     Global_stuff.goodStateOfRepairTrue()
     Global_stuff.floodSubsidenceFalse()
-    
     Global_stuff.yourPropertyContinue()
 
     // Your cover
-    Global_stuff.yourCoverTitle() 
+    Global_stuff.yourCoverTitle()
     Global_stuff.notes()
     Global_stuff.buildingAndContentsTrue()
     Global_stuff.buildingAndContentsFalse()
     Global_stuff.buildingAndContentsTrue()
-    
     Global_stuff.homeValue()
     Global_stuff.contentsValue()
     Global_stuff.isClaimsFalse()
@@ -77,30 +73,25 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.isRefusedFalse()
     Global_stuff.isSpecialFalse()
     Global_stuff.isCancelledFalse()
-    
     Global_stuff.yourCoverContinue()
 
     // Policy start date and claims
     Global_stuff.coverStartTitle()
     Global_stuff.notes()
     Global_stuff.claimsFreeYears()
-    
     Global_stuff.coverStartDate()
     Global_stuff.coverStartHaveCarIns()
     Global_stuff.coverStartMarketing()
-    // Global_stuff.coverStartAgentQuote()
     Global_stuff.coverStartContinue()
 
     // Quotepage
     Global_stuff.quotePageHeading()
     Global_stuff.notes()
-  
     Global_stuff.quotePageStaffOptions()
     Global_stuff.quotePageStaffDiscounts()
     Global_stuff.quotePageStaffRecalculate()
-
-    cy.pause()
-    
+    Global_stuff.quotePageOptionalCoverViewOptions()
+    Global_stuff.quotePageOptionalCoverAddSpecifiedItem()
     Global_stuff.quotePageBuyNowBtn()
 
     // Complete and pay
@@ -108,25 +99,22 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.notes()
     Global_stuff.completeAndPayMortgage()
     Global_stuff.completeAndPayMyAvivaDocsNo()
-    
     Global_stuff.completeAndPayContinue()
 
     // Select payment type
     Global_stuff.paymentTypeAgentNoPay()
     Global_stuff.paymentTypeAgentNoPayContinue()
-  
+
+    // Diary and Correspondence page
+    Global_stuff.diaryCorrespondenceHeading()
+    Global_stuff.diaryCorrespondenceReceipt()
+    Global_stuff.diaryCorrespondenceContinue()
+    
+
     // Thank you page
     Global_stuff.thankyouHeading()
     Global_stuff.notes()
     Global_stuff.retreivePolicyNumber()
-
-    // Global_stuff.Server()
-    // Global_stuff.home()
-    // Global_stuff.email()
-    // Global_stuff.searchButton()
-    // Global_stuff.policySelectButton()
-    // Global_stuff.livePoliciesBTN()
-    // Global_stuff.homePolicyTab()
 
     // Navigate back to the B/O
     Global_stuff.Server()
@@ -139,12 +127,6 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     // Back date policy
     Global_stuff.policyToolsAgePolicyWithPolicyNumber()
     Global_stuff.agePolicy()
-    // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
-    // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
-    // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
-    // cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
-
-    // Generate and invite renewal
     cy.go(-2)
     Global_stuff.generateRenewal()
     Global_stuff.inviteRenewal()
@@ -160,48 +142,19 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     Global_stuff.livePoliciesBTN()
     Global_stuff.selectActionRenewalWithPolicyNumber()
     Global_stuff.selectStaffDiscount()
+    Global_stuff.quotePageRemoveSpecifiedItem()
+    cy.pause()
 
-    // Adding all Optional covers
-    Global_stuff.quotePageAccidentalDamageViewOptions()
-    Global_stuff.quotePageAccidentalDamageAddCover()
-  
-    Global_stuff.quotePageOptionalCoverViewOptions()
-    Global_stuff.quotePageOptionalCoverAddSpecifiedItem()
-  
-    Global_stuff.quotePageManageYourExcessViewOptions()
-    Global_stuff.quotePageManageYourExcess500()
-  
-    Global_stuff.quotePageGardenCoverViewOptions()
-    Global_stuff.quotePageGardenCover1000()
-  
-    Global_stuff.quotePageCaravanCoverViewOptions()
-    Global_stuff.quotePageCaravanCoverAddWithPersonal()
     Global_stuff.quotePageBuyNowBtn()
     Global_stuff.completeAndPayContinue()
 
     Global_stuff.paymentTypeAgentCardRenewal()
     Global_stuff.completeAndPayRNLPayNow()
     Global_stuff.paymentCardDemoAgent()
-  
-    // Diary and Correspondence page
-    Global_stuff.diaryCorrespondenceHeading()
-    Global_stuff.diaryCorrespondenceContinue()
 
     // Thank you page
     Global_stuff.thankyouHeading()
-    Global_stuff.adjustmentReceiptAssert()
     Global_stuff.notes()
-
-    // Check correct documents have been added to print queue
-    Global_stuff.Server()
-    Global_stuff.home()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionDocumentsWithPolicyNumber()
-    Global_stuff.checkRNLParagonDocs()
   })
 })
   

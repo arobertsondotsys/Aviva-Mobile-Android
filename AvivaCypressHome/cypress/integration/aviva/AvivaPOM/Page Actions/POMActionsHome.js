@@ -591,7 +591,7 @@ export class Global{
     coverStartDate(){
 
         const day = require('dayjs')
-
+        cy.wait(1000)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().format('DD/MM/YYYY'))
         return
 
@@ -732,6 +732,14 @@ export class Global{
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemvalue).type(this.UserData.InputData.SpecifiedItemValue)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_additem).click()
         cy.wait(4000)
+        return
+
+    }
+
+    quotePageRemoveSpecifiedItem(){
+
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_edit).click()
+        cy.contains('Remove Item').click()
         return
 
     }
@@ -961,6 +969,13 @@ export class Global{
     diaryCorrespondenceContinue(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.diarycorres_continue).click({force: true})
+        return
+
+    }
+
+    diaryCorrespondenceReceipt(){
+
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.diarycorres_valuationreciept).contains(' Valuations/Receipt for Ring ')
         return
 
     }
@@ -2278,6 +2293,36 @@ export class Global{
         cy.getAndWait(this.LoginElementLocators.PortalPageLocators.portaladj_adjcontinue).click({force:true})
         return
 
+    }
+
+    portalManagePolicyWithPolicyNumber(){
+
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
+        
+            cy.getAndWait('.policypanels')
+                .contains(policyNumber)
+                .closest('.d-flex.flex-column')
+                .within(() => {
+                    cy.contains('Manage Policy').click({force: true})
+                })
+        })
+            return
+            
+    }
+    
+    portalRenewPolicyCloseModal(){
+
+        cy.getAndWait(this.LoginElementLocators.PortalPageLocators.portalrenew_closemodal).click()
+        return
+        
+    }
+
+    portalRenewThisPolicy(){
+
+        cy.getAndWait(this.LoginElementLocators.PortalPageLocators.portalrenew_renewthispolicy).click()
+        return
+        
     }
 
     portalRenewPolicySelect(){

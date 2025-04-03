@@ -56,19 +56,19 @@ export class Global {
         }
     }
 
-    Server(serverKey = 'DEMO') {
+    Server(serverKey = '') {
         const url = this.serverUrls[serverKey] || this.serverUrls['QA2'] // Default to QA2 if no valid serverKey is provided
         Cypress.env('serverKey', serverKey) // Set the environment variable
         cy.visit(url)
     }
 
-    Server1(serverKey = 'DEMO') {
+    Server1(serverKey = '') {
         const url = this.server1Urls[serverKey] || this.server1Urls['QA2'] // Default to QA2 if no valid serverKey is provided
         Cypress.env('serverKey', serverKey) // Set the environment variable
         cy.visit(url)
     }
 
-    Server2(serverKey = 'DEMO') {
+    Server2(serverKey = '') {
         const url = this.server2Urls[serverKey] || this.server2Urls['QA2'] // Default to QA2 if no valid serverKey is provided
         Cypress.env('serverKey', serverKey) // Set the environment variable
         cy.visit(url)
@@ -2190,20 +2190,23 @@ export class Global {
             
     }
 
-    generateRenewal(){
+    searchRenewal(){
 
-        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
-        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewalcheck).should('contain', 'RNL')
-        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewalcheck1).should('not.contain', '€ 0')
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
             
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewaldashboard).click()
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewalpolicynumber).type(policyNumber)
+
+        });    
     }
 
     inviteRenewal(){
 
-        cy.getAndWait(this.LoginElementLocators.BOPageLocators.extract_policynumber).last().invoke('text').then(policyNumString => {
-            const policy = policyNumString
+        cy.readFile('policy.json').then((data) => {
+            const policyNumber = data.policyNumber
             cy.getAndWait(this.LoginElementLocators.BOPageLocators.select_renewals).click({force: true})
-            cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policy)
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policyNumber)
         })
 
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(0)
