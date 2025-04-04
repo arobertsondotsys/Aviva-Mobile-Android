@@ -143,7 +143,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.loginPortalButton()
     Global_stuff.portalRenewPolicyCloseModal()
     Global_stuff.portalManagePolicyWithPolicyNumber()
-    Global_stuff.portal_renewthispolicy()
+    Global_stuff.portalRenewThisPolicy()
     Global_stuff.portalRenewDocsConfirm()
     
     Global_stuff.quotePageFullBtnRNLswap()
@@ -151,7 +151,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.coverStartCustomerQuote()
     Global_stuff.completeAndPayContinue()
   
-    Global_stuff.paymentCardQA()
+    Global_stuff.paymentCardQAAgent()
     cy.wait(4000)
 
     Global_stuff.thankyouHeading()

@@ -1986,8 +1986,7 @@ export class Global{
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
         cy.wait(80000)
         cy.reload()
-        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Cover Letter')
-        //cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Letter')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Letter')
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Policy Schedule')
         return
