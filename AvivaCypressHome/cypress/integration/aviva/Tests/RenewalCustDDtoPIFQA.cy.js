@@ -94,7 +94,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.completeAndPayContinue()
 
     // Select payment type
-    Global_stuff.paymentDDQA()
+    Global_stuff.paymentDDQANoPassword()
 
     // Thank you page
     Global_stuff.thankyouHeading()
@@ -151,8 +151,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     Global_stuff.coverStartCustomerQuote()
     Global_stuff.completeAndPayContinue()
   
-    Global_stuff.paymentCardQAAgent()
-    cy.wait(4000)
+    Global_stuff.paymentCardQA()
 
     Global_stuff.thankyouHeading()
 
