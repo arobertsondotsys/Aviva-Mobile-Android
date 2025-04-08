@@ -1,3 +1,4 @@
+
 const { defineConfig } = require("cypress")
 
 
@@ -7,6 +8,7 @@ async function setupNodeEvents(on, config) {
   
   require('cypress-mochawesome-reporter/plugin')(on)  
 
+  const serverKey = config.env.serverKey || 'QA2'; // Default to QA2 if no serverKey is provided
   
 
   // Modify config if needed
@@ -71,7 +73,8 @@ async function setupNodeEvents(on, config) {
  ]
 
  // Determine the spec pattern based on the environment variable
- const serverKey = config.env.serverKey
+ //const serverKey = config.env.serverKey
+ 
 
  if (['QA', 'QA2', 'QA3'].includes(serverKey)) {
    config.specPattern = qaSpecPattern
@@ -119,7 +122,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: '**/*.cy.js', // Default pattern
     env: {
-      serverKey: 'QA2' // Set the default serverKey here
+      serverKey: '' // Set the default serverKey here
     }
     
   

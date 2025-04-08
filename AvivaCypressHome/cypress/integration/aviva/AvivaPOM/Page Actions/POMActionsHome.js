@@ -1,10 +1,12 @@
+
 export class Global{
 
     LoginElementLocators = require('../Page Elements/POMElementsHome.json')
     UserData = require('../Page Elements/POMInputHome.json')
     
 
-    constructor() {
+        constructor() {
+        this.serverKey = Cypress.env('serverKey') || 'QA2' // Default to QA2 if no serverKey is provided
         this.serverUrls = {
             QA: 'https://qaaviva.dotsys.co.uk/BackOffice/Login.aspx?',
             QA2: 'https://qa2aviva.dotsys.co.uk/BackOffice/Login.aspx?',
@@ -57,18 +59,18 @@ export class Global{
         }
     }
 
-    Server(serverKey = 'QA2') {
-        const url = this.serverUrls[serverKey] || this.serverUrls['QA2'] // Default to QA2 if no valid serverKey is provided
+    Server() {
+        const url = this.serverUrls[this.serverKey] || this.serverUrls['QA2'] // Default to QA2 if no valid serverKey is provided
         cy.visit(url)
     }
 
-    Server1(serverKey = 'QA2') {
-        const url = this.server1Urls[serverKey] || this.server1Urls['QA2'] // Default to QA2 if no valid serverKey is provided
+    Server1() {
+        const url = this.server1Urls[this.serverKey] || this.server1Urls['QA2'] // Default to QA2 if no valid serverKey is provided
         cy.visit(url)
     }
 
-    Server2(serverKey = 'QA2') {
-        const url = this.server2Urls[serverKey] || this.server2Urls['QA2'] // Default to QA2 if no valid serverKey is provided
+    Server2() {
+        const url = this.server2Urls[this.serverKey] || this.server2Urls['QA2'] // Default to QA2 if no valid serverKey is provided
         cy.visit(url)
     }
 

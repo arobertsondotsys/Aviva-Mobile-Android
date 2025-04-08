@@ -14,7 +14,7 @@ describe('Change policy ownership', () => {
     Global_stuff.Server()
 
     // Log in
-    Global_stuff.company()
+    //Global_stuff.company()
     Global_stuff.username()
     Global_stuff.password()
     Global_stuff.loginButton()
