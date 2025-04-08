@@ -102,13 +102,7 @@ describe('Agent purchase home policy', () => {
     // Select payment type
     Global_stuff.paymentTypeAgentNoPay()
     Global_stuff.paymentTypeAgentNoPayContinue()
-
-    // Diary and Correspondence page
-    Global_stuff.diaryCorrespondenceHeading()
-    Global_stuff.diaryCorrespondenceReceipt()
-    Global_stuff.diaryCorrespondenceContinue()
     
-
     // Thank you page
     Global_stuff.thankyouHeading()
     Global_stuff.notes()
@@ -150,6 +144,11 @@ describe('Agent purchase home policy', () => {
     Global_stuff.paymentTypeAgentCardRenewal()
     Global_stuff.completeAndPayRNLPayNow()
     Global_stuff.paymentCardQAAgent()
+
+    // Diary and Correspondence page
+    Global_stuff.diaryCorrespondenceHeading()
+    Global_stuff.diaryCorrespondenceReceipt()
+    Global_stuff.diaryCorrespondenceContinue()
 
     // Thank you page
     Global_stuff.thankyouHeading()
