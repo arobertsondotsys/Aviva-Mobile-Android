@@ -786,7 +786,7 @@ export class Global {
 
         const day = require('dayjs')
 
-        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().format('DD/MM/YYYY'),{force: true})
+        cy.waitForElementToLoad(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().format('DD/MM/YYYY'),{force: true})
         return
 
     }
@@ -851,20 +851,21 @@ export class Global {
 
     coverStartCustomerQuote(){
 
-        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck).click()
         return
 
     }
     coverStartCustomerQuote1(){
 
-        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck1).click({force: true})
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck1).click()
         return
 
     }
 
     coverStartContinue(){
 
-        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_continue).click({force: true})
+        cy.wait(1000)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_continue).click()
         return
 
     }
@@ -942,6 +943,7 @@ export class Global {
     
     buyNowBtn(){
 
+        cy.wait(1000)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.buynow_btn).click()
         return
 

@@ -83,3 +83,13 @@ Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) =
   Cypress.Commands.add('selectAndWait', (selector, value, timeout = 10000) => {
     cy.get(selector, { timeout }).should('be.visible').select(value, { force: true })
   })
+
+  Cypress.Commands.add('waitForElementToLoad', (webElement, timeout = 20000, interval = 2000) => {
+    const isXPath = webElement.startsWith('//') || webElement.startsWith('(');
+    const getElement = () => isXPath ? cy.xpath(webElement) : cy.get(webElement);
+   
+    cy.waitUntil(() => getElement().should('be.visible').and('not.be.disabled'), {
+        timeout,
+        interval,
+    });
+  });

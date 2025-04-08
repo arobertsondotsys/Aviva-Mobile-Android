@@ -113,7 +113,7 @@ describe('Agent purchase home policy renewal as autorollover', () => {
     Global_stuff.paymentTypeAgentMonthlypay()
     
     Global_stuff.NBDDQA()
-    Global_stuff.paymentCardQAAgent()
+    Global_stuff.paymentCardQAAgentNoGooglePay()
 
     // Thank you page
     Global_stuff.thankyouHeading()

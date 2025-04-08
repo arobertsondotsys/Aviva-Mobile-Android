@@ -1112,6 +1112,58 @@ export class Global{
 
     }
 
+    paymentCardQAAgentNoGooglePay(){
+
+        cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
+        {
+          Cypress.on('uncaught:exception', (err, runnable) =>
+          {
+          return false
+          })
+          const CCnumber='4917610000000000'
+          const Exp1='03'
+          const Exp2='30'
+          const CVC='737'
+          
+          cy.wait(10000)
+        
+          const getIframeDocumentCard = () => {
+            return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentMonth = () => {
+            return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentYear = () => {
+            return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+
+          const getIframeDocumentCVC = () => {
+            return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+            .then((body) => cy.wrap(body))
+            
+          }
+          
+            
+          getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
+          getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
+          getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
+          getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
+          cy.get('#continueButton').click()
+          cy.wait(4000)
+
+        })
+        return
+
+    }
+
     paymentCardDemo(){
 
         cy.origin('https://www.direct.stg-aviva.co.uk', () => 
@@ -1957,6 +2009,10 @@ export class Global{
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain', 'Receipt')
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+        cy.wait(1000)
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).should('not.contain', 'Receipt')
         return
 
     }
