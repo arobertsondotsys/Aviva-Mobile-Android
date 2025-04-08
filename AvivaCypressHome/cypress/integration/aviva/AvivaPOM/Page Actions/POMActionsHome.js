@@ -744,6 +744,14 @@ export class Global{
 
     }
 
+    quotePageSpecifiedItemAdded(){
+
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_specifieditemadded).contains('Added')
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_specifieditemedit).contains('Edit')
+        return
+
+    }
+
     quotePageManageYourExcessViewOptions(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess).click()
@@ -1073,7 +1081,7 @@ export class Global{
           
           cy.wait(10000)
 
-          cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
+          //cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
         
           const getIframeDocumentCard = () => {
             return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')

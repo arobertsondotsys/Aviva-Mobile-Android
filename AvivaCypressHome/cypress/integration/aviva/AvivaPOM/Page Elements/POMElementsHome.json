@@ -118,6 +118,9 @@
     "quotepage_optionalcover": "#OptionalCoverViewOptions",
     "quotepage_unspecifieditems": "#UnspecifiedItemsValueDDL",
     "quotepage_specifieditem": "#btnAddSpecifiedItem",
+    "quotepage_specifieditemadded": "#OptionalCoverAdded",
+    "quotepage_specifieditemedit": "#OptionalCoverEdit",
+    
     "specifieditem_itemdescription": "#SpecifiedItemDescription",
     "specifieditem_itemtype": "#SpecifiedItemType",
     "specifieditem_itemvalue": "#AdditionalCoverItemValue",
