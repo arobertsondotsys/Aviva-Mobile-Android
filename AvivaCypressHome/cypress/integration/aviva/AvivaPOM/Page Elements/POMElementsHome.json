@@ -39,6 +39,7 @@
     "proposer_forename": "#MainContent_ProposerForename",
     "proposer_surname": "#MainContent_ProposerSurname",
     "proposeremail_element": "#ProposerEmail",
+    "proposernoemail": ".a-checkbox__label",
     "phone_element": "#MainContent_ProposerMobile",
     "dob_element": "#ProposerDOB",
     "address_input": "#divAddressSearch > .autoaddress-control > .autoaddress-text-box",

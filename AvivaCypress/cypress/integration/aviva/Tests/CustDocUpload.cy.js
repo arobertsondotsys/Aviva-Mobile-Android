@@ -1,4 +1,7 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { PortalActions } from "../AvivaPOM/PortalActions"
+import { Login } from "../AvivaPOM/Login"
 
 // Uncaught exception errors are bypassed when found to stop test from failing
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -7,20 +10,23 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const PortalAction = new PortalActions()
+const Logins = new Login()
 
 describe('Customer can upload a document', () => {
     it('should upload a document successfully', () => {
-        Global_Stuff.Server1()
+        Server.Server1()
 
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
         cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
 
-        Global_Stuff.loginEmail()
-        Global_Stuff.loginPassword()
-        Global_Stuff.loginPortalButton()
+        Logins.loginEmail()
+        Logins.loginPassword()
+        Logins.loginPortalButton()
 
-        Global_Stuff.portalManagePolicyWithPolicyNumber()
+        PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnUploadDocuments').click()
         cy.getAndWait('#Main_ddlDocumentUpload').select(1)
         cy.getAndWait('.a-file-upload__label').click()

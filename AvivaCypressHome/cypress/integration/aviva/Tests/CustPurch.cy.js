@@ -1,4 +1,13 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { YourProperty } from "../AvivaPOM/YourProperty"
+import { YourCover } from "../AvivaPOM/YourCover"
+import { PolicyStartDateClaims } from "../AvivaPOM/PolicyStartDateClaims"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
+import { PaymentPage } from "../AvivaPOM/PaymentPage"
+import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
+import { BOActions } from "../AvivaPOM/BOActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,105 +16,100 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const AboutYouPage = new AboutYou
+const YourPropertyPage = new YourProperty
+const YourCoverPage = new YourCover
+const PolicyStartDateClaimsPage = new PolicyStartDateClaims
+const QuotePageAndExtras = new QuotePage
+const CompleteAndPayPage = new CompleteAndPay
+const PaymentScreen = new PaymentPage
+const ThankYouScreen = new ThankYouPage
+const BOAction = new BOActions
+
 
 describe('Customer purchase home policy', () => {
   it('should allow a customer to purchase a home policy', () => {
     // Access quote link 
-    Global_stuff.Server2()
-    Global_stuff.removeAttr()
-    Global_stuff.cookiesAccept()
+    Server.Server2()
+    BOAction.removeAttr()
+    BOAction.cookiesAccept()
 
     // About you
-    Global_stuff.proposerTitleHome()
-    Global_stuff.proposerForenameHome()
-    Global_stuff.proposerSurnameHome()
-    Global_stuff.proposerEmailHome()
-    Global_stuff.phone()
-    Global_stuff.dob()
-    Global_stuff.addressInput()
-    Global_stuff.addressSuggest()
-    Global_stuff.addressSelect()
-    Global_stuff.addressConfirm()
-    Global_stuff.postalAddressConfirm()
-    Global_stuff.occupancy()
-    Global_stuff.proposerEmployStatus()
-    Global_stuff.bizStatus()
-    Global_stuff.aboutYouContinueHome()
+    AboutYouPage.proposerTitleHome()
+    AboutYouPage.proposerForenameHome()
+    AboutYouPage.proposerSurnameHome()
+    AboutYouPage.proposerEmailHome()
+    AboutYouPage.phone()
+    AboutYouPage.dob()
+    AboutYouPage.addressInput()
+    AboutYouPage.addressSuggest()
+    AboutYouPage.addressSelect()
+    AboutYouPage.addressConfirm()
+    AboutYouPage.postalAddressConfirm()
+    AboutYouPage.occupancy()
+    AboutYouPage.proposerEmployStatus()
+    AboutYouPage.bizStatus()
+    AboutYouPage.aboutYouContinueHome()
   
     // Your Property
-    Global_stuff.yourPropertyTitle()
-    Global_stuff.propertyType()
-    Global_stuff.yearBuilt()
-    Global_stuff.listedBuildingFalse()
-    Global_stuff.flatRoofFlase()
-    Global_stuff.standardMaterialsTrue()
-    Global_stuff.burglarAlarm()
-    Global_stuff.smokeAlarmTrue()
+    YourPropertyPage.yourPropertyTitle()
+    YourPropertyPage.propertyType()
+    YourPropertyPage.yearBuilt()
+    YourPropertyPage.listedBuildingFalse()
+    YourPropertyPage.flatRoofFlase()
+    YourPropertyPage.standardMaterialsTrue()
+    YourPropertyPage.burglarAlarm()
+    YourPropertyPage.smokeAlarmTrue()
 
     // Additional security standards
-    Global_stuff.additSecStandsTitle()
-    Global_stuff.securityLocks()
-    Global_stuff.noOfBedrooms()
-    Global_stuff.noOfBathrooms()
-    Global_stuff.heatingType()
-    Global_stuff.goodStateOfRepairTrue()
-    Global_stuff.floodSubsidenceFalse()
-    Global_stuff.yourPropertyContinue()
+    YourPropertyPage.additSecStandsTitle()
+    YourPropertyPage.securityLocks()
+    YourPropertyPage.noOfBedrooms()
+    YourPropertyPage.noOfBathrooms()
+    YourPropertyPage.heatingType()
+    YourPropertyPage.goodStateOfRepairTrue()
+    YourPropertyPage.floodSubsidenceFalse()
+    YourPropertyPage.yourPropertyContinue()
 
     // Your cover
-    Global_stuff.yourCoverTitle()
-    Global_stuff.buildingAndContentsTrue()
-    Global_stuff.buildingAndContentsFalse()
-    Global_stuff.buildingAndContentsTrue()
-    Global_stuff.homeValue()
-    Global_stuff.contentsValue()
-    Global_stuff.isClaimsFalse()
-    Global_stuff.isConvictionsFalse()
-    Global_stuff.isRefusedFalse()
-    Global_stuff.isSpecialFalse()
-    Global_stuff.isCancelledFalse()
-    Global_stuff.yourCoverContinue()
+    YourCoverPage.yourCoverTitle()
+    YourCoverPage.buildingAndContentsTrue()
+    YourCoverPage.buildingAndContentsFalse()
+    YourCoverPage.buildingAndContentsTrue()
+    YourCoverPage.homeValue()
+    YourCoverPage.contentsValue()
+    YourCoverPage.isClaimsFalse()
+    YourCoverPage.isConvictionsFalse()
+    YourCoverPage.isRefusedFalse()
+    YourCoverPage.isSpecialFalse()
+    YourCoverPage.isCancelledFalse()
+    YourCoverPage.yourCoverContinue()
 
     // Policy start date and claims
-    Global_stuff.coverStartTitle()
-    Global_stuff.claimsFreeYears()
-    Global_stuff.coverStartDate()
-    Global_stuff.coverStartHaveCarIns()
-    Global_stuff.coverStartMarketing()
-    Global_stuff.coverStartCustomerQuote()
-    Global_stuff.coverStartContinue()
+    PolicyStartDateClaimsPage.coverStartTitle()
+    PolicyStartDateClaimsPage.claimsFreeYears()
+    PolicyStartDateClaimsPage.coverStartDate()
+    PolicyStartDateClaimsPage.coverStartHaveCarIns()
+    PolicyStartDateClaimsPage.coverStartMarketing()
+    PolicyStartDateClaimsPage.coverStartCustomerQuote()
+    PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quote page
-    Global_stuff.quotePageHeading()
+    QuotePageAndExtras.quotePageHeading()
     cy.pause()
-    Global_stuff.quotePageBuyNowBtn()
+    QuotePageAndExtras.quotePageBuyNowBtn()
 
     // Complete and pay
-    Global_stuff.completeAndPayHeading()
-    Global_stuff.completeAndPayMortgage()
-    Global_stuff.completeAndPayCheckBox()
-    Global_stuff.completeAndPayContinue()
+    CompleteAndPayPage.completeAndPayHeading()
+    CompleteAndPayPage.completeAndPayMortgage()
+    CompleteAndPayPage.completeAndPayCheckBox()
+    CompleteAndPayPage.completeAndPayContinue()
 
-    Global_stuff.paymentCardDemo()
-    Global_stuff.thankyouHeading()
-    Global_stuff.retreivePolicyNumber()
+    PaymentScreen.paymentCardDemo()
+    ThankYouScreen.thankyouHeading()
+    ThankYouScreen.retreivePolicyNumber()
 
-    // Global_stuff.Server()
-    
-    // Log in
-    // Global_stuff.company()
-    // Global_stuff.username()
-    // Global_stuff.password()
-    // Global_stuff.loginButton()
-
-    // Search for Customer file
-    // Global_stuff.email()
-    // Global_stuff.searchButton()
-    // Global_stuff.policySelectButton()
-    
-    // Unlock customer file
-    // Global_stuff.unlockBTN()
   })
 })
   

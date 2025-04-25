@@ -1,4 +1,9 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
+import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
+import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
+import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,30 +12,35 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
+const AboutTheDriversPage = new AboutTheDriversPQ2()
+const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
+const ThankYouPage = new ThankYouScreen()
 const day = require('dayjs')
 
 describe('Agent can change the driver number', () => {
     it('should complete the process of changing the driver number', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Search for Customer file
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
 
         // Open policy
         cy.get('#accordion > :nth-child(2) > :nth-child(1) > .panel-title > .accordion-toggle > :nth-child(1)').click({force: true})
-        Global_Stuff.selectActionMakeADJWithPolicyNumber()
+        BOAction.selectActionMakeADJWithPolicyNumber()
         
         // Select to perform a permanent adjustment on contact details
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
         cy.get('#ctl00_MainContent_ddlPermaSelection').select('Contacts', {force: true}).should('have.value', 'Contacts')
         cy.get('#btnMakePermaChange').click({force: true})
         
@@ -45,26 +55,26 @@ describe('Agent can change the driver number', () => {
         cy.get('#ctl00_MainContent_btnContinue').click({force: true})
         
         // Completing post quote screen 2 questions and amending Driver number
-        Global_Stuff.postQuote2Headingselect()
-        Global_Stuff.postQuote2Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote2IsResidentTrue()
-        Global_Stuff.postQuote2IsMainDriverTrue()
-        Global_Stuff.postQuote2IsNotOtherCarTrue()
-        Global_Stuff.postQuote2IsNotOtherInsTrue()
-        Global_Stuff.postQuote2IsNoConvictionTrue()
-        Global_Stuff.postQuote2IsNoDisqualificationTrue()
-        Global_Stuff.postQuote2IsNoRefusalTrue()
-        Global_Stuff.postQuote2IsNoIncreaseTrue()
-        Global_Stuff.postQuote2IsNoMedicalTrue()
+        AboutTheDriversPage.postQuote2Headingselect()
+        AboutTheDriversPage.postQuote2Heading()
+        BOAction.notes()
+        AboutTheDriversPage.postQuote2IsResidentTrue()
+        AboutTheDriversPage.postQuote2IsMainDriverTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
+        AboutTheDriversPage.postQuote2IsNoConvictionTrue()
+        AboutTheDriversPage.postQuote2IsNoDisqualificationTrue()
+        AboutTheDriversPage.postQuote2IsNoRefusalTrue()
+        AboutTheDriversPage.postQuote2IsNoIncreaseTrue()
+        AboutTheDriversPage.postQuote2IsNoMedicalTrue()
         cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DriverNum').type('121212112', {force: true})
-        Global_Stuff.postQuote2Continue()
+        AboutTheDriversPage.postQuote2Continue()
         
         // Completing post quote screen 3 
-        Global_Stuff.postQuote3Continue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
         
         // Thank you page
-        Global_Stuff.thankyouHeading()
+        ThankYouPage.thankyouHeading()
         cy.get('#ctl00_divNotes > .a-button').should('be.visible')
     })
 })

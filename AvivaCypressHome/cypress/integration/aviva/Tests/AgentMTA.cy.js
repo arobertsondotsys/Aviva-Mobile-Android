@@ -1,4 +1,11 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { Login } from "../AvivaPOM/Login"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
+import { PaymentPage } from "../AvivaPOM/PaymentPage"
+import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { MTABOActions } from "../AvivaPOM/MTABOActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,37 +14,45 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const Logins = new Login
+const QuotePageAndExtras = new QuotePage
+const CompleteAndPayPage = new CompleteAndPay
+const PaymentScreen = new PaymentPage
+const ThankYouScreen = new ThankYouPage
+const BOAction = new BOActions
+const MTABOAction = new MTABOActions
 
 describe('Agent MTA purchase', () => {
   it('should allow an agent to make an MTA purchase', () => {
     // Login to back office 
-    Global_stuff.Server()
-    Global_stuff.company()
-    Global_stuff.username()
-    Global_stuff.password()
-    Global_stuff.loginButton()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionMakeADJWithPolicyNumber()
-    Global_stuff.cookiesAccept()
-    Global_stuff.adjustmentType()
-    Global_stuff.adjustmentContinue()
-    Global_stuff.quotePageOptionalCoverViewOptions()
-    Global_stuff.addSpecifiedItemBTN()
-    Global_stuff.addSpecifiedItemDescription()
-    Global_stuff.addSpecifiedItemType()
-    Global_stuff.addSpecifiedItemValue()
-    Global_stuff.addSpecifiedItemAddItem()
-    //cy.wait(120000)
-    Global_stuff.adjustmentBuyNowBTN()
-    Global_stuff.completeAndPayContinue()
-    Global_stuff.paymentTypeAgentCard()
-    Global_stuff.paymentTypeAgentPayNow()
-    Global_stuff.paymentCardDemoAgent()
+    Server.Server()
+    Logins.company()
+    Logins.username()
+    Logins.password()
+    Logins.loginButton()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
+    BOAction.homePolicyTab()
+    BOAction.selectActionMakeADJWithPolicyNumber()
+    BOAction.cookiesAccept()
+    MTABOAction.adjustmentType()
+    MTABOAction.adjustmentContinue()
+    QuotePageAndExtras.quotePageOptionalCoverViewOptions()
+    MTABOAction.addSpecifiedItemBTN()
+    MTABOAction.addSpecifiedItemDescription()
+    MTABOAction.addSpecifiedItemType()
+    MTABOAction.addSpecifiedItemValue()
+    MTABOAction.addSpecifiedItemAddItem()
+    cy.wait(120000)
+    MTABOAction.adjustmentBuyNowBTN()
+    CompleteAndPayPage.completeAndPayContinue()
+    MTABOAction.paymentTypeAgentCard()
+    MTABOAction.paymentTypeAgentPayNow()
+    PaymentScreen.paymentCardDemoAgent()
+    ThankYouScreen.thankyouHeading()
   })
 })
   

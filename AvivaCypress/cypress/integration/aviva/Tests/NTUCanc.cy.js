@@ -1,4 +1,6 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
 
 // Uncaught exception errors are bypassed when found to stop test from failing
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -7,29 +9,32 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
+
 
 describe('Agent can NTU a cancellation', () => {
     it('should complete the process of NTU a cancellation', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in to back office
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Search for customer
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
 
         // Open customer file Live policies
-        Global_Stuff.livePoliciesBTN()
-        Global_Stuff.ntuWithPolicyNumber()
+        BOAction.livePoliciesBTN()
+        BOAction.ntuWithPolicyNumber()
 
         // Click to NTU last cancellation and keep in same window 
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
         cy.get('#ctl00_MainContent_NTUButton').click()
         cy.get('#ctl00_MainContent_ConfirmationRow').contains("The Adjustment has been NTU'd")
     })

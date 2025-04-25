@@ -1,4 +1,10 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { Login } from "../AvivaPOM/Login"
+import { YourCover } from "../AvivaPOM/YourCover"
+import { PolicyStartDateClaims } from "../AvivaPOM/PolicyStartDateClaims"
+import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { MTABOActions } from "../AvivaPOM/MTABOActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,52 +13,59 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const Logins = new Login
+const YourCoverPage = new YourCover
+const PolicyStartDateClaimsPage = new PolicyStartDateClaims
+const ThankYouScreen = new ThankYouPage
+const BOAction = new BOActions
+const MTABOAction = new MTABOActions
 
 describe('Agent MTA purchase of Joint Owner checking for correct documents', () => {
   it('should allow an agent to make an MTA purchase and check for correct documents', () => {
     // Login to back office 
-    Global_stuff.Server()
-    Global_stuff.company()
-    Global_stuff.username()
-    Global_stuff.password()
-    Global_stuff.loginButton()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionMakeADJWithPolicyNumber()
-    Global_stuff.cookiesAccept()
-    Global_stuff.adjustmentTypeCoverDetails()
-    Global_stuff.adjustmentContinue()
-    Global_stuff.yourCoverJointOwner()
-    Global_stuff.yourCoverJointOwner1()
-    Global_stuff.yourCoverContinue()
-    Global_stuff.coverStartDate()
-    Global_stuff.coverStartContinue()
-    Global_stuff.adjustmentBuyContinue()
-    Global_stuff.adjustmentContinueToPayment()
+    Server.Server()
+    Logins.company()
+    Logins.username()
+    Logins.password()
+    Logins.loginButton()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
+    BOAction.homePolicyTab()
+    BOAction.selectActionMakeADJWithPolicyNumber()
+    BOAction.cookiesAccept()
+    MTABOAction.adjustmentTypeCoverDetails()
+    MTABOAction.adjustmentContinue()
+    YourCoverPage.yourCoverJointOwner()
+    YourCoverPage.yourCoverJointOwner1()
+    YourCoverPage.yourCoverContinue()
+    PolicyStartDateClaimsPage.coverStartDate()
+    cy.wait(120000)
+    PolicyStartDateClaimsPage.coverStartContinue()
+    MTABOAction.adjustmentBuyContinue()
+    MTABOAction.adjustmentContinueToPayment()
 
-    Global_stuff.thankyouHeading()
+    ThankYouScreen.thankyouHeading()
 
     // Log in to back office
-    Global_stuff.Server()
-    Global_stuff.home()
+    Server.Server()
+    BOAction.home()
     
     // Search for Customer file
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
 
     // Unlock customer file
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionDocumentsWithPolicyNumber()
+    BOAction.livePoliciesBTN()
+    BOAction.homePolicyTab()
+    BOAction.selectActionDocumentsWithPolicyNumber()
     cy.wait(60000)
     cy.reload()
-    Global_stuff.policyDocsSOF()
-    Global_stuff.policyDocsSchedule()
+    BOAction.policyDocsSOF()
+    BOAction.policyDocsSchedule()
   })
 })
 

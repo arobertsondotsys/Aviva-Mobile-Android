@@ -12,8 +12,8 @@
     "searchBtn_element": "#ctl00_ContentPlaceHolder1_Search",
     "policyslctbtn_element": "#ctl00_ContentPlaceHolder1_CustomerGrid_ctl02_Customer_ID",
     "phone_element": "#ctl00_MainContent_ProposerMobile",
-    "dob_element": "#ProposerDOB",
     "proposeremail_element": "#ProposerEmail",
+    "proposernoemail": "#divEmailCheckbox > .a-checkbox > .a-checkbox__label",
     "portal_email": "#loginEmail",
     "portal_password": "#loginPassword",
     "portal_login_btn": "#btnLogin",
@@ -181,6 +181,10 @@
 
     "paymenttype_agent": "#ctl00_MainContent_PaymentType",
     "paymenttype_agentnopaycontinue": "#ctl00_MainContent_NoPay",
+    "paymenttype_agentchequeamount": "#ctl00_MainContent_txtAmountReceived",
+    "paymenttype_agentchequeref": "#ctl00_MainContent_txtPayRef",
+    "paymenttype_agentchequepay": "#ctl00_MainContent_PayCheque",
+    "paymenttype_agentchequecontinue": "#ctl00_MainContent_btnPayNSPayment",
 
     "diarycorres_heading": ".a-heading--1",
     "diarycorres_continue": "#ctl00_MainContent_Summary",
@@ -224,6 +228,8 @@
     "batchprint_renewal":"#ctl00_ContentPlaceHolder1_BatchPrint",
     "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
     "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
+    "check_renewaldocspost":"tbody > :nth-child(4) > :nth-child(3)",
+    "printqueue_view":"#ctl00_ContentPlaceHolder1_btnViewPrinterQueue",
     "recall_policy":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy",
     "staff_discountheading":"#StaffHeading > .m-showhide__control",
     "staff_discountselect":"#ddlAvailableDiscounts",
@@ -243,7 +249,9 @@
     "perm_additonaldriver": "#ctl00_MainContent_ddlPermaSelection",
     "perm_adjbtn": "#btnMakePermaChange",
     "permmta_continue": "#ctl00_MainContent_btnContinue",  
-    "permmta_buynow": "#ctl00_MainContent_btnBuyNow"  
+    "permmta_buynow": "#ctl00_MainContent_btnBuyNow", 
+    "permmta_deletedriverbtn": "#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver",
+    "permmta_cardadjpaynow": "#ctl00_MainContent_PayNow"  
 
     }
 

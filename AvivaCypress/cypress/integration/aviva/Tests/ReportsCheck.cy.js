@@ -1,4 +1,6 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { Login } from "../AvivaPOM/Login"
+
 
 // Uncaught exception errors are bypassed when found to stop test from failing
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -7,17 +9,19 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const Logins = new Login()
+
 
 describe('Check reports download', () => {
     it('should log in and check the reports download', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
         
         // Select reports tab
         cy.get('[title="Reports"]').trigger('mouseenter', { force: true })

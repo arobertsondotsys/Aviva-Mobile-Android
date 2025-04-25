@@ -1,4 +1,7 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { Login } from "../AvivaPOM/Login"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { CancellationBOActions } from "../AvivaPOM/CancellationBOActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,33 +10,33 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const Logins = new Login
+const BOAction = new BOActions
+const CancBOAction = new CancellationBOActions
 
 describe('Agent can cancel a policy', () => {
   it('should allow an agent to cancel a policy', () => {
     // Login to back office 
-    Global_stuff.Server()
-    Global_stuff.company()
-    Global_stuff.username()
-    Global_stuff.password()
-    Global_stuff.loginButton()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionCancelWithPolicyNumber()
-    Global_stuff.cookiesAccept()
-    Global_stuff.cancellationRequest()
-    Global_stuff.cancellationReason1()
-    Global_stuff.cancellationReasonContinue()
-    
-    // Global_stuff.cancellationInception()
+    Server.Server()
+    Logins.company()
+    Logins.username()
+    Logins.password()
+    Logins.loginButton()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
+    BOAction.homePolicyTab()
+    BOAction.selectActionCancelWithPolicyNumber()
+    BOAction.cookiesAccept()
+    CancBOAction.cancellationRequest()
+    CancBOAction.cancellationReason1()
+    CancBOAction.cancellationReasonContinue()
     cy.contains('Cancel the policy back to inception').click()
-    
-    Global_stuff.cancellationContinue()
-    
-    Global_stuff.cancellationAccept()
-    Global_stuff.cancellationDone()
+    cy.wait(1000)
+    CancBOAction.cancellationContinue()
+    CancBOAction.cancellationAccept()
+    CancBOAction.cancellationDone()
   })
 })

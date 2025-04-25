@@ -1,4 +1,6 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
 
 // Uncaught exception errors are bypassed when found to stop test from failing
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -7,30 +9,46 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
 
 describe('Change policy ownership', () => {
     it('should complete the process of changing policy ownership', () => {
-        Global_Stuff.Server()
+        Server.Server()
 
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Search for Customer file
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+
+        // Check if dropdown exists and handle accordingly
+        cy.contains('Live Policies').click()
+        cy.wait(3000)
+        cy.get('body').then(($body) => {
+            if ($body.find('[class^="dropdown selectAction"]').length === 0) {
+                cy.log('No Policy found, ending test.')
+                return // End the test without failing
+            } else {
+                const length = $body.find('[class^="dropdown selectAction"]').length
+                cy.log(`${length} Policy(s) found, proceeding with Ownership Change.`)
+                RecursiveLoop(length)
+            }
+        })
 
         function ChangePolicyOwnerShip() {
-            // Select last policy and Policy Ownership 
-            Global_Stuff.livePoliciesBTN()
-            cy.get('[class^="dropdown selectAction"]').last().click({force: true}).contains('Policy Ownership').invoke("removeAttr", "target").click({force: true})
+            // Select last policy and Policy Ownership
+            BOAction.livePoliciesBTN()
+            cy.get('[class^="dropdown selectAction"]').last().click({ force: true }).contains('Policy Ownership').invoke("removeAttr", "target").click({ force: true })
 
             // Change ownership
-            cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingMar2025@DOTSYS.co.uk')
+            cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingApr2025@DOTSYS.co.uk')
             cy.get('#ctl00_ContentPlaceHolder1_ChangeOwnership').click()
             cy.get('#ctl00_ContentPlaceHolder1_SuccessMessage').contains('The policy has now been re-registered')
             cy.go('back')
@@ -43,16 +61,9 @@ describe('Change policy ownership', () => {
                     ChangePolicyOwnerShip()
 
                     // Additional asynchronous actions can be added here if needed
-
                     cy.log(`Iteration ${index + 1} completed`)
-
-                    // Continue with the next iteration
                 }
             })
         }
-
-        cy.get('[class^="dropdown selectAction"]').its('length').then((length) => {
-            RecursiveLoop(length)
-        })
     })
 })

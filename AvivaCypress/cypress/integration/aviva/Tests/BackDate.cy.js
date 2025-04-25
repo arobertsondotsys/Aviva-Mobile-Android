@@ -1,4 +1,6 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,29 +9,29 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
-const company = 'Avivacc'
-const user = 'a.robertson'
-const pass = 'Meloncrate3£'
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
+
 const email = 'automatedtesting@DOTSYS.co.uk'
 
 describe('Agent can back date a policy', () => {
     it('should back date a policy', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Search for Customer file
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         
         // Select policy and Age policy
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
         cy.get('[title^="Policy Tools"]').last().click({force: true})
         cy.window().then((win) => {
             cy.get('[id^="bs-select"]').last().click()

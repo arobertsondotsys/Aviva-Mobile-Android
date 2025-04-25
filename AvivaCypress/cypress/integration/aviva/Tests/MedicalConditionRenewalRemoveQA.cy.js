@@ -1,4 +1,22 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { MTABOActions } from "../AvivaPOM/MTABOActions"
+import { Login } from "../AvivaPOM/Login"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { PersonalDetails } from "../AvivaPOM/PersonalDetails"
+import { InsuranceDetails } from "../AvivaPOM/InsuranceDetails"
+import { CarDetails } from "../AvivaPOM/CarDetails"
+import { AdditionalDrivers } from "../AvivaPOM/AdditionalDrivers"
+import { YourClaims } from "../AvivaPOM/YourClaims"
+import { PenaltyPoints } from "../AvivaPOM/PenaltyPoints"
+import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { AboutYourCarPQ1 } from "../AvivaPOM/AboutYourCarPQ1"
+import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
+import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
+import { PaymentTypes } from "../AvivaPOM/PaymentTypes"
+import { DiaryAndCorrespondence } from "../AvivaPOM/DiaryAndCorrespondence"
+import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
 
 // Uncaught exception errors are bypassed when found to stop test from failing
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -7,18 +25,36 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const MTABOAction = new MTABOActions()
+const Logins = new Login()
+const AboutYouPage = new AboutYou()
+const PersonalDetailsPage = new PersonalDetails()
+const InsuranceDetailsPage = new InsuranceDetails()
+const CarDetailsPage = new CarDetails()
+const AdditionalDriversPage = new AdditionalDrivers()
+const YourClaimsPage = new YourClaims()
+const PenaltyPointsPage = new PenaltyPoints()
+const CoverStartDatePage = new CoverStartDate()
+const QuotePageAndExtras = new QuotePage()
+const AboutYourCarPage = new AboutYourCarPQ1()
+const AboutTheDriversPage = new AboutTheDriversPQ2()
+const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
+const PaymentTypesPage = new PaymentTypes()
+const DiaryAndCorrespondencePage = new DiaryAndCorrespondence()
+const ThankYouPage = new ThankYouScreen()
 const day = require('dayjs')
 
 describe('Medical condition can be removed at renewal QA', () => {
     it('should complete the process of adding and removing a medical condition', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Revert new window that opens back to original window 
         cy.getAndWait('#ctl00_ContentPlaceHolder1_ProductList').select(1)
@@ -29,299 +65,295 @@ describe('Medical condition can be removed at renewal QA', () => {
             }
         })
 
-        Global_Stuff.createNewQuoteBTN()
+        BOAction.createNewQuoteBTN()
 
         // Accept cookies
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
 
         // Complete section 1 "About you"
-        Global_Stuff.aboutYouTitle()
-        Global_Stuff.notes()
-        Global_Stuff.proposerTitle()
-        Global_Stuff.proposerForename()
-        Global_Stuff.proposerSurname()
-        Global_Stuff.proposerEmail()
-        Global_Stuff.phone()
-        Global_Stuff.aboutYouContinue()
+        AboutYouPage.aboutYouTitle()
+        BOAction.notes()
+        AboutYouPage.proposerTitle()
+        AboutYouPage.proposerForename()
+        AboutYouPage.proposerSurname()
+        AboutYouPage.proposerEmail()
+        AboutYouPage.phone()
+        AboutYouPage.aboutYouContinue()
 
         // Complete section 2 "Personal details"
-        Global_Stuff.personalDetailsTitle()
-        Global_Stuff.addressInput()
-        Global_Stuff.addressSuggest()
-        Global_Stuff.addressSelect()
-        Global_Stuff.addressConfirm()
-        Global_Stuff.proposerDOB()
-        Global_Stuff.proposerEmployStatus()
-        Global_Stuff.licenceType()
-        Global_Stuff.licenceYears()
-        Global_Stuff.personlaDetailsContinue()
+        PersonalDetailsPage.personalDetailsTitle()
+        PersonalDetailsPage.addressInput()
+        PersonalDetailsPage.addressSuggest()
+        PersonalDetailsPage.addressSelect()
+        PersonalDetailsPage.addressConfirm()
+        PersonalDetailsPage.proposerDOB()
+        PersonalDetailsPage.proposerEmployStatus()
+        PersonalDetailsPage.licenceType()
+        PersonalDetailsPage.licenceYears()
+        PersonalDetailsPage.personlaDetailsContinue()
 
         // Complete section 3 "Insurance details"
-        Global_Stuff.insuranceDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.drivingExp()
-        Global_Stuff.drivingExpYears()
-        Global_Stuff.carUse()
-        Global_Stuff.insuranceDetailsContinue()
+        InsuranceDetailsPage.insuranceDetailsTitle()
+        BOAction.notes()
+        InsuranceDetailsPage.drivingExp()
+        InsuranceDetailsPage.drivingExpYears()
+        InsuranceDetailsPage.carUse()
+        InsuranceDetailsPage.insuranceDetailsContinue()
 
         // Complete section 4 "Car details"
-        Global_Stuff.carDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.carRegYes()
-        Global_Stuff.carRegInput()
-        Global_Stuff.findCarBTN()
-        Global_Stuff.confirmCarBTN()
-        Global_Stuff.carValueInput()
-        Global_Stuff.carModifiedFalse()
-        Global_Stuff.carDetailsContinue()
+        CarDetailsPage.carDetailsTitle()
+        BOAction.notes()
+        CarDetailsPage.carRegYes()
+        CarDetailsPage.carRegInput()
+        CarDetailsPage.findCarBTN()
+        CarDetailsPage.confirmCarBTN()
+        CarDetailsPage.carValueInput()
+        CarDetailsPage.carModifiedFalse()
+        CarDetailsPage.carDetailsContinue()
 
         // Complete section 5 "Additional drivers"
-        Global_Stuff.additionalDriversHeading()
-        Global_Stuff.notes()
-        Global_Stuff.additionalDriversFalse()
-        Global_Stuff.additionalDriversContinue()
+        AdditionalDriversPage.additionalDriversHeading()
+        BOAction.notes()
+        AdditionalDriversPage.additionalDriversFalse()
+        AdditionalDriversPage.additionalDriversContinue()
 
         // Complete section 6 "Your claims"
-        Global_Stuff.notes()
-        Global_Stuff.claimsHeading()
-        Global_Stuff.claimsFalse1st()
-        Global_Stuff.claimsContinue()
+        BOAction.notes()
+        YourClaimsPage.claimsHeading()
+        YourClaimsPage.claimsFalse1st()
+        YourClaimsPage.claimsContinue()
 
         // Complete section 7 "Penalty points"
-        Global_Stuff.ppHeading()
-        Global_Stuff.notes()
-        Global_Stuff.ppFalse1st()
-        Global_Stuff.ppContinue()
+        PenaltyPointsPage.ppHeading()
+        BOAction.notes()
+        PenaltyPointsPage.ppFalse1st()
+        PenaltyPointsPage.ppContinue()
 
         // Complete section 8 "Cover start date"
-        Global_Stuff.coverStartHeading()
-        Global_Stuff.notes()
-        Global_Stuff.coverStartDate()
-        Global_Stuff.coverStartHaveHomeIns()
-        Global_Stuff.coverStartHaveCarIns()
-        Global_Stuff.coverStartMarketing()
-        Global_Stuff.coverStartContinue()
+        CoverStartDatePage.coverStartHeading()
+        BOAction.notes()
+        CoverStartDatePage.coverStartDate()
+        CoverStartDatePage.coverStartHaveHomeIns()
+        CoverStartDatePage.coverStartHaveCarIns()
+        CoverStartDatePage.coverStartMarketing()
+        CoverStartDatePage.coverStartContinue()
 
         // Quote screen - Buy now 
-        Global_Stuff.quotePageHeading()
-        Global_Stuff.notes()
-        Global_Stuff.buyNowBtn()
+        QuotePageAndExtras.quotePageHeading()
+        BOAction.notes()
+        QuotePageAndExtras.buyNowBtn()
 
         // Complete post quote 1 "About you car"
-        Global_Stuff.postQuote1Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote1wnCar()
-        Global_Stuff.postQuote1PrivateIns()
-        Global_Stuff.postQuote1Continue()
+        AboutYourCarPage.postQuote1Heading()
+        BOAction.notes()
+        AboutYourCarPage.postQuote1OwnCar()
+        AboutYourCarPage.postQuote1PrivateIns()
+        AboutYourCarPage.postQuote1Continue()
 
         // Complete post quote 2 "About the drivers"
-        Global_Stuff.postQuote2Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote2IsResidentTrue()
-        Global_Stuff.postQuote2IsMainDriverTrue()
-        Global_Stuff.postQuote2IsNotOtherCarTrue()
-        Global_Stuff.postQuote2IsNotOtherInsTrue()
-        Global_Stuff.postQuote2IsNoConvictionTrue()
-        Global_Stuff.postQuote2IsNoDisqualificationTrue()
-        Global_Stuff.postQuote2IsNoRefusalTrue()
-        Global_Stuff.postQuote2IsNoIncreaseTrue()
-        Global_Stuff.postQuote2IsNoMedicalTrue()
-        Global_Stuff.postQuote2DriverNumber()
-        Global_Stuff.postQuote2Continue()
+        AboutTheDriversPage.postQuote2Heading()
+        BOAction.notes()
+        AboutTheDriversPage.postQuote2IsResidentTrue()
+        AboutTheDriversPage.postQuote2IsMainDriverTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
+        AboutTheDriversPage.postQuote2IsNoConvictionTrue()
+        AboutTheDriversPage.postQuote2IsNoDisqualificationTrue()
+        AboutTheDriversPage.postQuote2IsNoRefusalTrue()
+        AboutTheDriversPage.postQuote2IsNoIncreaseTrue()
+        AboutTheDriversPage.postQuote2IsNoMedicalTrue()
+        AboutTheDriversPage.postQuote2DriverNumber()
+        AboutTheDriversPage.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
-        Global_Stuff.postQuote3Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote3NCDROITrue()
-        Global_Stuff.postQuote3NoOtherNCDTrue()
-        Global_Stuff.postQuote3WithinExpiryTrue()
-        Global_Stuff.postQuote3IsMyAvivaTrue()
-        Global_Stuff.postQuote3Continue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Heading()
+        BOAction.notes()
+        YourInsHistoryAndIncepDetsPage.postQuote3NCDROITrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaTrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
-        Global_Stuff.notes()
-        Global_Stuff.paymentTypeAgentNoPay()
-        Global_Stuff.paymentTypeAgentNoPayContinue()
+        BOAction.notes()
+        PaymentTypesPage.paymentTypeAgentNoPay()
+        PaymentTypesPage.paymentTypeAgentNoPayContinue()
 
         // Diary & correspondence page 
-        Global_Stuff.diaryCorrespondenceHeading()
-        Global_Stuff.notes()
-        Global_Stuff.diaryCorrespondenceContinue()
+        DiaryAndCorrespondencePage.diaryCorrespondenceHeading()
+        BOAction.notes()
+        DiaryAndCorrespondencePage.diaryCorrespondenceContinue()
 
         // Thank you page
-        Global_Stuff.thankyouHeading()
-        Global_Stuff.notes()
-        Global_Stuff.retreivePolicyNumber()
+        ThankYouPage.thankyouHeading()
+        BOAction.notes()
+        ThankYouPage.retreivePolicyNumber()
 
         // Back date policy
-        Global_Stuff.Server()
-        Global_Stuff.home()
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
-        Global_Stuff.unlockBTN()
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+        BOAction.unlockBTN()
 
         // Open policy
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
 
         // Back date policy
-        Global_Stuff.policyToolsAgePolicyWithPolicyNumber()
-        Global_Stuff.agePolicy()
+        BOAction.policyToolsAgePolicyWithPolicyNumber()
+        BOAction.agePolicy()
 
         // Generate and invite renewal
-        Global_Stuff.Server()
-        Global_Stuff.home()
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
-        Global_Stuff.generateRenewal()
-        Global_Stuff.inviteRenewal()
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+        BOAction.generateRenewal()
+        BOAction.inviteRenewal()
 
         // Checking for renewal invite email in docs
-        Global_Stuff.recallPolicy()
-        Global_Stuff.livePoliciesBTN()
-        Global_Stuff.selectActionDocumentsWithPolicyNumber()
-        Global_Stuff.checkRenewalInviteDocs()
+        BOAction.recallPolicy()
+        BOAction.livePoliciesBTN()
+        BOAction.selectActionDocumentsWithPolicyNumber()
+        BOAction.checkRenewalInviteDocs()
         cy.go(-1)
 
         // Purchase Home Renewal
-        Global_Stuff.livePoliciesBTN()
-        Global_Stuff.selectActionRenewalWithPolicyNumber()
-        Global_Stuff.selectStaffDiscount()
+        BOAction.livePoliciesBTN()
+        BOAction.selectActionRenewalWithPolicyNumber()
+        QuotePageAndExtras.selectStaffDiscount()
         cy.getAndWait('#ctl00_MainContent_EditAdditionalDriver').click()
-        Global_Stuff.additionalDriversTrue()
-        Global_Stuff.additionalDriver1Title()
-        Global_Stuff.additionalDriver1Forename()
-        Global_Stuff.additionalDriver1Surname()
-        Global_Stuff.additionalDriver1DOB()
-        Global_Stuff.additionalDriver1EmploymentStatus()
-        Global_Stuff.additionalDriver1LicenceType()
-        Global_Stuff.additionalDriver1LicenceYears()
-        Global_Stuff.addionalDriver1DriverNumber()
-        Global_Stuff.additionalDriver1Relationship()
-        Global_Stuff.additionalDriver1SpouseOwnVehFalse()
-        Global_Stuff.additionalDriver1Save()
-        Global_Stuff.additionalDriversFalse()
-        Global_Stuff.additionalDriversContinue()
+        AdditionalDriversPage.additionalDriversTrue()
+        AdditionalDriversPage.additionalDriver1Title()
+        AdditionalDriversPage.additionalDriver1Forename()
+        AdditionalDriversPage.additionalDriver1Surname()
+        AdditionalDriversPage.additionalDriver1DOB()
+        AdditionalDriversPage.additionalDriver1EmploymentStatus()
+        AdditionalDriversPage.additionalDriver1LicenceType()
+        AdditionalDriversPage.additionalDriver1LicenceYears()
+        AdditionalDriversPage.addionalDriver1DriverNumber()
+        AdditionalDriversPage.additionalDriver1Relationship()
+        AdditionalDriversPage.additionalDriver1SpouseOwnVehFalse()
+        AdditionalDriversPage.additionalDriver1Save()
+        AdditionalDriversPage.additionalDriversFalse()
+        AdditionalDriversPage.additionalDriversContinue()
 
         cy.getAndWait('#accHeading5 > .m-showhide__control').contains('Additional driver added')
-        Global_Stuff.claimsFalseLast()
-        Global_Stuff.claimsContinue()
+        YourClaimsPage.claimsFalseLast()
+        YourClaimsPage.claimsContinue()
 
-        Global_Stuff.ppFalseLast()
-        Global_Stuff.ppContinue()
+        PenaltyPointsPage.ppFalseLast()
+        PenaltyPointsPage.ppContinue()
 
         // Complete section 8 "Cover start date"
         cy.getAndWait('#div8').contains('Renewal date')
-        Global_Stuff.notes()
+        BOAction.notes()
         cy.getAndWait('#IsHome-False > .a-radio > .a-radio__label').click({force: true})
         cy.getAndWait('#IsHouseholdCar-False > .a-radio > .a-radio__label').click({force: true})
-        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
+        CoverStartDatePage.coverStartContinue()
 
-        cy.getAndWait('#StaffHeading > .m-showhide__control').click()
-        cy.getAndWait('#ddlAvailableDiscounts').select(1)
-        cy.getAndWait('#ctl00_MainContent_Recalculate').click()
-        cy.getAndWait('#ctl00_MainContent_UP_Price > :nth-child(1)').should('contain', 'Call centre customer - No online discount')
+        QuotePageAndExtras.selectStaffDiscount()
         cy.getAndWait('#btnBuyNow').click({force: true})
 
-        Global_Stuff.postQuote1wnCar()
-        Global_Stuff.postQuote1PrivateIns()
-        Global_Stuff.postQuote1Continue()
+        AboutYourCarPage.postQuote1OwnCar()
+        AboutYourCarPage.postQuote1PrivateIns()
+        AboutYourCarPage.postQuote1Continue()
 
         // Completing post quote screen 2 questions
-        Global_Stuff.postQuote2Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote2IsResidentTrue()
-        Global_Stuff.postQuote2IsMainDriverTrue()
-        Global_Stuff.postQuote2IsNotOtherCarTrue()
-        Global_Stuff.postQuote2IsNotOtherInsTrue()
-        Global_Stuff.postQuote2IsNoConvictionTrue()
-        Global_Stuff.postQuote2IsNoDisqualificationTrue()
-        Global_Stuff.postQuote2IsNoRefusalTrue()
-        Global_Stuff.postQuote2IsNoIncreaseTrue()
-        Global_Stuff.postQuote2IsNoMedicalFalse()
-        Global_Stuff.postQuote2addMedicalConditionBTN()
-        Global_Stuff.postQuote2addMedicalConditionDriver()
-        Global_Stuff.postQuote2addMedicalConditionSelect()
-        Global_Stuff.postQuote2addMedicalConditionInformed()
-        Global_Stuff.postQuote2addMedicalConditionSave()
-        Global_Stuff.postQuote2addMedicalConditionBTN()
-        Global_Stuff.postQuote2addMedicalConditionAD()
-        Global_Stuff.postQuote2addMedicalConditionSelect1()
-        Global_Stuff.postQuote2addMedicalConditionInformed()
-        Global_Stuff.postQuote2addMedicalConditionSave()
+        AboutTheDriversPage.postQuote2Heading()
+        BOAction.notes()
+        AboutTheDriversPage.postQuote2IsResidentTrue()
+        AboutTheDriversPage.postQuote2IsMainDriverTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
+        AboutTheDriversPage.postQuote2IsNoConvictionTrue()
+        AboutTheDriversPage.postQuote2IsNoDisqualificationTrue()
+        AboutTheDriversPage.postQuote2IsNoRefusalTrue()
+        AboutTheDriversPage.postQuote2IsNoIncreaseTrue()
+        AboutTheDriversPage.postQuote2IsNoMedicalFalse()
+        AboutTheDriversPage.postQuote2addMedicalConditionBTN()
+        AboutTheDriversPage.postQuote2addMedicalConditionDriver()
+        AboutTheDriversPage.postQuote2addMedicalConditionSelect()
+        AboutTheDriversPage.postQuote2addMedicalConditionInformed()
+        AboutTheDriversPage.postQuote2addMedicalConditionSave()
+        AboutTheDriversPage.postQuote2addMedicalConditionBTN()
+        AboutTheDriversPage.postQuote2addMedicalConditionAD()
+        AboutTheDriversPage.postQuote2addMedicalConditionSelect1()
+        AboutTheDriversPage.postQuote2addMedicalConditionInformed()
+        AboutTheDriversPage.postQuote2addMedicalConditionSave()
         cy.getAndWait('#RemoveCondition').first().click()
         cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
 
         cy.getAndWait('#RemoveCondition').last().click()
         cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
 
-        Global_Stuff.postQuote2IsNoMedicalTrue()
+        AboutTheDriversPage.postQuote2IsNoMedicalTrue()
 
-        Global_Stuff.postQuote2Continue()
+        AboutTheDriversPage.postQuote2Continue()
 
-        Global_Stuff.postQuote3Continue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
-        cy.getAndWait('#ctl00_MainContent_PaymentType').select(2)
+         PaymentTypesPage.paymentTypeAgentNoPay()
         cy.getAndWait('#ctl00_MainContent_txtAmountReceived').type('100')
         cy.getAndWait('#ctl00_MainContent_txtPayRef').type('test')
 
         cy.getAndWait('#ctl00_MainContent_PayCheque').click()
         cy.getAndWait('#ctl00_MainContent_btnPayNSPayment').click()
 
-        Global_Stuff.thankyouHeading()
+        ThankYouPage.thankyouHeading()
 
         // Attempting to remove medical condition at MTA
-        Global_Stuff.Server()
-        Global_Stuff.home()
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
 
         // Open policy
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
 
         // Select Make adjustment and revert window back to current window
-        Global_Stuff.selectActionMakeADJWithPolicyNumber()
+        BOAction.selectActionMakeADJWithPolicyNumber()
 
         // Select to perform a permanent adjustment on Additional drivers
-        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select('Additional drivers', {force: true}).should('have.value', 'AddDriver')
-        cy.getAndWait('#btnMakePermaChange').click({force: true})
+        MTABOAction.permADJAdditionalDriver()
         
         cy.getAndWait('#Continue5').click()
         cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(3, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
+        CoverStartDatePage.coverStartContinue()
         cy.getAndWait('#ctl00_MainContent_btnContinue').click({force: true})
         
-        cy.getAndWait('#div2').contains('About the drivers')
-        cy.getAndWait('#ctl00_divNotes > .a-button').should('be.visible')
+        AboutTheDriversPage.postQuote2Heading()
+        BOAction.notes()
 
         // Completing post quote screen 2 questions
-        Global_Stuff.postQuote2Heading()
-        Global_Stuff.postQuote2IsNoMedicalFalse()
-        Global_Stuff.postQuote2addMedicalConditionBTN()
-        Global_Stuff.postQuote2addMedicalConditionDriver()
-        Global_Stuff.postQuote2addMedicalConditionSelect()
-        Global_Stuff.postQuote2addMedicalConditionInformed()
-        Global_Stuff.postQuote2addMedicalConditionSave()
-        Global_Stuff.postQuote2addMedicalConditionBTN()
-        Global_Stuff.postQuote2addMedicalConditionAD()
-        Global_Stuff.postQuote2addMedicalConditionSelect1()
-        Global_Stuff.postQuote2addMedicalConditionInformed()
-        Global_Stuff.postQuote2addMedicalConditionSave()
+        AboutTheDriversPage.postQuote2Heading()
+        AboutTheDriversPage.postQuote2IsNoMedicalFalse()
+        AboutTheDriversPage.postQuote2addMedicalConditionBTN()
+        AboutTheDriversPage.postQuote2addMedicalConditionDriver()
+        AboutTheDriversPage.postQuote2addMedicalConditionSelect()
+        AboutTheDriversPage.postQuote2addMedicalConditionInformed()
+        AboutTheDriversPage.postQuote2addMedicalConditionSave()
+        AboutTheDriversPage.postQuote2addMedicalConditionBTN()
+        AboutTheDriversPage.postQuote2addMedicalConditionAD()
+        AboutTheDriversPage.postQuote2addMedicalConditionSelect1()
+        AboutTheDriversPage.postQuote2addMedicalConditionInformed()
+        AboutTheDriversPage.postQuote2addMedicalConditionSave()
 
-        Global_Stuff.postQuote2Headingselect()
+        AboutTheDriversPage.postQuote2Headingselect()
         
         cy.getAndWait('#RemoveCondition').first().click()
-        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click({force: true})
 
-        Global_Stuff.postQuote2Headingselect()
+        AboutTheDriversPage.postQuote2Headingselect()
 
         cy.getAndWait('#RemoveCondition').last().click()
-        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click()
+        cy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click({force: true})
         
         // Completing post quote screen 3 
-        Global_Stuff.postQuote3Continue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
         
         cy.getAndWait('.m-card-content > p').should('contain', 'Go back to make a change to your details')
     })

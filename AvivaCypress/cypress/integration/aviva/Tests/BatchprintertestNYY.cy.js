@@ -1,4 +1,15 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { PersonalDetails } from "../AvivaPOM/PersonalDetails"
+import { InsuranceDetails } from "../AvivaPOM/InsuranceDetails"
+import { CarDetails } from "../AvivaPOM/CarDetails"
+import { AdditionalDrivers } from "../AvivaPOM/AdditionalDrivers"
+import { YourClaims } from "../AvivaPOM/YourClaims"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
+import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,18 +18,29 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
+const AboutYouPage = new AboutYou()
+const PersonalDetailsPage = new PersonalDetails()
+const InsuranceDetailsPage = new InsuranceDetails()
+const CarDetailsPage = new CarDetails()
+const AdditionalDriversPage = new AdditionalDrivers()
+const YourClaimsPage = new YourClaims()
+const QuotePageAndExtras = new QuotePage()
+const AboutTheDriversPage = new AboutTheDriversPQ2()
+const ThankYouPage = new ThankYouScreen()
 const day = require('dayjs')
 
 describe('Policy Purchase with NYY', () => {
     it('should complete the policy purchase process with NYY', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
         
         // Revert new window that opens back to original window 
         cy.get('#ctl00_ContentPlaceHolder1_ProductList').select(1)
@@ -29,70 +51,70 @@ describe('Policy Purchase with NYY', () => {
             }
         })
 
-        Global_Stuff.createNewQuoteBTN()
+        BOAction.createNewQuoteBTN()
 
         // Accept cookies
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
         
         // Complete section 1 "About you"
-        Global_Stuff.aboutYouTitle()
-        Global_Stuff.notes()
-        Global_Stuff.proposerTitle()
-        Global_Stuff.proposerForename()
-        Global_Stuff.proposerSurname()
-        Global_Stuff.proposerEmail()
-        Global_Stuff.phone()
-        Global_Stuff.aboutYouContinue()
+        AboutYouPage.aboutYouTitle()
+        BOAction.notes()
+        AboutYouPage.proposerTitle()
+        AboutYouPage.proposerForename()
+        AboutYouPage.proposerSurname()
+        AboutYouPage.proposerEmail()
+        AboutYouPage.phone()
+        AboutYouPage.aboutYouContinue()
         
         // Complete section 2 "Personal details"
-        Global_Stuff.personalDetailsTitle()
-        Global_Stuff.addressInput()
+        PersonalDetailsPage.personalDetailsTitle()
+        PersonalDetailsPage.addressInput()
         cy.wait(2000)
-        Global_Stuff.addressSuggest()
-        Global_Stuff.addressSelect()
-        Global_Stuff.addressConfirm()
-        Global_Stuff.proposerDOB()
-        Global_Stuff.proposerEmployStatus()
-        Global_Stuff.licenceType()
-        Global_Stuff.licenceYears()
-        Global_Stuff.personlaDetailsContinue()
+        PersonalDetailsPage.addressSuggest()
+        PersonalDetailsPage.addressSelect()
+        PersonalDetailsPage.addressConfirm()
+        PersonalDetailsPage.proposerDOB()
+        PersonalDetailsPage.proposerEmployStatus()
+        PersonalDetailsPage.licenceType()
+        PersonalDetailsPage.licenceYears()
+        PersonalDetailsPage.personlaDetailsContinue()
         cy.wait(2000)
         
         // Complete section 3 "Insurance details"
-        Global_Stuff.insuranceDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.drivingExp()
+        InsuranceDetailsPage.insuranceDetailsTitle()
+        BOAction.notes()
+        InsuranceDetailsPage.drivingExp()
         cy.wait(2000)
-        Global_Stuff.drivingExpYears()
-        Global_Stuff.carUse()
-        Global_Stuff.insuranceDetailsContinue()
+        InsuranceDetailsPage.drivingExpYears()
+        InsuranceDetailsPage.carUse()
+        InsuranceDetailsPage.insuranceDetailsContinue()
         
         // Complete section 4 "Car details"
-        Global_Stuff.carDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.carRegYes()
-        Global_Stuff.carRegInput()
-        Global_Stuff.findCarBTN()
+        CarDetailsPage.carDetailsTitle()
+        BOAction.notes()
+        CarDetailsPage.carRegYes()
+        CarDetailsPage.carRegInput()
+        CarDetailsPage.findCarBTN()
         cy.wait(3000)
-        Global_Stuff.confirmCarBTN()
+        CarDetailsPage.confirmCarBTN()
         cy.wait(3000)
-        Global_Stuff.carValueInput()
-        Global_Stuff.carModifiedFalse()
-        Global_Stuff.carDetailsContinue()
+        CarDetailsPage.carValueInput()
+        CarDetailsPage.carModifiedFalse()
+        CarDetailsPage.carDetailsContinue()
         
         // Complete section 5 "Additional drivers"
-        Global_Stuff.additionalDriversHeading()
-        Global_Stuff.notes()
-        Global_Stuff.additionalDriversFalse()
-        Global_Stuff.additionalDriversContinue()
+        AdditionalDriversPage.additionalDriversHeading()
+        BOAction.notes()
+        AdditionalDriversPage.additionalDriversFalse()
+        AdditionalDriversPage.additionalDriversContinue()
 
         // Complete section 6 "Your claims"
-        Global_Stuff.notes()
-        Global_Stuff.claimsHeading()
+        BOAction.notes()
+        YourClaimsPage.claimsHeading()
         cy.wait(2000)
-        Global_Stuff.claimsFalse1st()
+        YourClaimsPage.claimsFalse1st()
         cy.wait(2000)
-        Global_Stuff.claimsContinue()
+        YourClaimsPage.claimsContinue()
 
         // Complete section 7 "Penalty points"
         cy.get('#div7').contains('Penalty points')
@@ -114,7 +136,7 @@ describe('Policy Purchase with NYY', () => {
         // Quote screen - Buy now 
         cy.get('.m-heading-group__item').contains('Aviva car insurance quote')
         cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-        Global_Stuff.buyNowBtn()
+        QuotePageAndExtras.buyNowBtn()
         
         // Complete post quote 1 "About your car"
         cy.get('#div1').contains('About your car')
@@ -127,16 +149,16 @@ describe('Policy Purchase with NYY', () => {
         cy.get('#div2').contains('About the drivers')
         cy.get('#ctl00_divNotes > .a-button').should('be.visible')
         cy.get('#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        Global_Stuff.postQuote2IsMainDriverTrue()
-        Global_Stuff.postQuote2IsNotOtherCarTrue()
-        Global_Stuff.postQuote2IsNotOtherInsTrue()
-        Global_Stuff.postQuote2IsNoConvictionTrue()
-        Global_Stuff.postQuote2IsNoDisqualificationTrue()
-        Global_Stuff.postQuote2IsNoRefusalTrue()
-        Global_Stuff.postQuote2IsNoIncreaseTrue()
-        Global_Stuff.postQuote2IsNoMedicalTrue()
+        AboutTheDriversPage.postQuote2IsMainDriverTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
+        AboutTheDriversPage.postQuote2IsNoConvictionTrue()
+        AboutTheDriversPage.postQuote2IsNoDisqualificationTrue()
+        AboutTheDriversPage.postQuote2IsNoRefusalTrue()
+        AboutTheDriversPage.postQuote2IsNoIncreaseTrue()
+        AboutTheDriversPage.postQuote2IsNoMedicalTrue()
         cy.get('#ctl00_MainContent_DriverRepeater_ctl00_DriverNum').type('123456789', {force: true})
-        Global_Stuff.postQuote2Continue()
+        AboutTheDriversPage.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details" setting NYY to preferences
         cy.get('#div3').contains('Your insurance history and inception details')
@@ -166,19 +188,19 @@ describe('Policy Purchase with NYY', () => {
         cy.get('#ctl00_MainContent_Summary').click({force: true})
 
         // Thank you page
-        Global_Stuff.thankyouHeading()
+        ThankYouPage.thankyouHeading()
         cy.get('#ctl00_divNotes > .a-button').should('be.visible')
         
         // Check B/O preferences match Y/N/N
-        Global_Stuff.Server()
+        Server.Server()
         cy.get(':nth-child(1) > .level1').click()
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
 
         // Select policy and Documents 
-        Global_Stuff.livePoliciesBTN()
-        Global_Stuff.selectActionDocumentsWithPolicyNumber()
+        BOAction.livePoliciesBTN()
+        BOAction.selectActionDocumentsWithPolicyNumber()
         
         cy.get('#ctl00_ContentPlaceHolder1_btnCorrespondence').click()
         cy.get('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False')
@@ -193,26 +215,26 @@ describe('Policy Purchase with NYY', () => {
 
         // Completing Diary chaser to move policy to full cover
         cy.get(':nth-child(1) > .level1').click()
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
 
         // Select policy and Documents 
-        Global_Stuff.livePoliciesBTN()
-        Global_Stuff.selectActionDiaryWithPolicyNumber()
+        BOAction.livePoliciesBTN()
+        BOAction.selectActionDiaryWithPolicyNumber()
         cy.get(':nth-child(7) > .btn > span').click()
         cy.get('#ctl00_ContentPlaceHolder1_DocumentGrid_ctl02_IsReceived').click()
         cy.get(':nth-child(2) > :nth-child(6)').should('not.have.text', '')
 
         // Back dating policy 
-        Global_Stuff.Server()
-        Global_Stuff.home()
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
-        Global_Stuff.unlockBTN()
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+        BOAction.unlockBTN()
 
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
         cy.get('[class^="dropdown policyTools"]').last().click({force:true}).contains('Age Policy').invoke("removeAttr", "target").click({force:true})
 
         cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').invoke('val').then(dayString => {
@@ -224,11 +246,11 @@ describe('Policy Purchase with NYY', () => {
         cy.get('.alert').contains('Policy has been backdated')
 
         // Generating and Printing renewal
-        Global_Stuff.Server()
-        Global_Stuff.home()
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         cy.get('[class^="btn btn-sm btn-cta btn-sm"]').last().click()
         
         cy.get('.bg-info').should('contain', 'RNL')
@@ -247,13 +269,13 @@ describe('Policy Purchase with NYY', () => {
 
         // Checking for renewal invite email in docs
         cy.get('#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy').click()
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
 
-        Global_Stuff.selectActionDocumentsWithPolicyNumber()
+        BOAction.selectActionDocumentsWithPolicyNumber()
         
         // Purchase renewal quote
         cy.get('tbody > :nth-child(4) > :nth-child(4)').should('contain', 'Renewal Invite Email')
         cy.go('back')
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
     })
 })

@@ -8,7 +8,7 @@ async function setupNodeEvents(on, config) {
   
   require('cypress-mochawesome-reporter/plugin')(on)  
 
-  const serverKey = config.env.serverKey || 'QA2'; // Default to QA2 if no serverKey is provided
+  const serverKey = config.env.serverKey || 'QA2' // Default to QA2 if no serverKey is provided
   
 
   // Modify config if needed
@@ -25,6 +25,10 @@ async function setupNodeEvents(on, config) {
      'cypress/integration/aviva/Tests/CustNBAddSpecifiedRNLRemoveQA.cy.js',
      'cypress/integration/aviva/Tests/CustRNLAddSpecifiedRNLPurchQA.cy.js',
      'cypress/integration/aviva/Tests/AgentPurchJointProv.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentPIFtoPIFNoEmailQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentDDtoPIFNoEmailQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentDDtoDDAutoRolloverNoEmailQA.cy.js',
+     'cypress/integration/aviva/Tests/RenewalAgentPIFtoDDNoEmailQA.cy.js',
      'cypress/integration/aviva/Tests/RenewalAgentPIFtoDDQA.cy.js',
      'cypress/integration/aviva/Tests/RenewalCustPIFtoDDQA.cy.js',
      'cypress/integration/aviva/Tests/RenewalAgentPIFtoPIFQA.cy.js',
@@ -33,13 +37,14 @@ async function setupNodeEvents(on, config) {
      'cypress/integration/aviva/Tests/RenewalCustDDtoPIFQA.cy.js',
      'cypress/integration/aviva/Tests/RenewalAgentDDtoDDAutoRolloverQA.cy.js',
      'cypress/integration/aviva/Tests/ParagonCheckNBQA.cy.js',
-     'cypress/integration/aviva/Tests/ParagonCheckNBNoPay.cy.js',
-     'cypress/integration/aviva/Tests/ParagonCheckNBNoPayAdHocLetters.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckNBNoPayQA.cy.js',
+     'cypress/integration/aviva/Tests/ParagonCheckNBNoPayAdHocLettersQA.cy.js',
      'cypress/integration/aviva/Tests/ParagonCheckMTAQA.cy.js',
      'cypress/integration/aviva/Tests/ParagonCheckMTAQANoDocsWithCharge.cy.js',
      'cypress/integration/aviva/Tests/ParagonCheckRNLQA.cy.js',
      'cypress/integration/aviva/Tests/ParagonCheckRNLMTAQA.cy.js',
-     'cypress/integration/aviva/Tests/AgentCancellation.cy.js'
+     'cypress/integration/aviva/Tests/AgentCancellation.cy.js',
+     'cypress/integration/aviva/Tests/ParagonQueueDocsCheckQA.cy.js',
   ]
 
   //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
@@ -55,6 +60,10 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/CustNBAddSpecifiedRNLRemove.cy.js',
     'cypress/integration/aviva/Tests/CustRNLAddSpecifiedRNLPurch.cy.js',
     'cypress/integration/aviva/Tests/AgentPurchJointProv.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentNoEmailPIFtoPIF.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentDDtoPIFNoEmail.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentDDtoDDAutoRolloverNoEmail.cy.js',
+    'cypress/integration/aviva/Tests/RenewalAgentPIFtoDDNoEmail.cy.js',
     'cypress/integration/aviva/Tests/RenewalAgentPIFtoDD.cy.js',
     'cypress/integration/aviva/Tests/RenewalCustPIFtoDD.cy.js',
     'cypress/integration/aviva/Tests/RenewalAgentPIFtoPIF.cy.js',
@@ -70,6 +79,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/ParagonCheckRNL.cy.js',
     'cypress/integration/aviva/Tests/ParagonCheckRNLMTA.cy.js',
     'cypress/integration/aviva/Tests/AgentCancellation.cy.js', 
+    'cypress/integration/aviva/Tests/ParagonQueueDocsCheck.cy.js',
  ]
 
  // Determine the spec pattern based on the environment variable
@@ -122,7 +132,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: '**/*.cy.js', // Default pattern
     env: {
-      serverKey: '' // Set the default serverKey here
+      serverKey: '' // Set the default serverKey here QA2 is default if nothing specified
     }
     
   

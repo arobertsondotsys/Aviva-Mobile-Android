@@ -5,9 +5,13 @@ const path = require('path')
 require('cypress-mochawesome-reporter/plugin')
 
 async function setupNodeEvents(on, config) {
+
+  const serverKey = config.env.serverKey || 'QA2'; // Default to QA2 if no serverKey is provided
+  
   // Define the spec patterns
   const qaSpecPattern = [
     'cypress/integration/aviva/Tests/PolicyOwnership.cy.js',
+    'cypress/integration/aviva/Tests/AgentRenewalPIFtoPIFNoEmailQA.cy.js',
     'cypress/integration/aviva/Tests/ReportsCheck.cy.js',
     //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
     //'cypress/integration/aviva/Tests/A.cy.js',
@@ -85,9 +89,6 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/DiaryCheck.cy.js',
   ]
 
-  // Determine the spec pattern based on the environment variable
-  const serverKey = config.env.serverKey
-
   if (['QA', 'QA2', 'QA3'].includes(serverKey)) {
     config.specPattern = qaSpecPattern
   } else if (['TEST2LOADED', 'DEMO', 'TEST3FAT', 'TEST4E2E', 'TEST5PRICING', 'TEST6TRAINING', 'TEST7HOTFIX', 'TEST8CRMIGRATION', 'TEST9FATMIGRATION', 'TEST10PRODMIGRATION', 'GCCPRE'].includes(serverKey)) {
@@ -123,7 +124,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: '**/*.cy.js', // Default pattern
     env: {
-      serverKey: 'QA2' // Set the default serverKey here
+      serverKey: '' // Set the default serverKey here
     }
   },
 })

@@ -1,4 +1,7 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { PortalActions } from "../AvivaPOM/PortalActions"
+import { Login } from "../AvivaPOM/Login"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,24 +10,27 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const PortalAction = new PortalActions()
+const Logins = new Login()
 const day = require('dayjs')
 
 describe('Customer can cancel policy', () => {
     it('should complete the process of cancelling a policy', () => {
-        Global_Stuff.Server1()
+        Server.Server1()
 
         // Accept cookies and verify home page
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
         cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
 
         // Log in
-        Global_Stuff.loginEmail()
-        Global_Stuff.loginPassword()
-        Global_Stuff.loginPortalButton()
+        Logins.loginEmail()
+        Logins.loginPassword()
+        Logins.loginPortalButton()
 
         // Enter account to cancel policy
-        Global_Stuff.portalManagePolicyWithPolicyNumber()
+        PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnCancel').click()
         cy.getAndWait('.a-heading--2').contains('Cancel policy')
         cy.getAndWait('#ctl00_MainContent_cancelReason').select(1)

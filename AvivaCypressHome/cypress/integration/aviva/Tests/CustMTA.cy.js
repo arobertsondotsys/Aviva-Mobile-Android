@@ -1,4 +1,9 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { PortalActions } from "../AvivaPOM/PortalActions"
+import { Login } from "../AvivaPOM/Login"
+import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
+import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
+import { BOActions } from "../AvivaPOM/BOActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,28 +12,33 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const PortalAction = new PortalActions
+const Logins = new Login
+const CompleteAndPayPage = new CompleteAndPay
+const ThankYouScreen = new ThankYouPage
+const BOAction = new BOActions
 
 describe('Customer MTA purchase', () => {
   it('should allow a customer to make an MTA purchase', () => {
     // Access quote link 
-    Global_stuff.Server1()
-    Global_stuff.cookiesAccept()
-    Global_stuff.loginEmail()
-    Global_stuff.loginPassword()
-    Global_stuff.loginPortalButton()
-    Global_stuff.portalMakeADJWithPolicyNumber()
-    Global_stuff.portalMakeAdjustmentSelect()
-    Global_stuff.portalAdjustmentTypeSelect()
-    Global_stuff.portalAdjContinue()
+    Server.Server1()
+    BOAction.cookiesAccept()
+    Logins.loginEmail()
+    Logins.loginPassword()
+    Logins.loginPortalButton()
+    PortalAction.portalMakeADJWithPolicyNumber()
+    PortalAction.portalMakeAdjustmentSelect()
+    PortalAction.portalAdjustmentTypeSelect()
+    PortalAction.portalAdjContinue()
     // cy.get('.a-checkbox__label').click()
     // cy.get('#MainContent_Continue4').click()
-    Global_stuff.portalMortgageSelect()
-    Global_stuff.portalMortgageIntLetterTrue()
-    Global_stuff.portalMortgageProvider()
-    Global_stuff.completeAndPayCheckBox()
-    Global_stuff.completeAndPayContinue()
-    Global_stuff.thankyouHeading()
+    PortalAction.portalMortgageSelect()
+    PortalAction.portalMortgageIntLetterTrue()
+    PortalAction.portalMortgageProvider()
+    CompleteAndPayPage.completeAndPayCheckBox()
+    CompleteAndPayPage.completeAndPayContinue()
+    ThankYouScreen.thankyouHeading()
     cy.contains('Your Notice of Bank Interest Letter')
   })
 })

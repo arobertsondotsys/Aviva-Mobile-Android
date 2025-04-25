@@ -1,4 +1,22 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { MTABOActions } from "../AvivaPOM/MTABOActions"
+import { Login } from "../AvivaPOM/Login"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { PersonalDetails } from "../AvivaPOM/PersonalDetails"
+import { InsuranceDetails } from "../AvivaPOM/InsuranceDetails"
+import { CarDetails } from "../AvivaPOM/CarDetails"
+import { AdditionalDrivers } from "../AvivaPOM/AdditionalDrivers"
+import { YourClaims } from "../AvivaPOM/YourClaims"
+import { PenaltyPoints } from "../AvivaPOM/PenaltyPoints"
+import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { AboutYourCarPQ1 } from "../AvivaPOM/AboutYourCarPQ1"
+import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
+import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
+import { PaymentTypes } from "../AvivaPOM/PaymentTypes"
+import { DiaryAndCorrespondence } from "../AvivaPOM/DiaryAndCorrespondence"
+import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,162 +25,180 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const MTABOAction = new MTABOActions()
+const Logins = new Login()
+const AboutYouPage = new AboutYou()
+const PersonalDetailsPage = new PersonalDetails()
+const InsuranceDetailsPage = new InsuranceDetails()
+const CarDetailsPage = new CarDetails()
+const AdditionalDriversPage = new AdditionalDrivers()
+const YourClaimsPage = new YourClaims()
+const PenaltyPointsPage = new PenaltyPoints()
+const CoverStartDatePage = new CoverStartDate()
+const QuotePageAndExtras = new QuotePage()
+const AboutYourCarPage = new AboutYourCarPQ1()
+const AboutTheDriversPage = new AboutTheDriversPQ2()
+const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
+const PaymentTypesPage = new PaymentTypes()
+const DiaryAndCorrespondencePage = new DiaryAndCorrespondence()
+const ThankYouPage = new ThankYouScreen()
 const day = require('dayjs')
 
 describe('Agent can Amend an NCD', () => {
     it('should complete the process of amending an NCD', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Revert new window that opens back to original window 
-        Global_Stuff.agentQuote()
-        Global_Stuff.createNewQuoteBTN()
+        BOAction.agentQuote()
+        BOAction.createNewQuoteBTN()
         
         // Accept cookies
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
 
         // Complete section 1 "About you"
-        Global_Stuff.aboutYouTitle()
-        Global_Stuff.notes()
-        Global_Stuff.proposerTitle()
-        Global_Stuff.proposerForename()
-        Global_Stuff.proposerSurname()
-        Global_Stuff.proposerEmail()
-        Global_Stuff.phone()
-        Global_Stuff.aboutYouContinue()
+        AboutYouPage.aboutYouTitle()
+        BOAction.notes()
+        AboutYouPage.proposerTitle()
+        AboutYouPage.proposerForename()
+        AboutYouPage.proposerSurname()
+        AboutYouPage.proposerEmail()
+        AboutYouPage.phone()
+        AboutYouPage.aboutYouContinue()
 
         // Complete section 2 "Personal details"
-        Global_Stuff.personalDetailsTitle()
-        Global_Stuff.addressInput()
-        Global_Stuff.addressSuggest()
-        Global_Stuff.addressSelect()
-        Global_Stuff.addressConfirm()
-        Global_Stuff.proposerDOB()
-        Global_Stuff.proposerEmployStatus()
-        Global_Stuff.licenceType()
-        Global_Stuff.licenceYears()
-        Global_Stuff.personlaDetailsContinue()
+        PersonalDetailsPage.personalDetailsTitle()
+        PersonalDetailsPage.addressInput()
+        PersonalDetailsPage.addressSuggest()
+        PersonalDetailsPage.addressSelect()
+        PersonalDetailsPage.addressConfirm()
+        PersonalDetailsPage.proposerDOB()
+        PersonalDetailsPage.proposerEmployStatus()
+        PersonalDetailsPage.licenceType()
+        PersonalDetailsPage.licenceYears()
+        PersonalDetailsPage.personlaDetailsContinue()
 
         // Complete section 3 "Insurance details"
-        Global_Stuff.insuranceDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.drivingExp()
-        Global_Stuff.drivingExpYears()
-        Global_Stuff.carUse()
-        Global_Stuff.insuranceDetailsContinue()
+        InsuranceDetailsPage.insuranceDetailsTitle()
+        BOAction.notes()
+        InsuranceDetailsPage.drivingExp()
+        InsuranceDetailsPage.drivingExpYears()
+        InsuranceDetailsPage.carUse()
+        InsuranceDetailsPage.insuranceDetailsContinue()
 
         // Complete section 4 "Car details"
-        Global_Stuff.carDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.carRegYes()
-        Global_Stuff.carRegInput()
-        Global_Stuff.findCarBTN()
-        Global_Stuff.confirmCarBTN()
-        Global_Stuff.carValueInput()
-        Global_Stuff.carModifiedFalse()
-        Global_Stuff.carDetailsContinue()
+        CarDetailsPage.carDetailsTitle()
+        BOAction.notes()
+        CarDetailsPage.carRegYes()
+        CarDetailsPage.carRegInput()
+        CarDetailsPage.findCarBTN()
+        CarDetailsPage.confirmCarBTN()
+        CarDetailsPage.carValueInput()
+        CarDetailsPage.carModifiedFalse()
+        CarDetailsPage.carDetailsContinue()
 
         // Complete section 5 "Additional drivers"
-        Global_Stuff.additionalDriversHeading()
-        Global_Stuff.notes()
-        Global_Stuff.additionalDriversFalse()
-        Global_Stuff.additionalDriversContinue()
+        AdditionalDriversPage.additionalDriversHeading()
+        BOAction.notes()
+        AdditionalDriversPage.additionalDriversFalse()
+        AdditionalDriversPage.additionalDriversContinue()
 
         // Complete section 6 "Your claims"
-        Global_Stuff.claimsHeading()
-        Global_Stuff.notes()
-        Global_Stuff.claimsFalse1st()
-        Global_Stuff.claimsContinue()
+        YourClaimsPage.claimsHeading()
+        BOAction.notes()
+        YourClaimsPage.claimsFalse1st()
+        YourClaimsPage.claimsContinue()
 
         // Complete section 7 "Penalty points"
-        Global_Stuff.ppHeading()
-        Global_Stuff.notes()
-        Global_Stuff.ppFalse1st()
-        Global_Stuff.ppContinue()
+        PenaltyPointsPage.ppHeading()
+        BOAction.notes()
+        PenaltyPointsPage.ppFalse1st()
+        PenaltyPointsPage.ppContinue()
 
         // Complete section 8 "Cover start date"
-        Global_Stuff.coverStartHeading()
-        Global_Stuff.notes()
-        Global_Stuff.coverStartDate()
-        Global_Stuff.coverStartHaveHomeIns()
-        Global_Stuff.coverStartHaveCarIns()
-        Global_Stuff.coverStartMarketing()
-        Global_Stuff.coverStartContinue()
+        CoverStartDatePage.coverStartHeading()
+        BOAction.notes()
+        CoverStartDatePage.coverStartDate()
+        CoverStartDatePage.coverStartHaveHomeIns()
+        CoverStartDatePage.coverStartHaveCarIns()
+        CoverStartDatePage.coverStartMarketing()
+        CoverStartDatePage.coverStartContinue()
 
         // Quote screen - Buy now 
-        Global_Stuff.quotePageHeading()
-        Global_Stuff.notes()
-        Global_Stuff.buyNowBtn()
+        QuotePageAndExtras.quotePageHeading()
+        BOAction.notes()
+        QuotePageAndExtras.buyNowBtn()
 
         // Complete post quote 1 "About you car"
-        Global_Stuff.postQuote1Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote1wnCar()
-        Global_Stuff.postQuote1PrivateIns()
-        Global_Stuff.postQuote1Continue()
+        AboutYourCarPage.postQuote1Heading()
+        BOAction.notes()
+        AboutYourCarPage.postQuote1OwnCar()
+        AboutYourCarPage.postQuote1PrivateIns()
+        AboutYourCarPage.postQuote1Continue()
 
         // Complete post quote 2 "About the drivers"
-        Global_Stuff.postQuote2Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote2IsResidentTrue()
-        Global_Stuff.postQuote2IsMainDriverTrue()
-        Global_Stuff.postQuote2IsNotOtherCarTrue()
-        Global_Stuff.postQuote2IsNotOtherInsTrue()
-        Global_Stuff.postQuote2IsNoConvictionTrue()
-        Global_Stuff.postQuote2IsNoDisqualificationTrue()
-        Global_Stuff.postQuote2IsNoRefusalTrue()
-        Global_Stuff.postQuote2IsNoIncreaseTrue()
-        Global_Stuff.postQuote2IsNoMedicalTrue()
-        Global_Stuff.postQuote2DriverNumber()
-        Global_Stuff.postQuote2Continue()
+        AboutTheDriversPage.postQuote2Heading()
+        BOAction.notes()
+        AboutTheDriversPage.postQuote2IsResidentTrue()
+        AboutTheDriversPage.postQuote2IsMainDriverTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
+        AboutTheDriversPage.postQuote2IsNoConvictionTrue()
+        AboutTheDriversPage.postQuote2IsNoDisqualificationTrue()
+        AboutTheDriversPage.postQuote2IsNoRefusalTrue()
+        AboutTheDriversPage.postQuote2IsNoIncreaseTrue()
+        AboutTheDriversPage.postQuote2IsNoMedicalTrue()
+        AboutTheDriversPage.postQuote2DriverNumber()
+        AboutTheDriversPage.postQuote2Continue()
 
         // Complete post quote 3 "Your insurance history and inception details"
-        Global_Stuff.postQuote3Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote3NCDROITrue()
-        Global_Stuff.postQuote3NoOtherNCDTrue()
-        Global_Stuff.postQuote3WithinExpiryTrue()
-        Global_Stuff.postQuote3IsMyAvivaTrue()
-        Global_Stuff.postQuote3Continue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Heading()
+        BOAction.notes()
+        YourInsHistoryAndIncepDetsPage.postQuote3NCDROITrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaTrue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
         // Payment type screen - selecting "No payment required"
-        Global_Stuff.notes()
-        Global_Stuff.paymentTypeAgentNoPay()
-        Global_Stuff.paymentTypeAgentNoPayContinue()
+        BOAction.notes()
+        PaymentTypesPage.paymentTypeAgentNoPay()
+        PaymentTypesPage.paymentTypeAgentNoPayContinue()
 
         // Diary & correspondence page 
-        Global_Stuff.diaryCorrespondenceHeading()
-        Global_Stuff.notes()
-        Global_Stuff.diaryCorrespondenceContinue()
+        DiaryAndCorrespondencePage.diaryCorrespondenceHeading()
+        BOAction.notes()
+        DiaryAndCorrespondencePage.diaryCorrespondenceContinue()
 
         // Thank you page
-        Global_Stuff.thankyouHeading()
-        Global_Stuff.notes()
-        Global_Stuff.retreivePolicyNumber()
+        ThankYouPage.thankyouHeading()
+        BOAction.notes()
+        ThankYouPage.retreivePolicyNumber()
         
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.home()
+        BOAction.home()
 
         // Search for Customer file
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         
         // Select policy and Documents 
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
         
-        Global_Stuff.selectActionAmendNCDWithPolicyNumber()
+        BOAction.selectActionAmendNCDWithPolicyNumber()
           
         // Amend NCD to 40% & Select Cover start date 
-        //Global_Stuff.cookiesAccept()
+        //BOAction.cookiesAccept()
         cy.getAndWait('#ctl00_MainContent_ddlNCDPercent').select(5)
         cy.getAndWait('#ctl00_MainContent_Continue3').click()
         cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
@@ -181,45 +217,42 @@ describe('Agent can Amend an NCD', () => {
         cy.get('[data-origin="#SinglePaymentBreakdown"]').contains('Step-back NCD')
         cy.getAndWait('.o-modal__cancel').click()
         
-        cy.getAndWait('#ctl00_MainContent_btnBuyNow').click({force: true})
+        MTABOAction.permMTABuyNow()
         
-        Global_Stuff.postQuote3Continue()
-        cy.getAndWait('#ctl00_MainContent_PaymentType').select(2)
-        cy.getAndWait('#ctl00_MainContent_txtAmountReceived').type('100')
-        cy.getAndWait('#ctl00_MainContent_txtPayRef').type('test')
-        cy.getAndWait('#ctl00_MainContent_PayCheque').click()
-        cy.getAndWait('#ctl00_MainContent_btnPayNSPayment').click()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
+         PaymentTypesPage.paymentTypeAgentNoPay()
+        PaymentTypesPage.paymentTypeAgentCheque()
         
         // Thank you page
         cy.getAndWait('.m-heading-group__item').should('have.text', 'Thank you')
     })
 
     it('should fail to amend an NCD', () => {
-        Global_Stuff.Server()
+        Server.Server()
 
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Search for Customer file
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         
         // Select policy and Documents 
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
         
-        Global_Stuff.selectActionAmendNCDWithPolicyNumber()
+        BOAction.selectActionAmendNCDWithPolicyNumber()
           
         // Amend NCD to 40% & Select Cover start date 
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
         cy.getAndWait('#ctl00_MainContent_ddlNCDPercent').select(5)
         cy.getAndWait('#ctl00_MainContent_Continue3').click()
         cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'))
         cy.getAndWait('#ctl00_MainContent_NCDStartTime').type('13:00')
-        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
+        CoverStartDatePage.coverStartContinue()
 
         cy.getAndWait('#ctl00_MainContent_CV__StartDate').should('contain', 'NCD can not start before the effective date of the latest adjustment')
     })

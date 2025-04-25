@@ -1,4 +1,10 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
+import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
+import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
+import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
+import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,32 +13,38 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
+const CoverStartDatePage = new CoverStartDate()
+const AboutTheDriversPage = new AboutTheDriversPQ2()
+const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
+const ThankYouPage = new ThankYouScreen()
 const day = require('dayjs')
 
 describe('Agent can purchase MTA', () => {
     it('should complete the process of purchasing MTA', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Search for Customer file
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         
         // Open policy
-        Global_Stuff.livePoliciesBTN()
+        BOAction.livePoliciesBTN()
 
         // Select Make adjustment and revert window back to current window
-        Global_Stuff.selectActionMakeADJWithPolicyNumber()
+        BOAction.selectActionMakeADJWithPolicyNumber()
         
         // Select to perform a permanent adjustment on contact details
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
         cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select('Contacts', {force: true}).should('have.value', 'Contacts')
         cy.getAndWait('#btnMakePermaChange').click({force: true})
         
@@ -41,33 +53,33 @@ describe('Agent can purchase MTA', () => {
         cy.getAndWait('#ctl00_MainContent_Continue1').click()
         
         // Input date for MTA to start
-        cy.getAndWait('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_Continue8').click({force: true})
+        CoverStartDatePage.coverStartDate()
+        CoverStartDatePage.coverStartContinue()
         
         // Checking the heading, Note box present 
         cy.getAndWait('#ctl00_MainContent_NoPaymentPerma > .a-heading').contains('No payment required')
-        Global_Stuff.notes()
+        BOAction.notes()
         cy.getAndWait('#ctl00_MainContent_btnContinue').click({force: true})
         
         // Completing post quote screen 2 questions
-        Global_Stuff.postQuote2Heading()
-        Global_Stuff.notes()
-        Global_Stuff.postQuote2IsResidentTrue()
-        Global_Stuff.postQuote2IsMainDriverTrue()
-        Global_Stuff.postQuote2IsNotOtherCarTrue()
-        Global_Stuff.postQuote2IsNotOtherInsTrue()
-        Global_Stuff.postQuote2IsNoConvictionTrue()
-        Global_Stuff.postQuote2IsNoDisqualificationTrue()
-        Global_Stuff.postQuote2IsNoRefusalTrue()
-        Global_Stuff.postQuote2IsNoIncreaseTrue()
-        Global_Stuff.postQuote2IsNoMedicalTrue()
-        Global_Stuff.postQuote2Continue()
+        AboutTheDriversPage.postQuote2Heading()
+        BOAction.notes()
+        AboutTheDriversPage.postQuote2IsResidentTrue()
+        AboutTheDriversPage.postQuote2IsMainDriverTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
+        AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
+        AboutTheDriversPage.postQuote2IsNoConvictionTrue()
+        AboutTheDriversPage.postQuote2IsNoDisqualificationTrue()
+        AboutTheDriversPage.postQuote2IsNoRefusalTrue()
+        AboutTheDriversPage.postQuote2IsNoIncreaseTrue()
+        AboutTheDriversPage.postQuote2IsNoMedicalTrue()
+        AboutTheDriversPage.postQuote2Continue()
         
         // Completing post quote screen 3 
-        Global_Stuff.postQuote3Continue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
         
         // Thank you page
-        Global_Stuff.thankyouHeading()
-        Global_Stuff.notes()
+        ThankYouPage.thankyouHeading()
+        BOAction.notes()
     })
 })

@@ -1,4 +1,14 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { Login } from "../AvivaPOM/Login"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { YourProperty } from "../AvivaPOM/YourProperty"
+import { YourCover } from "../AvivaPOM/YourCover"
+import { PolicyStartDateClaims } from "../AvivaPOM/PolicyStartDateClaims"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
+import { PaymentType } from "../AvivaPOM/PaymentType"
+import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
+import { BOActions } from "../AvivaPOM/BOActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,157 +17,168 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const Logins = new Login
+const AboutYouPage = new AboutYou
+const YourPropertyPage = new YourProperty
+const YourCoverPage = new YourCover
+const PolicyStartDateClaimsPage = new PolicyStartDateClaims
+const QuotePageAndExtras = new QuotePage
+const CompleteAndPayPage = new CompleteAndPay
+const PaymentTypePage = new PaymentType
+const ThankYouScreen = new ThankYouPage
+const BOAction = new BOActions
 
 describe('Agent purchase home policy with docs set to post at NB', () => {
   it('should allow an agent to purchase a home policy with docs set to post at NB', () => {
     // Login to back office 
-    Global_stuff.Server()
-    Global_stuff.company()
-    Global_stuff.username()
-    Global_stuff.password()
-    Global_stuff.loginButton()
-    Global_stuff.agentQuote()
-    Global_stuff.createNewQuoteBTN()
-    Global_stuff.cookiesAccept()
+    Server.Server()
+    Logins.company()
+    Logins.username()
+    Logins.password()
+    Logins.loginButton()
+    BOAction.agentQuote()
+    BOAction.createNewQuoteBTN()
+    BOAction.cookiesAccept()
 
     // About you
-    Global_stuff.proposerTitleHome()
-    Global_stuff.notes()
-    Global_stuff.proposerForenameHome()
-    Global_stuff.proposerSurnameHome()
-    Global_stuff.proposerEmailHome()
-    Global_stuff.phone()
-    Global_stuff.dob()
-    Global_stuff.addressInput()
-    Global_stuff.addressSuggest()
-    Global_stuff.addressSelect()
-    Global_stuff.addressConfirm()
-    Global_stuff.postalAddressConfirm()
-    Global_stuff.occupancy()
-    Global_stuff.proposerEmployStatus()
+    AboutYouPage.proposerTitleHome()
+    BOAction.notes()
+    AboutYouPage.proposerForenameHome()
+    AboutYouPage.proposerSurnameHome()
+    AboutYouPage.proposerEmailHome()
+    AboutYouPage.phone()
+    AboutYouPage.dob()
+    AboutYouPage.addressInput()
+    AboutYouPage.addressSuggest()
+    AboutYouPage.addressSelect()
+    AboutYouPage.addressConfirm()
+    AboutYouPage.postalAddressConfirm()
+    AboutYouPage.occupancy()
+    AboutYouPage.proposerEmployStatus()
     
-    Global_stuff.bizStatus()
+    AboutYouPage.bizStatus()
     
-    Global_stuff.aboutYouContinueHome()
+    AboutYouPage.aboutYouContinueHome()
   
     // Your Property
-    Global_stuff.yourPropertyTitle()
-    Global_stuff.notes()
-    Global_stuff.propertyType()
-    Global_stuff.yearBuilt()
-    Global_stuff.listedBuildingFalse()
-    Global_stuff.flatRoofFlase()
-    Global_stuff.standardMaterialsTrue()
-    Global_stuff.burglarAlarm()
-    Global_stuff.smokeAlarmTrue()
+    YourPropertyPage.yourPropertyTitle()
+    BOAction.notes()
+    YourPropertyPage.propertyType()
+    YourPropertyPage.yearBuilt()
+    YourPropertyPage.listedBuildingFalse()
+    YourPropertyPage.flatRoofFlase()
+    YourPropertyPage.standardMaterialsTrue()
+    YourPropertyPage.burglarAlarm()
+    YourPropertyPage.smokeAlarmTrue()
 
     // Additional security standards
-    Global_stuff.additSecStandsTitle()
-    Global_stuff.securityLocks()
-    Global_stuff.noOfBedrooms()
-    Global_stuff.noOfBathrooms()
-    Global_stuff.heatingType()
-    Global_stuff.goodStateOfRepairTrue()
-    Global_stuff.floodSubsidenceFalse()
+    YourPropertyPage.additSecStandsTitle()
+    YourPropertyPage.securityLocks()
+    YourPropertyPage.noOfBedrooms()
+    YourPropertyPage.noOfBathrooms()
+    YourPropertyPage.heatingType()
+    YourPropertyPage.goodStateOfRepairTrue()
+    YourPropertyPage.floodSubsidenceFalse()
     
-    Global_stuff.yourPropertyContinue()
+    YourPropertyPage.yourPropertyContinue()
 
     // Your cover
-    Global_stuff.yourCoverTitle() 
-    Global_stuff.notes()
-    Global_stuff.buildingAndContentsTrue()
-    Global_stuff.buildingAndContentsFalse()
-    Global_stuff.buildingAndContentsTrue()
+    YourCoverPage.yourCoverTitle() 
+    BOAction.notes()
+    YourCoverPage.buildingAndContentsTrue()
+    YourCoverPage.buildingAndContentsFalse()
+    YourCoverPage.buildingAndContentsTrue()
     
-    Global_stuff.homeValue()
-    Global_stuff.contentsValue()
-    Global_stuff.isClaimsFalse()
-    Global_stuff.isConvictionsFalse()
-    Global_stuff.isRefusedFalse()
-    Global_stuff.isSpecialFalse()
-    Global_stuff.isCancelledFalse()
+    YourCoverPage.homeValue()
+    YourCoverPage.contentsValue()
+    YourCoverPage.isClaimsFalse()
+    YourCoverPage.isConvictionsFalse()
+    YourCoverPage.isRefusedFalse()
+    YourCoverPage.isSpecialFalse()
+    YourCoverPage.isCancelledFalse()
     
-    Global_stuff.yourCoverContinue()
+    YourCoverPage.yourCoverContinue()
 
     // Policy start date and claims
-    Global_stuff.coverStartTitle()
-    Global_stuff.notes()
-    Global_stuff.claimsFreeYears()
+    PolicyStartDateClaimsPage.coverStartTitle()
+    BOAction.notes()
+    PolicyStartDateClaimsPage.claimsFreeYears()
     
-    Global_stuff.coverStartDate()
-    Global_stuff.coverStartHaveCarIns()
-    Global_stuff.coverStartMarketing()
-    // Global_stuff.coverStartAgentQuote()
-    Global_stuff.coverStartContinue()
+    PolicyStartDateClaimsPage.coverStartDate()
+    PolicyStartDateClaimsPage.coverStartHaveCarIns()
+    PolicyStartDateClaimsPage.coverStartMarketing()
+    
+    PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage
-    Global_stuff.quotePageHeading()
-    Global_stuff.notes()
+    QuotePageAndExtras.quotePageHeading()
+    BOAction.notes()
   
-    Global_stuff.quotePageStaffOptions()
-    Global_stuff.quotePageStaffDiscounts()
-    Global_stuff.quotePageStaffRecalculate()
+    QuotePageAndExtras.quotePageStaffOptions()
+    QuotePageAndExtras.quotePageStaffDiscounts()
+    QuotePageAndExtras.quotePageStaffRecalculate()
 
     // Adding all Optional covers
-    Global_stuff.quotePageAccidentalDamageViewOptions()
-    Global_stuff.quotePageAccidentalDamageAddCover()
+    QuotePageAndExtras.quotePageAccidentalDamageViewOptions()
+    QuotePageAndExtras.quotePageAccidentalDamageAddCover()
     
-    Global_stuff.quotePageManageYourExcessViewOptions()
-    Global_stuff.quotePageManageYourExcess500()
+    QuotePageAndExtras.quotePageManageYourExcessViewOptions()
+    QuotePageAndExtras.quotePageManageYourExcess500()
     
-    Global_stuff.quotePageGardenCoverViewOptions()
-    Global_stuff.quotePageGardenCover1000()
+    QuotePageAndExtras.quotePageGardenCoverViewOptions()
+    QuotePageAndExtras.quotePageGardenCover1000()
     
-    Global_stuff.quotePageCaravanCoverViewOptions()
-    Global_stuff.quotePageCaravanCoverAddWithPersonal()
-
-    cy.pause()
+    QuotePageAndExtras.quotePageCaravanCoverViewOptions()
+    QuotePageAndExtras.quotePageCaravanCoverAddWithPersonal()
     
-    Global_stuff.quotePageBuyNowBtn()
+    QuotePageAndExtras.quotePageBuyNowBtn()
 
     // Complete and pay
-    Global_stuff.completeAndPayHeading()
-    Global_stuff.notes()
-    Global_stuff.completeAndPayMortgage()
-    Global_stuff.completeAndPayMyAvivaDocsNo()
+    CompleteAndPayPage.completeAndPayHeading()
+    BOAction.notes()
+    CompleteAndPayPage.completeAndPayMortgage()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     
-    Global_stuff.completeAndPayContinue()
+    CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
-    Global_stuff.paymentTypeAgentNoPay()
-    Global_stuff.paymentTypeAgentNoPayContinue()
+    PaymentTypePage.paymentTypeAgentNoPay()
+    PaymentTypePage.paymentTypeAgentNoPayContinue()
 
     // Thank you page
-    Global_stuff.thankyouHeading()
-    Global_stuff.notes()
-    Global_stuff.retreivePolicyNumber()
+    ThankYouScreen.thankyouHeading()
+    BOAction.notes()
+    ThankYouScreen.retreiveParagonPolicyNumber14()
 
-    Global_stuff.Server()
-    Global_stuff.home()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionDocumentsWithPolicyNumber()
-    Global_stuff.checkNBParagonDocs()
+    Server.Server()
+    BOAction.home()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
+    BOAction.homePolicyTab()
+    BOAction.selectActionDocumentsWithParagonPolicyNumber14()
+    cy.wait(60000)
+    BOAction.checkNBParagonDocs()
 
-    cy.go(-3)
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionDiaryWithPolicyNumber()
-    Global_stuff.diaryAddAdHocLetters()
+    cy.go(-4)
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
+    BOAction.homePolicyTab()
+    BOAction.selectActionDiaryWithParagonPolicyNumber14()
+    BOAction.diaryAddAdHocLetters()
   
-    Global_stuff.Server()
-    Global_stuff.home()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.homePolicyTab()
-    Global_stuff.selectActionDocumentsWithPolicyNumber()
-    Global_stuff.checkAdhocParagonDocs()
+    // Server.Server()
+    // BOAction.home()
+    // Logins.email()
+    // BOAction.searchButton()
+    // BOAction.policySelectButton()
+    // BOAction.livePoliciesBTN()
+    // BOAction.homePolicyTab()
+    // BOAction.selectActionDocumentsWithPolicyNumber()
+    // BOAction.checkAdhocParagonDocs()
   })
 })
 

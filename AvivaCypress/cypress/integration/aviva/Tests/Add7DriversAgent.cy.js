@@ -1,4 +1,11 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { PersonalDetails } from "../AvivaPOM/PersonalDetails"
+import { InsuranceDetails } from "../AvivaPOM/InsuranceDetails"
+import { CarDetails } from "../AvivaPOM/CarDetails"
+import { AdditionalDrivers } from "../AvivaPOM/AdditionalDrivers"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,92 +14,99 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
+const AboutYouPage = new AboutYou()
+const PersonalDetailsPage = new PersonalDetails()
+const InsuranceDetailsPage = new InsuranceDetails()
+const CarDetailsPage = new CarDetails()
+const AdditionalDriversPage = new AdditionalDrivers()
 const day = require('dayjs')
 
 describe('Agent to add 7 drivers and check errors', () => {
     it('should complete the process of adding 7 drivers and checking for errors', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Revert new window that opens back to original window 
-        Global_Stuff.agentQuote()
-        Global_Stuff.createNewQuoteBTN()
+        BOAction.agentQuote()
+        BOAction.createNewQuoteBTN()
 
         // Accept cookies
-        Global_Stuff.cookiesAccept()
+        BOAction.cookiesAccept()
 
         // Complete section 1 "About you"
-        Global_Stuff.aboutYouTitle()
-        Global_Stuff.notes()
-        Global_Stuff.proposerTitle()
-        Global_Stuff.proposerForename()
-        Global_Stuff.proposerSurname()
-        Global_Stuff.proposerEmail()
-        Global_Stuff.phone()
-        Global_Stuff.aboutYouContinue()
+        AboutYouPage.aboutYouTitle()
+        BOAction.notes()
+        AboutYouPage.proposerTitle()
+        AboutYouPage.proposerForename()
+        AboutYouPage.proposerSurname()
+        AboutYouPage.proposerEmail()
+        AboutYouPage.phone()
+        AboutYouPage.aboutYouContinue()
 
         // Complete section 2 "Personal details"
-        Global_Stuff.personalDetailsTitle()
-        Global_Stuff.addressInput()
-        Global_Stuff.addressSuggest()
-        Global_Stuff.addressSelect()
-        Global_Stuff.addressConfirm()
-        Global_Stuff.proposerDOB()
-        Global_Stuff.proposerEmployStatus()
-        Global_Stuff.licenceType()
-        Global_Stuff.licenceYears()
-        Global_Stuff.personlaDetailsContinue()
+        PersonalDetailsPage.personalDetailsTitle()
+        PersonalDetailsPage.addressInput()
+        PersonalDetailsPage.addressSuggest()
+        PersonalDetailsPage.addressSelect()
+        PersonalDetailsPage.addressConfirm()
+        PersonalDetailsPage.proposerDOB()
+        PersonalDetailsPage.proposerEmployStatus()
+        PersonalDetailsPage.licenceType()
+        PersonalDetailsPage.licenceYears()
+        PersonalDetailsPage.personlaDetailsContinue()
 
         // Complete section 3 "Insurance details"
-        Global_Stuff.insuranceDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.drivingExp()
-        Global_Stuff.drivingExpYears()
-        Global_Stuff.carUse()
-        Global_Stuff.insuranceDetailsContinue()
+        InsuranceDetailsPage.insuranceDetailsTitle()
+        BOAction.notes()
+        InsuranceDetailsPage.drivingExp()
+        InsuranceDetailsPage.drivingExpYears()
+        InsuranceDetailsPage.carUse()
+        InsuranceDetailsPage.insuranceDetailsContinue()
 
         // Complete section 4 "Car details"
-        Global_Stuff.carDetailsTitle()
-        Global_Stuff.notes()
-        Global_Stuff.carRegYes()
-        Global_Stuff.carRegInput()
-        Global_Stuff.findCarBTN()
-        Global_Stuff.confirmCarBTN()
-        Global_Stuff.carValueInput()
-        Global_Stuff.carModifiedFalse()
-        Global_Stuff.carDetailsContinue()
+        CarDetailsPage.carDetailsTitle()
+        BOAction.notes()
+        CarDetailsPage.carRegYes()
+        CarDetailsPage.carRegInput()
+        CarDetailsPage.findCarBTN()
+        CarDetailsPage.confirmCarBTN()
+        CarDetailsPage.carValueInput()
+        CarDetailsPage.carModifiedFalse()
+        CarDetailsPage.carDetailsContinue()
 
         // Complete section 5 "Additional drivers"
-        Global_Stuff.additionalDriversHeading()
-        Global_Stuff.notes()
-        Global_Stuff.additionalDriversTrue()
-        Global_Stuff.additionalDriver1Title()
-        Global_Stuff.additionalDriver1Forename()
-        Global_Stuff.additionalDriver1Surname()
-        Global_Stuff.additionalDriver1DOB()
-        Global_Stuff.additionalDriver1EmploymentStatus()
-        Global_Stuff.additionalDriver1LicenceType()
-        Global_Stuff.additionalDriver1LicenceYears()
-        Global_Stuff.additionalDriver1Relationship()
-        Global_Stuff.additionalDriver1SpouseOwnVehFalse()
-        Global_Stuff.additionalDriver1Save()
+        AdditionalDriversPage.additionalDriversHeading()
+        BOAction.notes()
+        AdditionalDriversPage.additionalDriversTrue()
+        AdditionalDriversPage.additionalDriver1Title()
+        AdditionalDriversPage.additionalDriver1Forename()
+        AdditionalDriversPage.additionalDriver1Surname()
+        AdditionalDriversPage.additionalDriver1DOB()
+        AdditionalDriversPage.additionalDriver1EmploymentStatus()
+        AdditionalDriversPage.additionalDriver1LicenceType()
+        AdditionalDriversPage.additionalDriver1LicenceYears()
+        AdditionalDriversPage.additionalDriver1Relationship()
+        AdditionalDriversPage.additionalDriver1SpouseOwnVehFalse()
+        AdditionalDriversPage.additionalDriver1Save()
         
-        Global_Stuff.additionalDriver2()
-        Global_Stuff.additionalDriver3()
-        Global_Stuff.additionalDriver4()
-        Global_Stuff.additionalDriver5()
-        Global_Stuff.additionalDriver6()
-        Global_Stuff.additionalDriver7()
+        AdditionalDriversPage.additionalDriver2()
+        AdditionalDriversPage.additionalDriver3()
+        AdditionalDriversPage.additionalDriver4()
+        AdditionalDriversPage.additionalDriver5()
+        AdditionalDriversPage.additionalDriver6()
+        AdditionalDriversPage.additionalDriver7()
 
-        Global_Stuff.additionalDriversContinue()
+        AdditionalDriversPage.additionalDriversContinue()
         
         // Complete section 6 "Your claims"
-        Global_Stuff.additionalDriverAddedHeading1()
+        AdditionalDriversPage.additionalDriverAddedHeading1()
     })
 })

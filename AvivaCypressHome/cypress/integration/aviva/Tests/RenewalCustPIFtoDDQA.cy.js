@@ -1,4 +1,15 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { Login } from "../AvivaPOM/Login"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { YourProperty } from "../AvivaPOM/YourProperty"
+import { YourCover } from "../AvivaPOM/YourCover"
+import { PolicyStartDateClaims } from "../AvivaPOM/PolicyStartDateClaims"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
+import { PaymentPage } from "../AvivaPOM/PaymentPage"
+import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { PortalActions } from "../AvivaPOM/PortalActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,113 +18,124 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const Logins = new Login
+const AboutYouPage = new AboutYou
+const YourPropertyPage = new YourProperty
+const YourCoverPage = new YourCover
+const PolicyStartDateClaimsPage = new PolicyStartDateClaims
+const QuotePageAndExtras = new QuotePage
+const CompleteAndPayPage = new CompleteAndPay
+const PaymentScreen = new PaymentPage
+const ThankYouScreen = new ThankYouPage
+const BOAction = new BOActions
+const PortalAction = new PortalActions
 
 describe('Customer purchase home policy renewal on new DD', () => {
   it('should allow a customer to purchase a home policy renewal on new DD', () => {
     // Access quote link 
-    Global_stuff.Server2()
-    Global_stuff.removeAttr()
-    Global_stuff.cookiesAccept()
+    Server.Server2()
+    BOAction.removeAttr()
+    BOAction.cookiesAccept()
 
     // About you
-    Global_stuff.proposerTitleHome()
-    Global_stuff.proposerForenameHome()
-    Global_stuff.proposerSurnameHome()
-    Global_stuff.proposerEmailHome()
-    Global_stuff.phone()
-    Global_stuff.dob()
-    Global_stuff.addressInput()
-    Global_stuff.addressSuggest()
-    Global_stuff.addressSelect()
-    Global_stuff.addressConfirm()
-    Global_stuff.postalAddressConfirm()
-    Global_stuff.occupancy()
-    Global_stuff.proposerEmployStatus()
+    AboutYouPage.proposerTitleHome()
+    AboutYouPage.proposerForenameHome()
+    AboutYouPage.proposerSurnameHome()
+    AboutYouPage.proposerEmailHome()
+    AboutYouPage.phone()
+    AboutYouPage.dob()
+    AboutYouPage.addressInput()
+    AboutYouPage.addressSuggest()
+    AboutYouPage.addressSelect()
+    AboutYouPage.addressConfirm()
+    AboutYouPage.postalAddressConfirm()
+    AboutYouPage.occupancy()
+    AboutYouPage.proposerEmployStatus()
     
-    Global_stuff.bizStatus()
+    AboutYouPage.bizStatus()
     
-    Global_stuff.aboutYouContinueHome()
+    AboutYouPage.aboutYouContinueHome()
   
     // Your Property
-    Global_stuff.yourPropertyTitle()
-    Global_stuff.propertyType()
-    Global_stuff.yearBuilt()
-    Global_stuff.listedBuildingFalse()
-    Global_stuff.flatRoofFlase()
-    Global_stuff.standardMaterialsTrue()
-    Global_stuff.burglarAlarm()
-    Global_stuff.smokeAlarmTrue()
+    YourPropertyPage.yourPropertyTitle()
+    YourPropertyPage.propertyType()
+    YourPropertyPage.yearBuilt()
+    YourPropertyPage.listedBuildingFalse()
+    YourPropertyPage.flatRoofFlase()
+    YourPropertyPage.standardMaterialsTrue()
+    YourPropertyPage.burglarAlarm()
+    YourPropertyPage.smokeAlarmTrue()
 
     // Additional security standards
-    Global_stuff.additSecStandsTitle()
-    Global_stuff.securityLocks()
-    Global_stuff.noOfBedrooms()
-    Global_stuff.noOfBathrooms()
-    Global_stuff.heatingType()
-    Global_stuff.goodStateOfRepairTrue()
-    Global_stuff.floodSubsidenceFalse()
+    YourPropertyPage.additSecStandsTitle()
+    YourPropertyPage.securityLocks()
+    YourPropertyPage.noOfBedrooms()
+    YourPropertyPage.noOfBathrooms()
+    YourPropertyPage.heatingType()
+    YourPropertyPage.goodStateOfRepairTrue()
+    YourPropertyPage.floodSubsidenceFalse()
     
-    Global_stuff.yourPropertyContinue()
+    YourPropertyPage.yourPropertyContinue()
 
     // Your cover
-    Global_stuff.yourCoverTitle() 
-    Global_stuff.buildingAndContentsTrue()
-    Global_stuff.buildingAndContentsFalse()
-    Global_stuff.buildingAndContentsTrue()
+    YourCoverPage.yourCoverTitle() 
+    YourCoverPage.buildingAndContentsTrue()
+    YourCoverPage.buildingAndContentsFalse()
+    YourCoverPage.buildingAndContentsTrue()
     
-    Global_stuff.homeValue()
-    Global_stuff.contentsValue()
-    Global_stuff.isClaimsFalse()
-    Global_stuff.isConvictionsFalse()
-    Global_stuff.isRefusedFalse()
-    Global_stuff.isSpecialFalse()
-    Global_stuff.isCancelledFalse()
+    YourCoverPage.homeValue()
+    YourCoverPage.contentsValue()
+    YourCoverPage.isClaimsFalse()
+    YourCoverPage.isConvictionsFalse()
+    YourCoverPage.isRefusedFalse()
+    YourCoverPage.isSpecialFalse()
+    YourCoverPage.isCancelledFalse()
     
-    Global_stuff.yourCoverContinue()
+    YourCoverPage.yourCoverContinue()
 
     // Policy start date and claims
-    Global_stuff.coverStartTitle()
-    Global_stuff.claimsFreeYears()
+    PolicyStartDateClaimsPage.coverStartTitle()
+    PolicyStartDateClaimsPage.claimsFreeYears()
     
-    Global_stuff.coverStartDate()
-    Global_stuff.coverStartHaveCarIns()
-    Global_stuff.coverStartMarketing()
-    Global_stuff.coverStartCustomerQuote()
-    Global_stuff.coverStartContinue()
+    PolicyStartDateClaimsPage.coverStartDate()
+    PolicyStartDateClaimsPage.coverStartHaveCarIns()
+    PolicyStartDateClaimsPage.coverStartMarketing()
+    PolicyStartDateClaimsPage.coverStartCustomerQuote()
+    PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage
-    Global_stuff.quotePageHeading()
+    QuotePageAndExtras.quotePageHeading()
     
-    Global_stuff.quotePageBuyNowBtn()
+    QuotePageAndExtras.quotePageBuyNowBtn()
 
     // Complete and pay
-    Global_stuff.completeAndPayHeading()
-    Global_stuff.completeAndPayMortgage()
-    Global_stuff.completeAndPayCheckBox()
-    Global_stuff.completeAndPayContinue()
+    CompleteAndPayPage.completeAndPayHeading()
+    CompleteAndPayPage.completeAndPayMortgage()
+    CompleteAndPayPage.completeAndPayCheckBox()
+    CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
-    Global_stuff.paymentCardQA()
+    PaymentScreen.paymentCardQAWithCheck()
 
     // Thank you page
-    Global_stuff.thankyouHeading()
-    Global_stuff.retreivePolicyNumber()
+    ThankYouScreen.thankyouHeading()
+    ThankYouScreen.retreivePolicyNumber()
 
     // Navigate to the B/O and login
-    Global_stuff.Server()
-    Global_stuff.company()
-    Global_stuff.username()
-    Global_stuff.password()
-    Global_stuff.loginButton()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
+    Server.Server()
+    Logins.company()
+    Logins.username()
+    Logins.password()
+    Logins.loginButton()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
 
     // Back date policy
-    Global_stuff.policyToolsAgePolicyWithPolicyNumber()
-    Global_stuff.agePolicy()
+    BOAction.policyToolsAgePolicyWithPolicyNumber()
+    BOAction.agePolicy()
     // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
     // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
     // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
@@ -121,45 +143,44 @@ describe('Customer purchase home policy renewal on new DD', () => {
 
     // Generate and invite renewal
     cy.go(-2)
-    Global_stuff.generateRenewal()
-    Global_stuff.inviteRenewal()
+    BOAction.generateRenewal()
+    BOAction.inviteRenewal()
 
     // Checking for renewal invite email in docs
-    Global_stuff.recallPolicy()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.selectActionDocumentsWithPolicyNumber()
-    Global_stuff.checkRenewalInviteDocs()
+    BOAction.recallPolicy()
+    BOAction.livePoliciesBTN()
+    BOAction.selectActionDocumentsWithPolicyNumber()
+    BOAction.checkRenewalInviteDocs()
     cy.go(-1)
   
     // Purchase Home Renewal as customer
-    Global_stuff.Server1()
-    Global_stuff.loginEmail()
-    Global_stuff.loginPassword()
-    Global_stuff.loginPortalButton()
-    Global_stuff.portalRenewPolicyCloseModal()
-    Global_stuff.portalManagePolicyWithPolicyNumber()
-    Global_stuff.portalRenewThisPolicy()
-    Global_stuff.portalRenewDocsConfirm()
+    Server.Server1()
+    Logins.loginEmail()
+    Logins.loginPassword()
+    Logins.loginPortalButton()
+    PortalAction.portalRenewPolicyCloseModal()
+    PortalAction.portalManagePolicyWithPolicyNumber()
+    PortalAction.portalRenewThisPolicy()
+    PortalAction.portalRenewDocsConfirm()
     
-    Global_stuff.portalRenewMonthlyPaymentSwap()
+    PortalAction.portalRenewMonthlyPaymentSwap()
     
-    Global_stuff.coverStartCustomerQuote()
-    Global_stuff.completeAndPayContinue()
+    PolicyStartDateClaimsPage.coverStartCustomerQuote()
+    CompleteAndPayPage.completeAndPayContinue()
   
-    Global_stuff.paymentDDQA()
-    cy.wait(4000)
+    PaymentScreen.paymentDDQAPasswordCheck()
 
-    Global_stuff.thankyouHeading()
+    ThankYouScreen.thankyouHeading()
 
     // Navigate back to B/O and check renewal docs have generated
-    Global_stuff.Server()
-    Global_stuff.home()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.selectActionDocumentsWithPolicyNumber()
-    Global_stuff.checkRenewalDocs()
+    Server.Server()
+    BOAction.home()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
+    BOAction.selectActionDocumentsWithPolicyNumber()
+    BOAction.checkRenewalDocs()
   })
 })
 

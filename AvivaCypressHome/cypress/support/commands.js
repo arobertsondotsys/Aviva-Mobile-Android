@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
 import 'cypress-iframe'
+
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {
     Cypress.log({
       name: 'iframe',

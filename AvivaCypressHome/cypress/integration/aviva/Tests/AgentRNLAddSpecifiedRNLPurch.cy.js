@@ -1,4 +1,16 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActionsHome"
+import { Servers } from "../AvivaPOM/Servers"
+import { Login } from "../AvivaPOM/Login"
+import { AboutYou } from "../AvivaPOM/AboutYou"
+import { YourProperty } from "../AvivaPOM/YourProperty"
+import { YourCover } from "../AvivaPOM/YourCover"
+import { PolicyStartDateClaims } from "../AvivaPOM/PolicyStartDateClaims"
+import { QuotePage } from "../AvivaPOM/QuotePage"
+import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
+import { PaymentType } from "../AvivaPOM/PaymentType"
+import { PaymentPage } from "../AvivaPOM/PaymentPage"
+import { DiaryCorrespondence } from "../AvivaPOM/DiaryCorrespondence"
+import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
+import { BOActions } from "../AvivaPOM/BOActions"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,152 +19,164 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_stuff = new Global
+const Server = new Servers
+const Logins = new Login
+const AboutYouPage = new AboutYou
+const YourPropertyPage = new YourProperty
+const YourCoverPage = new YourCover
+const PolicyStartDateClaimsPage = new PolicyStartDateClaims
+const QuotePageAndExtras = new QuotePage
+const CompleteAndPayPage = new CompleteAndPay
+const PaymentTypePage = new PaymentType
+const PaymentScreen = new PaymentPage
+const ThankYouScreen = new ThankYouPage
+const DiaryCorrespondencePage = new DiaryCorrespondence
+const BOAction = new BOActions
 
 describe('Agent purchase home policy', () => {
   it('should allow an agent to purchase a home policy', () => {
     // Login to back office 
-    Global_stuff.Server()
-    Global_stuff.company()
-    Global_stuff.username()
-    Global_stuff.password()
-    Global_stuff.loginButton()
-    Global_stuff.agentQuote()
-    Global_stuff.createNewQuoteBTN()
-    Global_stuff.cookiesAccept()
+    Server.Server()
+    Logins.company()
+    Logins.username()
+    Logins.password()
+    Logins.loginButton()
+    BOAction.agentQuote()
+    BOAction.createNewQuoteBTN()
+    BOAction.cookiesAccept()
     
     // About you
-    Global_stuff.proposerTitleHome()
-    Global_stuff.notes()
-    Global_stuff.proposerForenameHome()
-    Global_stuff.proposerSurnameHome()
-    Global_stuff.proposerEmailHome()
-    Global_stuff.phone()
-    Global_stuff.dob()
-    Global_stuff.addressInput()
-    Global_stuff.addressSuggest()
-    Global_stuff.addressSelect()
-    Global_stuff.addressConfirm()
-    Global_stuff.postalAddressConfirm()
-    Global_stuff.occupancy()
-    Global_stuff.proposerEmployStatus()
-    Global_stuff.bizStatus()
-    Global_stuff.aboutYouContinueHome()
+    AboutYouPage.proposerTitleHome()
+    BOAction.notes()
+    AboutYouPage.proposerForenameHome()
+    AboutYouPage.proposerSurnameHome()
+    AboutYouPage.proposerEmailHome()
+    AboutYouPage.phone()
+    AboutYouPage.dob()
+    AboutYouPage.addressInput()
+    AboutYouPage.addressSuggest()
+    AboutYouPage.addressSelect()
+    AboutYouPage.addressConfirm()
+    AboutYouPage.postalAddressConfirm()
+    AboutYouPage.occupancy()
+    AboutYouPage.proposerEmployStatus()
+    AboutYouPage.bizStatus()
+    AboutYouPage.aboutYouContinueHome()
 
     // Your Property
-    Global_stuff.yourPropertyTitle()
-    Global_stuff.notes()
-    Global_stuff.propertyType()
-    Global_stuff.yearBuilt()
-    Global_stuff.listedBuildingFalse()
-    Global_stuff.flatRoofFlase()
-    Global_stuff.standardMaterialsTrue()
-    Global_stuff.burglarAlarm()
-    Global_stuff.smokeAlarmTrue()
+    YourPropertyPage.yourPropertyTitle()
+    BOAction.notes()
+    YourPropertyPage.propertyType()
+    YourPropertyPage.yearBuilt()
+    YourPropertyPage.listedBuildingFalse()
+    YourPropertyPage.flatRoofFlase()
+    YourPropertyPage.standardMaterialsTrue()
+    YourPropertyPage.burglarAlarm()
+    YourPropertyPage.smokeAlarmTrue()
 
     // Additional security standards
-    Global_stuff.additSecStandsTitle()
-    Global_stuff.securityLocks()
-    Global_stuff.noOfBedrooms()
-    Global_stuff.noOfBathrooms()
-    Global_stuff.heatingType()
-    Global_stuff.goodStateOfRepairTrue()
-    Global_stuff.floodSubsidenceFalse()
-    Global_stuff.yourPropertyContinue()
+    YourPropertyPage.additSecStandsTitle()
+    YourPropertyPage.securityLocks()
+    YourPropertyPage.noOfBedrooms()
+    YourPropertyPage.noOfBathrooms()
+    YourPropertyPage.heatingType()
+    YourPropertyPage.goodStateOfRepairTrue()
+    YourPropertyPage.floodSubsidenceFalse()
+    YourPropertyPage.yourPropertyContinue()
 
     // Your cover
-    Global_stuff.yourCoverTitle()
-    Global_stuff.notes()
-    Global_stuff.buildingAndContentsTrue()
-    Global_stuff.buildingAndContentsFalse()
-    Global_stuff.buildingAndContentsTrue()
-    Global_stuff.homeValue()
-    Global_stuff.contentsValue()
-    Global_stuff.isClaimsFalse()
-    Global_stuff.isConvictionsFalse()
-    Global_stuff.isRefusedFalse()
-    Global_stuff.isSpecialFalse()
-    Global_stuff.isCancelledFalse()
-    Global_stuff.yourCoverContinue()
+    YourCoverPage.yourCoverTitle()
+    BOAction.notes()
+    YourCoverPage.buildingAndContentsTrue()
+    YourCoverPage.buildingAndContentsFalse()
+    YourCoverPage.buildingAndContentsTrue()
+    YourCoverPage.homeValue()
+    YourCoverPage.contentsValue()
+    YourCoverPage.isClaimsFalse()
+    YourCoverPage.isConvictionsFalse()
+    YourCoverPage.isRefusedFalse()
+    YourCoverPage.isSpecialFalse()
+    YourCoverPage.isCancelledFalse()
+    YourCoverPage.yourCoverContinue()
 
     // Policy start date and claims
-    Global_stuff.coverStartTitle()
-    Global_stuff.notes()
-    Global_stuff.claimsFreeYears()
-    Global_stuff.coverStartDate()
-    Global_stuff.coverStartHaveCarIns()
-    Global_stuff.coverStartMarketing()
-    Global_stuff.coverStartContinue()
+    PolicyStartDateClaimsPage.coverStartTitle()
+    BOAction.notes()
+    PolicyStartDateClaimsPage.claimsFreeYears()
+    PolicyStartDateClaimsPage.coverStartDate()
+    PolicyStartDateClaimsPage.coverStartHaveCarIns()
+    PolicyStartDateClaimsPage.coverStartMarketing()
+    PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage
-    Global_stuff.quotePageHeading()
-    Global_stuff.notes()
-    Global_stuff.quotePageStaffOptions()
-    Global_stuff.quotePageStaffDiscounts()
-    Global_stuff.quotePageStaffRecalculate()
-    Global_stuff.quotePageBuyNowBtn()
+    QuotePageAndExtras.quotePageHeading()
+    BOAction.notes()
+    QuotePageAndExtras.quotePageStaffOptions()
+    QuotePageAndExtras.quotePageStaffDiscounts()
+    QuotePageAndExtras.quotePageStaffRecalculate()
+    QuotePageAndExtras.quotePageBuyNowBtn()
 
     // Complete and pay
-    Global_stuff.completeAndPayHeading()
-    Global_stuff.notes()
-    Global_stuff.completeAndPayMortgage()
-    Global_stuff.completeAndPayMyAvivaDocsNo()
-    Global_stuff.completeAndPayContinue()
+    CompleteAndPayPage.completeAndPayHeading()
+    BOAction.notes()
+    CompleteAndPayPage.completeAndPayMortgage()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
+    CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
-    Global_stuff.paymentTypeAgentNoPay()
-    Global_stuff.paymentTypeAgentNoPayContinue()
+    PaymentTypePage.paymentTypeAgentNoPay()
+    PaymentTypePage.paymentTypeAgentNoPayContinue()
 
     // Thank you page
-    Global_stuff.thankyouHeading()
-    Global_stuff.notes()
-    Global_stuff.retreivePolicyNumber()
+    ThankYouScreen.thankyouHeading()
+    BOAction.notes()
+    ThankYouScreen.retreivePolicyNumber()
 
     // Navigate back to the B/O
-    Global_stuff.Server()
-    Global_stuff.home()
-    Global_stuff.email()
-    Global_stuff.searchButton()
-    Global_stuff.policySelectButton()
-    Global_stuff.livePoliciesBTN()
+    Server.Server()
+    BOAction.home()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
+    BOAction.livePoliciesBTN()
 
     // Back date policy
-    Global_stuff.policyToolsAgePolicyWithPolicyNumber()
-    Global_stuff.agePolicy()
+    BOAction.policyToolsAgePolicyWithPolicyNumber()
+    BOAction.agePolicy()
     cy.go(-2)
-    Global_stuff.generateRenewal()
-    Global_stuff.inviteRenewal()
+    BOAction.generateRenewal()
+    BOAction.inviteRenewal()
 
     // Checking for renewal invite email in docs
-    Global_stuff.recallPolicy()
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.selectActionDocumentsWithPolicyNumber()
-    Global_stuff.checkRenewalInviteDocs()
+    BOAction.recallPolicy()
+    BOAction.livePoliciesBTN()
+    BOAction.selectActionDocumentsWithPolicyNumber()
+    BOAction.checkRenewalInviteDocs()
     cy.go(-1)
   
     // Purchase Home Renewal
-    Global_stuff.livePoliciesBTN()
-    Global_stuff.selectActionRenewalWithPolicyNumber()
-    Global_stuff.selectStaffDiscount()
-    Global_stuff.quotePageOptionalCoverViewOptions()
-    Global_stuff.quotePageOptionalCoverAddSpecifiedItem()
+    BOAction.livePoliciesBTN()
+    BOAction.selectActionRenewalWithPolicyNumber()
+    QuotePageAndExtras.selectStaffDiscount()
+    QuotePageAndExtras.quotePageOptionalCoverViewOptions()
+    QuotePageAndExtras.quotePageOptionalCoverAddSpecifiedItem()
     cy.pause()
 
-    Global_stuff.quotePageBuyNowBtn()
-    Global_stuff.completeAndPayContinue()
+    QuotePageAndExtras.quotePageBuyNowBtn()
+    CompleteAndPayPage.completeAndPayContinue()
 
-    Global_stuff.paymentTypeAgentCardRenewal()
-    Global_stuff.completeAndPayRNLPayNow()
-    Global_stuff.paymentCardDemoAgent()
+    PaymentTypePage.paymentTypeAgentCardRenewal()
+    CompleteAndPayPage.completeAndPayRNLPayNow()
+    PaymentScreen.paymentCardDemoAgent()
 
     // Diary and Correspondence page
-    Global_stuff.diaryCorrespondenceHeading()
-    Global_stuff.diaryCorrespondenceReceipt()
-    Global_stuff.diaryCorrespondenceContinue()
+    DiaryCorrespondencePage.diaryCorrespondenceHeading()
+    DiaryCorrespondencePage.diaryCorrespondenceReceipt()
+    DiaryCorrespondencePage.diaryCorrespondenceContinue()
 
     // Thank you page
-    Global_stuff.thankyouHeading()
-    Global_stuff.notes()
+    ThankYouScreen.thankyouHeading()
+    BOAction.notes()
   })
 })
   

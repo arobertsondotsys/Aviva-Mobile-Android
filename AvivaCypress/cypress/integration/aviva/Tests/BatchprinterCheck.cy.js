@@ -1,4 +1,7 @@
-import { Global } from "../AvivaPOM/Page Actions/POMActions"
+import { Servers } from "../AvivaPOM/Servers"
+import { BOActions } from "../AvivaPOM/BOActions"
+import { Login } from "../AvivaPOM/Login"
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -7,26 +10,28 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 /// <reference types= "Cypress"/>
 
-const Global_Stuff = new Global()
+const Server = new Servers()
+const BOAction = new BOActions()
+const Logins = new Login()
 
 describe('Check Paragon Queue for correct documents', () => {
     it('should check the Paragon Queue for correct documents', () => {
-        Global_Stuff.Server()
+        Server.Server()
         
         // Log in
-        Global_Stuff.company()
-        Global_Stuff.username()
-        Global_Stuff.password()
-        Global_Stuff.loginButton()
+        Logins.company()
+        Logins.username()
+        Logins.password()
+        Logins.loginButton()
 
         // Search for Customer file first policy
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
-        Global_Stuff.livePoliciesBTN()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+        BOAction.livePoliciesBTN()
 
         // Select Documents and revert window back to current window
-        Global_Stuff.selectActionDocumentsWithPolicyNumber()
+        BOAction.selectActionDocumentsWithPolicyNumber()
 
         // NNY 0
         cy.get('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
@@ -35,10 +40,10 @@ describe('Check Paragon Queue for correct documents', () => {
         
         cy.get(':nth-child(1) > .level1').click()
 
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
-        Global_Stuff.livePoliciesBTN()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+        BOAction.livePoliciesBTN()
 
         cy.get('[class^="dropdown selectAction"]').eq(1).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
 
@@ -49,10 +54,10 @@ describe('Check Paragon Queue for correct documents', () => {
 
         cy.get(':nth-child(1) > .level1').click()
 
-        Global_Stuff.email()
-        Global_Stuff.searchButton()
-        Global_Stuff.policySelectButton()
-        Global_Stuff.livePoliciesBTN()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+        BOAction.livePoliciesBTN()
 
         cy.get('[class^="dropdown selectAction"]').eq(2).click().contains('Documents').invoke("removeAttr", "target").click({force:true})
         
