@@ -85,6 +85,7 @@ livePoliciesBTN(){
 
     cy.wait(500)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click()
+    cy.wait(500)
         
 }
 
