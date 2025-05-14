@@ -153,7 +153,7 @@ paymentCardQA(){
         .then((body) => cy.wrap(body))
 
       }
-      cy.wait(4000)
+      cy.wait(5000)
       getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
       cy.get('@passwordbox').type('password')
       getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()

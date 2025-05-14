@@ -4,7 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "QA": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=QA",
+    "QA2": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=QA2 --parallel --ci-build-id AvivaMotor-001",
+    "QA3": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=QA3",
+    "DEMO": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=DEMO",
+    "2LOADED": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST2LOADED",
+    "3FAT": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST3FAT",
+    "5PRICING": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST5PRICING",
+    "6TRAINING": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST6TRAINING",
+    "7HOTFIX": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST7HOTFIX",
+    "8CRMIGRATION": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST8CRMIGRATION",
+    "9FATMIGRATION": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST9FATMIGRATION",
+    "10PRODMIGRATION": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST10PRODMIGRATION",
+    "GCCPRE": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=GCCPRE"
+
   },
   "author": "",
   "license": "ISC",
@@ -23,4 +37,6 @@
     "nodemailer": "^6.9.4",
     "pdf-parse": "^1.1.1"
   }
+
+ 
 }

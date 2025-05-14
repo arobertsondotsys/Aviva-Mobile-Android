@@ -10,7 +10,7 @@ async function setupNodeEvents(on, config) {
   
   // Define the spec patterns
   const qaSpecPattern = [
-    'cypress/integration/aviva/Tests/PolicyOwnership.cy.js',
+    'cypress/integration/aviva/Tests/001PolicyOwnership.cy.js',
     'cypress/integration/aviva/Tests/AgentRenewalPIFtoPIFNoEmailQA.cy.js',
     'cypress/integration/aviva/Tests/ReportsCheck.cy.js',
     //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
@@ -51,7 +51,7 @@ async function setupNodeEvents(on, config) {
   ]
 
   const demoSpecPattern = [
-    'cypress/integration/aviva/Tests/PolicyOwnership.cy.js',
+    'cypress/integration/aviva/Tests/001PolicyOwnership.cy.js',
     'cypress/integration/aviva/Tests/ReportsCheck.cy.js',
     //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
     'cypress/integration/aviva/Tests/Add7DriversAgent.cy.js',
@@ -100,6 +100,7 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
+  projectId: "3cnerm",
   redirectionLimit: 100,
   //video: true,
   reporter: 'cypress-mochawesome-reporter',
@@ -120,7 +121,7 @@ module.exports = defineConfig({
     openMode: 0,
   },
   e2e: {
-    experimentalRunAllSpecs: true,
+    //experimentalRunAllSpecs: true,
     setupNodeEvents,
     specPattern: '**/*.cy.js', // Default pattern
     env: {
