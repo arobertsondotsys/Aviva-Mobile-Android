@@ -20,8 +20,8 @@ describe('Check Paragon Queue for correct documents', () => {
         
         // Log in
         Logins.company()
-        Logins.username3()
-        Logins.password3()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Search for Customer file first policy

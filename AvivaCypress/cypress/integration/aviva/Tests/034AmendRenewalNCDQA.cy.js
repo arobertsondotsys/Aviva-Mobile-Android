@@ -48,8 +48,8 @@ describe('Agent can Amend renewal NCD', () => {
         
         // Log in
         Logins.company()
-        Logins.username2()
-        Logins.password2()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Revert new window that opens back to original window 

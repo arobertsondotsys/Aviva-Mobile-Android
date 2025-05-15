@@ -21,8 +21,8 @@ describe('Agent can upload document', () => {
         
         // Log in
         Logins.company()
-        Logins.username4()
-        Logins.password4()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Search for Customer file

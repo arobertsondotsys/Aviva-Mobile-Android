@@ -56,7 +56,9 @@ describe('Agent can purchase Temporary MTA', () => {
         cy.wait(1000)
         cy.getAndWait('#ctl00_MainContent_btnFindCar').click({force: true})
         cy.getAndWait('#ctl00_MainContent_btnConfirmReg').click({force: true})
+        cy.wait(1000)
         cy.getAndWait('#IsModified-no', { allowHidden: true }).click({force: true})
+        cy.wait(1000)
         cy.getAndWait('#Continue2').click({force: true})
         
         // Quote screen

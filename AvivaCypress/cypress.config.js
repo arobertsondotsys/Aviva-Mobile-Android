@@ -52,21 +52,21 @@ async function setupNodeEvents(on, config) {
 
   const demoSpecPattern = [
     'cypress/integration/aviva/Tests/001PolicyOwnership.cy.js',
-    'cypress/integration/aviva/Tests/002ReportsCheck.cy.js',
+    'cypress/integration/aviva/Tests/003ReportsCheck.cy.js',
     //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
-    'cypress/integration/aviva/Tests/003Add7DriversAgent.cy.js',
-    'cypress/integration/aviva/Tests/004Add7DriversCust.cy.js',
-    'cypress/integration/aviva/Tests/005ParagonQueueNYY.cy.js',
-    'cypress/integration/aviva/Tests/006ParagonQueueNNY.cy.js',
-    'cypress/integration/aviva/Tests/007ParagonQueueNYN.cy.js',
-    'cypress/integration/aviva/Tests/008DocumentPreferences.cy.js',
-    'cypress/integration/aviva/Tests/009AgentAdditionalDriverRemove.cy.js',
-    'cypress/integration/aviva/Tests/010AgentPurch.cy.js',
-    'cypress/integration/aviva/Tests/011AgentUnlock.cy.js',
-    'cypress/integration/aviva/Tests/012CheckCookies.cy.js',
-    'cypress/integration/aviva/Tests/013AgentDocUpload.cy.js',
-    'cypress/integration/aviva/Tests/014AgentMTAPurch.cy.js',
-    'cypress/integration/aviva/Tests/015AgentMTATempPurch.cy.js',
+    'cypress/integration/aviva/Tests/004Add7DriversAgent.cy.js',
+    'cypress/integration/aviva/Tests/005Add7DriversCust.cy.js',
+    'cypress/integration/aviva/Tests/006ParagonQueueNYY.cy.js',
+    'cypress/integration/aviva/Tests/007ParagonQueueNNY.cy.js',
+    'cypress/integration/aviva/Tests/008ParagonQueueNYN.cy.js',
+    'cypress/integration/aviva/Tests/009DocumentPreferences.cy.js',
+    'cypress/integration/aviva/Tests/010AgentAdditionalDriverRemove.cy.js',
+    'cypress/integration/aviva/Tests/011AgentPurch.cy.js',
+    'cypress/integration/aviva/Tests/012AgentUnlock.cy.js',
+    'cypress/integration/aviva/Tests/013CheckCookies.cy.js',
+    'cypress/integration/aviva/Tests/014AgentDocUpload.cy.js',
+    'cypress/integration/aviva/Tests/015AgentMTAPurch.cy.js',
+    'cypress/integration/aviva/Tests/016AgentMTATempPurch.cy.js',
     'cypress/integration/aviva/Tests/017AgentMTADriverNumber.cy.js',
     'cypress/integration/aviva/Tests/018AmendNCD.cy.js',
     'cypress/integration/aviva/Tests/019MedicalConditionRemove.cy.js',
@@ -94,6 +94,14 @@ async function setupNodeEvents(on, config) {
   } else if (['TEST2LOADED', 'DEMO', 'TEST3FAT', 'TEST4E2E', 'TEST5PRICING', 'TEST6TRAINING', 'TEST7HOTFIX', 'TEST8CRMIGRATION', 'TEST9FATMIGRATION', 'TEST10PRODMIGRATION', 'GCCPRE'].includes(serverKey)) {
     config.specPattern = demoSpecPattern
   }
+
+  // Add incognito mode for Chrome
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    if (browser.name === 'chrome') {
+      launchOptions.args.push('--incognito')
+    }
+    return launchOptions
+  })
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config

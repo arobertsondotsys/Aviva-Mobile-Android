@@ -50,8 +50,8 @@ describe('Check Diary Chaser function', () => {
         
         // Log in
         Logins.company()
-        Logins.username4()
-        Logins.password4()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Revert new window that opens back to original window 

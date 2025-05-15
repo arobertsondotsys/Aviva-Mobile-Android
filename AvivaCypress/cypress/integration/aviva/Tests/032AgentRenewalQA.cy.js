@@ -50,8 +50,8 @@ describe('Agent can Renew a policy', () => {
         
         // Log in
         Logins.company()
-        Logins.username3()
-        Logins.password3()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Revert new window that opens back to original window 

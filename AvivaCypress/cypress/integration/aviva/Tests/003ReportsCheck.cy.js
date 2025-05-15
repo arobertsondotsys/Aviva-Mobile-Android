@@ -19,8 +19,8 @@ describe('Check reports download', () => {
         
         // Log in
         Logins.company()
-        Logins.username3()
-        Logins.password3()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
         
         // Select reports tab
