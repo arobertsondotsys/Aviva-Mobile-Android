@@ -26,8 +26,8 @@ describe('Agent can change the driver number', () => {
         
         // Log in
         Logins.company()
-        Logins.username2()
-        Logins.password2()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Search for Customer file

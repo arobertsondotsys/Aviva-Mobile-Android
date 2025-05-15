@@ -28,8 +28,8 @@ describe('Agent can purchase MTA', () => {
         
         // Log in
         Logins.company()
-        Logins.username5()
-        Logins.password5()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Search for Customer file

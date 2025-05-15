@@ -1007,14 +1007,14 @@ diaryAddAdHocLetters(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
     cy.wait(1000)
     cy.go(-3)
-    // cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_entry).click()
-    // cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
-    // cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(3)
-    // cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
-    // cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(1)
-    // cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
-    // cy.wait(1000)
-    // cy.go(-3)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_entry).click()
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(3)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(0)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
+    cy.wait(1000)
+    cy.go(-3)
 
 }
 

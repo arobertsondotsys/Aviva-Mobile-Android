@@ -54,8 +54,8 @@ describe('Customer can Renew a policy', () => {
         
         // Log in
         Logins.company()
-        Logins.username4()
-        Logins.password4()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Revert new window that opens back to original window 

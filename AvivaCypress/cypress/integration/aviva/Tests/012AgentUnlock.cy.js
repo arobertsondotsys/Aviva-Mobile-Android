@@ -19,8 +19,8 @@ describe('Agent can unlock customer file', () => {
         
         // Log in
         Logins.company()
-        Logins.username2()
-        Logins.password2()
+        Logins.username()
+        Logins.password()
         Logins.loginButton()
 
         // Search for Customer file
