@@ -131,7 +131,7 @@ describe('Agent can purchase a policy via back office', () => {
         // Quote screen - Buy now 
         QuotePageAndExtras.quotePageHeading()
         BOAction.notes()
-        cy.pause()
+        //cy.pause()
         QuotePageAndExtras.buyNowBtn()
 
         // Complete post quote 1 "About your car"

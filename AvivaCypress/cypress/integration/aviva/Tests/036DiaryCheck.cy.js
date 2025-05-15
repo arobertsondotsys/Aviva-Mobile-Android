@@ -132,7 +132,7 @@ describe('Check Diary Chaser function', () => {
         // Quote screen - Buy now 
         QuotePageAndExtras.quotePageHeading()
         BOAction.notes()
-        cy.pause()
+        //cy.pause()
         QuotePageAndExtras.buyNowBtn()
 
         // Complete post quote 1 "About you car"

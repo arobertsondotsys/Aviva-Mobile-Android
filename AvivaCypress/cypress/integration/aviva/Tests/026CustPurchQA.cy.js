@@ -112,7 +112,7 @@ describe('Customer can purchase a policy via website', () => {
 
         // Quote screen - Buy now 
         QuotePageAndExtras.quotePageHeading()
-        cy.pause()
+        //cy.pause()
         QuotePageAndExtras.buyNowBtn()
 
         // Complete post quote 1 "About you car"

@@ -137,7 +137,7 @@ describe('Agent can purchase a policy via back office', () => {
         QuotePageAndExtras.quotePageExcess125()
         QuotePageAndExtras.quotePageAddJourneywise()
         QuotePageAndExtras.quotePagePNCDStepBack()
-        // cy.pause()
+        // //cy.pause()
         QuotePageAndExtras.buyNowBtn()
 
         // Complete post quote 1 "About you car"
