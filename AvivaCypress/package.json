@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "QA": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=QA",
-    "QA2": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=QA2 --parallel --ci-build-id AvivaMotor-004",
+    "QA2": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=QA2 --parallel --ci-build-id AvivaMotor-002",
     "QA3": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=QA3",
     "DEMO": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=DEMO",
     "2LOADED": "npx cypress run --browser chrome --record --key c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env serverKey=TEST2LOADED",

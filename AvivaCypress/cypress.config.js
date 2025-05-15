@@ -11,7 +11,7 @@ async function setupNodeEvents(on, config) {
   // Define the spec patterns
   const qaSpecPattern = [
     'cypress/integration/aviva/Tests/001PolicyOwnership.cy.js',
-    'cypress/integration/aviva/Tests/002AgentRenewalPIFtoPIFNoEmailQA.cy.js',
+    'cypress/integration/aviva/Tests/002AgentRenewalPIFtoPIFNoEmail.cy.js',
     'cypress/integration/aviva/Tests/003ReportsCheck.cy.js',
     //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
     //'cypress/integration/aviva/Tests/A.cy.js',
@@ -52,7 +52,7 @@ async function setupNodeEvents(on, config) {
 
   const demoSpecPattern = [
     'cypress/integration/aviva/Tests/001PolicyOwnership.cy.js',
-    'cypress/integration/aviva/Tests/003ReportsCheck.cy.js',
+    'cypress/integration/aviva/Tests/002ReportsCheck.cy.js',
     //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
     'cypress/integration/aviva/Tests/004Add7DriversAgent.cy.js',
     'cypress/integration/aviva/Tests/005Add7DriversCust.cy.js',
@@ -134,6 +134,8 @@ module.exports = defineConfig({
     specPattern: '**/*.cy.js', // Default pattern
     env: {
       serverKey: '' // Set the default serverKey here
+      
+    
     }
   },
 })
