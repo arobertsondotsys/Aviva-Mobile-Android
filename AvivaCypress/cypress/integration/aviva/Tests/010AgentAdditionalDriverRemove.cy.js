@@ -54,8 +54,8 @@ describe('Agent can add a driver and remove at ADJ', () => {
         
         // Log in
         Logins.company()
-        Logins.username()
-        Logins.password()
+        Logins.username4()
+        Logins.password4()
         Logins.loginButton()
 
         // Revert new window that opens back to original window 

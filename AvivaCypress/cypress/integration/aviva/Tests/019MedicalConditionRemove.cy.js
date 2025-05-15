@@ -51,8 +51,8 @@ describe('Agent can add a Medical condition and remove ok', () => {
         
         // Log in
         Logins.company()
-        Logins.username()
-        Logins.password()
+        Logins.username4()
+        Logins.password4()
         Logins.loginButton()
 
         // Revert new window that opens back to original window 

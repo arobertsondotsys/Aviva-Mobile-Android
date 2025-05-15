@@ -8,6 +8,7 @@ company(){
     cy.getAndWait(this.LoginElementLocators.LoginPageLocators.company_element).click().type(this.UserData.InputData.Comp)
 
 }
+
 username(){
        
     cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User)
@@ -17,6 +18,54 @@ username(){
 password(){
 
     cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass)
+
+}
+
+username2(){
+       
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User2)
+
+}
+
+password2(){
+
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass2)
+
+}
+
+username3(){
+       
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User3)
+
+}
+
+password3(){
+
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass3)
+
+}
+
+username4(){
+       
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User4)
+
+}
+
+password4(){
+
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass4)
+
+}
+
+username5(){
+       
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User5)
+
+}
+
+password5(){
+
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass5)
 
 }
 

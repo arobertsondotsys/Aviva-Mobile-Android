@@ -52,8 +52,8 @@ describe('Medical condition can be removed at renewal', () => {
         
         // Log in
         Logins.company()
-        Logins.username()
-        Logins.password()
+        Logins.username5()
+        Logins.password5()
         Logins.loginButton()
 
         // Revert new window that opens back to original window 

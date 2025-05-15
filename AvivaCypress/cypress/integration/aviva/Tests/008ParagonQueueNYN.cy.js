@@ -50,8 +50,8 @@ describe('Policy Purchase with NYN', () => {
         
         // Log in
         Logins.company()
-        Logins.username()
-        Logins.password()
+        Logins.username2()
+        Logins.password2()
         Logins.loginButton()
         
         // Revert new window that opens back to original window 
