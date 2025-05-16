@@ -83,9 +83,9 @@ createNewQuoteBTN(){
 
 livePoliciesBTN(){
 
-    cy.wait(500)
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click()
-    cy.wait(500)
+    cy.wait(1000)
         
 }
 
@@ -541,7 +541,7 @@ selectActionDPAWithPolicyNumber(){
         const policyNumber = data.policyNumber
         cy.getAndWait('.panel-title')
         .contains(policyNumber)
-        cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click({force:true})
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' DPA / Preferences']")
          })
         
@@ -579,7 +579,7 @@ policyToolsAgePolicyWithPolicyNumber(){
         const policyNumber = data.policyNumber
         cy.getAndWait('.panel-title')
         .contains(policyNumber)
-        cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+        cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click({force:true})
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
         
          })
@@ -592,7 +592,7 @@ policyToolsAgePolicyWithParagonPolicyNumber9(){
         const paragonPolicyNumber9 = data.paragonPolicyNumber9
         cy.getAndWait('.panel-title')
         .contains(paragonPolicyNumber9)
-        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber9+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber9+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click({force:true})
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
         
          })
@@ -605,7 +605,7 @@ policyToolsAgePolicyWithParagonPolicyNumber10(){
         const paragonPolicyNumber10 = data.paragonPolicyNumber10
         cy.getAndWait('.panel-title')
         .contains(paragonPolicyNumber10)
-        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber10+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber10+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click({force:true})
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
         
          })
@@ -618,7 +618,7 @@ policyToolsAgePolicyWithParagonPolicyNumber11(){
         const paragonPolicyNumber11 = data.paragonPolicyNumber11
         cy.getAndWait('.panel-title')
         .contains(paragonPolicyNumber11)
-        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber11+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber11+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click({force:true})
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
         
          })
@@ -631,7 +631,7 @@ policyToolsAgePolicyWithParagonPolicyNumber12(){
         const paragonPolicyNumber12 = data.paragonPolicyNumber12
         cy.getAndWait('.panel-title')
         .contains(paragonPolicyNumber12)
-        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber12+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+        cy.xpath("//span[normalize-space()='"+paragonPolicyNumber12+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click({force:true})
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
         
          })
