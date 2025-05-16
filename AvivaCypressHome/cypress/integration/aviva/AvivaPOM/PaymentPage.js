@@ -61,38 +61,29 @@ export class PaymentPage{
           // Click the continue button
           cy.get('#continueButton').click();
   
-          // Wait for either the Adyen iframe or navigation to the next page
-          cy.wait(3000); // Allow some time for the iframe or navigation
-          cy.get('body').then(($body) => {
-              if ($body.find('.adyen-checkout__iframe').length > 0) {
-                  cy.log('Adyen iframe found, proceeding with password entry.');
-  
-                  // Helper function to get the iframe content
-                  const getIframeDocumentPassword = () => {
-                    
-                      return cy
-                          .get('.adyen-checkout__iframe')
-                          .its('0.contentDocument.body')
-                          .should('not.be.empty')
-                          .then((body) => cy.wrap(body));
-                  };
-  
-                  // Interact with the password input and submit button
-                  getIframeDocumentPassword()
-                      .find('input[placeholder="enter the word \'password\'"]')
-                      .as('passwordbox')
-                      .should('exist');
-                  cy.get('@passwordbox').type('password');
-                  getIframeDocumentPassword()
-                      .find('#buttonSubmit')
-                      .should('exist')
-                      .click();
-              } else {
-                  cy.log('Adyen iframe not found');
-              }
-          });
-      });
-  }
+          // Wait for the Adyen iframe to appear
+          cy.wait(10000)
+
+          // Try all Adyen iframes for the password input
+          cy.get('iframe').each(($iframe, idx) => {
+            cy.wrap($iframe)
+              .its('0.contentDocument.body')
+              .should('not.be.empty')
+              .then((body) => {
+                if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
+                  cy.log(`Found password input in iframe[${idx}]`)
+                  cy.wrap(body)
+                   .find('input[placeholder*="password"]')
+                   .type('password', { force: true })
+                  cy.wrap(body)
+                   .find('#buttonSubmit')
+                   .click({ force: true })
+                }
+              })
+          })
+        })
+
+}
 
 paymentDDQAPasswordCheck(){
 
