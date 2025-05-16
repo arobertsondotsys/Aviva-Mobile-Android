@@ -150,35 +150,26 @@ paymentDDQAPasswordCheck(){
     cy.get('#continueButton').click()
 
   })
-  cy.wait(3000)
-  // Check if the password iframe exists
-  cy.get('body').then(($body) => {
-    if ($body.find('.adyen-checkout__iframe').length > 0) {
-        cy.log('Password iframe found, proceeding with password entry.')
+// Wait for the Adyen iframe to appear
+  cy.wait(10000);
 
-        // Helper function to get the iframe content
-        const getIframeDocumentPassword = () => {
-            return cy
-                .get('.adyen-checkout__iframe')
-                .its('0.contentDocument.body')
-                .should('not.be.empty')
-                .then((body) => cy.wrap(body))
-        }
-
-        // Interact with the password input and submit button
-        getIframeDocumentPassword()
-            .find('input[placeholder="enter the word \'password\'"]')
-            .as('passwordbox')
-            .should('exist');
-        cy.get('@passwordbox').type('password')
-        getIframeDocumentPassword()
+  // Try all Adyen iframes for the password input
+  cy.get('iframe').each(($iframe, idx) => {
+    cy.wrap($iframe)
+      .its('0.contentDocument.body')
+      .should('not.be.empty')
+      .then((body) => {
+        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
+          cy.log(`Found password input in iframe[${idx}]`);
+          cy.wrap(body)
+            .find('input[placeholder*="password"]')
+            .type('password', { force: true })
+          cy.wrap(body)
             .find('#buttonSubmit')
-            .should('exist')
-            .click();
-    } else {
-        cy.log('Password iframe not found, skipping password entry.')
-    }
-})
+            .click({ force: true })
+        }
+      })
+  })
 
 }
 
@@ -423,17 +414,27 @@ paymentCardDemo(){
 
     })
 
-      //Password box
-      cy.wait(5000)
-      const getIframeDocumentPassword = () => {
-        
-        return cy.get('.adyen-checkout__iframe').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
+// Wait for the Adyen iframe to appear
+  cy.wait(10000);
 
-      }
-      getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
-      cy.get('@passwordbox').type('password')
-      getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
+  // Try all Adyen iframes for the password input
+  cy.get('iframe').each(($iframe, idx) => {
+    cy.wrap($iframe)
+      .its('0.contentDocument.body')
+      .should('not.be.empty')
+      .then((body) => {
+        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
+          cy.log(`Found password input in iframe[${idx}]`);
+          cy.wrap(body)
+            .find('input[placeholder*="password"]')
+            .type('password', { force: true })
+          cy.wrap(body)
+            .find('#buttonSubmit')
+            .click({ force: true })
+        }
+      })
+  })
+
 
 }
 
@@ -555,17 +556,27 @@ paymentDDQA(){
 
     })
 
-    //Password box
-    cy.wait(10000)
-    const getIframeDocumentPassword = () => {
-      
-      return cy.get('.adyen-checkout__iframe').its('0.contentDocument.body').should('not.be.empty')
-      .then((body) => cy.wrap(body))
+  // Wait for the Adyen iframe to appear
+  cy.wait(10000);
 
-    }
-    getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
-    cy.get('@passwordbox').type('password')
-    getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
+  // Try all Adyen iframes for the password input
+  cy.get('iframe').each(($iframe, idx) => {
+    cy.wrap($iframe)
+      .its('0.contentDocument.body')
+      .should('not.be.empty')
+      .then((body) => {
+        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
+          cy.log(`Found password input in iframe[${idx}]`);
+          cy.wrap(body)
+            .find('input[placeholder*="password"]')
+            .type('password', { force: true })
+          cy.wrap(body)
+            .find('#buttonSubmit')
+            .click({ force: true })
+        }
+      })
+  })
+
 
 }
 
@@ -748,20 +759,29 @@ paymentDDDemoCust(){
 
     })
 
-    //Password box
-    cy.wait(10000)
-    const getIframeDocumentPassword = () => {
-      
-      return cy.get('.adyen-checkout__iframe').its('0.contentDocument.body').should('not.be.empty')
-      .then((body) => cy.wrap(body))
+  // Wait for the Adyen iframe to appear
+  cy.wait(10000);
 
-    }
-    cy.wait(4000)
-    getIframeDocumentPassword().find('input[placeholder="enter the word \'password\'"]').as('passwordbox').should('exist')
-    cy.get('@passwordbox').type('password')
-    getIframeDocumentPassword().find('#buttonSubmit').should('exist').click()
+  // Try all Adyen iframes for the password input
+  cy.get('iframe').each(($iframe, idx) => {
+    cy.wrap($iframe)
+      .its('0.contentDocument.body')
+      .should('not.be.empty')
+      .then((body) => {
+        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
+          cy.log(`Found password input in iframe[${idx}]`);
+          cy.wrap(body)
+            .find('input[placeholder*="password"]')
+            .type('password', { force: true })
+          cy.wrap(body)
+            .find('#buttonSubmit')
+            .click({ force: true })
+        }
+      })
+  })
 
 }
+
 
 RNLDDQA(){
 
