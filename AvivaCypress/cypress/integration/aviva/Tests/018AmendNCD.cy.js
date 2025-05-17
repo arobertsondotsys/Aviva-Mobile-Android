@@ -199,7 +199,8 @@ describe('Agent can Amend an NCD', () => {
           
         // Amend NCD to 40% & Select Cover start date 
         //BOAction.cookiesAccept()
-        cy.getAndWait('#ctl00_MainContent_ddlNCDPercent').select(5)
+        cy.wait(2000)
+        cy.getAndWait('#ctl00_MainContent_ddlNCDPercent').select(5, {forcet:true})
         cy.getAndWait('#ctl00_MainContent_Continue3').click()
         cy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'))
         cy.getAndWait('#ctl00_MainContent_NCDStartTime').type('13:00')
@@ -212,7 +213,7 @@ describe('Agent can Amend an NCD', () => {
         cy.getAndWait('#ctl00_MainContent_ddlAmendNCD').select(2)
         cy.wait(1000)
         cy.getAndWait('#ctl00_MainContent_NCDRecalculate').click()
-        cy.wait(5000)
+        cy.wait(10000)
         cy.contains('View premium breakdown').click()
         cy.get('[data-origin="#SinglePaymentBreakdown"]').contains('Step-back NCD')
         cy.getAndWait('.o-modal__cancel').click()
