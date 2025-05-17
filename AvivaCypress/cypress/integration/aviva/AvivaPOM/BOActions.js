@@ -77,7 +77,9 @@ home(){
 
 livePoliciesBTN(){
 
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click()
+    cy.wait(1000)
         
 }
 
@@ -469,7 +471,7 @@ checkRenewalInviteDocsNoEmail(){
 
 checkRenewalDocsNoEmail(){
 
-    cy.wait(80000)
+    cy.wait(120000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Receipt')
