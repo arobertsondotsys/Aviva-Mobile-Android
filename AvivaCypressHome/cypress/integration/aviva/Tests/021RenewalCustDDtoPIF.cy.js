@@ -136,6 +136,11 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     // Opt out of autorollover
     BOAction.selectActionDPAWithPolicyNumber()
     BOAction.optOutRollover()
+    Server.Server()
+    BOAction.home()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
 
     // Back date policy
     BOAction.livePoliciesBTN()
@@ -156,7 +161,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
     BOAction.checkRenewalInviteDocs()
-    cy.go(-1)
+    BOAction.returnToCustFileFromDocuments()
   
     // Purchase Home Renewal as customer
     Server.Server1()

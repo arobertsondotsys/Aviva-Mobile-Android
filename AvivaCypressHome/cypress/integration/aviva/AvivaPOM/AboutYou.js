@@ -97,26 +97,32 @@ proposerEmployStatus(){
 
 }
 
-bizStatus(){
-
-    // cy.wait(1000)
-    // cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status).select(1)
-    // cy.wait(1000)
-
+bizStatus() {
     cy.wait(1000)
-    cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status)
-        .select(1) // Select the first option
-        .should('have.value', '1') // Verify that the selected value is '1'
-        .then(($dropdown) => {
-            if ($dropdown.val() !== '1') {
-                cy.log('Retrying dropdown selection...')
-                cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status).select(1)
-            }
-        })
-    cy.wait(1000)
+    const trySelect = (attempt = 1) => {
+        cy.log(`Attempting to select business status, try #${attempt}`);
+        cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status, { timeout: 20000 })
+            .should('exist')
+            .should('be.visible')
+            .then($dropdown => {
+                // Re-query before select to avoid stale element
+                cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status, { timeout: 20000 })
+                    .select(1)
+                    .then($el => {
+                        // Check if value is '1'
+                        if ($el.val() !== '1') {
+                            if (attempt < 3) {
+                                cy.wait(1000)
+                                trySelect(attempt + 1)
+                            } else {
+                                throw new Error('Failed to select business status after 3 attempts');
+                            }
+                        }
+                    });
+            });
+    };
 
-    
-
+    trySelect();
 }
 
 aboutYouContinueHome(){

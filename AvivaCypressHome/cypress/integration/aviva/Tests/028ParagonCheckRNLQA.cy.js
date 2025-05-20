@@ -178,8 +178,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithParagonPolicyNumber9()
     BOAction.checkRNLInviteParagonDocs()
-    cy.go(-3)
-    
+    BOAction.returnToCustFileFromDocuments()
   
     // Purchase Home Renewal
     BOAction.livePoliciesBTN()
@@ -216,7 +215,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     ThankYouScreen.thankyouHeading()
     MTABOAction.adjustmentReceiptAssert()
     BOAction.notes()
-    cy.wait(60000)
+    // cy.wait(60000)
 
     // Check correct documents have been added to print queue
     // Server.Server()

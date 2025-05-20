@@ -126,6 +126,13 @@ selectActionDocuments(){
         
 }
 
+returnToCustFileFromDocuments(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.return_customerfile).click()
+        
+}
+
+
 noEmailPolicySearch(){
 
     cy.readFile('policy.json').then((data) => {
@@ -679,7 +686,6 @@ optOutRollover(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.dpa_edit).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.optout_rollover).select(1)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.save_rollover).click()
-    cy.go(-3)
         
 }
 

@@ -170,10 +170,10 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
     BOAction.checkRenewalInviteDocsNoEmail()
-    cy.go(-2)
+    BOAction.returnToCustFileFromDocuments()
   
     // Purchase Home Renewal
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageFullBtnRNLswap()

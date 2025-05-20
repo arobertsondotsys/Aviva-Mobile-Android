@@ -64,7 +64,7 @@ export class QuotePage{
     quotePageAccidentalDamageAddCover(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_addaccidentaldamage).click()
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
 
@@ -77,7 +77,7 @@ export class QuotePage{
     quotePageOptionalCoverAddUnpecifiedCover(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_unspecifieditems).select(1)
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
 
@@ -88,7 +88,7 @@ export class QuotePage{
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemtype).select(1)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemvalue).type(this.UserData.InputData.SpecifiedItemValue)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_additem).click()
-        cy.wait(2000)
+        cy.wait(4000)
 
     }
 
@@ -115,28 +115,28 @@ export class QuotePage{
     quotePageManageYourExcess275(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess275).click()
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
     
     quotePageManageYourExcess500(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess500).click()
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
 
     quotePageManageYourExcess750(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess750).click()
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
 
     quotePageManageYourExcess1000(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_manageexcess1000).click()
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
 
@@ -149,21 +149,21 @@ export class QuotePage{
     quotePageGardenCover1000(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(1)
-        cy.wait(2000)
+        cy.wait(3000)
         
     }
 
     quotePageGardenCover2000(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(2)
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
 
     quotePageGardenCover3000(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_gardencoverddl).select(3)
-        cy.wait(2000)
+        cy.wait(3000)
 
     }
 

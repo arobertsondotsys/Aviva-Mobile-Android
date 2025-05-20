@@ -160,7 +160,8 @@ describe('Agent purchase home policy', () => {
     BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
     BOAction.checkRenewalInviteDocs()
-    cy.go(-2)
+    BOAction.returnToCustFileFromDocuments()
+    BOAction.livePoliciesBTN()
   
     // Purchase Home Renewal
     BOAction.livePoliciesBTN()

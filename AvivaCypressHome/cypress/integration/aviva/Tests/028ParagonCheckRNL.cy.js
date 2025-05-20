@@ -178,7 +178,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithParagonPolicyNumber10()
     BOAction.checkRenewalInviteDocs()
-    cy.go(-1)
+    BOAction.returnToCustFileFromDocuments()
   
     // Purchase Home Renewal
     BOAction.livePoliciesBTN()

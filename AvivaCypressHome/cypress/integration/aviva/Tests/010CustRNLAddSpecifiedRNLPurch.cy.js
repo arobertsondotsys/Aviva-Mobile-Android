@@ -151,6 +151,7 @@ describe('Customer purchase home policy', () => {
     PortalAction.portalRenewDocsConfirm()
     QuotePageAndExtras.quotePageOptionalCoverViewOptions()
     QuotePageAndExtras.quotePageOptionalCoverAddSpecifiedItem()
+  
     cy.pause()
 
     QuotePageAndExtras.quotePageBuyNowBtn()
