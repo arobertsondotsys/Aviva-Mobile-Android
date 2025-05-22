@@ -168,7 +168,6 @@ describe('Agent purchase home policy renewal on new DD', () => {
     BOAction.returnToCustFileFromDocuments()
   
     // Purchase Home Renewal
-    //BOAction.livePoliciesBTN()
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageMonthlyBtnRNLswap()

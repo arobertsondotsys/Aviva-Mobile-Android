@@ -117,7 +117,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
-    PaymentScreen.paymentDDQANoPassword()
+    PaymentScreen.paymentDDQAPasswordCheck()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()

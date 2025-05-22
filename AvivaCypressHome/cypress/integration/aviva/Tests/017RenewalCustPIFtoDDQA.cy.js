@@ -168,7 +168,7 @@ describe('Customer purchase home policy renewal on new DD', () => {
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
     CompleteAndPayPage.completeAndPayContinue()
   
-    PaymentScreen.paymentDDQANoPassword()
+    PaymentScreen.paymentDDQAPasswordCheck()
 
     ThankYouScreen.thankyouHeading()
 

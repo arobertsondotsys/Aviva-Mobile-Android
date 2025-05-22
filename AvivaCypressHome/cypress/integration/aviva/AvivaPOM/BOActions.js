@@ -956,7 +956,7 @@ checkMTAParagonDocs(){
 checkRNLInviteParagonDocs(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
-    cy.reload()
+    //cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
