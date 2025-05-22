@@ -20,12 +20,12 @@
     "9FATMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST9FATMIGRATION",
     "10PRODMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST10PRODMIGRATION",
     "GCCPRE": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=GCCPRE",
-    "QA2P1": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=1 --parallel --ci-build-id $(type buildid.txt)",
-    "QA2P2": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=2 --parallel --ci-build-id $(type buildid.txt)",
-    "DEMOP1": "npm run set-build-id && npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=1 --parallel --ci-build-id $(type buildid.txt)",
-    "DEMOP2": "npm run set-build-id && npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=2 --parallel --ci-build-id $(type buildid.txt)",
-    "4E2EP1": "npm run set-build-id && npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=1 --parallel --ci-build-id $(type buildid.txt)",
-    "4E2EP2": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=2 --parallel --ci-build-id $(type buildid.txt)"
+    "QA2P1": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=1 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
+    "QA2P2": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=2 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
+    "DEMOP1": "npm run set-build-id && npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=1 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
+    "DEMOP2": "npm run set-build-id && npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=2 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
+    "4E2EP1": "npm run set-build-id && npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=1 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
+    "4E2EP2": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=2 --parallel --ci-build-id ${(Get-Content buildid.txt)}"
 
   },
   "author": "",
