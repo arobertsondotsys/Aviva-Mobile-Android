@@ -3,8 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "QA": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA",
+    "QA2P": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2 --parallel --ci-build-id AvivaHome-000",
+    "QA2": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2 --headed",
+    "QA3": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA3",
+    "DEMO": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO",
+    "2LOADED": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST2LOADED",
+    "3FAT": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST3FAT",
+    "4E2E": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E",
+    "5PRICING": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST5PRICING",
+    "6TRAINING": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST6TRAINING",
+    "7HOTFIX": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST7HOTFIX",
+    "8CRMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST8CRMIGRATION",
+    "9FATMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST9FATMIGRATION",
+    "10PRODMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST10PRODMIGRATION",
+    "GCCPRE": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=GCCPRE"
+
   },
   "author": "",
   "license": "ISC",
