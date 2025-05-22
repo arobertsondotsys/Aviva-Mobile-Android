@@ -19,12 +19,12 @@
     "9FATMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST9FATMIGRATION",
     "10PRODMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST10PRODMIGRATION",
     "GCCPRE": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=GCCPRE",
-    "QA2P1": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=1 --parallel --ci-build-id AvivaHome-$(date +%s)",
-    "QA2P2": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=2 --parallel --ci-build-id AvivaHome-$(date +%s)",
-    "DEMOP1": "npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=1 --parallel --ci-build-id AvivaHome-$(date +%s)",
-    "DEMOP2": "npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=2 --parallel --ci-build-id AvivaHome-$(date +%s)",
-    "4E2EP1": "npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=1 --parallel --ci-build-id AvivaHome-$(date +%s)",
-    "4E2EP2": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=2 --parallel --ci-build-id AvivaHome-$(date +%s)"
+    "QA2P1": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=1 --parallel --ci-build-id AvivaHome-%DATE%-%TIME%",
+    "QA2P2": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2,USER_INDEX=2 --parallel --ci-build-id AvivaHome-%DATE%-%TIME%",
+    "DEMOP1": "npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=1 --parallel --ci-build-id AvivaHome-%DATE%-%TIME%",
+    "DEMOP2": "npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=DEMO,USER_INDEX=2 --parallel --ci-build-id AvivaHome-%DATE%-%TIME%",
+    "4E2EP1": "npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=1 --parallel --ci-build-id AvivaHome-%DATE%-%TIME%",
+    "4E2EP2": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=TEST4E2E,USER_INDEX=2 --parallel --ci-build-id AvivaHome-%DATE%-%TIME%"
 
   },
   "author": "",
