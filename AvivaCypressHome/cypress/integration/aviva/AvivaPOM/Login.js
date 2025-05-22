@@ -7,17 +7,17 @@ export class Login{
 
     getUserIndex() {
         // Default to 1 if not set
-        return Cypress.env('USER_INDEX') || 1;
+        return Cypress.env('USER_INDEX') || 1
     }
 
     getUsername1() {
-        const idx = this.getUserIndex();
-        return this.UserData.InputData[`User${idx}`] || this.UserData.InputData.User;
+        const idx = this.getUserIndex()
+        return this.UserData.InputData[`User${idx}`] || this.UserData.InputData.User
     }
 
     getPassword1() {
-        const idx = this.getUserIndex();
-        return this.UserData.InputData[`BOPass${idx}`] || this.UserData.InputData.BOPass;
+        const idx = this.getUserIndex()
+        return this.UserData.InputData[`BOPass${idx}`] || this.UserData.InputData.BOPass
     }
     
     company(){
