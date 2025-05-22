@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
     "scripts": {
-    "set-build-id": "node -e \"console.log('AvivaHome-' + Date.now())\" > buildid.txt",
+    "set-build-id": "node -e \"const d=new Date();const pad=n=>n.toString().padStart(2,'0');console.log(`AvivaHome-${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`)\" > buildid.txt",
     "test": "echo \"Error: no test specified\" && exit 1",
     "QA": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA",
     "QA2": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env serverKey=QA2 --headed",
