@@ -171,7 +171,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     PortalAction.portalRenewPolicyCloseModal()
     PortalAction.portalManagePolicyWithPolicyNumber()
     PortalAction.portalRenewThisPolicy()
-    cy.pause()
+    //cy.pause()
     PortalAction.portalRenewDocsConfirm()
     
     QuotePageAndExtras.quotePageFullBtnRNLswap()

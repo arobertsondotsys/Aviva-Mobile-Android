@@ -168,7 +168,7 @@ describe('Agent purchase home policy', () => {
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageRemoveSpecifiedItem()
-    cy.pause()
+    //cy.pause()
 
     QuotePageAndExtras.quotePageBuyNowBtn()
     CompleteAndPayPage.completeAndPayContinue()

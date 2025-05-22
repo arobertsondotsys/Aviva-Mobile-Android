@@ -160,7 +160,7 @@ describe('Agent purchase home policy', () => {
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageOptionalCoverViewOptions()
     QuotePageAndExtras.quotePageOptionalCoverAddSpecifiedItem()
-    cy.pause()
+    //cy.pause()
 
     QuotePageAndExtras.quotePageBuyNowBtn()
     CompleteAndPayPage.completeAndPayContinue()

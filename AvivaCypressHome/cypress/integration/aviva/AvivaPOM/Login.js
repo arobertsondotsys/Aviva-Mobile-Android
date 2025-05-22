@@ -5,6 +5,21 @@ export class Login{
 
 
 
+    getUserIndex() {
+        // Default to 1 if not set
+        return Cypress.env('USER_INDEX') || 1;
+    }
+
+    getUsername1() {
+        const idx = this.getUserIndex();
+        return this.UserData.InputData[`User${idx}`] || this.UserData.InputData.User;
+    }
+
+    getPassword1() {
+        const idx = this.getUserIndex();
+        return this.UserData.InputData[`BOPass${idx}`] || this.UserData.InputData.BOPass;
+    }
+    
     company(){
        
         cy.getAndWait(this.LoginElementLocators.LoginPageLocators.company_element).click().type(this.UserData.InputData.Comp)
@@ -12,16 +27,14 @@ export class Login{
     }
 
     username(){
-       
-        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User)
-
-    }
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click()
+      .type(this.getUsername1())
+}
 
     password(){
-
-        cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass)
-
-    }
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click()
+      .type(this.getPassword1())
+}
     
     forgotEmailPassDOB(){
 
@@ -113,24 +126,30 @@ export class Login{
     }
 
     handleLoginIfRequired() {
-        cy.get('body').then(($body) => {
-            if (
-                $body.find('#ctl00_ContentPlaceHolder1_Login1_CompanyName').length > 0 &&
-                $body.find('#ctl00_ContentPlaceHolder1_Login1_Username').length > 0
-            ) {
-                // Login form exists, enter login details
-                cy.log('Login form found, entering login details.');
-                cy.getAndWait(this.LoginElementLocators.LoginPageLocators.company_element).click().type(this.UserData.InputData.Comp);
-                cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User);
-                cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element).click().type(this.UserData.InputData.BOPass);
-                cy.getAndWait(this.LoginElementLocators.LoginPageLocators.loginBtn_element).click()
-            } else {
-                // Login form does not exist, click the specific element
-                cy.log('Login form not found, clicking the specific element.');
-                cy.getAndWait(this.LoginElementLocators.BOPageLocators.home_page).click()
-            }
-        })
-    }
+    cy.get('body').then(($body) => {
+        if (
+            $body.find('#ctl00_ContentPlaceHolder1_Login1_CompanyName').length > 0 &&
+            $body.find('#ctl00_ContentPlaceHolder1_Login1_Username').length > 0
+        ) {
+            // Login form exists, enter login details
+            cy.log('Login form found, entering login details.');
+            cy.getAndWait(this.LoginElementLocators.LoginPageLocators.company_element)
+              .click()
+              .type(this.UserData.InputData.Comp);
+            cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element)
+              .click()
+              .type(this.getUsername1());
+            cy.getAndWait(this.LoginElementLocators.LoginPageLocators.password_element)
+              .click()
+              .type(this.getPassword1());
+            cy.getAndWait(this.LoginElementLocators.LoginPageLocators.loginBtn_element).click()
+        } else {
+            // Login form does not exist, click the specific element
+            cy.log('Login form not found, clicking the specific element.');
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.home_page).click()
+        }
+    })
+}
 
 
         

@@ -109,7 +109,7 @@ describe('Agent purchase home policy with a joint provider', () => {
     // Quotepage
     QuotePageAndExtras.quotePageHeading()
     BOAction.notes()
-    cy.pause()
+    //cy.pause()
     QuotePageAndExtras.quotePageStaffOptions()
     QuotePageAndExtras.quotePageStaffDiscounts()
     QuotePageAndExtras.quotePageStaffRecalculate()

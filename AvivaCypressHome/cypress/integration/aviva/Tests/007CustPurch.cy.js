@@ -97,7 +97,7 @@ describe('Customer purchase home policy', () => {
 
     // Quote page
     QuotePageAndExtras.quotePageHeading()
-    cy.pause()
+    //cy.pause()
     QuotePageAndExtras.quotePageBuyNowBtn()
 
     // Complete and pay

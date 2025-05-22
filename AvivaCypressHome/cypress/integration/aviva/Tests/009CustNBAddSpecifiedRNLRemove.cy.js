@@ -150,10 +150,10 @@ describe('Customer purchase home policy', () => {
     PortalAction.portalRenewPolicyCloseModal()
     PortalAction.portalManagePolicyWithPolicyNumber()
     PortalAction.portalRenewThisPolicy()
-    cy.pause()
+    //cy.pause()
     PortalAction.portalRenewDocsConfirm()
     QuotePageAndExtras.quotePageRemoveSpecifiedItem()
-    cy.pause()
+    //cy.pause()
 
     QuotePageAndExtras.quotePageBuyNowBtn()
     PolicyStartDateClaimsPage.coverStartCustomerQuote()

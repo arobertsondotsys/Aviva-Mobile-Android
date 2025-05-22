@@ -107,7 +107,7 @@ describe('Agent purchase home policy', () => {
     // Quotepage
     QuotePageAndExtras.quotePageHeading()
     BOAction.notes()
-    cy.pause()
+    //cy.pause()
     QuotePageAndExtras.quotePageStaffOptions()
     QuotePageAndExtras.quotePageStaffDiscounts()
     QuotePageAndExtras.quotePageStaffRecalculate()

@@ -152,7 +152,7 @@ describe('Customer purchase home policy', () => {
     QuotePageAndExtras.quotePageOptionalCoverViewOptions()
     QuotePageAndExtras.quotePageOptionalCoverAddSpecifiedItem()
   
-    cy.pause()
+    //cy.pause()
 
     QuotePageAndExtras.quotePageBuyNowBtn()
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
