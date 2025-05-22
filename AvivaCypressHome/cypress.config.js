@@ -133,10 +133,12 @@ module.exports = defineConfig({
     specPattern: '**/*.cy.js', // Default pattern
     env: {
       serverKey: '' // Set the default serverKey here QA2 is default if nothing specified
+    },
+ onBeforeBrowserLaunch(browser = {}, launchOptions) {
+      if (browser.family === 'chromium' && browser.name !== 'electron') {
+        launchOptions.args.push('--incognito')
+      }
+      return launchOptions
     }
-    
-  
   }
-  
 })
-
