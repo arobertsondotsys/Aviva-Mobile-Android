@@ -145,7 +145,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
     Logins.email()
     BOAction.searchButton()
     BOAction.policySelectButton()
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
 
     // Back date policy
     BOAction.policyToolsAgePolicyWithPolicyNumber()
@@ -184,7 +184,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
     BOAction.noEmailPolicySearch()
     BOAction.searchButton()
     BOAction.policySelectButton()
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
     BOAction.checkRenewalDocs()
   })

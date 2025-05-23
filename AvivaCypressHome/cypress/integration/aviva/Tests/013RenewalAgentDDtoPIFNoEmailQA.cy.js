@@ -145,7 +145,7 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.home()
     BOAction.noEmailPolicySearch()
     BOAction.policySelectButton()
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
 
     // Opt out of autorollover
     BOAction.selectActionDPAWithPolicyNumber()
@@ -191,7 +191,7 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.noEmailPolicySearch()
     BOAction.searchButton()
     BOAction.policySelectButton()
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
     BOAction.checkRenewalDocsNoEmail()
   })

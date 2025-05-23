@@ -36,7 +36,7 @@ describe('Agent MTA purchase', () => {
     BOAction.policySelectButton()
     BOAction.livePoliciesBTN()
     BOAction.homePolicyTab()
-    BOAction.selectActionMakeADJWithPolicyNumber()
+    BOAction.selectActionMakeADJWithPolicyNumberForAgentMTA()
     BOAction.cookiesAccept()
     MTABOAction.adjustmentType()
     MTABOAction.adjustmentContinue()

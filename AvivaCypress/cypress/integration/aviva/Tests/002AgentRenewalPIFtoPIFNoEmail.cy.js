@@ -187,7 +187,7 @@ describe('Agent can Renew a policy', () => {
         BOAction.noEmailPolicySearch()
         BOAction.policySelectButton()
         BOAction.unlockBTN()
-        BOAction.livePoliciesBTN()
+        //BOAction.livePoliciesBTN()
 
         BOAction.policyToolsAgePolicyWithPolicyNumber()
         BOAction.agePolicyPlus2()
@@ -234,7 +234,7 @@ describe('Agent can Renew a policy', () => {
         BOAction.noEmailPolicySearch()
         BOAction.searchButton()
         BOAction.policySelectButton()
-        BOAction.livePoliciesBTN()
+        //BOAction.livePoliciesBTN()
         BOAction.selectActionDocumentsWithPolicyNumber()
         BOAction.checkRenewalDocsNoEmail()
   

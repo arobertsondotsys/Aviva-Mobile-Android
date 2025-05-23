@@ -204,6 +204,18 @@ selectActionRenewalWithParagonPolicyNumber12(){
         
 }
 
+selectActionMakeADJWithPolicyNumberForAgentMTA(){
+
+    cy.readFile('policy.json').then((data) => {
+        const PolicyNumberForAgentMTA = data.PolicyNumberForAgentMTA
+        cy.getAndWait('.panel-title')
+        .contains(PolicyNumberForAgentMTA)
+        cy.xpath("//span[normalize-space()='"+PolicyNumberForAgentMTA+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Make Adjustment']")
+         })
+        
+}
+
 
 selectActionMakeADJWithPolicyNumber(){
 
@@ -369,6 +381,18 @@ selectActionDocumentsWithPolicyNumber(){
         cy.getAndWait('.panel-title')
         .contains(policyNumber)
         cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
+selectActionDocumentsWithPolicyNumberForAgentMTA(){
+
+    cy.readFile('policy.json').then((data) => {
+        const PolicyNumberForAgentMTA = data.PolicyNumberForAgentMTA
+        cy.getAndWait('.panel-title')
+        .contains(PolicyNumberForAgentMTA)
+        cy.xpath("//span[normalize-space()='"+PolicyNumberForAgentMTA+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
          })
         
@@ -1016,6 +1040,14 @@ diaryAddAdHocLetters(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_entry).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(3)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(0)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()
+    cy.wait(1000)
+    cy.go(-3)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_entry).click()
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_typeddl).select(2)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_lettertypeddl).select(4)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.diary_saveletter).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_postorprint).select(0)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.diaryletter_printsend).click()

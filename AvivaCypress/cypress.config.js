@@ -97,12 +97,12 @@ async function setupNodeEvents(on, config) {
   }
 
   // Add incognito mode for Chrome
-  on('before:browser:launch', (browser = {}, launchOptions) => {
-    if (browser.name === 'chrome') {
-      launchOptions.args.push('--incognito')
-    }
-    return launchOptions
-  })
+  // on('before:browser:launch', (browser = {}, launchOptions) => {
+  //   if (browser.name === 'chrome') {
+  //     launchOptions.args.push('--incognito')
+  //   }
+  //   return launchOptions
+  // })
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config

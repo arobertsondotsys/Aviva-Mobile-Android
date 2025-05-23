@@ -107,7 +107,7 @@ describe('Customer purchase home policy', () => {
 
     PaymentScreen.paymentCardQAWithCheck()
     ThankYouScreen.thankyouHeading()
-    ThankYouScreen.retreivePolicyNumber()
+    ThankYouScreen.retreivePolicyNumberForCustMTA()
   })
 })
   

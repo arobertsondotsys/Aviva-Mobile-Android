@@ -39,6 +39,18 @@ portalMakeADJWithPolicyNumber(){
         
 }
 
+portalMakeADJWithPolicyNumberForCustMTA(){
+
+    cy.readFile('policy.json').then((data) => {
+        const PolicyNumberForCustMTA = data.PolicyNumberForCustMTA
+        cy.getAndWait('.panel-title')
+        .contains(PolicyNumberForCustMTA)
+        cy.xpath("//span[normalize-space()='"+PolicyNumberForCustMTA+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Make Adjustment']")
+         })
+        
+}
+
 portalMortgageSelect(){
 
     cy.getAndWait(this.LoginElementLocators.PortalPageLocators.portaladj_mortgageselect).select(2)

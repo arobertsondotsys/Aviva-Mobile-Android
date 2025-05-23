@@ -27,7 +27,7 @@ describe('Customer MTA purchase', () => {
     Logins.loginEmail()
     Logins.loginPassword()
     Logins.loginPortalButton()
-    PortalAction.portalMakeADJWithPolicyNumber()
+    PortalAction.portalMakeADJWithPolicyNumberForCustMTA()
     PortalAction.portalMakeAdjustmentSelect()
     PortalAction.portalAdjustmentTypeSelect()
     PortalAction.portalAdjContinue()

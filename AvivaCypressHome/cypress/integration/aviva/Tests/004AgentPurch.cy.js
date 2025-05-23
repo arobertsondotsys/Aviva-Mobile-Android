@@ -127,7 +127,7 @@ describe('Agent purchase home policy', () => {
     // Thank you page
     ThankYouScreen.thankyouHeading()
     BOAction.notes()
-    ThankYouScreen.retreivePolicyNumber()
+    ThankYouScreen.retreivePolicyNumberForAgentMTA()
   })
 })
   
