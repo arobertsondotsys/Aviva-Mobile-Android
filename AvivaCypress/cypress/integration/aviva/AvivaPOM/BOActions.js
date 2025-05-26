@@ -78,7 +78,7 @@ home(){
 livePoliciesBTN(){
 
     cy.wait(1000)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click().click()
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click()
     cy.wait(1000)
         
 }

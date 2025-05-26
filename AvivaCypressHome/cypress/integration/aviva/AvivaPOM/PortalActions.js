@@ -43,12 +43,13 @@ portalMakeADJWithPolicyNumberForCustMTA(){
 
     cy.readFile('policy.json').then((data) => {
         const PolicyNumberForCustMTA = data.PolicyNumberForCustMTA
-        cy.getAndWait('.panel-title')
+        cy.getAndWait('.policypanels')
         .contains(PolicyNumberForCustMTA)
-        cy.xpath("//span[normalize-space()='"+PolicyNumberForCustMTA+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
-        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Make Adjustment']")
+        .closest('.d-flex.flex-column')
+            .within(() => {
+                cy.contains('Manage Policy').click({force: true})
          })
-        
+    })
 }
 
 portalMortgageSelect(){
