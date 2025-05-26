@@ -152,7 +152,11 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.optOutRollover()
 
     // Back date policy
-    BOAction.livePoliciesBTN()
+    Server.Server()
+    BOAction.home()
+    Logins.email()
+    BOAction.searchButton()
+    BOAction.policySelectButton()
     BOAction.policyToolsAgePolicyWithPolicyNumber()
     BOAction.agePolicy()
     // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)

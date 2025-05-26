@@ -145,7 +145,6 @@ describe('Agent purchase home policy renewal as autorollover', () => {
     BOAction.home()
     BOAction.noEmailPolicySearch()
     BOAction.policySelectButton()
-    //BOAction.livePoliciesBTN()
 
     // Back date policy
     BOAction.policyToolsAgePolicyWithPolicyNumber()

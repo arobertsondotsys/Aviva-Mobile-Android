@@ -48,7 +48,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
     BOAction.notes()
     AboutYouPage.proposerForenameHome()
     AboutYouPage.proposerSurnameHome()
-    AboutYouPage.proposerEmailHome()
+    AboutYouPage.proposerNoEmail()
     AboutYouPage.phone()
     AboutYouPage.dob()
     AboutYouPage.addressInput()
@@ -126,7 +126,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
     CompleteAndPayPage.completeAndPayHeading()
     BOAction.notes()
     CompleteAndPayPage.completeAndPayMortgage()
-    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
+    //CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     
     CompleteAndPayPage.completeAndPayContinue()
 
@@ -142,10 +142,8 @@ describe('Agent purchase home policy renewal on new DD', () => {
     // Navigate back to the B/O
     Server.Server()
     BOAction.home()
-    Logins.email()
-    BOAction.searchButton()
+    BOAction.noEmailPolicySearch()
     BOAction.policySelectButton()
-    //BOAction.livePoliciesBTN()
 
     // Back date policy
     BOAction.policyToolsAgePolicyWithPolicyNumber()
@@ -184,9 +182,8 @@ describe('Agent purchase home policy renewal on new DD', () => {
     BOAction.noEmailPolicySearch()
     BOAction.searchButton()
     BOAction.policySelectButton()
-    //BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
-    BOAction.checkRenewalDocs()
+    BOAction.checkRenewalDocsNoEmail()
   })
 })
 

@@ -218,6 +218,7 @@ describe('Agent can add a driver and remove at ADJ', () => {
         MTABOAction.permADJAdditionalDriver()
         MTABOAction.permADJRemoveAdditionalDriver()
         AdditionalDriversPage.additionalDriversContinue()
+        cy.wait(120000)
         CoverStartDatePage.coverStartDate()
         CoverStartDatePage.coverStartContinue()
         MTABOAction.permMTABuyNow()

@@ -67,7 +67,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/009CustNBAddSpecifiedRNLRemove.cy.js',
     'cypress/integration/aviva/Tests/010CustRNLAddSpecifiedRNLPurch.cy.js',
     'cypress/integration/aviva/Tests/011AgentPurchJointProv.cy.js',
-    'cypress/integration/aviva/Tests/012RenewalAgentNoEmailPIFtoPIF.cy.js',
+    'cypress/integration/aviva/Tests/012RenewalAgentPIFtoPIFNoEmail.cy.js',
     'cypress/integration/aviva/Tests/013RenewalAgentDDtoPIFNoEmail.cy.js',
     'cypress/integration/aviva/Tests/014RenewalAgentDDtoDDAutoRolloverNoEmail.cy.js',
     'cypress/integration/aviva/Tests/015RenewalAgentPIFtoDDNoEmail.cy.js',

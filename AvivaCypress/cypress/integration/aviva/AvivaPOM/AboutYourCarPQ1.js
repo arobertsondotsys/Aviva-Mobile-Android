@@ -6,7 +6,7 @@ export class AboutYourCarPQ1{
 
 postQuote1Heading(){
 
-    cy.reload()
+    //cy.reload()
     cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyourcar_heading).contains(this.UserData.HeadingData.PostQuote1_Heading)
     return

@@ -217,7 +217,7 @@ describe('Agent can add a driver and remove at ADJ', () => {
         //BOAction.cookiesAccept()
         MTABOAction.permADJAdditionalDriver()
         MTABOAction.permADJRemoveAdditionalDriver()
-        cy.wait(80000)
+        cy.wait(120000)
         AdditionalDriversPage.additionalDriversContinue()
         CoverStartDatePage.coverStartDate()
         CoverStartDatePage.coverStartContinue()

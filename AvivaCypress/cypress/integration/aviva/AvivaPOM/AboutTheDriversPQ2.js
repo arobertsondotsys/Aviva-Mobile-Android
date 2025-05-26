@@ -18,6 +18,7 @@ postQuote2Headingselect(){
 
 postQuote2IsResidentTrue(){
 
+    cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isresidenttrue).click()
 
 }
@@ -72,13 +73,13 @@ postQuote2IsNoIncreaseTrue(){
 
 postQuote2IsNoMedicalTrue(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicaltrue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicaltrue).click()
     
 }
 
 postQuote2IsNoMedicalFalse(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicalfalse).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isnomedicalfalse).click()
     
 }
 
@@ -166,7 +167,6 @@ postQuote2DriverNumber2(){
 postQuote2Continue(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_continue).click()
-    cy.wait(4000)
 
 }
 
