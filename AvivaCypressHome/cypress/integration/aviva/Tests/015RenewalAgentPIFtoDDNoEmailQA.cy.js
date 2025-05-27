@@ -182,7 +182,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
     BOAction.searchButton()
     BOAction.policySelectButton()
     BOAction.selectActionDocumentsWithPolicyNumber()
-    BOAction.checkRenewalDocsNoEmail()
+    BOAction.checkRenewalDocsNoEmailQA()
   })
 })
 

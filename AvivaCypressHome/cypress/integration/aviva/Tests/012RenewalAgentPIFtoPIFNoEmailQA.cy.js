@@ -180,7 +180,7 @@ describe('Agent purchase home policy renewal as PIF', () => {
     BOAction.noEmailPolicySearch()
     BOAction.policySelectButton()
     BOAction.selectActionDocumentsWithPolicyNumber()
-    BOAction.checkRenewalDocsNoEmail()
+    BOAction.checkRenewalDocsNoEmailQA()
   })
 })
   

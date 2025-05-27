@@ -154,8 +154,8 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     // Back date policy
     Server.Server()
     BOAction.home()
-    Logins.email()
-    BOAction.searchButton()
+    BOAction.noEmailPolicySearch()
+    //BOAction.searchButton()
     BOAction.policySelectButton()
     BOAction.policyToolsAgePolicyWithPolicyNumber()
     BOAction.agePolicy()
@@ -177,7 +177,7 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.returnToCustFileFromDocuments()
   
     // Purchase Home Renewal
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageFullBtnRNLswap()
@@ -195,9 +195,8 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.noEmailPolicySearch()
     BOAction.searchButton()
     BOAction.policySelectButton()
-    //BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
-    BOAction.checkRenewalDocsNoEmail()
+    BOAction.checkRenewalDocsNoEmailQA()
   })
 })
 

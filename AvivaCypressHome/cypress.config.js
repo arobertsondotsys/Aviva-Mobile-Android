@@ -8,12 +8,12 @@ async function setupNodeEvents(on, config) {
   
   require('cypress-mochawesome-reporter/plugin')(on)  
 
-  on('before:browser:launch', (browser = {}, launchOptions) => {
-    if (browser.family === 'chromium' && browser.name !== 'electron') {
-      launchOptions.args.push('--incognito')
-    }
-    return launchOptions;
-  })
+  // on('before:browser:launch', (browser = {}, launchOptions) => {
+  //   if (browser.family === 'chromium' && browser.name !== 'electron') {
+  //     launchOptions.args.push('--incognito')
+  //   }
+  //   return launchOptions;
+  // })
 
   const serverKey = config.env.serverKey || 'QA2' // Default to QA2 if no serverKey is provided
   

@@ -169,7 +169,7 @@ describe('Agent purchase home policy renewal as autorollover', () => {
     // Navigate back to B/O and check renewal docs have generated after autorollover
     BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
-    BOAction.checkRenewalDocsAutoRoloverNoEmail()
+    BOAction.checkRenewalDocsAutoRoloverNoEmailQA()
   })
 })
 
