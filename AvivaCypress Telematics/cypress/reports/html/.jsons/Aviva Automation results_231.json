@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-18T17:51:12.557Z",
+    "end": "2025-04-18T17:51:47.587Z",
+    "duration": 35030,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8119b6f8-21ef-47a9-a222-74677e2fecd0",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\CustMTATempPurchQA.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\CustMTATempPurchQA.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9a79a36a-b351-44a7-a956-6eb29477068d",
+          "title": "Customer can purchase a Temp AD",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of purchasing a Temp AD",
+              "fullTitle": "Customer can purchase a Temp AD should complete the process of purchasing a Temp AD",
+              "timedOut": null,
+              "duration": 16593,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\CustMTATempPurchQA.cy.js\\\\Customer can purchase a Temp AD -- should complete the process of purchasing a Temp AD (failed).png\"\n    ],\n    [\n      \"\\\\CustMTATempPurchQA.cy.js\\\\Customer can purchase a Temp AD -- should complete the process of purchasing a Temp AD (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "Server.Server1();\nBOAction.cookiesAccept();\ncy.getAndWait('[class^=\"a-heading a-heading--1 u-margin--top-none\"]').contains('Log in to MyAviva').and('be.visible');\nLogins.loginEmail();\nLogins.loginPassword();\nLogins.loginPortalButton();\n// cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()\nPortalAction.portalManagePolicyWithPolicyNumber();\ncy.getAndWait('#Main_btnAdjustment').click();\ncy.getAndWait('#ctl00_MainContent_ddlTempSelection').select(2, {\n  force: true\n});\ncy.window().then(win => {\n  cy.getAndWait('#btnMakeTempChange').click({\n    force: true\n  });\n  const orig = win.open;\n  win.open = function (url, targetAndWait, features) {\n    return orig.call(this, url, '_self', features);\n  };\n});\n// Input dates for temp AD\ncy.getAndWait('#mainSection > .l-section > .l-columns > .l-columns__column > .a-heading').contains('Temporarily add another driver');\ncy.getAndWait('#StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_CoverTime').type('13:00', {\n  force: true\n});\ncy.getAndWait('#EndDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_CoverEndTime').type('23:59', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_Continue').click({\n  force: true\n});\n// Input temp AD details\ncy.getAndWait('#ctl00_MainContent_DDLProposerTitle').select(1, {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_ProposerForename').type('Andy', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_ProposerSurname').type('Test', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_ProposerDOB').type('20/11/1980', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_LicenceType').select(1, {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_Continue2').click({\n  force: true\n});\n// Quote page\nMTABOAction.permMTABuyNow();\n// Payment screen\nPaymentPage.paymentCardQAWithCheck();\n// Thank you page\nThankYouPage.thankyouHeading();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Manage Policy' within the element: <div.d-flex.flex-column> but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Manage Policy' within the element: <div.d-flex.flex-column> but never did.\n    at Context.eval (webpack://avivaproject/./cypress/integration/aviva/AvivaPOM/PortalActions.js:46:19)\n    at withinFn (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:134284:8)\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:134365:16)\n    at __WEBPACK_DEFAULT_EXPORT__ (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:132223:10)\n    at Context.within (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:134351:67)\n    at wrapped (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:139910:19)",
+                "diff": null
+              },
+              "uuid": "c5c16211-c1f2-419b-80ce-042907fead4a",
+              "parentUUID": "9a79a36a-b351-44a7-a956-6eb29477068d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c5c16211-c1f2-419b-80ce-042907fead4a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16593,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

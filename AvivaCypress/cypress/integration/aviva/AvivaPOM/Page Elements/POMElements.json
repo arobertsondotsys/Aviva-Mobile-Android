@@ -206,6 +206,7 @@
     "createnewquote_btn": "#ctl00_ContentPlaceHolder1_Submit",
     "age_policytool": "[class^='dropdown policyTools']",
     "backdate_day": "#ctl00_ContentPlaceHolder1_BackDateDay",
+    "backdate_month": "#ctl00_ContentPlaceHolder1_BackDateMonth",
     "backdate_year":"#ctl00_ContentPlaceHolder1_BackDateYear",
     "backdate_confirm":"#ctl00_ContentPlaceHolder1_UpdateDate",
     "backdate_message":".alert",

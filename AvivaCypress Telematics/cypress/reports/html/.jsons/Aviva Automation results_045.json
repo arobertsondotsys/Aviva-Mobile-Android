@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-14T09:11:17.663Z",
+    "end": "2025-04-14T09:11:55.468Z",
+    "duration": 37805,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e2ee9f29-c17b-4f83-84a6-823fe96329f6",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\AgentMTATempPurch.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\AgentMTATempPurch.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "abafb5d1-5377-40bb-a847-6aace4815266",
+          "title": "Agent can purchase Temporary MTA",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of purchasing Temporary MTA",
+              "fullTitle": "Agent can purchase Temporary MTA should complete the process of purchasing Temporary MTA",
+              "timedOut": null,
+              "duration": 35760,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server();\n// Log in\nLogins.company();\nLogins.username();\nLogins.password();\nLogins.loginButton();\n// Search for Customer file\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\n// Open policy\nBOAction.livePoliciesBTN();\n// Select Make adjustment and revert window back to current window\nBOAction.selectActionMakeADJWithPolicyNumber();\n// Select to perform a temporary adjustment on TSV\nBOAction.cookiesAccept();\ncy.getAndWait('#ctl00_MainContent_ddlTempSelection').select('TSV', {\n  force: true\n});\ncy.getAndWait('#btnMakeTempChange').click({\n  force: true\n});\n// Enter date for TSV\ncy.getAndWait('#mainSection > .l-section > .l-columns > .l-columns__column > .a-heading').contains('Temporary substitution of my car');\ncy.getAndWait('#StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'), {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_CoverTime').type('13:00', {\n  force: true\n});\ncy.getAndWait('#EndDate').type(day().add(2, 'day').format('DD/MM/YYYY'), {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_CoverEndTime').type('23:59', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_Continue').click({\n  force: true\n});\n// Enter TSV details\ncy.getAndWait('#divEnterCarReg > :nth-child(1) > .a-label').contains('Enter car registration number');\ncy.wait(1000);\ncy.getAndWait('#VehicleRegistration').type('12D101', {\n  force: true\n});\ncy.wait(1000);\ncy.getAndWait('#ctl00_MainContent_btnFindCar').click({\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_btnConfirmReg').click({\n  force: true\n});\ncy.getAndWait('#IsModified-no', {\n  allowHidden: true\n}).click({\n  force: true\n});\ncy.getAndWait('#Continue2').click({\n  force: true\n});\n// Quote screen\ncy.getAndWait('#ctl00_MainContent_NoPaymentPerma > .a-heading').should('have.text', 'No payment required ');\ncy.getAndWait('#ctl00_MainContent_Continue').click({\n  force: true\n});\n// Thank you page\ncy.getAndWait('.m-heading-group__item').contains('Thank you');",
+              "err": {},
+              "uuid": "ebe6a6af-8e04-4b7d-a3f2-280e9f91d017",
+              "parentUUID": "abafb5d1-5377-40bb-a847-6aace4815266",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ebe6a6af-8e04-4b7d-a3f2-280e9f91d017"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 35760,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

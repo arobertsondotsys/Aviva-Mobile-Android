@@ -1,0 +1,134 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-14T09:20:24.585Z",
+    "end": "2025-04-14T09:20:37.731Z",
+    "duration": 13146,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0c36787d-e214-4774-876a-2487ea18f253",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\PortalLogin.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\PortalLogin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8ed3d337-f056-4d62-9198-db6cc7511cc5",
+          "title": "Portal Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User is on Home Page",
+              "fullTitle": "Portal Login Tests User is on Home Page",
+              "timedOut": null,
+              "duration": 6237,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server1();\nBOAction.cookiesAccept();\ncy.getAndWait('[class^=\"a-heading a-heading--1 u-margin--top-none\"]').contains('Log in to MyAviva').and('be.visible');\nLogins.loginEmail();\nLogins.loginPassword();\nLogins.loginPortalButton();\ncy.getAndWait('#Main_BreadcrumbHeading').contains('Welcome to MyAviva').and('be.visible');\n//cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()\ncy.getAndWait('.o-masthead__logged-in-link').click();\ncy.getAndWait('#btnMenuLogOut').click({\n  force: true\n});\ncy.getAndWait('[class^=\"a-heading a-heading--1 u-margin--top-none\"]').contains('Log in to MyAviva').and('be.visible');\ncy.go('back');\ncy.go('forward');",
+              "err": {},
+              "uuid": "87ebbf5c-9a53-411d-9728-2924be351836",
+              "parentUUID": "8ed3d337-f056-4d62-9198-db6cc7511cc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "User enters invalid email, password and clicks login button",
+              "fullTitle": "Portal Login Tests User enters invalid email, password and clicks login button",
+              "timedOut": null,
+              "duration": 2585,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\PortalLogin.cy.js\\\\Portal Login Tests -- User enters invalid email, password and clicks login button (failed).png\"\n    ],\n    [\n      \"\\\\PortalLogin.cy.js\\\\Portal Login Tests -- User enters invalid email, password and clicks login button (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "Server.Server1();\nBOAction.cookiesAccept();\nLogins.loginEmail1();\nLogins.loginPassword1();\ncy.getAndWait('#loginPassword').click();\ncy.getAndWait('#RE__ProposerEmailRE').contains('Your email does not match the standard format for emails').and('be.visible');\nLogins.loginEmail2();\nLogins.loginPassword1();\nLogins.loginPortalButton();\ncy.getAndWait('#loginerror').contains('Your username and/or password is invalid.').and('be.visible');\ncy.getAndWait('#loginEmail').clear();\ncy.getAndWait('#loginPassword').click();\ncy.getAndWait('#RF__ProposerEmail').contains('Please enter your email address').and('be.visible');\ncy.getAndWait('#loginPassword').click();\ncy.getAndWait('#btnLogin').click();\ncy.getAndWait('#RequiredFieldValidator5').contains('Please enter your password').and('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.type()` failed because it targeted a disabled element.\n\nThe element typed into was:\n\n  > <input name=\"loginPassword\" type=\"password\" maxlength=\"20\" id=\"loginPassword\" tabindex=\"2\" class=\"a-textbox\" autocomplete=\"off\">\n\nEnsure the element does not have an attribute named `disabled` before typing into it.\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` failed because it targeted a disabled element.\n\nThe element typed into was:\n\n  > <input name=\"loginPassword\" type=\"password\" maxlength=\"20\" id=\"loginPassword\" tabindex=\"2\" class=\"a-textbox\" autocomplete=\"off\">\n\nEnsure the element does not have an attribute named `disabled` before typing into it.\n\nhttps://on.cypress.io/type\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:115817:78)\n    at tryCatcher (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://avivaproject/./cypress/support/commands.js:69:8)\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118795:17)\n    at tryCatcher (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.shouldFnWithCallback (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118792:66)\n    at Context.shouldFn (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118835:37)\n    at Context.should (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118954:23)\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:144836:39)",
+                "diff": null
+              },
+              "uuid": "1e421fe8-e5e2-41bf-81d7-57ec29014a4d",
+              "parentUUID": "8ed3d337-f056-4d62-9198-db6cc7511cc5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "87ebbf5c-9a53-411d-9728-2924be351836"
+          ],
+          "failures": [
+            "1e421fe8-e5e2-41bf-81d7-57ec29014a4d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8822,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
