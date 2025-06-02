@@ -63,6 +63,7 @@ describe('Agent can purchase a policy via back office', () => {
         BOAction.cookiesAccept()
 
         // Complete section 1 "About you"
+        AboutYouPage.checkForNoEmailTicked()
         AboutYouPage.aboutYouTitle()
         BOAction.notes()
         AboutYouPage.proposerTitle()

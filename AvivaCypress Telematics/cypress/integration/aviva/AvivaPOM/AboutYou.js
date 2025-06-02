@@ -3,6 +3,16 @@ export class AboutYou{
     LoginElementLocators = require('../AvivaPOM/Page Elements/POMElements.json')
     UserData = require('../AvivaPOM/Page Elements/POMInput.json')
 
+checkForNoEmailTicked(){
+
+    cy.get('#divEmailCheckbox > .a-checkbox > .a-checkbox__label input[type="checkbox"]')
+    .then($checkbox => {
+    if ($checkbox.is(':checked')) {
+      cy.wrap($checkbox).uncheck({ force: true })
+    }
+  })
+}
+
 aboutYouTitle(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyou_title).contains(this.UserData.HeadingData.AboutYou_Heading)

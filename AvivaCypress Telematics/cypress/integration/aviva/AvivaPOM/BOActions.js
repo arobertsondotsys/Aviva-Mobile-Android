@@ -39,15 +39,16 @@ cookiesAccept(){
     //     }
     // })
 
-
-    cy.getAndWait('.ot-sdk-container > .ot-sdk-row').then(($body) => {
-        if ($body.find('#onetrust-accept-btn-handler').length > 0) {
-            cy.getAndWait('#onetrust-accept-btn-handler').click()
-        } else {
-            cy.log('Element not found')
+    cy.wait(2000)
+    cy.get('body').then($body => {
+        // Check if the cookie banner title is visible
+        if ($body.find('#onetrust-policy-title:visible').length) {
+            cy.get('#onetrust-accept-btn-handler', { timeout: 10000 })
+              .should('be.visible')
+              .click({ force: true });
         }
-    })
-
+        // If not visible, do nothing and continue
+    });
 }
 
 removeAttr(){
