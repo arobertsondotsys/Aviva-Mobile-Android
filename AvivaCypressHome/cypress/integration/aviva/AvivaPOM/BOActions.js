@@ -15,14 +15,11 @@ cookiesAccept(){
     //     }
     // })
 
-    cy.getAndWait('.ot-sdk-container > .ot-sdk-row').then(($body) => {
-        if ($body.find('#onetrust-accept-btn-handler').length > 0) {
-            cy.getAndWait('#onetrust-accept-btn-handler').click()
-        } else {
-            cy.log('Element not found')
+         cy.get('body').then($body => {
+        if ($body.find('#onetrust-accept-btn-handler').length) {
+            cy.get('#onetrust-accept-btn-handler').click()
         }
     })
-
 }
 
 searchButton(){
