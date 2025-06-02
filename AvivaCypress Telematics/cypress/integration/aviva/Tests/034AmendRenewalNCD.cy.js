@@ -10,6 +10,7 @@ import { YourClaims } from "../AvivaPOM/YourClaims"
 import { PenaltyPoints } from "../AvivaPOM/PenaltyPoints"
 import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
 import { QuotePage } from "../AvivaPOM/QuotePage"
+import { ConsentPage } from "../AvivaPOM/ConsentPage"
 import { AboutYourCarPQ1 } from "../AvivaPOM/AboutYourCarPQ1"
 import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
 import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
@@ -35,6 +36,7 @@ const YourClaimsPage = new YourClaims()
 const PenaltyPointsPage = new PenaltyPoints()
 const CoverStartDatePage = new CoverStartDate()
 const QuotePageAndExtras = new QuotePage()
+const TelematicsConsentPage = new ConsentPage()
 const AboutYourCarPage = new AboutYourCarPQ1()
 const AboutTheDriversPage = new AboutTheDriversPQ2()
 const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
@@ -131,6 +133,13 @@ describe('Agent can Amend renewal NCD', () => {
         QuotePageAndExtras.quotePageHeading()
         BOAction.notes()
         QuotePageAndExtras.buyNowBtn()
+
+        //Telematics Consent Page
+        TelematicsConsentPage.telematicsConsentHeading()
+        //TelematicsConsentPage.telematicsConsentEmail()
+        TelematicsConsentPage.telematicsConsentEmailConfirm()
+        TelematicsConsentPage.telematicsConsentCheckBox()
+        TelematicsConsentPage.telematicsConsentContinue()
 
         // Complete post quote 1 "About you car"
         AboutYourCarPage.postQuote1Heading()

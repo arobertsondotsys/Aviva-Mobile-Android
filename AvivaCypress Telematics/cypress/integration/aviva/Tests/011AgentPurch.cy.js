@@ -172,6 +172,7 @@ describe('Agent can purchase a policy via back office', () => {
         YourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue()
         YourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue()
         YourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaFalse()
+        cy.pause()
         YourInsHistoryAndIncepDetsPage.postQuote3PostCert()
         YourInsHistoryAndIncepDetsPage.postQuote3PostDocs()
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
