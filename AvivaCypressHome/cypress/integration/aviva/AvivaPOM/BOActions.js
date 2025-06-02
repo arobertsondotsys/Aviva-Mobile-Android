@@ -15,11 +15,19 @@ cookiesAccept(){
     //     }
     // })
 
-         cy.get('body').then($body => {
-        if ($body.find('#onetrust-accept-btn-handler').length) {
-            cy.get('#onetrust-accept-btn-handler').click()
+    cy.get('body').then($body => {
+        // Check if the cookie banner is visible and contains the word "Cookies"
+        if (
+            $body.find('#onetrust-accept-btn-handler').length &&
+            $body.text().toLowerCase().includes('cookies')
+        ) {
+            cy.get('#onetrust-accept-btn-handler')
+              .should('be.visible')
+              .click({ force: true });
+        } else {
+            cy.log('Cookie banner not visible or does not contain "Cookies"');
         }
-    })
+    });
 }
 
 searchButton(){
