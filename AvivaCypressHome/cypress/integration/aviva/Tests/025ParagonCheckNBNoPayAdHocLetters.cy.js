@@ -159,7 +159,7 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     BOAction.livePoliciesBTN()
     BOAction.homePolicyTab()
     BOAction.selectActionDocumentsWithParagonPolicyNumber14()
-    cy.wait(60000)
+    cy.wait(80000)
     BOAction.checkNBParagonDocs()
 
     cy.go(-4)

@@ -5,7 +5,7 @@ export class AboutYou{
 
 checkForNoEmailTicked(){
 
-    cy.get('#divEmailCheckbox > .a-checkbox > .a-checkbox__label input[type="checkbox"]')
+    cy.get('#chkNoEmail')
     .then($checkbox => {
     if ($checkbox.is(':checked')) {
       cy.wrap($checkbox).uncheck({ force: true })

@@ -5,7 +5,7 @@ export class AboutTheDriversPQ2{
 
 
 postQuote2Heading(){
-
+    
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_heading).contains(this.UserData.HeadingData.PostQuote2_Heading)
 
 }
@@ -18,9 +18,8 @@ postQuote2Headingselect(){
 
 postQuote2IsResidentTrue(){
 
-    cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isresidenttrue).click()
-
+    
 }
 
 postQuote2IsMainDriverTrue(){

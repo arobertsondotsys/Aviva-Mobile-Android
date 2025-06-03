@@ -146,7 +146,9 @@
 
     "aboutthedrivers_heading": "#div2", 
     "aboutthedrivers_isresidenttrue": "#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isresidentfalse": "#IsResident-False > .a-radio > .a-radio__label",
     "aboutthedrivers_ismaindrivertrue": "#IsMainDriver-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_ismaindriverfalse": "#IsMainDriver-False > .a-radio > .a-radio__label",
     "aboutthedrivers_isnotothercartrue": "#IsNotOtherCar-True > .a-radio > .a-radio__label > .a-radio__label-inner",
     "aboutthedrivers_isnototherinstrue": "#IsNotOtherInsurance-True > .a-radio > .a-radio__label > .a-radio__label-inner",
     "aboutthedrivers_isnoconvtrue": "#IsNoConvictions-True > .a-radio > .a-radio__label > .a-radio__label-inner",
