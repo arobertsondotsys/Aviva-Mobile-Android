@@ -66,7 +66,7 @@ quotePagePNCDStepBack(){
 
 buyNowBtn(){
 
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.buynow_btn).click().wait(1000)
 
 }
@@ -88,7 +88,7 @@ selectStaffDiscount(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountheading).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountselect).select(1)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountrecalc).click()
-    cy.wait(2000)
+    //cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_nodiscountheading).should('contain', 'Call centre customer - No online discount')
 
 }

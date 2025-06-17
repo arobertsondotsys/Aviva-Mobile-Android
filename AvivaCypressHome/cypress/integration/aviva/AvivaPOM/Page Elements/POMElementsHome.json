@@ -209,7 +209,7 @@
 
     "diarycorres_heading": ".a-heading--1",
     "diarycorres_continue": "#MainContent_Summary",
-    "diarycorres_valuationreciept": "[style='font-style:normal;'] > :nth-child(1",   
+    "diarycorres_valuationreciept": "[style='font-style:normal;'] > :nth-child(1)",   
     
 
     "thankyou_heading": ".m-heading-group__item"

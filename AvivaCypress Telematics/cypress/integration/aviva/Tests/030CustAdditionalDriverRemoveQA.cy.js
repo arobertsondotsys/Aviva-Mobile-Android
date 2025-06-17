@@ -242,7 +242,7 @@ describe('Customer can add a driver and remove at ADJ', () => {
         // Select to perform a permanent adjustment on Additional drivers
         MTABOAction.permADJRemoveAdditionalDriver()
         
-        cy.wait(2000)
+        //cy.wait(2000)
         cy.getAndWait('#Continue5').click()
         cy.getAndWait('#ctl00_MainContent_StartDate').type(day().format('DD/MM/YYYY'),{force:true})
         cy.getAndWait('#ctl00_MainContent_Continue8').click({force:true})

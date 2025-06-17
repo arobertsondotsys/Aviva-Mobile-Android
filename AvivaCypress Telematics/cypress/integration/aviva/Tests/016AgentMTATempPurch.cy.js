@@ -51,14 +51,14 @@ describe('Agent can purchase Temporary MTA', () => {
         
         // Enter TSV details
         cy.getAndWait('#divEnterCarReg > :nth-child(1) > .a-label').contains('Enter car registration number')
-        cy.wait(1000)
+        //cy.wait(1000)
         cy.getAndWait('#VehicleRegistration').type('12D101', {force: true})
-        cy.wait(1000)
+        //cy.wait(1000)
         cy.getAndWait('#ctl00_MainContent_btnFindCar').click({force: true})
         cy.getAndWait('#ctl00_MainContent_btnConfirmReg').click({force: true})
-        cy.wait(1000)
+        //cy.wait(1000)
         cy.getAndWait('#IsModified-no', { allowHidden: true }).click({force: true})
-        cy.wait(1000)
+        //cy.wait(1000)
         cy.getAndWait('#Continue2').click({force: true})
         
         // Quote screen

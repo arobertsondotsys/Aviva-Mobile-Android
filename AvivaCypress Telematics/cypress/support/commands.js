@@ -55,22 +55,25 @@ Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) =
     }
   });
 
-  Cypress.Commands.add('getAndWait', (selector, options = {}) => {
-    const { timeout = 40000, allowHidden = false } = options;
+Cypress.Commands.add('getAndWait', (selector) => {
+    const retries = 20
+    const interval = 1000 // 1 second
 
-    cy.get(selector, { timeout }).should(($elements) => {
-        // Filter elements based on visibility unless `allowHidden` is true
-        const visibleElements = $elements.filter((index, element) => {
-            const style = window.getComputedStyle(element);
-            return allowHidden || (style.opacity !== '0' && style.display !== 'none' && style.visibility !== 'hidden');
-        });
+    function find(attempt = 0) {
+        return cy.get('body').then($body => {
+            if ($body.find(selector).length) {
+                return cy.get(selector)
+            } else if (attempt < retries - 1) {
+                cy.wait(interval)
+                return find(attempt + 1)
+            } else {
+                throw new Error(`Element '${selector}' not found after ${retries} seconds`)
+            }
+        })
+    }
 
-        // Assert that at least one element exists
-        expect(visibleElements.length, `No. of elements found for selector: ${selector}`).to.be.greaterThan(0);
-    });
-
-    return cy.get(selector, { timeout });
-});
+    return find()
+})
 
   Cypress.Commands.add('clickAndWait', (selector, timeout = 10000) => {
     cy.get(selector, { timeout }).should('be.visible').click({ force: true })

@@ -18,7 +18,7 @@ export class PolicyStartDateClaims{
     coverStartDate(){
 
         const day = require('dayjs')
-        cy.wait(1000)
+        ////cy.wait(1000)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_date).type(day().format('DD/MM/YYYY'))
 
     }

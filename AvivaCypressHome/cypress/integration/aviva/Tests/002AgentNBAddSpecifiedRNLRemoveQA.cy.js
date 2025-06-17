@@ -164,7 +164,7 @@ describe('Agent purchase home policy', () => {
     BOAction.livePoliciesBTN()
   
     // Purchase Home Renewal
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageRemoveSpecifiedItem()

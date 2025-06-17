@@ -205,7 +205,7 @@ describe('Agent can purchase a policy via back office', () => {
         // cy.get('#ctl00_ContentPlaceHolder1_chkScrutiny').click()
         // cy.get('#ctl00_ContentPlaceHolder1_ShowContinuePopup').click()
         // cy.get('#ctl00_ContentPlaceHolder1_Save > span').click()
-        // cy.wait(2000)
+        // //cy.wait(2000)
 
         // cy.go('back')
 
@@ -262,14 +262,14 @@ describe('Agent can purchase a policy via back office', () => {
         // cy.get('#ctl00_MainContent_ddlPremiumAdjustmentType').select(1)
         // cy.get('ctl00_MainContent_txtAdjustmentAmount').type('50')
         // cy.get('#ctl00_MainContent_btnRecalculate').click()
-        // cy.wait(2000)
+        // //cy.wait(2000)
         // cy.get('#ctl00_MainContent_btnApplyAdjustment').click()
 
         // cy.get('#ctl00_MainContent_btnShowPremiumAdjustment').click()
         // cy.get('#ctl00_MainContent_ddlPremiumAdjustmentType').select(2)
         // cy.get('ctl00_MainContent_txtAdjustmentAmount').type('50')
         // cy.get('#ctl00_MainContent_btnRecalculate').click()
-        // cy.wait(2000)
+        // //cy.wait(2000)
         // cy.get('#ctl00_MainContent_btnApplyAdjustment').click()
 
         // cy.get('#ctl00_MainContent_btnOverrideQuote').click()

@@ -18,7 +18,7 @@ claimsTrue(){
 
 claimsFalse1st(){
 
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_false, { allowHidden: true }).first().click({force: true})
 
 }
@@ -31,7 +31,7 @@ claimsFalseLast(){
 
 claimsContinue(){
 
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_continue).click({force: true})
 
 }

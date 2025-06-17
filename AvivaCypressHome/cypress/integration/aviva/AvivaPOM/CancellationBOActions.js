@@ -36,7 +36,7 @@ export class CancellationBOActions{
     cancellationContinue(){
 
         cy.getAndWait(this.LoginElementLocators.CancPageLocators.cancellation_continue).click()
-        cy.wait(1000)
+        ////cy.wait(1000)
 
     }
 

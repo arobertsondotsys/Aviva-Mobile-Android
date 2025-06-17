@@ -57,7 +57,7 @@ phone(){
 
 aboutYouContinue(){
 
-    cy.wait(1000)
+    cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyou_continue).click()
 
 }

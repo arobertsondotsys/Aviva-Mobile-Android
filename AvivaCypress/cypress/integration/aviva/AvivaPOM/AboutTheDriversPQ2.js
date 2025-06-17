@@ -18,7 +18,7 @@ postQuote2Headingselect(){
 
 postQuote2IsResidentTrue(){
 
-    cy.wait(2000)
+    //cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isresidenttrue).click()
 
 }
@@ -122,7 +122,7 @@ postQuote2addMedicalConditionInformed(){
 postQuote2addMedicalConditionSave(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_addmedicalcon_save).click({force: true})
-    cy.wait(1000)
+    //cy.wait(1000)
     
 }
 
@@ -148,7 +148,7 @@ postQuote2MedicalRemoveBTN(){
 postQuote2DriverNumber(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_drivernum).type(this.UserData.InputData.Driver_Number)
-    cy.wait(2000)
+    //cy.wait(2000)
 
 }
 

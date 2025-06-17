@@ -2,9 +2,45 @@ const { defineConfig } = require("cypress")
 const fs = require('fs')
 const pdf = require('pdf-parse')
 const path = require('path')
+const xlsx = require('xlsx');
 require('cypress-mochawesome-reporter/plugin')
 
 async function setupNodeEvents(on, config) {
+
+   on('task', {
+  readExcel({ filePath, sheetName }) {
+    const workbook = xlsx.readFile(path.resolve(filePath))
+    const worksheet = workbook.Sheets[sheetName];
+    return xlsx.utils.sheet_to_json(worksheet);
+  },
+  writePolicyNumberToExcel({ filePath, sheetName, rowIndex, policyNumber }) {
+    const workbook = xlsx.readFile(path.resolve(filePath));
+    const worksheet = workbook.Sheets[sheetName];
+    const json = xlsx.utils.sheet_to_json(worksheet, { header: 1 });
+
+    // Find the PolicyNumbers column index
+    const headerRow = json[0];
+    const policyColIndex = headerRow.indexOf('PolicyNumbers');
+    if (policyColIndex === -1) throw new Error('PolicyNumbers column not found');
+
+    // Ensure the row exists
+    if (!json[rowIndex + 1]) {
+    // Create an empty row with the right number of columns
+    json[rowIndex + 1] = Array(headerRow.length).fill('');
+    }
+
+    // Write the policy number to the correct row (rowIndex is 0-based for data, +1 for header)
+    json[rowIndex + 1][policyColIndex] = policyNumber;
+
+    // Write back to worksheet and file
+    const newWorksheet = xlsx.utils.aoa_to_sheet(json);
+    workbook.Sheets[sheetName] = newWorksheet;
+    xlsx.writeFile(workbook, path.resolve(filePath));
+    return null;
+  }
+})
+
+      
 
   const serverKey = config.env.serverKey || 'QA2'; // Default to QA2 if no serverKey is provided
   
@@ -15,6 +51,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/003ReportsCheck.cy.js',
     // 'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
     // 'cypress/integration/aviva/Tests/A.cy.js',
+    'cypress/integration/aviva/Tests/C.cy.js',
     'cypress/integration/aviva/Tests/004Add7DriversAgent.cy.js',
     'cypress/integration/aviva/Tests/005Add7DriversCust.cy.js',
     'cypress/integration/aviva/Tests/006ParagonQueueNYY.cy.js',
@@ -95,6 +132,7 @@ async function setupNodeEvents(on, config) {
   } else if (['TEST2LOADED', 'DEMO', 'TEST3FAT', 'TEST4E2E', 'TEST5PRICING', 'TEST6TRAINING', 'TEST7HOTFIX', 'TEST8CRMIGRATION', 'TEST9FATMIGRATION', 'TEST10PRODMIGRATION', 'GCCPRE'].includes(serverKey)) {
     config.specPattern = demoSpecPattern
   }
+  
 
   // Add incognito mode for Chrome
   // on('before:browser:launch', (browser = {}, launchOptions) => {
@@ -106,6 +144,7 @@ async function setupNodeEvents(on, config) {
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config
+  
 }
 
 module.exports = defineConfig({

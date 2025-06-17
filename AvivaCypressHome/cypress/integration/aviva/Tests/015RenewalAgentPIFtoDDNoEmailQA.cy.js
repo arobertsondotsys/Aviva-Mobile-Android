@@ -171,7 +171,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
   
     PaymentScreen.RNLDDQA()
     PaymentScreen.paymentCardQAAgent()
-    cy.wait(4000)
+    //cy.wait(4000)
 
     ThankYouScreen.thankyouHeading()
 

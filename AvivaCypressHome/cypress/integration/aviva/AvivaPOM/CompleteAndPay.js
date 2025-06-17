@@ -25,7 +25,7 @@ export class CompleteAndPay{
     completeAndPayCheckBox(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.completeandpay_checkbox).click({force:true})
-        cy.wait(1000)
+        ////cy.wait(1000)
 
     }
 
@@ -37,7 +37,7 @@ export class CompleteAndPay{
 
     completeAndPayContinue(){
 
-        cy.wait(1000)
+        ////cy.wait(1000)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.completeandpay_continue).click()
 
     }

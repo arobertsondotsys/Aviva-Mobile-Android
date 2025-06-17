@@ -23,7 +23,7 @@ additionalDriversTrue(){
 
 additionalDriversContinue(){
 
-    cy.wait(2000)
+    //cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_continue).click({force: true})
 
 }
@@ -66,16 +66,16 @@ additionalDriver1LicenceType(){
 
 additionalDriver1LicenceYears(){
 
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
 
 }
 
 addionalDriver1DriverNumber(){
 
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_drivernumber).type(this.UserData.InputData.AD1_DriverNum)
-    cy.wait(1000)
+    //cy.wait(1000)
 
 }
 
@@ -94,7 +94,7 @@ additionalDriver1SpouseOwnVehFalse(){
 additionalDriver1Save(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
-    cy.wait(2000)
+    //cy.wait(2000)
 
 }
 
@@ -144,7 +144,7 @@ additionalDriver4(){
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(2)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
-    cy.wait(2000)
+    //cy.wait(2000)
 
 }
 
@@ -160,7 +160,7 @@ additionalDriver5(){
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(8)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
-    cy.wait(2000)
+    //cy.wait(2000)
 
 }
 
@@ -176,7 +176,7 @@ additionalDriver6(){
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_relationship).select(7)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
-    cy.wait(2000)
+    //cy.wait(2000)
 
 }
 

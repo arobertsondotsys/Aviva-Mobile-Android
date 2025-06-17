@@ -30,7 +30,7 @@ describe('Change policy ownership', () => {
 
         // Check if dropdown exists and handle accordingly
         cy.contains('Live Policies').click()
-        cy.wait(3000)
+        //cy.wait(3000)
         cy.get('body').then(($body) => {
             if ($body.find('[class^="dropdown selectAction"]').length === 0) {
                 cy.log('No Policy found, ending test.')

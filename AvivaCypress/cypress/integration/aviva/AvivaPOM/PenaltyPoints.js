@@ -29,7 +29,7 @@ ppFalseLast(){
 
 ppContinue(){
 
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_continue).click({force: true})
 
 }

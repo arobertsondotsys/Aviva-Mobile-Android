@@ -69,7 +69,7 @@ describe('Policy Purchase with NYY', () => {
         // Complete section 2 "Personal details"
         PersonalDetailsPage.personalDetailsTitle()
         PersonalDetailsPage.addressInput()
-        cy.wait(2000)
+        //cy.wait(2000)
         PersonalDetailsPage.addressSuggest()
         PersonalDetailsPage.addressSelect()
         PersonalDetailsPage.addressConfirm()
@@ -78,13 +78,13 @@ describe('Policy Purchase with NYY', () => {
         PersonalDetailsPage.licenceType()
         PersonalDetailsPage.licenceYears()
         PersonalDetailsPage.personlaDetailsContinue()
-        cy.wait(2000)
+        //cy.wait(2000)
         
         // Complete section 3 "Insurance details"
         InsuranceDetailsPage.insuranceDetailsTitle()
         BOAction.notes()
         InsuranceDetailsPage.drivingExp()
-        cy.wait(2000)
+        //cy.wait(2000)
         InsuranceDetailsPage.drivingExpYears()
         InsuranceDetailsPage.carUse()
         InsuranceDetailsPage.insuranceDetailsContinue()
@@ -95,9 +95,9 @@ describe('Policy Purchase with NYY', () => {
         CarDetailsPage.carRegYes()
         CarDetailsPage.carRegInput()
         CarDetailsPage.findCarBTN()
-        cy.wait(3000)
+        //cy.wait(3000)
         CarDetailsPage.confirmCarBTN()
-        cy.wait(3000)
+        //cy.wait(3000)
         CarDetailsPage.carValueInput()
         CarDetailsPage.carModifiedFalse()
         CarDetailsPage.carDetailsContinue()
@@ -111,9 +111,9 @@ describe('Policy Purchase with NYY', () => {
         // Complete section 6 "Your claims"
         BOAction.notes()
         YourClaimsPage.claimsHeading()
-        cy.wait(2000)
+        //cy.wait(2000)
         YourClaimsPage.claimsFalse1st()
-        cy.wait(2000)
+        //cy.wait(2000)
         YourClaimsPage.claimsContinue()
 
         // Complete section 7 "Penalty points"
@@ -166,9 +166,9 @@ describe('Policy Purchase with NYY', () => {
         cy.get('#IsNCDROI-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
         cy.get('#IsNotOtherNCD-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
         cy.get('#IsWithinExpiry-True > .a-radio > .a-radio__label > .a-radio__label-inner').click({force: true})
-        cy.wait(2000)
+        //cy.wait(2000)
         cy.get('#IsMyAviva-False > .a-radio > .a-radio__label').click({force: true})
-        cy.wait(2000)
+        //cy.wait(2000)
         cy.get('#IsPostCert-yes').click({force: true})
         cy.get('#IsPostDocs-yes').click({force: true})
         
@@ -178,7 +178,7 @@ describe('Policy Purchase with NYY', () => {
 
         // Payment type screen - selecting "No payment required"
         cy.get('#ctl00_divNotes > .a-button').should('be.visible')
-        cy.wait(4000)
+        //cy.wait(4000)
         cy.get('#ctl00_MainContent_PaymentType').select(2)
         cy.get('#ctl00_MainContent_NoPay').click({force: true})
 

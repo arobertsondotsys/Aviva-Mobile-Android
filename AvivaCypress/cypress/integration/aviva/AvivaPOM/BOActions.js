@@ -80,9 +80,9 @@ home(){
 
 livePoliciesBTN(){
 
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.livepolicy_btn).click()
-    cy.wait(1000)
+    //cy.wait(1000)
         
 }
 
@@ -500,7 +500,7 @@ checkRenewalInviteDocsNoEmail(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Statement Of Fact')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain', 'Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
@@ -518,7 +518,7 @@ checkRenewalDocsNoEmail(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain','Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Certificate of no claims')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Cover Letter')

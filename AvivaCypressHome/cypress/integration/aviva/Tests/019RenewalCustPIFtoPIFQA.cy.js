@@ -169,7 +169,7 @@ describe('Customer purchase home policy renewal as PIF', () => {
     CompleteAndPayPage.completeAndPayContinue()
   
     PaymentScreen.paymentCardQAWithCheck()
-    cy.wait(4000)
+    //cy.wait(4000)
 
     ThankYouScreen.thankyouHeading()
 

@@ -30,7 +30,7 @@ describe('Change policy ownership', () => {
 
         // Check if dropdown exists and handle accordingly
         cy.contains('Live Policies').click()
-        cy.wait(3000)
+        //cy.wait(3000)
         cy.get('body').then(($body) => {
             if ($body.find('[class^="dropdown selectAction"]').length === 0) {
                 cy.log('No Policy found, ending test.')
@@ -45,10 +45,10 @@ describe('Change policy ownership', () => {
         function ChangePolicyOwnerShip() {
             // Select last policy and Policy Ownership
             BOAction.livePoliciesBTN()
-            cy.get('[class^="dropdown selectAction"]').last().click({ force: true }).contains('Policy Ownership').invoke("removeAttr", "target").click({ force: true })
+            cy.get('[class^="dropdown selectAction"]').first().click({ force: true }).contains('Policy Ownership').invoke("removeAttr", "target").click({ force: true })
 
             // Change ownership
-            cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingMay2025@DOTSYS.co.uk')
+            cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingJun2025@DOTSYS.co.uk')
             cy.get('#ctl00_ContentPlaceHolder1_ChangeOwnership').click()
             cy.get('#ctl00_ContentPlaceHolder1_SuccessMessage').contains('The policy has now been re-registered')
             cy.go('back')

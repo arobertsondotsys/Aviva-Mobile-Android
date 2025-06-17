@@ -72,7 +72,7 @@ adjustmentBuyContinue(){
 
 adjustmentContinueToPayment(){
 
-    cy.wait(1000)
+    ////cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.adjustment_continuetopayment).click({force: true})
         
 }

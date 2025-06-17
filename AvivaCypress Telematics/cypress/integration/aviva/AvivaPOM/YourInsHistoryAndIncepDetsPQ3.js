@@ -13,19 +13,19 @@ postQuote3Heading(){
 
 postQuote3NCDROITrue(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_isncdroitrue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_isncdroitrue).click()
 
 }
 
 postQuote3NoOtherNCDTrue(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_nootherncdtrue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_nootherncdtrue).click()
 
 }
 
 postQuote3WithinExpiryTrue(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_withinexptrue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_withinexptrue).click()
 
 }
 
@@ -43,13 +43,13 @@ postQuote3OtherCar(){
 
 postQuote3IsMyAvivaTrue(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click()
 
 }
 
 postQuote3IsMyAvivaFalse(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_ismyavivatrue).click()
 
 }
 
@@ -79,14 +79,14 @@ postQuote3PostDocsFalse(){
 
 postQuote3CustomerQuoteTsAndCs(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck).click()
 
 }
 
 
 postQuote3Continue(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_continue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.inshistory_continue).click()
 
 }
 

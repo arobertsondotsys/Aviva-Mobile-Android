@@ -112,7 +112,7 @@ bizStatus() {
                         // Check if value is '1'
                         if ($el.val() !== '1') {
                             if (attempt < 3) {
-                                cy.wait(1000)
+                                ////cy.wait(1000)
                                 trySelect(attempt + 1)
                             } else {
                                 throw new Error('Failed to select business status after 3 attempts');
@@ -127,7 +127,7 @@ bizStatus() {
 
 aboutYouContinueHome(){
 
-    cy.wait(1000)
+    ////cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyou_continue).click()
     
 
@@ -135,7 +135,7 @@ aboutYouContinueHome(){
 
 aboutYouContinueHome(){
 
-    cy.wait(1000)
+    ////cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutyou_continue).click()
 
 }

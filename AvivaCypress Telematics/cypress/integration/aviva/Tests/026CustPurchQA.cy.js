@@ -152,6 +152,7 @@ describe('Customer can purchase a policy via website', () => {
         YourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaFalse()
         YourInsHistoryAndIncepDetsPage.postQuote3PostCert()
         YourInsHistoryAndIncepDetsPage.postQuote3PostDocs()
+        cy.pause()
         YourInsHistoryAndIncepDetsPage.postQuote3CustomerQuoteTsAndCs()
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 

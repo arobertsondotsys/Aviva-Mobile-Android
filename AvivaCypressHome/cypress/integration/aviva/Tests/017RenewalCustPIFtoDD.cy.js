@@ -169,7 +169,7 @@ describe('Customer purchase home policy renewal on new DD', () => {
     CompleteAndPayPage.completeAndPayContinue()
   
     PaymentScreen.paymentDDDemoCust()
-    cy.wait(4000)
+    //cy.wait(4000)
 
     ThankYouScreen.thankyouHeading()
 
