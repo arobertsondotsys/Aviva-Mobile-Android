@@ -26,7 +26,7 @@ addressSelect(){
     cy.document().then(doc => {
         const el = doc.querySelector(this.LoginElementLocators.QuotePageLocators.address_select)
        if (el && el.offsetParent !== null) { // checks for existence and visibility
-            cy.wrap(el).getAndWait('.autoaddress-options-list').first().click()
+            cy.wrap(el).getAndWait('.autoaddress-options-list').find('li:visible').first().click()
         } else {
             cy.log('No address suggestions to select.')
         }
@@ -67,7 +67,7 @@ licenceYears(){
 personlaDetailsContinue(){
     
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.personaldetails_continue).click()
-    cy.wait(1000)
+    cy.wait(2000)
 
 }
 

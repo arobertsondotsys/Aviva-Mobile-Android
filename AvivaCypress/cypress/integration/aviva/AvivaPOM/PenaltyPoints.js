@@ -17,13 +17,13 @@ ppTrue(){
 
 ppFalse1st(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_false, { allowHidden: true }).first().click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_false).first().click({force:true})
 
 }
 
 ppFalseLast(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_false, { allowHidden: true }).last().click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.pp_false).last().click({force:true})
 
 }
 

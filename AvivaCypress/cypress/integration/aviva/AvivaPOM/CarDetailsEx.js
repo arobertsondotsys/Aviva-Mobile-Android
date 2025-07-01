@@ -20,7 +20,17 @@ carRegKnown(isKnown, carreg, make, model, fuelType, year, transmission) {
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.confirmcar_btn).click()
     } else {
         // Car registration is not known, fill out details
-        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.manual_make).select(make)
+       cy.getAndWait(this.LoginElementLocators.QuotePageLocators.manual_make)
+        .find('option')
+        .then(options => {
+            const exactIndex = [...options].findIndex(o => o.textContent.trim() === make.trim());
+            if (exactIndex !== -1) {
+            cy.getAndWait(this.LoginElementLocators.QuotePageLocators.manual_make)
+             .select(exactIndex);
+            } else {
+             throw new Error(`Option with text "${make}" not found`);
+            }
+  })
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.manual_model).select(model)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.manual_fuel).select(fuelType)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.manual_year).select(year)

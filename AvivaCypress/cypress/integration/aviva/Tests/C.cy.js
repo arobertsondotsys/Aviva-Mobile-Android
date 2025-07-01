@@ -22,6 +22,7 @@ import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndInce
 import { YourInsHistoryAndIncepDetsPQ3Ex } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3Ex"
 import { PaymentScreen } from "../AvivaPOM/PaymentScreen"
 import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
+import 'cypress-real-events/support'
 
 // Uncaught exception errors are bypassed when found to stop test from failing
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -178,6 +179,7 @@ let excelsheet = [];
             PaymentPage.paymentCardQAWithCheck()
 
             // Thank you page
+            cy.wait(2000)
             ThankYouPage.thankyouHeading()
 
             cy.get('.m-card-content__inner > p > strong').invoke('text').then((text) => {

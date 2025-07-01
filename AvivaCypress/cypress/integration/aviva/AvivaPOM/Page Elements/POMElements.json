@@ -147,7 +147,7 @@
 
     "aboutyourcar_heading": "#div1",
     "aboutyourcar_carreg": "#ctl00_MainContent_VehicleRegistration",
-    "aboutyourcar_confirmcarreg": "#ctl00_MainContent_btnFindCar",
+    "aboutyourcar_findcar": "#ctl00_MainContent_btnFindCar",
     "aboutyourcar_confirmcar": "#ctl00_MainContent_btnConfirmReg",
     "aboutyourcar_declinecar": "#ctl00_MainContent_btnNotCorrectReg",
     "aboutyourcar_owncar": "#IsOwner-True > .a-radio > .a-radio__label > .a-radio__label-inner",
