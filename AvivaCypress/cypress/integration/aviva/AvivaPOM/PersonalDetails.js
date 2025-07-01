@@ -17,13 +17,20 @@ addressInput(){
 
 addressSuggest(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.address_suggest).click()
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.address_suggest).find(':first-child').click()
 
 }
 
 addressSelect(){
-
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.address_select).click()
+    cy.wait(2000)
+    cy.document().then(doc => {
+        const el = doc.querySelector(this.LoginElementLocators.QuotePageLocators.address_select)
+       if (el && el.offsetParent !== null) { // checks for existence and visibility
+            cy.wrap(el).getAndWait('.autoaddress-options-list').first().click()
+        } else {
+            cy.log('No address suggestions to select.')
+        }
+    })
 
 }
 
@@ -58,8 +65,9 @@ licenceYears(){
 }
 
 personlaDetailsContinue(){
-
+    
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.personaldetails_continue).click()
+    cy.wait(1000)
 
 }
 

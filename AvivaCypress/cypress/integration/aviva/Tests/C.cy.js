@@ -15,9 +15,11 @@ import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
 import { CoverStartDateEx } from "../AvivaPOM/CoverStartDateEx"
 import { QuotePage } from "../AvivaPOM/QuotePage"
 import { AboutYourCarPQ1 } from "../AvivaPOM/AboutYourCarPQ1"
+import { AboutYourCarPQ1Ex } from "../AvivaPOM/AboutYourCarPQ1Ex"
 import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
 import { AboutTheDriversPQ2Ex } from "../AvivaPOM/AboutTheDriversPQ2Ex"
 import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
+import { YourInsHistoryAndIncepDetsPQ3Ex } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3Ex"
 import { PaymentScreen } from "../AvivaPOM/PaymentScreen"
 import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
 
@@ -45,9 +47,11 @@ const CoverStartDatePage = new CoverStartDate()
 const CoverStartDateExcel = new CoverStartDateEx()
 const QuotePageAndExtras = new QuotePage()
 const AboutYourCarPage = new AboutYourCarPQ1()
+const AboutYourCarExcel = new AboutYourCarPQ1Ex()
 const AboutTheDriversPage = new AboutTheDriversPQ2()
 const AboutTheDriversExcel = new AboutTheDriversPQ2Ex()
 const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
+const YourInsHistoryAndIncepDetsExcel = new YourInsHistoryAndIncepDetsPQ3Ex()
 const PaymentPage = new PaymentScreen()
 const ThankYouPage = new ThankYouScreen()
 const readFilePath = 'cypress/fixtures/Quotedetails.xlsm';
@@ -65,7 +69,7 @@ let excelsheet = [];
         });
     });
     
-        it(`should complete the process of purchasing a policy for Excel excel`, () => {
+        it(`should complete the process of purchasing a policy from Excel data`, () => {
             excelsheet.forEach((excel, idx) => {
             Server.Server2()
             BOAction.removeAttr()
@@ -87,23 +91,21 @@ let excelsheet = [];
             PersonalDetailsPage.addressSelect()
             PersonalDetailsPage.addressConfirm()
             PersonalDetailsExcel.proposerDOB(excel.DOB)
-            PersonalDetailsExcel.proposerEmployStatus(excel.EmploymentStatus)
-            PersonalDetailsExcel.licenceType(excel.LicenceType)
+            PersonalDetailsExcel.proposerEmployStatus(excel.EmploymentStatus, excel.Occupation)
+            PersonalDetailsExcel.licenceType(excel.LicenceType, excel.CountryObtained)
             PersonalDetailsExcel.licenceYears(excel.LicenceYears)
             PersonalDetailsPage.personlaDetailsContinue()
 
             // Section 3 "Insurance details"
             InsuranceDetailsPage.insuranceDetailsTitle()
-            InsuranceDetailsExcel.drivingExp(excel.DrivingExperience)
-            InsuranceDetailsExcel.drivingExpYears(excel.DrivingExpYears)
+            InsuranceDetailsExcel.drivingExp(excel.DrivingExperience, excel.DrivingExpYears)
+            //InsuranceDetailsExcel.drivingExpYears(excel.DrivingExpYears)
             InsuranceDetailsPage.insuranceDetailsContinue()
 
             // Section 4 "Car details"
             CarDetailsPage.carDetailsTitle()
-            CarDetailsPage.carRegYes()
-            CarDetailsExcel.carRegInput(excel.CarReg)
-            CarDetailsPage.findCarBTN()
-            CarDetailsPage.confirmCarBTN()
+            CarDetailsExcel.regKnown(excel.CarRegKnown)
+            CarDetailsExcel.carRegKnown(excel.CarRegKnown,excel.CarReg,excel.Make,excel.Model,excel.FuelType,excel.Year,excel.Transmission)
             CarDetailsExcel.carValueInput(excel.CarValue)
             CarDetailsExcel.carModified(excel.CarMods)
 
@@ -143,6 +145,7 @@ let excelsheet = [];
 
             // Post quote 1 "About your car"
             AboutYourCarPage.postQuote1Heading()
+            AboutYourCarExcel.carRegManual(excel.CarRegKnown,excel.CarReg)
             AboutYourCarPage.postQuote1OwnCar()
             AboutYourCarPage.postQuote1PrivateIns()
             AboutYourCarPage.postQuote1Continue()
@@ -163,16 +166,16 @@ let excelsheet = [];
 
             // Post quote 3 "Your insurance history and inception details"
             YourInsHistoryAndIncepDetsPage.postQuote3Heading()
-            YourInsHistoryAndIncepDetsPage.postQuote3NCDROITrue()
-            YourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue()
-            YourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue()
+            YourInsHistoryAndIncepDetsExcel.postQuote3NCDROITrue(excel.DrivingExperience)
+            YourInsHistoryAndIncepDetsExcel.postQuote3NoOtherNCDTrue(excel.DrivingExperience)
+            YourInsHistoryAndIncepDetsExcel.postQuote3WithinExpiryTrue(excel.DrivingExperience)
             YourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaTrue()
             YourInsHistoryAndIncepDetsPage.postQuote3CustomerQuoteTsAndCs()
             YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
             // Payment screen
             //PaymentPage.paymentCardQAWithCheck()
-            PaymentPage.paymentCardDemo()
+            PaymentPage.paymentCardQAWithCheck()
 
             // Thank you page
             ThankYouPage.thankyouHeading()
