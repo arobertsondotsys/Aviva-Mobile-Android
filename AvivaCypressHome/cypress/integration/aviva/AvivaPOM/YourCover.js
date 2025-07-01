@@ -10,7 +10,8 @@ export class YourCover{
     }
 
     buildingAndContentsTrue(){
-
+          
+        cy.wait(500)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.building_contentstrue).click().click()
 
     }

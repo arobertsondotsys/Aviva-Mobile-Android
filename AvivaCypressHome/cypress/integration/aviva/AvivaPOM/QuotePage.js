@@ -64,7 +64,7 @@ export class QuotePage{
     quotePageAccidentalDamageAddCover(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_addaccidentaldamage).click()
-        //cy.wait(3000)
+        cy.wait(3000)
 
     }
 
@@ -77,7 +77,7 @@ export class QuotePage{
     quotePageOptionalCoverAddUnpecifiedCover(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_unspecifieditems).select(1)
-        //cy.wait(3000)
+        cy.wait(3000)
 
     }
 
@@ -96,7 +96,7 @@ export class QuotePage{
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_edit).click()
         cy.contains('Remove Item').click()
-        //cy.wait(3000)
+        cy.wait(3000)
 
     }
 
