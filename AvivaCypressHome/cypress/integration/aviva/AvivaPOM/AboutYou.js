@@ -45,7 +45,7 @@ proposerNoEmail(){
 phone(){
 
     const numbers = Array.from({ length: 8 }, () => Math.floor(Math.random() * 10))
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.phone_element).type('07'+ numbers)
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.phone_element).type('07'+ numbers.join(''))
 
 }
 
