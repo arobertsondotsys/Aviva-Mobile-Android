@@ -343,6 +343,18 @@ selectActionDocumentsWithPolicyNumber(){
         
 }
 
+selectActionDocumentsWithTempPackPolicyNumber(){
+
+    cy.readFile('policy.json').then((data) => {
+        const tempPackPolicyNumber = data.tempPackPolicyNumber
+        cy.getAndWait('.panel-title')
+        .contains(tempPackPolicyNumber)
+        cy.xpath("//span[normalize-space()='"+tempPackPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
 selectActionDocumentsWithParagonPolicyNumber1(){
 
     cy.readFile('policy.json').then((data) => {

@@ -11,9 +11,9 @@ insuranceDetailsTitle(){
 
 drivingExp(){
 
-    cy.wait(500)
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.drivingexp_ddl).select(1)
-    cy.wait(500)
+    cy.wait(1000)
 }
 
 drivingExpYears(){

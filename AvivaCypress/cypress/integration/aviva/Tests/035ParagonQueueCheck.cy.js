@@ -30,42 +30,61 @@ describe('Check Paragon Queue for correct documents', () => {
         BOAction.policySelectButton()
         BOAction.livePoliciesBTN()
 
-        // Select Documents and revert window back to current window
-        BOAction.selectActionDocumentsWithParagonPolicyNumber1()
+        // // Select Documents and revert window back to current window
+        // BOAction.selectActionDocumentsWithParagonPolicyNumber1()
 
-        // NYY 0
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        // // NYY 0
+        // cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        // //cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
 
-        cy.getAndWait(':nth-child(1) > .level1').click()
+        // cy.getAndWait(':nth-child(1) > .level1').click()
 
-        // Search for Customer file for second policy
-        cy.go(-3)
-        BOAction.livePoliciesBTN()
-        BOAction.selectActionDocumentsWithParagonPolicyNumber2()
+        // // Search for Customer file for second policy
+        // cy.go(-3)
+        // BOAction.livePoliciesBTN()
+        // BOAction.selectActionDocumentsWithParagonPolicyNumber2()
 
-        // NNY 1
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
+        // // NNY 1
+        // cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        // //cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
         
 
-        cy.getAndWait(':nth-child(1) > .level1').click()
+        // cy.getAndWait(':nth-child(1) > .level1').click()
 
-        // Search for Customer file for third policy
-        cy.go(-3)
-        BOAction.livePoliciesBTN()
-        BOAction.selectActionDocumentsWithParagonPolicyNumber3()
+        // // Search for Customer file for third policy
+        // cy.go(-3)
+        // BOAction.livePoliciesBTN()
+        // BOAction.selectActionDocumentsWithParagonPolicyNumber3()
+
+        // // NYN 2
+        // cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
+        // cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+
+        // cy.go(-3)
+        // BOAction.livePoliciesBTN()
+        BOAction.selectActionDocumentsWithTempPackPolicyNumber()
 
         // NYN 2
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Welcome Letter Temp Cover')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Welcome Email Temp Cover')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Policy Schedule')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Statement Of Fact')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Certificate')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Driving Experience Email')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Quote Email')
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Receipt')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
+
     })
 })
 

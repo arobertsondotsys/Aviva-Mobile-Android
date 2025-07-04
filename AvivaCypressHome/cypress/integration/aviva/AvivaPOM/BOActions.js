@@ -780,7 +780,7 @@ inviteRenewalParagon9(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(paragonPolicyNumber9)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(2)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
@@ -795,7 +795,7 @@ inviteRenewalParagon10(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(paragonPolicyNumber10)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(2)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
@@ -810,7 +810,7 @@ inviteRenewalParagon11(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(paragonPolicyNumber11)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(2)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
@@ -825,7 +825,7 @@ inviteRenewalParagon12(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(paragonPolicyNumber12)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(2)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()

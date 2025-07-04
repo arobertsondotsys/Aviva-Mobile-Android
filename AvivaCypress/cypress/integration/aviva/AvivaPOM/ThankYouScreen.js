@@ -33,6 +33,28 @@ retreivePolicyNumber(){
         
 }
 
+retreiveTempPackPolicyNumber(){
+
+    cy.getAndWait('.m-card-content__inner > p > strong')
+    .invoke('text') 
+    .then((text) => {
+    
+    const numberOnly = text.match(/\d+/)[0]
+
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+        const updatedData = { ...data, tempPackPolicyNumber: numberOnly }
+        cy.writeFile('policy.json', updatedData)
+    })
+
+    cy.wrap(numberOnly).as('tempPackPolicyNumber')
+    })
+
+    cy.get('@tempPackPolicyNumber').then((tempPackPolicyNumber) => {
+    cy.log(`Extracted policy number: ${tempPackPolicyNumber}`)
+    })
+        
+}
+
 retreiveParagonPolicyNumber1(){
 
     cy.getAndWait('.m-card-content__inner > p > strong')
