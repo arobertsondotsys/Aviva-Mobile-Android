@@ -55,23 +55,30 @@ const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
 const YourInsHistoryAndIncepDetsExcel = new YourInsHistoryAndIncepDetsPQ3Ex()
 const PaymentPage = new PaymentScreen()
 const ThankYouPage = new ThankYouScreen()
-const readFilePath = 'cypress/fixtures/Quotedetails.xlsm';
-const readsheetName = 'Sheet1';
-const writeFilePath = 'cypress/fixtures/PolicyNumbers.xlsx';
-const writeSheetName = 'Sheet1';
+// const readFilePath = 'cypress/fixtures/Quotedetails.xlsm'
+// const readsheetName = 'Sheet1'
+const writeFilePath = 'cypress/fixtures/PolicyNumbers.xlsx'
+const writeSheetName = 'Sheet1'
+
+const excelsheet = require('../../../fixtures/Quotedetails.json')
 
 describe('Customer can purchase a policy via website (Excel driven)', () => {
-let excelsheet = [];
+// let excelsheet = []
  
-    before(() => {
-        cy.task('readExcel', { filePath: readFilePath, sheetName: readsheetName }).then((rows) => {
-            cy.log(`Loaded ${rows.length} rows from Excel`)
-            excelsheet = rows;
-        });
-    });
-    
+    // before(() => {
+    //     cy.task('readExcel', { filePath: readFilePath, sheetName: readsheetName }).then((rows) => {
+    //         cy.log(`Loaded ${rows.length} rows from Excel`)
+    //         excelsheet = rows;
+    //     });
+    // });
+    excelsheet.forEach((excel, idx) => {
         it(`should complete the process of purchasing a policy from Excel data`, () => {
-            excelsheet.forEach((excel, idx) => {
+            // excelsheet.forEach((excel, idx) => {
+
+            // cy.clearCookies()
+            // cy.clearLocalStorage()
+            // cy.wait(500)
+
             Server.Server2()
             BOAction.removeAttr()
             BOAction.cookiesAccept()

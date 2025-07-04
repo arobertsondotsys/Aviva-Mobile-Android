@@ -9,6 +9,7 @@ regKnown(trueorfalse){
     } else{
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carreg_no).click()
     } 
+    cy.wait(1000)
 }
 
 carRegKnown(isKnown, carreg, make, model, fuelType, year, transmission) {
