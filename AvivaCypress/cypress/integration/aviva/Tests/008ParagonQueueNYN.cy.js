@@ -221,7 +221,7 @@ describe('Policy Purchase with NYN', () => {
         BOAction.selectActionDiaryWithParagonPolicyNumber3()
         
         cy.getAndWait(':nth-child(7) > .btn > span').click()
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_DocumentGrid_ctl02_IsReceived').click()
+        BOAction.tickNCBAsReceived()
         cy.getAndWait(':nth-child(2) > :nth-child(6)').should('not.have.text', '')
     })
 })

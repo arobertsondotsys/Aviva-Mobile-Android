@@ -401,10 +401,6 @@ policyToolsAgePolicyWithPolicyNumber(){
         
 }
 
-
-
-
-
 generateRenewal(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.generate_renewal).last().click()
@@ -432,7 +428,7 @@ inviteRenewal(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(telematicsPolicyNumber)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(0)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
@@ -499,6 +495,24 @@ checkRenewalDocs(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Home Renewal Receipt')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
 
+}
+
+tickBoxAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Installation of your Aviva car insurance telematics device')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
 }
 
 

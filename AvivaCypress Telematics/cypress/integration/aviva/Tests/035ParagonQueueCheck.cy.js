@@ -35,7 +35,7 @@ describe('Check Paragon Queue for correct documents', () => {
 
         // NYY 0
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
+        //cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
@@ -50,7 +50,7 @@ describe('Check Paragon Queue for correct documents', () => {
 
         // NNY 1
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
+        //cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
         

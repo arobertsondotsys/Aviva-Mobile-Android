@@ -552,5 +552,23 @@ checkRenewalDocs(){
 
 }
 
+tickNCBAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('No Claims Bonus from previous insurer')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
 
 }
