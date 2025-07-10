@@ -88,7 +88,7 @@ export class QuotePage{
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemtype).select(1)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemvalue).type(this.UserData.InputData.SpecifiedItemValue)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_additem).click()
-        cy.wait(4000)
+        cy.wait(10000)
 
     }
 
@@ -96,7 +96,7 @@ export class QuotePage{
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_edit).click()
         cy.contains('Remove Item').click()
-        cy.wait(4000)
+        cy.wait(6000)
 
     }
 
@@ -206,7 +206,7 @@ export class QuotePage{
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountheading).click()
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountselect).select(1)
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountrecalc).click()
-        cy.wait(4000)
+        cy.wait(10000)
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_nodiscountheading).should('contain', 'Call centre customer - No online discount')
     
     }
