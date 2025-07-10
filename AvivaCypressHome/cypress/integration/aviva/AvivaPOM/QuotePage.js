@@ -96,7 +96,7 @@ export class QuotePage{
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_edit).click()
         cy.contains('Remove Item').click()
-        cy.wait(3000)
+        cy.wait(4000)
 
     }
 
