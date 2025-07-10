@@ -206,7 +206,7 @@ export class QuotePage{
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountheading).click()
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountselect).select(1)
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_discountrecalc).click()
-        cy.wait(3000)
+        cy.wait(4000)
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.staff_nodiscountheading).should('contain', 'Call centre customer - No online discount')
     
     }
