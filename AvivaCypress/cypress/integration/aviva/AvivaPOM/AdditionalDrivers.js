@@ -11,26 +11,26 @@ additionalDriversHeading(){
 
 additionalDriversFalse(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_false).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_false).click()
 
 }
 
 additionalDriversTrue(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_true).click()
 
 }
 
 additionalDriversContinue(){
 
     //cy.wait(2000)
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_continue).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_continue).click()
 
 }
 
 additionalDriver1Title(){
 
-cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2, {force: true})
+cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_title).select(2)
 
 }
 
@@ -66,16 +66,16 @@ additionalDriver1LicenceType(){
 
 additionalDriver1LicenceYears(){
 
-    //cy.wait(1000)
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_licyears).select(6)
 
 }
 
 addionalDriver1DriverNumber(){
 
-    //cy.wait(1000)
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_drivernumber).type(this.UserData.InputData.AD1_DriverNum)
-    //cy.wait(1000)
+    cy.wait(1000)
 
 }
 
@@ -94,7 +94,7 @@ additionalDriver1SpouseOwnVehFalse(){
 additionalDriver1Save(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.additionaldriver_save).click()
-    //cy.wait(2000)
+    cy.wait(2000)
 
 }
 
