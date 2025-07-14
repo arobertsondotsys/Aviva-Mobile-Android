@@ -106,7 +106,7 @@ describe('Customer purchase home policy', () => {
     CompleteAndPayPage.completeAndPayCheckBox()
     CompleteAndPayPage.completeAndPayContinue()
 
-    PaymentScreen.paymentCardDemo()
+    PaymentScreen.selectPaymentMethod1()
     ThankYouScreen.thankyouHeading()
     ThankYouScreen.retreivePolicyNumberForCustMTA()
 

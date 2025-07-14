@@ -116,7 +116,7 @@ describe('Customer purchase home policy renewal as PIF', () => {
     CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
-    PaymentScreen.paymentCardDemo()
+    PaymentScreen.selectPaymentMethod1()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()
@@ -168,7 +168,7 @@ describe('Customer purchase home policy renewal as PIF', () => {
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
     CompleteAndPayPage.completeAndPayContinue()
   
-    PaymentScreen.paymentCardDemo()
+    PaymentScreen.selectPaymentMethod1()
     //cy.wait(4000)
 
     ThankYouScreen.thankyouHeading()

@@ -133,7 +133,7 @@ describe('Agent purchase home policy renewal as autorollover', () => {
     PaymentTypePage.paymentTypeAgentMonthlypay()
     
     PaymentScreen.NBDDQA()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()

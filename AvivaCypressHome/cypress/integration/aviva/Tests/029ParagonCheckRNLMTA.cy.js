@@ -189,7 +189,7 @@ describe('Agent purchase home policy with docs set to post at RNL MTA', () => {
   
     PaymentTypePage.paymentTypeAgentCardRenewal()
     CompleteAndPayPage.completeAndPayRNLPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     //Thank you page
     ThankYouScreen.thankyouHeading()
@@ -225,7 +225,7 @@ describe('Agent purchase home policy with docs set to post at RNL MTA', () => {
     CompleteAndPayPage.completeAndPayContinue()
     PaymentTypePage.paymentTypeAgentCard()
     PaymentTypePage.paymentTypeAgentPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     // Diary and Correspondence page
     DiaryCorrespondencePage.diaryCorrespondenceHeading()

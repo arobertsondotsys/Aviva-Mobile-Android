@@ -33,6 +33,7 @@ describe('Customer MTA purchase', () => {
     PortalAction.portalAdjContinue()
     // cy.get('.a-checkbox__label').click()
     // cy.get('#MainContent_Continue4').click()
+    BOAction.cookiesAccept()
     PortalAction.portalMortgageSelect()
     PortalAction.portalMortgageIntLetterTrue()
     PortalAction.portalMortgageProvider()

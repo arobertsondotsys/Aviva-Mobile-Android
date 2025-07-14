@@ -116,7 +116,7 @@ describe('Customer purchase home policy renewal on new DD', () => {
     CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
-    PaymentScreen.paymentCardDemo()
+    PaymentScreen.selectPaymentMethod1()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()
@@ -168,7 +168,7 @@ describe('Customer purchase home policy renewal on new DD', () => {
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
     CompleteAndPayPage.completeAndPayContinue()
   
-    PaymentScreen.paymentDDDemoCust()
+    PaymentScreen.selectPaymentMethod2()
     //cy.wait(4000)
 
     ThankYouScreen.thankyouHeading()

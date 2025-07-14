@@ -108,7 +108,7 @@ describe('Customer purchase home policy', () => {
     CompleteAndPayPage.completeAndPayCheckBox()
     CompleteAndPayPage.completeAndPayContinue()
 
-    PaymentScreen.paymentCardDemo()
+    PaymentScreen.selectPaymentMethod1()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()
@@ -158,7 +158,7 @@ describe('Customer purchase home policy', () => {
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
     CompleteAndPayPage.completeAndPayContinue()
 
-    PaymentScreen.paymentCardDemo()
+    PaymentScreen.selectPaymentMethod1()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()

@@ -17,7 +17,7 @@ export class CancellationBOActions{
 
     cancellationReason1(){
 
-        cy.getAndWait(this.LoginElementLocators.CancPageLocators.cancellation_osdocs).click()
+        cy.getAndWait(this.LoginElementLocators.CancPageLocators.cancellation_osdocs).click({force:true})
 
     }
 

@@ -155,7 +155,7 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     PaymentTypePage.paymentTypeAgentCcard()
     CompleteAndPayPage.completeAndPayNBPayNow()
 
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
   
     // Diary and Correspondence page
     DiaryCorrespondencePage.diaryCorrespondenceHeading()

@@ -167,7 +167,7 @@ describe('Agent purchase home policy', () => {
 
     PaymentTypePage.paymentTypeAgentCardRenewal()
     CompleteAndPayPage.completeAndPayRNLPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     // Diary and Correspondence page
     DiaryCorrespondencePage.diaryCorrespondenceHeading()

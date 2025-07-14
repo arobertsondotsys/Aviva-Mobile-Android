@@ -15,44 +15,44 @@ async function setupNodeEvents(on, config) {
   //   return launchOptions;
   // })
 
-  const serverKey = config.env.serverKey || 'QA2' // Default to QA2 if no serverKey is provided
+  // const serverKey = config.env.serverKey || 'QA2' // Default to QA2 if no serverKey is provided
   
 
-  // Modify config if needed
-  //*****SPEC PATTERN FOR QA ONLY
-  const qaSpecPattern = [
-     'cypress/integration/aviva/Tests/001PolicyOwnership.cy.js',
-     'cypress/integration/aviva/Tests/002AgentNBAddSpecifiedRNLRemoveQA.cy.js',
-     'cypress/integration/aviva/Tests/003AgentRNLAddSpecifiedRNLPurchQA.cy.js',
-     'cypress/integration/aviva/Tests/004AgentPurch.cy.js',
-     'cypress/integration/aviva/Tests/005AgentMTAQA.cy.js',
-     'cypress/integration/aviva/Tests/006AgentMTAJointProv.cy.js',
-     'cypress/integration/aviva/Tests/007CustPurchQA.cy.js',
-     'cypress/integration/aviva/Tests/008CustMTA.cy.js',
-     'cypress/integration/aviva/Tests/009CustNBAddSpecifiedRNLRemoveQA.cy.js',
-     'cypress/integration/aviva/Tests/010CustRNLAddSpecifiedRNLPurchQA.cy.js',
-     'cypress/integration/aviva/Tests/011AgentPurchJointProv.cy.js',
-     'cypress/integration/aviva/Tests/012RenewalAgentPIFtoPIFNoEmailQA.cy.js',
-     'cypress/integration/aviva/Tests/013RenewalAgentDDtoPIFNoEmailQA.cy.js',
-     'cypress/integration/aviva/Tests/014RenewalAgentDDtoDDAutoRolloverNoEmailQA.cy.js',
-     'cypress/integration/aviva/Tests/015RenewalAgentPIFtoDDNoEmailQA.cy.js',
-     'cypress/integration/aviva/Tests/016RenewalAgentPIFtoDDQA.cy.js',
-     'cypress/integration/aviva/Tests/017RenewalCustPIFtoDDQA.cy.js',
-     'cypress/integration/aviva/Tests/018RenewalAgentPIFtoPIFQA.cy.js',
-     'cypress/integration/aviva/Tests/019RenewalCustPIFtoPIFQA.cy.js',
-     'cypress/integration/aviva/Tests/020RenewalAgentDDtoPIFQA.cy.js',
-     'cypress/integration/aviva/Tests/021RenewalCustDDtoPIFQA.cy.js',
-     'cypress/integration/aviva/Tests/022RenewalAgentDDtoDDAutoRolloverQA.cy.js',
-     'cypress/integration/aviva/Tests/023ParagonCheckNBQA.cy.js',
-     'cypress/integration/aviva/Tests/024ParagonCheckNBNoPayQA.cy.js',
-     'cypress/integration/aviva/Tests/025ParagonCheckNBNoPayAdHocLettersQA.cy.js',
-     'cypress/integration/aviva/Tests/026ParagonCheckMTAQA.cy.js',
-     'cypress/integration/aviva/Tests/027ParagonCheckMTAQANoDocsWithCharge.cy.js',
-     'cypress/integration/aviva/Tests/028ParagonCheckRNLQA.cy.js',
-     'cypress/integration/aviva/Tests/029ParagonCheckRNLMTAQA.cy.js',
-     'cypress/integration/aviva/Tests/030AgentCancellation.cy.js',
-     'cypress/integration/aviva/Tests/031ParagonQueueDocsCheckQA.cy.js',
-  ]
+  // // Modify config if needed
+  // //*****SPEC PATTERN FOR QA ONLY
+  // const qaSpecPattern = [
+  //    'cypress/integration/aviva/Tests/001PolicyOwnership.cy.js',
+  //    'cypress/integration/aviva/Tests/002AgentNBAddSpecifiedRNLRemoveQA.cy.js',
+  //    'cypress/integration/aviva/Tests/003AgentRNLAddSpecifiedRNLPurchQA.cy.js',
+  //    'cypress/integration/aviva/Tests/004AgentPurch.cy.js',
+  //    'cypress/integration/aviva/Tests/005AgentMTAQA.cy.js',
+  //    'cypress/integration/aviva/Tests/006AgentMTAJointProv.cy.js',
+  //    'cypress/integration/aviva/Tests/007CustPurchQA.cy.js',
+  //    'cypress/integration/aviva/Tests/008CustMTA.cy.js',
+  //    'cypress/integration/aviva/Tests/009CustNBAddSpecifiedRNLRemoveQA.cy.js',
+  //    'cypress/integration/aviva/Tests/010CustRNLAddSpecifiedRNLPurchQA.cy.js',
+  //    'cypress/integration/aviva/Tests/011AgentPurchJointProv.cy.js',
+  //    'cypress/integration/aviva/Tests/012RenewalAgentPIFtoPIFNoEmailQA.cy.js',
+  //    'cypress/integration/aviva/Tests/013RenewalAgentDDtoPIFNoEmailQA.cy.js',
+  //    'cypress/integration/aviva/Tests/014RenewalAgentDDtoDDAutoRolloverNoEmailQA.cy.js',
+  //    'cypress/integration/aviva/Tests/015RenewalAgentPIFtoDDNoEmailQA.cy.js',
+  //    'cypress/integration/aviva/Tests/016RenewalAgentPIFtoDDQA.cy.js',
+  //    'cypress/integration/aviva/Tests/017RenewalCustPIFtoDDQA.cy.js',
+  //    'cypress/integration/aviva/Tests/018RenewalAgentPIFtoPIFQA.cy.js',
+  //    'cypress/integration/aviva/Tests/019RenewalCustPIFtoPIFQA.cy.js',
+  //    'cypress/integration/aviva/Tests/020RenewalAgentDDtoPIFQA.cy.js',
+  //    'cypress/integration/aviva/Tests/021RenewalCustDDtoPIFQA.cy.js',
+  //    'cypress/integration/aviva/Tests/022RenewalAgentDDtoDDAutoRolloverQA.cy.js',
+  //    'cypress/integration/aviva/Tests/023ParagonCheckNBQA.cy.js',
+  //    'cypress/integration/aviva/Tests/024ParagonCheckNBNoPayQA.cy.js',
+  //    'cypress/integration/aviva/Tests/025ParagonCheckNBNoPayAdHocLettersQA.cy.js',
+  //    'cypress/integration/aviva/Tests/026ParagonCheckMTAQA.cy.js',
+  //    'cypress/integration/aviva/Tests/027ParagonCheckMTAQANoDocsWithCharge.cy.js',
+  //    'cypress/integration/aviva/Tests/028ParagonCheckRNLQA.cy.js',
+  //    'cypress/integration/aviva/Tests/029ParagonCheckRNLMTAQA.cy.js',
+  //    'cypress/integration/aviva/Tests/030AgentCancellation.cy.js',
+  //    'cypress/integration/aviva/Tests/031ParagonQueueDocsCheckQA.cy.js',
+  // ]
 
   //*****SPEC PATTERN FOR DEMO & ALL OTHER SERVERS
   const demoSpecPattern = [
@@ -88,16 +88,16 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/030AgentCancellation.cy.js', 
     'cypress/integration/aviva/Tests/031ParagonQueueDocsCheck.cy.js',
  ]
-
+ config.specPattern = demoSpecPattern
  // Determine the spec pattern based on the environment variable
  //const serverKey = config.env.serverKey
  
 
- if (['QA', 'QA2', 'QA3'].includes(serverKey)) {
-   config.specPattern = qaSpecPattern
- } else if (['TEST2LOADED', 'DEMO', 'TEST3FAT', 'TEST4E2E', 'TEST5PRICING', 'TEST6TRAINING', 'TEST7HOTFIX', 'TEST8CRMIGRATION', 'TEST9FATMIGRATION', 'TEST10PRODMIGRATION', 'GCCPRE'].includes(serverKey)) {
-   config.specPattern = demoSpecPattern
- }
+//  if (['QA', 'QA2', 'QA3'].includes(serverKey)) {
+//    config.specPattern = qaSpecPattern
+//  } else if (['TEST2LOADED', 'DEMO', 'TEST3FAT', 'TEST4E2E', 'TEST5PRICING', 'TEST6TRAINING', 'TEST7HOTFIX', 'TEST8CRMIGRATION', 'TEST9FATMIGRATION', 'TEST10PRODMIGRATION', 'GCCPRE'].includes(serverKey)) {
+//    config.specPattern = demoSpecPattern
+//  }
 
  // Make sure to return the config object as it might have been modified by the plugin.
  return config

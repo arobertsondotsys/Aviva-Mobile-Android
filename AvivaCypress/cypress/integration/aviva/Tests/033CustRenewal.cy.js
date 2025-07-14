@@ -255,7 +255,7 @@ describe('Customer can Renew a policy', () => {
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
         // Payment screen
-        PaymentPage.paymentDDDemo()
+        PaymentPage.selectPaymentMethod2()
 
         // Thank you page
         ThankYouPage.thankyouHeading()

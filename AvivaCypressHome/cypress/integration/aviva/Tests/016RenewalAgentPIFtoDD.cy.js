@@ -175,7 +175,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
     CompleteAndPayPage.completeAndPayContinue()
   
     PaymentScreen.RNLDDQA()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     ThankYouScreen.thankyouHeading()
 

@@ -570,5 +570,347 @@ cy.getAndWait('tr').then($rows => {
     })
 }
 
+tickDrivingExpAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Driving experience')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickProofOfIgnitionAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Proof of Ignition')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickEngineersReportAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Engineers report')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickMedReportFormAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Medical report form')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickNCTAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('NCT / MOT')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickVehicleRegDocsAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Vehicle registration documents')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickGapInCoverAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Gap in cover reason')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickOldCertAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Old certificate')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickProofOfDriverMembAsRequired(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Proof of advanced driver membership')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsRequired"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickDrivingExpAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Driving experience')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickProofOfIgnitionAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Proof of Ignition')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickEngineersReportAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Engineers report')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickMedReportFormAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Medical report form')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickNCTAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('NCT / MOT')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickVehicleRegDocsAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Vehicle registration documents')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickGapInCoverAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Gap in cover reason')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickOldCertAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Old certificate')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
+tickProofOfDriverMembAsReceived(){
+
+cy.getAndWait('tr').then($rows => {
+        // $rows is a jQuery collection of <tr> elements
+        const match = Cypress._.find($rows.toArray(), el => {
+            const $el = Cypress.$(el)
+            return $el.text().includes('Proof of advanced driver membership')
+        })
+        if (match) {
+            cy.wrap(match).within(() => {
+                cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
+                cy.wait(1500)
+         })
+        } else {
+            throw new Error('No matching row found for telematics device')
+        }
+    })
+}
+
 
 }

@@ -134,7 +134,7 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
 
     // Enter DD details & Pay
     PaymentScreen.NBDDQA()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()
@@ -187,7 +187,7 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
 
     PaymentTypePage.paymentTypeAgentCardRenewal()
     CompleteAndPayPage.completeAndPayRNLPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     ThankYouScreen.thankyouHeading()
 

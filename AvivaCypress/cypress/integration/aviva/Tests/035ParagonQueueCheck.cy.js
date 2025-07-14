@@ -44,7 +44,11 @@ describe('Check Paragon Queue for correct documents', () => {
         cy.getAndWait(':nth-child(1) > .level1').click()
 
         // Search for Customer file for second policy
-        cy.go(-3)
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         BOAction.livePoliciesBTN()
         BOAction.selectActionDocumentsWithParagonPolicyNumber2()
 
@@ -58,7 +62,11 @@ describe('Check Paragon Queue for correct documents', () => {
         cy.getAndWait(':nth-child(1) > .level1').click()
 
         // Search for Customer file for third policy
-        cy.go(-3)
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         BOAction.livePoliciesBTN()
         BOAction.selectActionDocumentsWithParagonPolicyNumber3()
 
@@ -67,7 +75,11 @@ describe('Check Paragon Queue for correct documents', () => {
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
 
-        cy.go(-3)
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
         BOAction.livePoliciesBTN()
         BOAction.selectActionDocumentsWithTempPackPolicyNumber()
 

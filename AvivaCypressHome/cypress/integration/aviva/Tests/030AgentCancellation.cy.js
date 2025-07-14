@@ -34,7 +34,7 @@ describe('Agent can cancel a policy', () => {
     CancBOAction.cancellationReason1()
     CancBOAction.cancellationReasonContinue()
     cy.contains('Cancel the policy back to inception').click()
-    ////cy.wait(1000)
+    cy.wait(1000)
     CancBOAction.cancellationContinue()
     CancBOAction.cancellationAccept()
     CancBOAction.cancellationDone()

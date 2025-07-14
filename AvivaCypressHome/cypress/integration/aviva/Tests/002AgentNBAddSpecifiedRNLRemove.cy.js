@@ -161,10 +161,10 @@ describe('Agent purchase home policy', () => {
     BOAction.selectActionDocumentsWithPolicyNumber()
     BOAction.checkRenewalInviteDocs()
     BOAction.returnToCustFileFromDocuments()
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
   
     // Purchase Home Renewal
-    BOAction.livePoliciesBTN()
+    //BOAction.livePoliciesBTN()
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageRemoveSpecifiedItem()
@@ -175,7 +175,7 @@ describe('Agent purchase home policy', () => {
 
     PaymentTypePage.paymentTypeAgentCardRenewal()
     CompleteAndPayPage.completeAndPayRNLPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     // Thank you page
     ThankYouScreen.thankyouHeading()

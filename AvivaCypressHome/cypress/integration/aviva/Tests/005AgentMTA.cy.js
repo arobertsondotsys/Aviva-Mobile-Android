@@ -51,7 +51,7 @@ describe('Agent MTA purchase', () => {
     CompleteAndPayPage.completeAndPayContinue()
     MTABOAction.paymentTypeAgentCard()
     MTABOAction.paymentTypeAgentPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
     ThankYouScreen.thankyouHeading()
   })
 })

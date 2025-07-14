@@ -174,7 +174,7 @@ describe('Agent purchase home policy renewal as PIF', () => {
 
     PaymentTypePage.paymentTypeAgentCardRenewal()
     CompleteAndPayPage.completeAndPayRNLPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     ThankYouScreen.thankyouHeading()
 

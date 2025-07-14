@@ -174,7 +174,7 @@ describe('Agent purchase home policy with docs set to post at MTA', () => {
     CompleteAndPayPage.completeAndPayContinue()
     PaymentTypePage.paymentTypeAgentCard()
     PaymentTypePage.paymentTypeAgentPayNow()
-    PaymentScreen.paymentCardDemoAgent()
+    PaymentScreen.selectPaymentMethod()
 
     // Diary and Correspondence page
     DiaryCorrespondencePage.diaryCorrespondenceHeading()
