@@ -3,6 +3,45 @@ export class PaymentScreen{
     LoginElementLocators = require('../AvivaPOM/Page Elements/POMElements.json')
     UserData = require('../AvivaPOM/Page Elements/POMInput.json')
 
+selectPaymentMethod() {
+    cy.wait(6000)
+    cy.url().then((currentUrl) => {
+        if (currentUrl.includes('rwy')) {
+            this.paymentCardQAWithCheck();
+        } else if (currentUrl.includes('stg')) {
+            this.paymentCardDemo();
+        } else {
+            throw new Error('Unknown payment environment: ' + currentUrl);
+        }
+    });
+}
+
+ selectPaymentMethod1() {
+    cy.wait(6000)
+    cy.url().then((currentUrl) => {
+        if (currentUrl.includes('rwy')) {
+            this.paymentCardQAAgent();
+        } else if (currentUrl.includes('stg')) {
+            this.paymentCardDemo();
+        } else {
+            throw new Error('Unknown payment environment: ' + currentUrl);
+        }
+    });
+}
+
+selectPaymentMethod2() {
+    cy.wait(6000)
+    cy.url().then((currentUrl) => {
+        if (currentUrl.includes('rwy')) {
+            this.paymentDDQAWithPassword();
+        } else if (currentUrl.includes('stg')) {
+            this.paymentDDDemo();
+        } else {
+            throw new Error('Unknown payment environment: ' + currentUrl);
+        }
+    });
+}
+
 paymentCardQAWithCheck() {
   cy.origin('https://www.direct.rwy-aviva.co.uk', () => {
       Cypress.on('uncaught:exception', (err, runnable) => {

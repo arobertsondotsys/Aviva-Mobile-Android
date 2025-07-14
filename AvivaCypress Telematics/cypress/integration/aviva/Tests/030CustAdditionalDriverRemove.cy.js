@@ -272,7 +272,7 @@ describe('Customer can add a driver and remove at ADJ', () => {
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
         // Payment screen
-        PaymentPage.paymentCardDemo()
+        PaymentPage.selectPaymentMethod()
 
         // Thank you page
         ThankYouPage.thankyouHeading()

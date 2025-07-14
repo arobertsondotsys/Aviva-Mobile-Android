@@ -154,7 +154,7 @@ describe('Customer can purchase a policy via website', () => {
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
         // Payment screen
-        PaymentPage.paymentCardDemo()
+        PaymentPage.selectPaymentMethod()
 
         // Thank you page
         ThankYouPage.thankyouHeading()
