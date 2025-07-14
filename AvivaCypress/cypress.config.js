@@ -1,6 +1,4 @@
 const { defineConfig } = require("cypress")
-const fs = require('fs')
-const pdf = require('pdf-parse')
 const path = require('path')
 const xlsx = require('xlsx')
 require('cypress-mochawesome-reporter/plugin')
