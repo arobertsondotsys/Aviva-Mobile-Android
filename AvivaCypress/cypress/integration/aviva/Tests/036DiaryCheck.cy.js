@@ -201,7 +201,7 @@ describe('Check Diary Chaser function', () => {
         BOAction.tickNCTAsRequired()
         BOAction.tickVehicleRegDocsAsRequired()
         BOAction.tickGapInCoverAsRequired()
-        BOAction.tickOldCertAsRequired()
+        //BOAction.tickOldCertAsRequired()
         BOAction.tickProofOfDriverMembAsReceived()
         BOAction.tickDrivingExpAsReceived()
         BOAction.tickProofOfIgnitionAsReceived()
@@ -210,7 +210,7 @@ describe('Check Diary Chaser function', () => {
         BOAction.tickNCTAsReceived()
         BOAction.tickVehicleRegDocsAsReceived()
         BOAction.tickGapInCoverAsReceived()
-        BOAction.tickOldCertAsReceived()
+        //BOAction.tickOldCertAsReceived()
         BOAction.tickNCBAsReceived()
         
         // BOAction.

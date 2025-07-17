@@ -565,7 +565,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.get('input[type="checkbox"][id*="_IsReceived"]').check({ force: true })
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for No Claims Bonus from previous insurer')
         }
     })
 }
@@ -584,7 +584,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Driving experience')
         }
     })
 }
@@ -603,7 +603,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Proof of Ignition')
         }
     })
 }
@@ -622,7 +622,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Engineers report')
         }
     })
 }
@@ -641,7 +641,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Medical report form')
         }
     })
 }
@@ -660,7 +660,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for NCT / MOT')
         }
     })
 }
@@ -679,7 +679,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Vehicle registration documents')
         }
     })
 }
@@ -698,7 +698,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Gap in cover reason')
         }
     })
 }
@@ -717,7 +717,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Old certificate')
         }
     })
 }
@@ -736,7 +736,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Proof of advanced driver membership')
         }
     })
 }
@@ -755,7 +755,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Driving experience')
         }
     })
 }
@@ -774,7 +774,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Proof of Ignition')
         }
     })
 }
@@ -793,7 +793,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Engineers report')
         }
     })
 }
@@ -812,7 +812,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Medical report form')
         }
     })
 }
@@ -831,7 +831,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for NCT / MOT')
         }
     })
 }
@@ -850,7 +850,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Vehicle registration documents')
         }
     })
 }
@@ -869,7 +869,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Gap in cover reason')
         }
     })
 }
@@ -888,7 +888,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Old certificate')
         }
     })
 }
@@ -907,7 +907,7 @@ cy.getAndWait('tr').then($rows => {
                 cy.wait(1500)
          })
         } else {
-            throw new Error('No matching row found for telematics device')
+            throw new Error('No matching row found for Proof of advanced driver membership')
         }
     })
 }
