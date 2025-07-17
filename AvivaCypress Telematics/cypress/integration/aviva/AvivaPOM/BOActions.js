@@ -497,6 +497,13 @@ checkRenewalDocs(){
 
 }
 
+checkCancDocs(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_cancdocs).contains('Cancellation Confirmation Letter')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_cancdocs).contains('Cancellation Confirmation Email')
+
+}
+
 tickBoxAsReceived(){
 
 cy.getAndWait('tr').then($rows => {

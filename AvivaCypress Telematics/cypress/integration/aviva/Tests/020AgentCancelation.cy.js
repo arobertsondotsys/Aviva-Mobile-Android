@@ -44,6 +44,7 @@ describe('Agent can cancel a policy', () => {
 
         // Select Cancelation date (+5 days from current date)
         cy.getAndWait('.a-label').should('have.text', 'What date would you like to cancel from?')
+        cy.wait(1000)
         cy.getAndWait('#ctl00_MainContent_staffCancelDate').type(day().add(6, 'day').format('DD/MM/YYYY'))
         cy.getAndWait('#ctl00_MainContent_staffDateContinue').click()
 
@@ -53,6 +54,15 @@ describe('Agent can cancel a policy', () => {
 
         // Confirmation page check
         cy.getAndWait('.m-heading-group__item').should('have.text', 'Your policy has been cancelled')
+        Server.Server()
+        BOAction.home()
+        Logins.email()
+        BOAction.searchButton()
+        BOAction.policySelectButton()
+        BOAction.livePoliciesBTN()
+        BOAction.selectActionDocumentsWithPolicyNumber()
+        BOAction.checkCancDocs()
+
     })
 })
 

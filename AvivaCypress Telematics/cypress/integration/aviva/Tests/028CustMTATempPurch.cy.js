@@ -65,7 +65,7 @@ describe('Customer can purchase a Temp AD', () => {
         MTABOAction.permMTABuyNow()
 
         // Payment screen
-        PaymentPage.paymentCardQAWithCheck()
+        PaymentPage.selectPaymentMethod()
 
         // Thank you page
         ThankYouPage.thankyouHeading()
