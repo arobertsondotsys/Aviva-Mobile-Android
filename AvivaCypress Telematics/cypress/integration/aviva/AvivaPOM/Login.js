@@ -11,7 +11,7 @@ company(){
 
 username(){
        
-    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User)
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.username_element).click().type(this.UserData.InputData.User2)
 
 }
 

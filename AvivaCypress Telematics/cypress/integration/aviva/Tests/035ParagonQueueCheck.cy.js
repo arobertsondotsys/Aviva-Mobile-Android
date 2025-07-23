@@ -66,6 +66,25 @@ describe('Check Paragon Queue for correct documents', () => {
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+
+        cy.getAndWait(':nth-child(1) > .level1').click()
+
+        cy.go(-3)
+        BOAction.livePoliciesBTN()
+        BOAction.selectActionDocumentsWithTempPackPolicyNumber()
+
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Welcome Letter Temp Cover')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Welcome Email Temp Cover')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Policy Schedule')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Statement Of Fact')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Certificate')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Driving Experience Email')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Quote Email')
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Receipt')
+        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
     })
 })
 
