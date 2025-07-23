@@ -72,6 +72,7 @@ describe('Customer can purchase an MTA', () => {
         AdditionalDriversPage.additionalDriversContinue()
 
         // Claims screen
+        cy.reload()
         YourClaimsPage.claimsFalseLast()
         YourClaimsPage.claimsContinue()
 
