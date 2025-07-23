@@ -20,13 +20,12 @@
     "9FATMIGRATION": "npx cypress run --browser chrome --record -- c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env server=TEST9FATMIGRATION",
     "10PRODMIGRATION": "npx cypress run --browser chrome --record -- c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env server=TEST10PRODMIGRATION",
     "GCCPRE": "npx cypress run --browser chrome --record -- c74d2b70-4878-41c8-b220-9e515bbcf0b6 --env server=GCCPRE"
-
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.40.1",
-    "cypress": "^14.2.1",
+    "cypress": "^14.5.2",
     "cypress-email-results": "^1.8.0",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.8.2",
@@ -39,6 +38,4 @@
     "nodemailer": "^6.9.4",
     "pdf-parse": "^1.1.1"
   }
-
- 
 }
