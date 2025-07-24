@@ -31,7 +31,7 @@ describe('Agent can NTU a cancellation', () => {
 
         // Open customer file Live policies
         BOAction.livePoliciesBTN()
-        BOAction.ntuWithPolicyNumber()
+        BOAction.ntuWithPolicyCancNumber()
 
         // Click to NTU last cancellation and keep in same window 
         BOAction.cookiesAccept()
