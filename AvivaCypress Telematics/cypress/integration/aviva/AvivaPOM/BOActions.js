@@ -196,6 +196,21 @@ selectActionCancelWithPolicyNumber(){
         
 }
 
+selectActionCancelWithPolicyCancNumber(){
+
+    cy.readFile('policy.json').then((data) => {
+        const telematicsPolicyCancNumber = data.telematicsPolicyCancNumber
+        cy.getAndWait('.panel-title')
+        .contains(telematicsPolicyCancNumber)
+        cy.xpath("//span[normalize-space()='"+telematicsPolicyCancNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Cancel Policy']")
+         })
+        
+}
+
+
+
+
 selectActionAmendNCDWithPolicyNumber(){
 
     cy.readFile('policy.json').then((data) => {
@@ -316,6 +331,19 @@ selectActionDocumentsWithPolicyNumber(){
         
 }
 
+selectActionDocumentsWithPolicyCancNumber(){
+
+    cy.readFile('policy.json').then((data) => {
+        const telematicsPolicyCancNumber = data.telematicsPolicyCancNumber
+        cy.getAndWait('.panel-title')
+        .contains(telematicsPolicyCancNumber)
+        cy.xpath("//span[normalize-space()='"+telematicsPolicyCancNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
+
 selectActionDocumentsWithParagonPolicyNumber1(){
 
     cy.readFile('policy.json').then((data) => {
@@ -399,6 +427,19 @@ ntuWithPolicyNumber(){
         })
         
 }
+
+ntuWithPolicyCancNumber(){
+
+    cy.readFile('policy.json').then((data) => {
+        const telematicsPolicyCancNumber = data.telematicsPolicyCancNumber
+        cy.getAndWait('.panel-title')
+            .contains(telematicsPolicyCancNumber)
+            .click()
+        cy.stopWindow("//span[normalize-space()='"+telematicsPolicyCancNumber+"']/../../../..//span[contains(text(),'NTU')]")
+        })
+        
+}
+
 
 policyToolsAgePolicyWithPolicyNumber(){
 

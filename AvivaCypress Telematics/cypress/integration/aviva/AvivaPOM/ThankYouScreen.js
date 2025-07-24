@@ -33,6 +33,28 @@ retreiveTelematicsPolicyNumber(){
         
 }
 
+retreiveTelematicsCancPolicyNumber(){
+
+    cy.getAndWait('.m-card-content__inner > p > strong')
+    .invoke('text') 
+    .then((text) => {
+    
+    const numberOnly = text.match(/\d+/)[0]
+
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+        const updatedData = { ...data, telematicsPolicyCancNumber: numberOnly }
+        cy.writeFile('policy.json', updatedData)
+    })
+
+    cy.wrap(numberOnly).as('telematicsPolicyCancNumber')
+    })
+
+    cy.get('@telematicsPolicyCancNumber').then((telematicsPolicyCancNumber) => {
+    cy.log(`Extracted policy number: ${telematicsPolicyCancNumber}`)
+    })
+   
+}
+
 retreiveParagonPolicyNumber1(){
 
     cy.getAndWait('.m-card-content__inner > p > strong')

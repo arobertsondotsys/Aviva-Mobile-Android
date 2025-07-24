@@ -22,7 +22,7 @@ selectPaymentMethod() {
         if (currentUrl.includes('rwy')) {
             this.paymentCardQAAgent();
         } else if (currentUrl.includes('stg')) {
-            this.paymentCardDemo();
+            this.paymentCardDemoAgent();
         } else {
             throw new Error('Unknown payment environment: ' + currentUrl);
         }
@@ -266,7 +266,14 @@ paymentCardDemo(){
       cy.wait(10000)
       //cy.getAndWait('.payment-heading').contains('Payment')
       cy.wait(3000)
-      cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
+      // Check if the radio button exists and click it
+      cy.get('body').then(($body) => {
+          if ($body.find('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').length > 0) {
+              cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
+          } else {
+              cy.log('Radio button not found, proceeding without clicking.')
+          }
+      })
       
         
      

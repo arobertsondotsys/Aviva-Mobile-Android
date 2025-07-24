@@ -22,7 +22,7 @@ export class PaymentScreen{
         if (currentUrl.includes('rwy')) {
             this.paymentCardQAAgent();
         } else if (currentUrl.includes('stg')) {
-            this.paymentCardDemo();
+            this.paymentCardDemoAgent();
         } else {
             throw new Error('Unknown payment environment: ' + currentUrl);
         }
