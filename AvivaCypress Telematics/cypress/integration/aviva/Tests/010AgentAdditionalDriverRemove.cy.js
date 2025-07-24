@@ -253,7 +253,7 @@ describe('Agent can add a driver and remove at ADJ', () => {
         PaymentTypesPage.paymentTypeAgentADJCardContinue()
 
         // Payment screen
-        PaymentPage.selectPaymentMethod()
+        PaymentPage.selectPaymentMethod1()
 
         // Thank you page
         ThankYouPage.thankyouHeading()
