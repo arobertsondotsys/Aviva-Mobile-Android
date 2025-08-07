@@ -18,14 +18,15 @@ claimsTrue(){
 
 claimsFalse1st(){
 
-    cy.reload()
-    cy.wait(2000)
+    // cy.reload()
+    // cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_false).first().click({force:true})
 
 }
 
 claimsFalseLast(){
-
+    cy.reload()
+    cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.claims_false).last().click({force:true})
 
 }

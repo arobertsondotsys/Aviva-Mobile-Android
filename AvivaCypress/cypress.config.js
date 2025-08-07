@@ -66,6 +66,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/024CustCancellation.cy.js',
     'cypress/integration/aviva/Tests/025PasswordReset.cy.js',
     'cypress/integration/aviva/Tests/026CustPurch.cy.js',
+    'cypress/integration/aviva/Tests/026CustHoneyPotCheck.cy.js',
     'cypress/integration/aviva/Tests/027AgentUnlock1.cy.js',
     'cypress/integration/aviva/Tests/028CustMTATempPurch.cy.js',
     'cypress/integration/aviva/Tests/029CustMTAPurch.cy.js',
