@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-11T13:56:05.729Z",
+    "end": "2025-04-11T13:56:17.596Z",
+    "duration": 11867,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "165639b2-9116-4234-9051-3538de4bba15",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\NTUCanc.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\NTUCanc.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26af543d-d611-4dc6-bd52-07fb146d7d9c",
+          "title": "Agent can NTU a cancellation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of NTU a cancellation",
+              "fullTitle": "Agent can NTU a cancellation should complete the process of NTU a cancellation",
+              "timedOut": null,
+              "duration": 10283,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server();\n// Log in to back office\nLogins.company();\nLogins.username();\nLogins.password();\nLogins.loginButton();\n// Search for customer\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\n// Open customer file Live policies\nBOAction.livePoliciesBTN();\nBOAction.ntuWithPolicyNumber();\n// Click to NTU last cancellation and keep in same window \nBOAction.cookiesAccept();\ncy.get('#ctl00_MainContent_NTUButton').click();\ncy.get('#ctl00_MainContent_ConfirmationRow').contains(\"The Adjustment has been NTU'd\");",
+              "err": {},
+              "uuid": "e2f75ac6-252a-4fbc-b090-9c3e0b01ed40",
+              "parentUUID": "26af543d-d611-4dc6-bd52-07fb146d7d9c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e2f75ac6-252a-4fbc-b090-9c3e0b01ed40"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10283,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

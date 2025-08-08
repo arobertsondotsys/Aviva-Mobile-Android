@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-11T13:56:47.277Z",
+    "end": "2025-04-11T13:59:18.529Z",
+    "duration": 151252,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "40faef63-3763-4258-aa0e-a693e51a4c36",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\CustPurchQA.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\CustPurchQA.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c0c3a4ca-7334-49fb-bd2d-6071876a409e",
+          "title": "Customer can purchase a policy via website",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of purchasing a policy",
+              "fullTitle": "Customer can purchase a policy via website should complete the process of purchasing a policy",
+              "timedOut": null,
+              "duration": 74120,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\CustPurchQA.cy.js\\\\Customer can purchase a policy via website -- should complete the process of purchasing a policy (failed).png\"\n    ],\n    [\n      \"\\\\CustPurchQA.cy.js\\\\Customer can purchase a policy via website -- should complete the process of purchasing a policy (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "Server.Server2();\n// Revert new window that opens back to original window \nBOAction.removeAttr();\n// Accept cookies\nBOAction.cookiesAccept();\n// Complete section 1 \"About you\"\nAboutYouPage.aboutYouTitle();\nAboutYouPage.proposerTitle();\nAboutYouPage.proposerForename();\nAboutYouPage.proposerSurname();\nAboutYouPage.proposerEmail();\nAboutYouPage.phone();\nAboutYouPage.aboutYouContinue();\n// Complete section 2 \"Personal details\"\nPersonalDetailsPage.personalDetailsTitle();\nPersonalDetailsPage.addressInput();\nPersonalDetailsPage.addressSuggest();\nPersonalDetailsPage.addressSelect();\nPersonalDetailsPage.addressConfirm();\nPersonalDetailsPage.proposerDOB();\nPersonalDetailsPage.proposerEmployStatus();\nPersonalDetailsPage.licenceType();\nPersonalDetailsPage.licenceYears();\nPersonalDetailsPage.personlaDetailsContinue();\n// Complete section 3 \"Insurance details\"\nInsuranceDetailsPage.insuranceDetailsTitle();\nInsuranceDetailsPage.drivingExp();\nInsuranceDetailsPage.drivingExpYears();\nInsuranceDetailsPage.insuranceDetailsContinue();\n// Complete section 4 \"Car details\"\nCarDetailsPage.carDetailsTitle();\nCarDetailsPage.carRegYes();\nCarDetailsPage.carRegInput();\nCarDetailsPage.findCarBTN();\nCarDetailsPage.confirmCarBTN();\nCarDetailsPage.carValueInput();\nCarDetailsPage.carModifiedFalse();\nCarDetailsPage.carDetailsContinue();\n// Complete section 5 \"Additional drivers\"\nAdditionalDriversPage.additionalDriversHeading();\nAdditionalDriversPage.additionalDriversFalse();\nAdditionalDriversPage.additionalDriversContinue();\n// Complete section 6 \"Your claims\"\nYourClaimsPage.claimsHeading();\nYourClaimsPage.claimsFalse1st();\nYourClaimsPage.claimsContinue();\n// Complete section 7 \"Penalty points\"\nPenaltyPointsPage.ppHeading();\nPenaltyPointsPage.ppFalse1st();\nPenaltyPointsPage.ppContinue();\n// Complete section 8 \"Cover start date\"\nCoverStartDatePage.coverStartHeading();\nCoverStartDatePage.coverStartDate();\nCoverStartDatePage.coverStartHaveHomeIns();\nCoverStartDatePage.coverStartHaveCarIns();\nCoverStartDatePage.coverStartMarketing();\nCoverStartDatePage.coverStartCustomerQuote();\nCoverStartDatePage.coverStartContinue();\n// Quote screen - Buy now \nQuotePageAndExtras.quotePageHeading();\ncy.pause();\nQuotePageAndExtras.buyNowBtn();\n// Complete post quote 1 \"About you car\"\nAboutYourCarPage.postQuote1Heading();\nAboutYourCarPage.postQuote1OwnCar();\nAboutYourCarPage.postQuote1PrivateIns();\nAboutYourCarPage.postQuote1Continue();\n// Complete post quote 2 \"About the drivers\"\nAboutTheDriversPage.postQuote2Heading();\nAboutTheDriversPage.postQuote2IsResidentTrue();\nAboutTheDriversPage.postQuote2IsMainDriverTrue();\nAboutTheDriversPage.postQuote2IsNotOtherCarTrue();\nAboutTheDriversPage.postQuote2IsNotOtherInsTrue();\nAboutTheDriversPage.postQuote2IsNoConvictionTrue();\nAboutTheDriversPage.postQuote2IsNoDisqualificationTrue();\nAboutTheDriversPage.postQuote2IsNoRefusalTrue();\nAboutTheDriversPage.postQuote2IsNoIncreaseTrue();\nAboutTheDriversPage.postQuote2IsNoMedicalTrue();\nAboutTheDriversPage.postQuote2DriverNumber();\nAboutTheDriversPage.postQuote2Continue();\n// Complete post quote 3 \"Your insurance history and inception details\"\nYourInsHistoryAndIncepDetsPage.postQuote3Heading();\nYourInsHistoryAndIncepDetsPage.postQuote3NCDROITrue();\nYourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue();\nYourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue();\nYourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaFalse();\nYourInsHistoryAndIncepDetsPage.postQuote3PostCert();\nYourInsHistoryAndIncepDetsPage.postQuote3PostDocs();\nCoverStartDatePage.coverStartCustomerQuote();\nYourInsHistoryAndIncepDetsPage.postQuote3Continue();\n// Payment screen\nPaymentPage.paymentCardQA();\n// Thank you page\nThankYouPage.thankyouHeading();\nThankYouPage.retreivePolicyNumber();",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is not visible:\n\n`<span class=\"a-checkbox__label dd-data-link\" data-dd-group=\"confirmation-info:motor:private\" data-dd-loc=\"TermsAndConditions\" data-dd-link=\"check\">...</span>`\n\nThis element `<span.a-checkbox__label.dd-data-link>` is not visible because its parent `<div#accHeading3-term.m-showhide__content.rowModifier>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is not visible:\n\n`<span class=\"a-checkbox__label dd-data-link\" data-dd-group=\"confirmation-info:motor:private\" data-dd-loc=\"TermsAndConditions\" data-dd-link=\"check\">...</span>`\n\nThis element `<span.a-checkbox__label.dd-data-link>` is not visible because its parent `<div#accHeading3-term.m-showhide__content.rowModifier>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at runVisibilityCheck (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:146756:58)\n    at Object.isStrictlyVisible (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:146770:10)\n    at runAllChecks (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:113420:26)\n    at retryActionability (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:113488:16)\n    at tryCatcher (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:145583:68)\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:145524:14)\n    at tryCatcher (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack://avivaproject/./cypress/support/commands.js:69:8)\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118795:17)\n    at tryCatcher (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.shouldFnWithCallback (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118792:66)\n    at Context.shouldFn (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118835:37)\n    at Context.should (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118954:23)\n    at <unknown> (https://qa2insurance-aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:144836:39)",
+                "diff": null
+              },
+              "uuid": "cbd0093d-9431-4c9e-b9f2-ea7edb8261d1",
+              "parentUUID": "c0c3a4ca-7334-49fb-bd2d-6071876a409e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "cbd0093d-9431-4c9e-b9f2-ea7edb8261d1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 74120,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

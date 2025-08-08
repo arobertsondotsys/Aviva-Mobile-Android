@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-11T13:42:58.841Z",
+    "end": "2025-04-11T13:43:02.684Z",
+    "duration": 3843,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "84fcff1f-16b4-44cb-91f3-235f0984c27c",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\CheckCookies.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\CheckCookies.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "809b67fd-51fc-400e-a8ce-85e3250552d8",
+          "title": "Check cookie status",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should check the status of the cookie",
+              "fullTitle": "Check cookie status should check the status of the cookie",
+              "timedOut": null,
+              "duration": 2264,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server();\n// Log in\nLogins.company();\nLogins.username();\nLogins.password();\nLogins.loginButton();\ncy.getCookie('.evolveDAuth').then(cookie => {\n  if (cookie) {\n    const cookieValue = cookie.value;\n    // Perform assertions on the cookie value\n    expect(cookieValue).to.not.be.empty;\n    // You can also check the status or any specific attribute of the cookie\n    expect(cookie.secure).to.be.true;\n    expect(cookie.httpOnly).to.be.true;\n    cy.log(\"The 'Dauth' cookie is secure\");\n    // You can add more assertions based on your requirements\n  } else {\n    // Handle the case when the cookie is not found\n    // For example, you can fail the test or perform other actions\n    // depending on your use case\n    cy.log(\"The 'DAuth' cookie was not found.\");\n  }\n});",
+              "err": {},
+              "uuid": "e77e82eb-0253-4a80-b842-3df44b8295ea",
+              "parentUUID": "809b67fd-51fc-400e-a8ce-85e3250552d8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e77e82eb-0253-4a80-b842-3df44b8295ea"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2264,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

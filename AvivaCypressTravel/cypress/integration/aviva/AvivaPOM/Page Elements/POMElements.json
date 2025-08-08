@@ -1,0 +1,283 @@
+{
+
+"LoginPageLocators": 
+
+    {
+
+    "company_element": "#ctl00_ContentPlaceHolder1_Login1_CompanyName",
+    "username_element": "#ctl00_ContentPlaceHolder1_Login1_Username",
+    "password_element": "#ctl00_ContentPlaceHolder1_Login1_Password",
+    "loginBtn_element": ".btn",
+    "emailsearch_element": "#ctl00_ContentPlaceHolder1_SearchText",
+    "searchBtn_element": "#ctl00_ContentPlaceHolder1_Search",
+    "policyslctbtn_element": "#ctl00_ContentPlaceHolder1_CustomerGrid_ctl02_Customer_ID",
+    "phone_element": "#ctl00_MainContent_ProposerMobile",
+    "proposeremail_element": "#ProposerEmail",
+    "proposernoemail": "#divEmailCheckbox > .a-checkbox > .a-checkbox__label",
+    "portal_email": "#loginEmail",
+    "portal_password": "#loginPassword",
+    "portal_login_btn": "#btnLogin",
+    "cookies_accept": "#onetrust-accept-btn-handler",
+    "forgotep_dob": "#DriverDOB",
+    "register_dob": "#RegisterDOB",
+    "forgotep_policy": "#PolicyNumber",
+    "register_policy": "#ContinueRegister",
+    "forgot_email": "#ForgotPasswordEmail"
+
+    }
+
+,"QuotePageLocators":
+
+    {
+    
+    "agent_quote": "#ctl00_ContentPlaceHolder1_ProductList",
+    
+    "quote_linkbtn": ":nth-child(1) > tbody > tr > td > .btn-success",
+    
+    "aboutyou_title": "#div1",
+    "proposer_mr": "#ctl00_MainContent_DDLProposerTitle",
+    "proposer_forename": "#ctl00_MainContent_ProposerForename",
+    "proposer_surname": "#ctl00_MainContent_ProposerSurname",
+    "aboutyou_continue": "#ctl00_MainContent_Continue1",
+    
+    "personaldetails_title": "#div2",
+    "address_input": "[class='autoaddress-text-box a-textbox']",
+    "address_suggest": ".autoaddress-autocomplete",
+    "address_select": "[data-index= '0'] > a",
+    "address_confirm": "#ctl00_MainContent_btnConfirmAddress",
+    "proposer_dob": "#ProposerDOB",
+    "employment_status": "#ctl00_MainContent_EmploymentStatus",
+    "driver_occupation": "#txtOccupation",
+    "licence_type": "#LicenceType",
+    "licence_obtained": "#ctl00_MainContent_CountryLicenceObtained",
+    "licence_years": "#ctl00_MainContent_LicenceYearsHeld",
+    "personaldetails_continue": "#ctl00_MainContent_Continue2",
+
+    "insurancedetails_title": "#div3",
+    "drivingexp_ddl": "#ctl00_MainContent_ddlDrivingExperience",
+    "drivingexp_years": "#ctl00_MainContent_ddlYearsNCB",
+    "drivingexp_named": "#ctl00_MainContent_ddlYearsNamed",
+    "drivingexp_outsideroi": "#ctl00_MainContent_ddlYearsOutsideROI",
+    "caruse_ddl": "#ctl00_MainContent_ddlCarUse",
+    "insurancedetails_continue": "#ctl00_MainContent_Continue3",
+
+    "cardetails_title": "#div4",
+    "carreg_yes": "#IsCarReg-True > .a-radio > .a-radio__label",
+    "carreg_no": "#IsCarReg-False > .a-radio > .a-radio__label",
+    "manual_make": "#ddlMake",
+    "manual_model": "#ddlModel",
+    "manual_fuel": "#ddlFuel",
+    "manual_year": "#ddlYear",
+    "manual_gears": "#ddlGears",
+    "manual_vehicle": "#ddlDescription",
+    
+    "carreg_input": "#VehicleRegistration",
+    "findcar_btn": "#ctl00_MainContent_btnFindCar",
+    "confirmcar_btn": "#ctl00_MainContent_btnConfirmReg",
+    "carvalue_input": "#VehicleCurrentValue",
+    "carmodified_false": "#IsModified-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "cardetails_continue": "#Continue4",
+
+    "additionaldrivers_heading": "#div5",
+    "additionaldriver_false": "#IsAdditionalDriver-False > .a-radio > .a-radio__label",
+    "additionaldriver_true": "#IsAdditionalDriver-True > .a-radio > .a-radio__label",
+    "additionaldriver_continue": "#Continue5",
+    "additionaldriver_title": "#ctl00_MainContent_DDL_AddDriverTitle",
+    "additionaldriver_forename": "#ctl00_MainContent_DriverForename",
+    "additionaldriver_surname": "#ctl00_MainContent_DriverSurname",
+    "additionaldriver_dob": "#ctl00_MainContent_DriverDOB",
+    "additionaldriver_empstatus": "#DriverEmploymentStatus",
+    "additionaldriver_occupation": "#txtDriverOccupation",
+    "additionaldriver_occuseggest": "#ui-id-3",
+    "additionaldriver_occuseggest1": "#ui-id-10",
+    "additionaldriver_lictype": "#DriverLicenceType",
+    "additionaldriver_licyears": "#ctl00_MainContent_DriverLicenceYearsHeld",
+    "additionaldriver_drivernumber": "#AdditionalDriverNumber",
+    "additionaldriver_relationship": "#RelationshipToProposer",
+    "additionaldriver_spousefalse": "#IsSpouseOwnVehicle-False > .a-radio > .a-radio__label",
+    "additionaldriver_save": "#SaveDriver",
+    "additionaldriver_added_heading": "#accHeading5 > .m-showhide__control", 
+    "additionaldriver_added_heading1": "#accHeading5 > .m-showhide__control",  
+    
+    "claims_heading": "#div6",
+    "claims_false": "[id*=IsClaims][value^=False]",
+    "claims_true": "[id*=IsClaims][value^=True]",
+    "claims_continue": "#Continue6",
+
+    "pp_heading": "#div7",
+    "pp_false": "[id*=IsPenaltyPoints][value^=No]",
+    "pp_true": "[id*=IsPenaltyPoints][value^=Yes]",
+    "pp_continue": "#Continue7",
+    
+    "coverstart_heading": "#div8",  
+    "coverstart_date": "#ctl00_MainContent_StartDate",
+    "coverstart_havehomefalse": "#IsHome-no",
+    "coverstart_havehometrue": "#IsHome-yes",
+    "coverstart_havecarfalse": "#IsHouseholdCar-no",
+    "coverstart_havecartrue": "#IsHouseholdCar-yes",
+    "coverstart_promocode": "#ctl00_MainContent_PromoCode",
+    "coverstart_marketing": "#RecieveOffers-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "coverstart_custcheck1": ".a-checkbox__label",
+    "coverstart_custcheck": "#TermsAndConditions > .a-checkbox > .a-checkbox__label",
+    "coverstart_continue": "#ctl00_MainContent_Continue8",
+
+    "quotepage_heading": ".m-heading-group__item",
+    "quotepage_staffoptions": "#MainContent_divStaffSection > .a-heading > .m-showhide__control",
+    "quotepage_discounts": "#ddlAvailableDiscounts",
+    "quotepage_tpft": "#QuoteType-False > .a-radio > .a-radio__label",
+    "buynow_btn": "#btnBuyNow",
+    "quotepage_paymonthly": "#btnPayMonthly",
+    "quotepage_addopendriving": "#ctl00_MainContent_btnAddOpenDriving",
+    "quotepage_excess125": "#ExcessAmount-min > .a-radio > .a-radio__label",
+    "quotepage_excess300": "#ExcessAmount-mid > .a-radio > .a-radio__label",
+    "quotepage_excess600": "#ExcessAmount-max > .a-radio > .a-radio__label",
+    "quotepage_excessconfirm": "#btnSelectExcess",
+    "quotepage_journeywise": "#ctl00_MainContent_btnAddJourneyWise",
+    "quotepage_stepback": "#ctl00_MainContent_OptionalStepBack > .o-radio-list-item__content-container > .a-radio > .a-radio__label",
+    "quotepage_protected": "#ctl00_MainContent_OptionalProtectedNCB > .o-radio-list-item__content-container > .a-radio > .a-radio__label",
+    "quotepage_protectedstepback": "#ctl00_MainContent_OptionalProtectedStepBack > .o-radio-list-item__content-container > .a-radio > .a-radio__label",
+    "quotepage_addncdcover": "#btnAddThisCover",
+    "quotepage_editcar": "#ctl00_MainContent_EditCarDetails",
+    "quotepage_editinsdets": "#ctl00_MainContent_EditInsuranceDetails",
+    "quotepage_editpersdets": "#ctl00_MainContent_EditPersonalDetails",
+    "quotepage_editdrivexp": "#ctl00_MainContent_EditDrivingExperience",
+    "quotepage_editad": "#ctl00_MainContent_EditAdditionalDriver",
+    "quotepage_breakdownsingle": "#SinglePaymentCard > .m-card-content > .m-card-content__inner > :nth-child(4) > .has-modules-loaded",
+    "quotepage_breakdownmonthly": "#monthlySpan > .m-card-content__inner > :nth-child(4) > .has-modules-loaded",
+
+    "aboutyourcar_heading": "#div1",
+    "aboutyourcar_carreg": "#ctl00_MainContent_VehicleRegistration",
+    "aboutyourcar_findcar": "#ctl00_MainContent_btnFindCar",
+    "aboutyourcar_confirmcar": "#ctl00_MainContent_btnConfirmReg",
+    "aboutyourcar_declinecar": "#ctl00_MainContent_btnNotCorrectReg",
+    "aboutyourcar_owncar": "#IsOwner-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutyourcar_privins": "#IsPrivate-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutyourcar_continue": "#ctl00_MainContent_btnContinueVehicle",
+
+    "aboutthedrivers_heading": "#div2", 
+    "aboutthedrivers_isresidenttrue": "#IsResident-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isresidentfalse": "#IsResident-False > .a-radio > .a-radio__label",
+    "aboutthedrivers_ismaindrivertrue": "#IsMainDriver-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_ismaindriverfalse": "#IsMainDriver-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnotothercartrue": "#IsNotOtherCar-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnotothercarfalse": "#IsNotOtherCar-False > .a-radio > .a-radio__label > .a-radio__label-inner",  
+    "aboutthedrivers_isnototherinstrue": "#IsNotOtherInsurance-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnototherinsfalse": "#IsNotOtherInsurance-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnoconvtrue": "#IsNoConvictions-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnoconvfalse": "#IsNoConvictions-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnodisqualtrue": "#IsNoDisqualifications-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnodisqualfalse": "#IsNoDisqualifications-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnorefusaltrue": "#IsNoRefusal-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnorefusalfalse": "#IsNoRefusal-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnoincreasetrue": "#IsNoIncrease-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnoincreasefalse": "#IsNoIncrease-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnomedicaltrue": "#IsNoMedical-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_isnomedicalfalse": "#IsNoMedical-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "aboutthedrivers_addmedicalcon_btn": "#btnAddMedicalCondition",
+    "aboutthedrivers_addmedicalcon_driver": "#ctl00_MainContent_ddlDriversMedicalConditions",
+    "aboutthedrivers_addmedicalcon_select": "#ctl00_MainContent_ddlMedicalConditions",
+    "aboutthedrivers_addmedicalcon_informed": "#IsInformed-False > .a-radio > .a-radio__label",
+    "aboutthedrivers_addmedicalcon_save": "#SaveMedicalCondition",
+    "aboutthedrivers_medicaldelete_btn": ":nth-child(2) > .m-card-content > .m-card-content__inner > .m-card > .m-form-row > #RemoveCondition",
+    "aboutthedrivers_medicaldelete_btn1": "#RemoveCondition",
+    "aboutthedrivers_medicalremove_btn": "#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition",
+    
+
+    "aboutthedrivers_drivernum": "#ctl00_MainContent_DriverRepeater_ctl00_DriverNum",
+    "aboutthedrivers_drivernum1": "#ctl00_MainContent_DriverRepeater_ctl01_DriverNum",
+    "aboutthedrivers_drivernum2": "#ctl00_MainContent_DriverRepeater_ctl02_DriverNum",
+    "aboutthedrivers_continue": "#btnContinueDrivers",
+
+    "inshistory_heading": "#div3",
+    "inshistory_isncdroitrue": "#IsNCDROI-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "inshistory_nootherncdtrue": "#IsNotOtherNCD-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "inshistory_withinexptrue": "#IsWithinExpiry-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "inshistory_othercarpolicy": "#ctl00_MainContent_OtherCarPolicyNo",
+    "inshistory_otherhomepolicy": "#ctl00_MainContent_HomePolicyNo",
+    
+    "inshistory_ismyavivatrue": "#IsMyAviva-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "inshistory_ismyavivafalse": "#IsMyAviva-no",
+    "inshistory_ispostcerttrue": "#IsPostCert-yes",
+    "inshistory_ispostcertfalse": "#IsPostCert-no",
+    "inshistory_ispostdocstrue": "#IsPostDocs-yes",
+    "inshistory_ispostdocsfalse": "#IsPostDocs-no",
+    "inshistory_continue": "#ctl00_MainContent_btnContinueToPayment",
+
+    "paymenttype_agent": "#ctl00_MainContent_PaymentType",
+    "paymenttype_agentnopaycontinue": "#ctl00_MainContent_NoPay",
+    "paymenttype_agentchequeamount": "#ctl00_MainContent_txtAmountReceived",
+    "paymenttype_agentchequeref": "#ctl00_MainContent_txtPayRef",
+    "paymenttype_agentchequepay": "#ctl00_MainContent_PayCheque",
+    "paymenttype_agentchequecontinue": "#ctl00_MainContent_btnPayNSPayment",
+
+    "diarycorres_heading": ".a-heading--1",
+    "diarycorres_continue": "#ctl00_MainContent_Summary",
+
+    "thankyou_heading": ".m-heading-group > .m-heading-group__item"
+
+
+    }
+
+,"BOPageLocators":
+
+
+    {
+
+    "home_page": ":nth-child(1) > .level1",
+    "livepolicy_btn": ":nth-child(2) > .card-header > .panel-title > .accordion-toggle > .btn",
+    "unlock_btn": "#ctl00_ContentPlaceHolder1_LockCustomer",
+    "notes": "#ctl00_divNotes > .a-button",
+    "createnewquote_btn": "#ctl00_ContentPlaceHolder1_Submit",
+    "age_policytool": "[class^='dropdown policyTools']",
+    "backdate_day": "#ctl00_ContentPlaceHolder1_BackDateDay",
+    "backdate_month": "#ctl00_ContentPlaceHolder1_BackDateMonth",
+    "backdate_year":"#ctl00_ContentPlaceHolder1_BackDateYear",
+    "backdate_confirm":"#ctl00_ContentPlaceHolder1_UpdateDate",
+    "backdate_message":".alert",
+    "generate_renewal":"[class^='btn btn-sm btn-cta btn-sm']",
+    "generate_renewalcheck":".bg-info",
+    "generate_renewalcheck1":".bg-info",
+    "generate_renewaldashboard":"[class^='level2 dropdown-item dynamic'][title^='Renewals']",
+    "generate_renewalpolicynumber":"#ctl00_ContentPlaceHolder1_PolicyNumber",
+    
+    
+    "extract_policynumber":"[class^='badge rounded-pill text-bg-success']",
+    "select_renewals":"[class^='level2 dropdown-item dynamic'][title^='Renewals']",
+    "selectaction_cancelpolicy": "[class^='dropdown selectAction']",
+    "selectaction_diary": "[class^='dropdown selectAction']",
+    "selectaction_documents": "[class^='dropdown selectAction']",
+    "selectaction_renewal": "[class^='dropdown selectAction']",
+    "input_policynumber":"#ctl00_ContentPlaceHolder1_PolicyNumber",
+    "search_policynumber":"#ctl00_ContentPlaceHolder1_Search",
+    "tick_renewal":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal",
+    "batchprint_renewal":"#ctl00_ContentPlaceHolder1_BatchPrint",
+    "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
+    "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
+    "check_renewaldocspost":"tbody > :nth-child(4) > :nth-child(3)",
+    "printqueue_view":"#ctl00_ContentPlaceHolder1_btnViewPrinterQueue",
+    "recall_policy":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy",
+    "staff_discountheading":"#StaffHeading > .m-showhide__control",
+    "staff_discountselect":"#ddlAvailableDiscounts",
+    "staff_discountrecalc":"#ctl00_MainContent_Recalculate",
+    "staff_nodiscountheading":"#ctl00_MainContent_UP_Price > .a-heading--2"
+
+
+    }
+
+
+,"PermMTAPageLocators":
+
+
+    {
+        
+    "selectaction_makeadj": "[class^='dropdown selectAction']", 
+    "perm_additonaldriver": "#ctl00_MainContent_ddlPermaSelection",
+    "perm_adjbtn": "#btnMakePermaChange",
+    "permmta_continue": "#ctl00_MainContent_btnContinue",  
+    "permmta_buynow": "#ctl00_MainContent_btnBuyNow", 
+    "permmta_deletedriverbtn": "#ctl00_MainContent_DriverRepeater_ctl00_DeleteDriver",
+    "permmta_cardadjpaynow": "#ctl00_MainContent_PayNow"  
+
+    }
+
+}

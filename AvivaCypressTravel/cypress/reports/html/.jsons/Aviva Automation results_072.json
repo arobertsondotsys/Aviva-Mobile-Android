@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-16T11:05:37.531Z",
+    "end": "2025-04-16T11:10:52.661Z",
+    "duration": 315130,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e82ea8de-74cf-4876-9c1f-152e70cfa6db",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\ParagonQueueNNY.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\ParagonQueueNNY.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5a8347ee-db91-4dda-9b33-5808b4de2794",
+          "title": "Policy Purchase with NNY",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of purchasing a policy with NNY preferences",
+              "fullTitle": "Policy Purchase with NNY should complete the process of purchasing a policy with NNY preferences",
+              "timedOut": null,
+              "duration": 156422,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\ParagonQueueNNY.cy.js\\\\Policy Purchase with NNY -- should complete the process of purchasing a policy with NNY preferences (failed).png\"\n    ],\n    []\n  ]\n}",
+              "code": "Server.Server();\n// Log in\nLogins.company();\nLogins.username();\nLogins.password();\nLogins.loginButton();\n// Revert new window that opens back to original window \ncy.getAndWait('#ctl00_ContentPlaceHolder1_ProductList').select(1);\ncy.window().then(win => {\n  const orig = win.open;\n  win.open = function (url, targetAndWait, features) {\n    return orig.call(this, url, '_self', features);\n  };\n});\nBOAction.createNewQuoteBTN();\n// Accept cookies\nBOAction.cookiesAccept();\n// Complete section 1 \"About you\"\nAboutYouPage.aboutYouTitle();\nBOAction.notes();\nAboutYouPage.proposerTitle();\nAboutYouPage.proposerForename();\nAboutYouPage.proposerSurname();\nAboutYouPage.proposerEmail();\nAboutYouPage.phone();\nAboutYouPage.aboutYouContinue();\n// Complete section 2 \"Personal details\"\nPersonalDetailsPage.personalDetailsTitle();\nPersonalDetailsPage.addressInput();\nPersonalDetailsPage.addressSuggest();\nPersonalDetailsPage.addressSelect();\nPersonalDetailsPage.addressConfirm();\nPersonalDetailsPage.proposerDOB();\nPersonalDetailsPage.proposerEmployStatus();\nPersonalDetailsPage.licenceType();\nPersonalDetailsPage.licenceYears();\nPersonalDetailsPage.personlaDetailsContinue();\n// Complete section 3 \"Insurance details\"\nInsuranceDetailsPage.insuranceDetailsTitle();\nBOAction.notes();\nInsuranceDetailsPage.drivingExp();\nInsuranceDetailsPage.drivingExpYears();\nInsuranceDetailsPage.carUse();\nInsuranceDetailsPage.insuranceDetailsContinue();\n// Complete section 4 \"Car details\"\nCarDetailsPage.carDetailsTitle();\nBOAction.notes();\nCarDetailsPage.carRegYes();\nCarDetailsPage.carRegInput();\nCarDetailsPage.findCarBTN();\nCarDetailsPage.confirmCarBTN();\nCarDetailsPage.carValueInput();\nCarDetailsPage.carModifiedFalse();\nCarDetailsPage.carDetailsContinue();\n// Complete section 5 \"Additional drivers\"\nAdditionalDriversPage.additionalDriversHeading();\nBOAction.notes();\nAdditionalDriversPage.additionalDriversFalse();\nAdditionalDriversPage.additionalDriversContinue();\n// Complete section 6 \"Your claims\"\nBOAction.notes();\nYourClaimsPage.claimsHeading();\nYourClaimsPage.claimsFalse1st();\nYourClaimsPage.claimsContinue();\n// Complete section 7 \"Penalty points\"\nPenaltyPointsPage.ppHeading();\nBOAction.notes();\nPenaltyPointsPage.ppFalse1st();\nPenaltyPointsPage.ppContinue();\n// Complete section 8 \"Cover start date\"\nCoverStartDatePage.coverStartHeading();\nBOAction.notes();\nCoverStartDatePage.coverStartDate();\nCoverStartDatePage.coverStartHaveHomeIns();\nCoverStartDatePage.coverStartHaveCarIns();\nCoverStartDatePage.coverStartMarketing();\nCoverStartDatePage.coverStartContinue();\n// Quote screen - Buy now \nQuotePageAndExtras.quotePageHeading();\nBOAction.notes();\nQuotePageAndExtras.buyNowBtn();\n// Complete post quote 1 \"About you car\"\nAboutYourCarPage.postQuote1Heading();\nBOAction.notes();\nAboutYourCarPage.postQuote1OwnCar();\nAboutYourCarPage.postQuote1PrivateIns();\nAboutYourCarPage.postQuote1Continue();\n// Complete post quote 2 \"About the drivers\"\nAboutTheDriversPage.postQuote2Heading();\nBOAction.notes();\nAboutTheDriversPage.postQuote2IsResidentTrue();\nAboutTheDriversPage.postQuote2IsMainDriverTrue();\nAboutTheDriversPage.postQuote2IsNotOtherCarTrue();\nAboutTheDriversPage.postQuote2IsNotOtherInsTrue();\nAboutTheDriversPage.postQuote2IsNoConvictionTrue();\nAboutTheDriversPage.postQuote2IsNoDisqualificationTrue();\nAboutTheDriversPage.postQuote2IsNoRefusalTrue();\nAboutTheDriversPage.postQuote2IsNoIncreaseTrue();\nAboutTheDriversPage.postQuote2IsNoMedicalTrue();\nAboutTheDriversPage.postQuote2DriverNumber();\nAboutTheDriversPage.postQuote2Continue();\n// Complete post quote 3 \"Your insurance history and inception details\" setting NYY to preferences\nYourInsHistoryAndIncepDetsPage.postQuote3Heading();\nBOAction.notes();\nYourInsHistoryAndIncepDetsPage.postQuote3NCDROITrue();\nYourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue();\nYourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue();\nYourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaFalse();\nYourInsHistoryAndIncepDetsPage.postQuote3PostCertFalse();\nYourInsHistoryAndIncepDetsPage.postQuote3PostDocs();\nYourInsHistoryAndIncepDetsPage.postQuote3Continue();\n// Payment type screen - selecting \"No payment required\"\nBOAction.notes();\nPaymentTypesPage.paymentTypeAgentNoPay();\nPaymentTypesPage.paymentTypeAgentNoPayContinue();\n// Diary & correspondence page \nDiaryAndCorrespondencePage.diaryCorrespondenceHeading();\nBOAction.notes();\nDiaryAndCorrespondencePage.diaryCorrespondenceContinue();\n// Thank you page\nThankYouPage.thankyouHeading();\nBOAction.notes();\nThankYouPage.retreiveParagonPolicyNumber2();\n// Check B/O preferences match Y/N/N\nServer.Server();\nBOAction.home();\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\n// Select policy and Documents \nBOAction.livePoliciesBTN();\nBOAction.selectActionDocumentsWithParagonPolicyNumber2();\ncy.getAndWait('#ctl00_ContentPlaceHolder1_btnCorrespondence').click();\ncy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPortal_1').should('have.value', 'False');\ncy.getAndWait('#ctl00_ContentPlaceHolder1_rblCertByPost_1').should('have.value', 'False');\ncy.getAndWait('#ctl00_ContentPlaceHolder1_rblDocsByPost_0').should('have.value', 'True');\ncy.getAndWait('#CorrespondenceModal > .modal-dialog > .modal-content > .modal-footer > .btn').click();\ncy.wait(60000);\ncy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click();\ncy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule');\ncy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact');\ncy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover');\n// Completing Diary chaser to move policy to full cover and check for cert being added to print queue\ncy.getAndWait(':nth-child(1) > .level1').click();\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\n// Select policy and Documents \nBOAction.livePoliciesBTN();\nBOAction.selectActionDiaryWithParagonPolicyNumber2();\ncy.getAndWait(':nth-child(7) > .btn > span').click();\ncy.getAndWait('#ctl00_ContentPlaceHolder1_DocumentGrid_ctl02_IsReceived').click();\ncy.getAndWait(':nth-child(2) > :nth-child(6)').should('not.have.text', '');",
+              "err": {},
+              "uuid": "6c943f5f-5d9b-487d-a2f6-0aefcddaa424",
+              "parentUUID": "5a8347ee-db91-4dda-9b33-5808b4de2794",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6c943f5f-5d9b-487d-a2f6-0aefcddaa424"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 156422,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

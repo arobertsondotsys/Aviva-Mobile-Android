@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-17T06:56:25.373Z",
+    "end": "2025-04-17T06:57:21.178Z",
+    "duration": 55805,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1d3ef6d7-3dd9-4e0f-b4d9-7f64b1a10402",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\CustMTATempPurch.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\CustMTATempPurch.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "98da9a81-f8fc-463a-8eba-c84a59feab22",
+          "title": "Customer can purchase a Temp AD",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of purchasing a Temp AD",
+              "fullTitle": "Customer can purchase a Temp AD should complete the process of purchasing a Temp AD",
+              "timedOut": null,
+              "duration": 54230,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server1();\nBOAction.cookiesAccept();\ncy.getAndWait('[class^=\"a-heading a-heading--1 u-margin--top-none\"]').contains('Log in to MyAviva').and('be.visible');\nLogins.loginEmail();\nLogins.loginPassword();\nLogins.loginPortalButton();\n// cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()\nPortalAction.portalManagePolicyWithPolicyNumber();\ncy.getAndWait('#Main_btnAdjustment').click();\ncy.getAndWait('#ctl00_MainContent_ddlTempSelection').select(2, {\n  force: true\n});\ncy.window().then(win => {\n  cy.getAndWait('#btnMakeTempChange').click({\n    force: true\n  });\n  const orig = win.open;\n  win.open = function (url, targetAndWait, features) {\n    return orig.call(this, url, '_self', features);\n  };\n});\n// Input dates for temp AD\ncy.getAndWait('#mainSection > .l-section > .l-columns > .l-columns__column > .a-heading').contains('Temporarily add another driver');\ncy.getAndWait('#StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_CoverTime').type('13:00', {\n  force: true\n});\ncy.getAndWait('#EndDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_CoverEndTime').type('23:59', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_Continue').click({\n  force: true\n});\n// Input temp AD details\ncy.getAndWait('#ctl00_MainContent_DDLProposerTitle').select(1, {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_ProposerForename').type('Andy', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_ProposerSurname').type('Test', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_ProposerDOB').type('20/11/1980', {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_LicenceType').select(1, {\n  force: true\n});\ncy.getAndWait('#ctl00_MainContent_Continue2').click({\n  force: true\n});\n// Quote page\nMTABOAction.permMTABuyNow();\n// Payment screen\nPaymentPage.paymentCardDemo();\n// Thank you page\nThankYouPage.thankyouHeading();",
+              "err": {},
+              "uuid": "7538daa5-7aaa-45bf-8bcc-1037effcf396",
+              "parentUUID": "98da9a81-f8fc-463a-8eba-c84a59feab22",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7538daa5-7aaa-45bf-8bcc-1037effcf396"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 54230,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

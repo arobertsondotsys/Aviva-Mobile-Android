@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-18T17:46:50.870Z",
+    "end": "2025-04-18T17:47:04.394Z",
+    "duration": 13524,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c41c5186-4ece-4766-be32-07952f54cb3b",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\CustDocUpload.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\CustDocUpload.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "887c65c4-427d-4223-bbf0-8e3a85d9040b",
+          "title": "Customer can upload a document",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should upload a document successfully",
+              "fullTitle": "Customer can upload a document should upload a document successfully",
+              "timedOut": null,
+              "duration": 11657,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server1();\nBOAction.cookiesAccept();\ncy.getAndWait('[class^=\"a-heading a-heading--1 u-margin--top-none\"]').contains('Log in to MyAviva').and('be.visible');\nLogins.loginEmail();\nLogins.loginPassword();\nLogins.loginPortalButton();\nPortalAction.portalManagePolicyWithPolicyNumber();\ncy.getAndWait('#Main_btnUploadDocuments').click();\ncy.getAndWait('#Main_ddlDocumentUpload').select(1);\ncy.getAndWait('.a-file-upload__label').click();\ncy.get('input[type=\"file\"]').selectFile(\"C:/Aviva/AvivaCypress/cypress/support/Example.jpg\", {\n  force: true\n});\ncy.getAndWait('#Main_btnUpload').click();\ncy.getAndWait('#Main_divSuccessMessage > .l-columns > .l-columns__column > .m-card > .m-card-content > .m-heading-group__item').contains('Upload successful');",
+              "err": {},
+              "uuid": "757bdd4b-bf8d-4c89-b36a-8367bfdca2e3",
+              "parentUUID": "887c65c4-427d-4223-bbf0-8e3a85d9040b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "757bdd4b-bf8d-4c89-b36a-8367bfdca2e3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11657,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

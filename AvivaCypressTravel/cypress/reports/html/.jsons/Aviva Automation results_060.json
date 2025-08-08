@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-14T09:30:45.465Z",
+    "end": "2025-04-14T09:41:55.306Z",
+    "duration": 669841,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f1fd29ba-b260-4b31-b67c-38b050b0855c",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\MedicalConditionRenewalRemoveQA.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\MedicalConditionRenewalRemoveQA.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c194e9a-decc-49ab-b661-93b46577ad7b",
+          "title": "Medical condition can be removed at renewal QA",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of adding and removing a medical condition",
+              "fullTitle": "Medical condition can be removed at renewal QA should complete the process of adding and removing a medical condition",
+              "timedOut": null,
+              "duration": 438098,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\MedicalConditionRenewalRemoveQA.cy.js\\\\Medical condition can be removed at renewal QA -- should complete the process of adding and removing a medical condition (failed).png\"\n    ],\n    [\n      \"\\\\MedicalConditionRenewalRemoveQA.cy.js\\\\Medical condition can be removed at renewal QA -- should complete the process of adding and removing a medical condition (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "Server.Server();\n// Log in\nLogins.company();\nLogins.username();\nLogins.password();\nLogins.loginButton();\n// Revert new window that opens back to original window \ncy.getAndWait('#ctl00_ContentPlaceHolder1_ProductList').select(1);\ncy.window().then(win => {\n  const orig = win.open;\n  win.open = function (url, targetAndWait, features) {\n    return orig.call(this, url, '_self', features);\n  };\n});\nBOAction.createNewQuoteBTN();\n// Accept cookies\nBOAction.cookiesAccept();\n// Complete section 1 \"About you\"\nAboutYouPage.aboutYouTitle();\nBOAction.notes();\nAboutYouPage.proposerTitle();\nAboutYouPage.proposerForename();\nAboutYouPage.proposerSurname();\nAboutYouPage.proposerEmail();\nAboutYouPage.phone();\nAboutYouPage.aboutYouContinue();\n// Complete section 2 \"Personal details\"\nPersonalDetailsPage.personalDetailsTitle();\nPersonalDetailsPage.addressInput();\nPersonalDetailsPage.addressSuggest();\nPersonalDetailsPage.addressSelect();\nPersonalDetailsPage.addressConfirm();\nPersonalDetailsPage.proposerDOB();\nPersonalDetailsPage.proposerEmployStatus();\nPersonalDetailsPage.licenceType();\nPersonalDetailsPage.licenceYears();\nPersonalDetailsPage.personlaDetailsContinue();\n// Complete section 3 \"Insurance details\"\nInsuranceDetailsPage.insuranceDetailsTitle();\nBOAction.notes();\nInsuranceDetailsPage.drivingExp();\nInsuranceDetailsPage.drivingExpYears();\nInsuranceDetailsPage.carUse();\nInsuranceDetailsPage.insuranceDetailsContinue();\n// Complete section 4 \"Car details\"\nCarDetailsPage.carDetailsTitle();\nBOAction.notes();\nCarDetailsPage.carRegYes();\nCarDetailsPage.carRegInput();\nCarDetailsPage.findCarBTN();\nCarDetailsPage.confirmCarBTN();\nCarDetailsPage.carValueInput();\nCarDetailsPage.carModifiedFalse();\nCarDetailsPage.carDetailsContinue();\n// Complete section 5 \"Additional drivers\"\nAdditionalDriversPage.additionalDriversHeading();\nBOAction.notes();\nAdditionalDriversPage.additionalDriversFalse();\nAdditionalDriversPage.additionalDriversContinue();\n// Complete section 6 \"Your claims\"\nBOAction.notes();\nYourClaimsPage.claimsHeading();\nYourClaimsPage.claimsFalse1st();\nYourClaimsPage.claimsContinue();\n// Complete section 7 \"Penalty points\"\nPenaltyPointsPage.ppHeading();\nBOAction.notes();\nPenaltyPointsPage.ppFalse1st();\nPenaltyPointsPage.ppContinue();\n// Complete section 8 \"Cover start date\"\nCoverStartDatePage.coverStartHeading();\nBOAction.notes();\nCoverStartDatePage.coverStartDate();\nCoverStartDatePage.coverStartHaveHomeIns();\nCoverStartDatePage.coverStartHaveCarIns();\nCoverStartDatePage.coverStartMarketing();\nCoverStartDatePage.coverStartContinue();\n// Quote screen - Buy now \nQuotePageAndExtras.quotePageHeading();\nBOAction.notes();\nQuotePageAndExtras.buyNowBtn();\n// Complete post quote 1 \"About you car\"\nAboutYourCarPage.postQuote1Heading();\nBOAction.notes();\nAboutYourCarPage.postQuote1OwnCar();\nAboutYourCarPage.postQuote1PrivateIns();\nAboutYourCarPage.postQuote1Continue();\n// Complete post quote 2 \"About the drivers\"\nAboutTheDriversPage.postQuote2Heading();\nBOAction.notes();\nAboutTheDriversPage.postQuote2IsResidentTrue();\nAboutTheDriversPage.postQuote2IsMainDriverTrue();\nAboutTheDriversPage.postQuote2IsNotOtherCarTrue();\nAboutTheDriversPage.postQuote2IsNotOtherInsTrue();\nAboutTheDriversPage.postQuote2IsNoConvictionTrue();\nAboutTheDriversPage.postQuote2IsNoDisqualificationTrue();\nAboutTheDriversPage.postQuote2IsNoRefusalTrue();\nAboutTheDriversPage.postQuote2IsNoIncreaseTrue();\nAboutTheDriversPage.postQuote2IsNoMedicalTrue();\nAboutTheDriversPage.postQuote2DriverNumber();\nAboutTheDriversPage.postQuote2Continue();\n// Complete post quote 3 \"Your insurance history and inception details\"\nYourInsHistoryAndIncepDetsPage.postQuote3Heading();\nBOAction.notes();\nYourInsHistoryAndIncepDetsPage.postQuote3NCDROITrue();\nYourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue();\nYourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue();\nYourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaTrue();\nYourInsHistoryAndIncepDetsPage.postQuote3Continue();\n// Payment type screen - selecting \"No payment required\"\nBOAction.notes();\nPaymentTypesPage.paymentTypeAgentNoPay();\nPaymentTypesPage.paymentTypeAgentNoPayContinue();\n// Diary & correspondence page \nDiaryAndCorrespondencePage.diaryCorrespondenceHeading();\nBOAction.notes();\nDiaryAndCorrespondencePage.diaryCorrespondenceContinue();\n// Thank you page\nThankYouPage.thankyouHeading();\nBOAction.notes();\nThankYouPage.retreivePolicyNumber();\n// Back date policy\nServer.Server();\nBOAction.home();\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\nBOAction.unlockBTN();\n// Open policy\nBOAction.livePoliciesBTN();\n// Back date policy\nBOAction.policyToolsAgePolicyWithPolicyNumber();\nBOAction.agePolicy();\n// Generate and invite renewal\nServer.Server();\nBOAction.home();\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\nBOAction.generateRenewal();\nBOAction.inviteRenewal();\n// Checking for renewal invite email in docs\nBOAction.recallPolicy();\nBOAction.livePoliciesBTN();\nBOAction.selectActionDocumentsWithPolicyNumber();\nBOAction.checkRenewalInviteDocs();\ncy.go(-1);\n// Purchase Home Renewal\nBOAction.livePoliciesBTN();\nBOAction.selectActionRenewalWithPolicyNumber();\nQuotePageAndExtras.selectStaffDiscount();\ncy.getAndWait('#ctl00_MainContent_EditAdditionalDriver').click();\nAdditionalDriversPage.additionalDriversTrue();\nAdditionalDriversPage.additionalDriver1Title();\nAdditionalDriversPage.additionalDriver1Forename();\nAdditionalDriversPage.additionalDriver1Surname();\nAdditionalDriversPage.additionalDriver1DOB();\nAdditionalDriversPage.additionalDriver1EmploymentStatus();\nAdditionalDriversPage.additionalDriver1LicenceType();\nAdditionalDriversPage.additionalDriver1LicenceYears();\nAdditionalDriversPage.addionalDriver1DriverNumber();\nAdditionalDriversPage.additionalDriver1Relationship();\nAdditionalDriversPage.additionalDriver1SpouseOwnVehFalse();\nAdditionalDriversPage.additionalDriver1Save();\nAdditionalDriversPage.additionalDriversFalse();\nAdditionalDriversPage.additionalDriversContinue();\ncy.getAndWait('#accHeading5 > .m-showhide__control').contains('Additional driver added');\nYourClaimsPage.claimsFalseLast();\nYourClaimsPage.claimsContinue();\nPenaltyPointsPage.ppFalseLast();\nPenaltyPointsPage.ppContinue();\n// Complete section 8 \"Cover start date\"\ncy.getAndWait('#div8').contains('Renewal date');\nBOAction.notes();\ncy.getAndWait('#IsHome-False > .a-radio > .a-radio__label').click({\n  force: true\n});\ncy.getAndWait('#IsHouseholdCar-False > .a-radio > .a-radio__label').click({\n  force: true\n});\nCoverStartDatePage.coverStartContinue();\nQuotePageAndExtras.selectStaffDiscount();\ncy.getAndWait('#btnBuyNow').click({\n  force: true\n});\nAboutYourCarPage.postQuote1OwnCar();\nAboutYourCarPage.postQuote1PrivateIns();\nAboutYourCarPage.postQuote1Continue();\n// Completing post quote screen 2 questions\nAboutTheDriversPage.postQuote2Heading();\nBOAction.notes();\nAboutTheDriversPage.postQuote2IsResidentTrue();\nAboutTheDriversPage.postQuote2IsMainDriverTrue();\nAboutTheDriversPage.postQuote2IsNotOtherCarTrue();\nAboutTheDriversPage.postQuote2IsNotOtherInsTrue();\nAboutTheDriversPage.postQuote2IsNoConvictionTrue();\nAboutTheDriversPage.postQuote2IsNoDisqualificationTrue();\nAboutTheDriversPage.postQuote2IsNoRefusalTrue();\nAboutTheDriversPage.postQuote2IsNoIncreaseTrue();\nAboutTheDriversPage.postQuote2IsNoMedicalFalse();\nAboutTheDriversPage.postQuote2addMedicalConditionBTN();\nAboutTheDriversPage.postQuote2addMedicalConditionDriver();\nAboutTheDriversPage.postQuote2addMedicalConditionSelect();\nAboutTheDriversPage.postQuote2addMedicalConditionInformed();\nAboutTheDriversPage.postQuote2addMedicalConditionSave();\nAboutTheDriversPage.postQuote2addMedicalConditionBTN();\nAboutTheDriversPage.postQuote2addMedicalConditionAD();\nAboutTheDriversPage.postQuote2addMedicalConditionSelect1();\nAboutTheDriversPage.postQuote2addMedicalConditionInformed();\nAboutTheDriversPage.postQuote2addMedicalConditionSave();\ncy.getAndWait('#RemoveCondition').first().click();\ncy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click();\ncy.getAndWait('#RemoveCondition').last().click();\ncy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click();\nAboutTheDriversPage.postQuote2IsNoMedicalTrue();\nAboutTheDriversPage.postQuote2Continue();\nYourInsHistoryAndIncepDetsPage.postQuote3Continue();\nPaymentTypesPage.paymentTypeAgentNoPay();\ncy.getAndWait('#ctl00_MainContent_txtAmountReceived').type('100');\ncy.getAndWait('#ctl00_MainContent_txtPayRef').type('test');\ncy.getAndWait('#ctl00_MainContent_PayCheque').click();\ncy.getAndWait('#ctl00_MainContent_btnPayNSPayment').click();\nThankYouPage.thankyouHeading();\n// Attempting to remove medical condition at MTA\nServer.Server();\nBOAction.home();\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\n// Open policy\nBOAction.livePoliciesBTN();\n// Select Make adjustment and revert window back to current window\nBOAction.selectActionMakeADJWithPolicyNumber();\n// Select to perform a permanent adjustment on Additional drivers\nMTABOAction.permADJAdditionalDriver();\ncy.getAndWait('#Continue5').click();\ncy.getAndWait('#ctl00_MainContent_StartDate').type(day().add(3, 'day').format('DD/MM/YYYY'), {\n  force: true\n});\nCoverStartDatePage.coverStartContinue();\ncy.getAndWait('#ctl00_MainContent_btnContinue').click({\n  force: true\n});\nAboutTheDriversPage.postQuote2Heading();\nBOAction.notes();\n// Completing post quote screen 2 questions\nAboutTheDriversPage.postQuote2Heading();\nAboutTheDriversPage.postQuote2IsNoMedicalFalse();\nAboutTheDriversPage.postQuote2addMedicalConditionBTN();\nAboutTheDriversPage.postQuote2addMedicalConditionDriver();\nAboutTheDriversPage.postQuote2addMedicalConditionSelect();\nAboutTheDriversPage.postQuote2addMedicalConditionInformed();\nAboutTheDriversPage.postQuote2addMedicalConditionSave();\nAboutTheDriversPage.postQuote2addMedicalConditionBTN();\nAboutTheDriversPage.postQuote2addMedicalConditionAD();\nAboutTheDriversPage.postQuote2addMedicalConditionSelect1();\nAboutTheDriversPage.postQuote2addMedicalConditionInformed();\nAboutTheDriversPage.postQuote2addMedicalConditionSave();\nAboutTheDriversPage.postQuote2Headingselect();\ncy.getAndWait('#RemoveCondition').first().click();\ncy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click();\nAboutTheDriversPage.postQuote2Headingselect();\ncy.getAndWait('#RemoveCondition').last().click();\ncy.getAndWait('#ctl00_MainContent_MedicalRepeater_ctl00_DeleteThisCondition').click();\n// Completing post quote screen 3 \nYourInsHistoryAndIncepDetsPage.postQuote3Continue();\ncy.getAndWait('.m-card-content > p').should('contain', 'Go back to make a change to your details');",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is not visible:\n\n`<input type=\"submit\" name=\"ctl00$MainContent$Continue8\" value=\"Get quote\" onclick=\"javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$Continue8&quot;, &quot;&quot;, true, &quot;CheckFields8&quot;, &quot;&quot;, false, false))\" id=\"ctl00_MainContent_Continue8\" class=\"a-button a-button--primary a-button--form-last dd-data-link\" data-dd-group=\"your-details:motor:private\" data-dd-loc=\"CoverStartDate\" data-dd-link=\"getQuote\" style=\"margin-bottom: 30px\">`\n\nThis element `<input#ctl00_MainContent_Continue8.a-button.a-button--primary.a-button--form-last.dd-data-link>` is not visible because its parent `<div#accHeading8-term.m-showhide__content.rowModifier.noBottomPadding>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is not visible:\n\n`<input type=\"submit\" name=\"ctl00$MainContent$Continue8\" value=\"Get quote\" onclick=\"javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$Continue8&quot;, &quot;&quot;, true, &quot;CheckFields8&quot;, &quot;&quot;, false, false))\" id=\"ctl00_MainContent_Continue8\" class=\"a-button a-button--primary a-button--form-last dd-data-link\" data-dd-group=\"your-details:motor:private\" data-dd-loc=\"CoverStartDate\" data-dd-link=\"getQuote\" style=\"margin-bottom: 30px\">`\n\nThis element `<input#ctl00_MainContent_Continue8.a-button.a-button--primary.a-button--form-last.dd-data-link>` is not visible because its parent `<div#accHeading8-term.m-showhide__content.rowModifier.noBottomPadding>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at runVisibilityCheck (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:146756:58)\n    at Object.isStrictlyVisible (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:146770:10)\n    at runAllChecks (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:113420:26)\n    at retryActionability (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:113488:16)\n    at tryCatcher (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:145583:68)\n    at <unknown> (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:145524:14)\n    at tryCatcher (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack://avivaproject/./cypress/support/commands.js:69:8)\n    at <unknown> (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118795:17)\n    at tryCatcher (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.shouldFnWithCallback (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118792:66)\n    at Context.shouldFn (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118835:37)\n    at Context.should (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:118954:23)\n    at <unknown> (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:144836:39)",
+                "diff": null
+              },
+              "uuid": "df179460-949d-42e8-aad8-837e85f56ca5",
+              "parentUUID": "9c194e9a-decc-49ab-b661-93b46577ad7b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "df179460-949d-42e8-aad8-837e85f56ca5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 438098,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

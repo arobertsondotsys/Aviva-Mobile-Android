@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-16T11:35:00.652Z",
+    "end": "2025-04-16T11:35:16.259Z",
+    "duration": 15607,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4e7df8c9-c780-4796-9d86-725758562f6f",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\PortalLogin.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\PortalLogin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "482472f9-c968-4de3-b0b7-d644e28b3ab6",
+          "title": "Portal Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User is on Home Page",
+              "fullTitle": "Portal Login Tests User is on Home Page",
+              "timedOut": null,
+              "duration": 7915,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server1();\nBOAction.cookiesAccept();\ncy.getAndWait('[class^=\"a-heading a-heading--1 u-margin--top-none\"]').contains('Log in to MyAviva').and('be.visible');\nLogins.loginEmail();\nLogins.loginPassword();\nLogins.loginPortalButton();\ncy.getAndWait('#Main_BreadcrumbHeading').contains('Welcome to MyAviva').and('be.visible');\ncy.getAndWait('#RenewalDueModal > .CloseBtnMockup').then($button => {\n  if ($button.is(':visible')) {\n    cy.wrap($button).click(); // Click the button if it is visible\n    cy.log('Renewal Due Modal Close button clicked');\n  } else {\n    cy.log('Renewal Due Modal Close button not visible');\n  }\n});\ncy.getAndWait('.o-masthead__logged-in-link').click();\ncy.getAndWait('#btnMenuLogOut').click({\n  force: true\n});\ncy.getAndWait('[class^=\"a-heading a-heading--1 u-margin--top-none\"]').contains('Log in to MyAviva').and('be.visible');\ncy.go('back');\ncy.go('forward');",
+              "err": {},
+              "uuid": "4e999f1d-9359-4827-ae56-7440902bc71b",
+              "parentUUID": "482472f9-c968-4de3-b0b7-d644e28b3ab6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "User enters invalid email, password and clicks login button",
+              "fullTitle": "Portal Login Tests User enters invalid email, password and clicks login button",
+              "timedOut": null,
+              "duration": 5483,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server1();\nBOAction.cookiesAccept();\nLogins.loginEmail1();\nLogins.loginPassword1();\ncy.getAndWait('#loginPassword').click();\ncy.getAndWait('#RE__ProposerEmailRE').contains('Your email does not match the standard format for emails').and('be.visible');\nLogins.loginEmail2();\nLogins.loginPassword1();\nLogins.loginPortalButton();\ncy.getAndWait('#loginerror').contains('Your username and/or password is invalid.').and('be.visible');\ncy.getAndWait('#loginEmail').clear();\ncy.getAndWait('#loginPassword').click();\ncy.getAndWait('#RF__ProposerEmail').contains('Please enter your email address').and('be.visible');\ncy.getAndWait('#loginPassword').click();\ncy.getAndWait('#btnLogin').click();\ncy.getAndWait('#RequiredFieldValidator5').contains('Please enter your password').and('be.visible');",
+              "err": {},
+              "uuid": "2795872c-10e3-4eea-a0e4-a71c90af484c",
+              "parentUUID": "482472f9-c968-4de3-b0b7-d644e28b3ab6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4e999f1d-9359-4827-ae56-7440902bc71b",
+            "2795872c-10e3-4eea-a0e4-a71c90af484c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13398,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
