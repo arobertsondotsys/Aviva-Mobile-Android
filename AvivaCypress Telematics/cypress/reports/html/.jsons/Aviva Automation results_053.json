@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-14T12:21:57.115Z",
+    "end": "2025-08-14T12:22:05.509Z",
+    "duration": 8394,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8d4e9611-9ab4-4bc9-a1b1-b23fc7e82b91",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\012AgentUnlock.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\012AgentUnlock.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "56d3fd2d-9f58-430d-91ff-9933a2d12109",
+          "title": "Agent can unlock customer file",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should unlock the customer file",
+              "fullTitle": "Agent can unlock customer file should unlock the customer file",
+              "timedOut": null,
+              "duration": 7054,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Server.Server();\n// Log in\nLogins.company();\nLogins.username();\nLogins.password();\nLogins.loginButton();\n// Search for Customer file\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\n// Unlock customer file\nBOAction.unlockBTN();",
+              "err": {},
+              "uuid": "b5ff1ae6-a6e6-41ec-9f57-e1e467ffe720",
+              "parentUUID": "56d3fd2d-9f58-430d-91ff-9933a2d12109",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b5ff1ae6-a6e6-41ec-9f57-e1e467ffe720"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7054,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
