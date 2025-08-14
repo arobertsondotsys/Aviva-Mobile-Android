@@ -855,11 +855,11 @@ checkRenewalInviteDocsNoEmailAutoRollover(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain', 'Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     ////cy.wait(1000)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).should('not.contain','Receipt')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).should('not.contain','Email')
+    cy.contains('Renewal Invite Letter')
+    cy.contains('Renewal Invite Schedule')
+    cy.contains('Statement Of Fact')
+    cy.should('not.contain','Receipt')
+    cy.should('not.contain','Email')
 
 
 
@@ -873,10 +873,10 @@ checkRenewalInviteDocsNoEmail(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain', 'Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     ////cy.wait(1000)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).should('not.contain','Email')
+    cy.contains('Renewal Invite Letter')
+    cy.contains('Renewal Invite Schedule')
+    cy.contains('Statement Of Fact')
+    cy.should('not.contain','Email')
 
 
 
@@ -923,13 +923,13 @@ checkRenewalDocsNoEmailQA(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain','Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     ////cy.wait(1000)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Policy Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Receipt')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).should('not.contain','Email')
+    cy.contains('Renewal Invite Letter')
+    cy.contains('Renewal Invite Schedule')
+    cy.contains('Statement Of Fact')
+    cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
+    cy.contains('Policy Schedule')
+    cy.contains('Receipt')
+    cy.should('not.contain','Email')
 
 }
 
@@ -978,21 +978,21 @@ checkRenewalDocsAutoRoloverNoEmailQA(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain','Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     ////cy.wait(1000)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Policy Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).should('not.contain', 'Receipt')
+    cy.contains('Renewal Invite Letter')
+    cy.contains('Renewal Invite Schedule')
+    cy.contains('Statement Of Fact')
+    cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
+    cy.contains('Policy Schedule')
+    cy.should('not.contain', 'Receipt')
 
 }
 
 checkRenewalInviteDocsPost(){
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Email')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
+    cy.contains('Renewal Invite Email')
+    cy.contains('Renewal Invite Letter')
+    cy.contains('Renewal Invite Schedule')
+    cy.contains('Statement Of Fact')
 
 }
 
@@ -1000,9 +1000,9 @@ checkRenewalConfirmationDocsPost(){
 
     cy.wait(80000)
     cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Confirm Email')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Policy Schedule')
+    cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
+    cy.contains('Renewal Confirm Email')
+    cy.contains('Policy Schedule')
 
 }
 
@@ -1011,10 +1011,10 @@ checkNBParagonDocs(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.wait(80000)
     //cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Welcome Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Policy Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).should('not.contain', 'Receipt')
+    cy.contains('Welcome Letter')
+    cy.contains('Statement Of Fact')
+    cy.contains('Policy Schedule')
+    cy.should('not.contain', 'Receipt')
 
 }
 
@@ -1023,9 +1023,9 @@ checkAdhocParagonDocs(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     // cy.wait(80000)
     // cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Notice of Interest')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('One Off Letter - ADIL')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('One Off Letter - AIIDAC')
+    cy.contains('Notice of Interest')
+    cy.contains('One Off Letter - ADIL')
+    cy.contains('One Off Letter - AIIDAC')
     
 
 }
@@ -1035,10 +1035,10 @@ checkNBParagonDocsWithReceipt(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.wait(80000)
     //cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Welcome Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Receipt')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocspost).contains('Policy Schedule')
+    cy.contains('Welcome Letter')
+    cy.contains('Statement Of Fact')
+    cy.contains('Receipt')
+    cy.contains('Policy Schedule')
 
 }
 
@@ -1047,9 +1047,9 @@ checkMTAParagonDocs(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.wait(80000)
     //cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Home MTA Confirmation Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Receipt')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_mtadocspost).contains('Policy Schedule')
+    cy.contains('Home MTA Confirmation Letter')
+    cy.contains('Receipt')
+    cy.contains('Policy Schedule')
 
 }
 
@@ -1057,9 +1057,9 @@ checkRNLInviteParagonDocs(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Invite Schedule')
+    cy.contains('Renewal Invite Letter')
+    cy.contains('Statement Of Fact')
+    cy.contains('Renewal Invite Schedule')
 
 }
 
@@ -1068,9 +1068,9 @@ checkRNLParagonDocs(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.wait(80000)
     //cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Policy Schedule')
+    cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
+    cy.contains('Statement Of Fact')
+    cy.contains('Policy Schedule')
 
 }
 
@@ -1079,9 +1079,9 @@ checkRNLMTAParagonDocs(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.wait(80000)
     //cy.reload()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Home MTA Confirmation Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Receipt')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewalmtadocspost).contains('Policy Schedule')
+    cy.contains('Home MTA Confirmation Letter')
+    cy.contains('Receipt')
+    cy.contains('Policy Schedule')
 
 }
 
