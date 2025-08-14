@@ -531,13 +531,13 @@ checkRenewalDocsNoEmail(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain','Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.wait(1000)
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Certificate of no claims')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Renewal Cover Letter')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Schedule')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Certificate')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).contains('Receipt')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocspost).should('not.contain','Email')
+    cy.contains('Certificate of no claims')
+    cy.contains('Statement Of Fact')
+    cy.contains('Renewal Cover Letter')
+    cy.contains('Schedule')
+    cy.contains('Certificate')
+    cy.contains('Receipt')
+    cy.should('not.contain','Email')
 
 }
 

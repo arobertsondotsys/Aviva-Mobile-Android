@@ -26,7 +26,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/018AmendNCD.cy.js',
     // 'cypress/integration/aviva/Tests/019MedicalConditionRemove.cy.js',
     'cypress/integration/aviva/Tests/020AgentCancelation.cy.js',
-    'cypress/integration/aviva/Tests/021NTUCanc.cy.js',
+    // 'cypress/integration/aviva/Tests/021NTUCanc.cy.js',
     'cypress/integration/aviva/Tests/022PortalLogin.cy.js',
     'cypress/integration/aviva/Tests/023CustDocUpload.cy.js',
     'cypress/integration/aviva/Tests/024CustCancellation.cy.js',

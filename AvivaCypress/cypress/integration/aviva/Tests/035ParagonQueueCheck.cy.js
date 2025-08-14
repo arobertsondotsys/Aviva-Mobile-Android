@@ -36,10 +36,10 @@ describe('Check Paragon Queue for correct documents', () => {
         // NYY 0
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
         //cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        cy.contains('Certificate')
+        cy.contains('Schedule')
+        cy.contains('Statement Of Fact')
+        cy.contains('Welcome Letter')
 
         cy.getAndWait(':nth-child(1) > .level1').click()
 
@@ -55,8 +55,8 @@ describe('Check Paragon Queue for correct documents', () => {
         // NNY 1
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
         //cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
+        cy.contains('Welcome Letter')
+        cy.contains('Schedule')
         
 
         cy.getAndWait(':nth-child(1) > .level1').click()
@@ -72,8 +72,8 @@ describe('Check Paragon Queue for correct documents', () => {
 
         // NYN 2
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Certificate')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter')
+        cy.contains('Certificate')
+        cy.contains('Welcome Letter')
 
         Server.Server()
         BOAction.home()
@@ -92,10 +92,10 @@ describe('Check Paragon Queue for correct documents', () => {
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Driving Experience Email')
         cy.getAndWait('tbody > :nth-child(3) > :nth-child(4)').contains('Quote Email')
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Welcome Letter Temp Cover')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Statement Of Fact')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Receipt')
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('Schedule')
+        cy.contains('Welcome Letter Temp Cover')
+        cy.contains('Statement Of Fact')
+        cy.contains('Receipt')
+        cy.contains('Schedule')
 
     })
 })

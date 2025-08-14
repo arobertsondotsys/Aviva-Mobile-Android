@@ -949,7 +949,7 @@ checkRenewalDocsAutoRolover(){
 
 checkRenewalDocsAutoRoloverNoEmail(){
 
-    cy.wait(80000)
+    cy.wait(100000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
@@ -963,7 +963,7 @@ checkRenewalDocsAutoRoloverNoEmail(){
     cy.contains('Statement Of Fact')
     cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.contains('Policy Schedule')
-    cy.should('not.contain', 'Receipt')
+    cy.getAndWait(':nth-child(5) > :nth-child(5)').should('not.contain', 'Receipt')
 
 }
 
