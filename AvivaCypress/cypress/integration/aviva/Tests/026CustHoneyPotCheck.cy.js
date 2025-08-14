@@ -118,7 +118,7 @@ describe('Customer can purchase a policy via website', () => {
 
         // Complete section 6 "Your claims"
         YourClaimsPage.claimsHeading()
-        YourClaimsPage.claimsFalse1st()
+        YourClaimsPage.claimsFalse1stHoneyPot()
         YourClaimsPage.claimsContinue()
 
         // Complete section 7 "Penalty points"
@@ -138,7 +138,7 @@ describe('Customer can purchase a policy via website', () => {
         cy.wait(2000)
 
         // Assert the URL contains the expected string
-        cy.url().should('include', '78J70SYOcsTZ0YaI8UuVRGj6PGtDIjX4EkHifWiHz9GH82OUZ71VrQbxW32A00kr')
+        cy.url().should('include', 'ZW~35pBSqPs6Z8zrFLyBnlfKibSOcmM5-1MZVofZeZROafHYYG-sdSzVj1t45OKU')
 
         // Assert the page contains the error message
         cy.contains('Sorry, we could not proceed').should('be.visible')

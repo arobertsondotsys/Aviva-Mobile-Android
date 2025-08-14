@@ -253,7 +253,7 @@
     "batchprint_renewal":"#ctl00_ContentPlaceHolder1_BatchPrint",
     "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
     "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
-    "check_renewaldocspost":"tbody > :nth-child(4) > :nth-child(3)",
+    "check_renewaldocspost":"tbody > :nth-child(3) > :nth-child(5)",
     "printqueue_view":"#ctl00_ContentPlaceHolder1_btnViewPrinterQueue",
     "recall_policy":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy",
     "staff_discountheading":"#StaffHeading > .m-showhide__control",

@@ -49,7 +49,7 @@ describe('Agent can purchase a policy via back office', () => {
         
         // Log in
         Logins.company()
-        Logins.username()
+        Logins.username3()
         Logins.password()
         Logins.loginButton()
 
