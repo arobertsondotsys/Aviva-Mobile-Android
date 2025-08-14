@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-08-14T13:46:20.004Z",
+    "end": "2025-08-14T13:47:22.363Z",
+    "duration": 62359,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "61d8f199-7025-4c61-b504-b8225ff7ebf2",
+      "title": "",
+      "fullFile": "cypress\\integration\\aviva\\Tests\\000PolicyOwnership.cy.js",
+      "file": "cypress\\integration\\aviva\\Tests\\000PolicyOwnership.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d2fdd4e6-c0ec-4543-aeba-860c3a594303",
+          "title": "Change policy ownership",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete the process of changing policy ownership",
+              "fullTitle": "Change policy ownership should complete the process of changing policy ownership",
+              "timedOut": null,
+              "duration": 21753,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\000PolicyOwnership.cy.js\\\\Change policy ownership -- should complete the process of changing policy ownership (failed).png\"\n    ],\n    [\n      \"\\\\000PolicyOwnership.cy.js\\\\Change policy ownership -- should complete the process of changing policy ownership (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "Server.Server();\n// Log in\nLogins.company();\nLogins.username();\nLogins.password();\nLogins.loginButton();\n// Search for Customer file\nLogins.email();\nBOAction.searchButton();\nBOAction.policySelectButton();\n// Check if dropdown exists and handle accordingly\ncy.contains('Live Policies').click();\n//cy.wait(3000)\ncy.get('body').then($body => {\n  if ($body.find('[class^=\"dropdown selectAction\"]').length === 0) {\n    cy.log('No Policy found, ending test.');\n    return; // End the test without failing\n  } else {\n    const length = $body.find('[class^=\"dropdown selectAction\"]').length;\n    cy.log(`${length} Policy(s) found, proceeding with Ownership Change.`);\n    RecursiveLoop(length);\n  }\n});\nfunction ChangePolicyOwnerShip() {\n  // Select last policy and Policy Ownership\n  BOAction.livePoliciesBTN();\n  cy.get('[class^=\"dropdown selectAction\"]').last().click({\n    force: true\n  }).contains('Policy Ownership').invoke(\"removeAttr\", \"target\").click({\n    force: true\n  });\n  // Change ownership\n  cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingAug2025@DOTSYS.co.uk');\n  cy.get('#ctl00_ContentPlaceHolder1_ChangeOwnership').click();\n  cy.get('#ctl00_ContentPlaceHolder1_SuccessMessage').contains('The policy has now been re-registered');\n  cy.go('back');\n  cy.go('back');\n}\nfunction RecursiveLoop(n) {\n  cy.get('[class^=\"dropdown selectAction\"]').each(($value, index) => {\n    if (index < n) {\n      ChangePolicyOwnerShip();\n      // Additional asynchronous actions can be added here if needed\n      cy.log(`Iteration ${index + 1} completed`);\n    }\n  });\n}",
+              "err": {
+                "message": "Error: Element '#ctl00_ContentPlaceHolder1_SearchText' not found after 20 seconds",
+                "estack": "Error: Element '#ctl00_ContentPlaceHolder1_SearchText' not found after 20 seconds\n    at Context.eval (webpack://avivaproject/./cypress/support/commands.js:70:22)\n    at getRet (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:121066:20)\n    at tryCatcher (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:121077:66)\n    at Context.then (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:121328:21)\n    at wrapped (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:141671:19)\n    at <unknown> (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:147616:15)\n    at tryCatcher (https://qa2aviva.dotsys.co.uk/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "ebb479fa-f023-4928-b0d8-02125e98b993",
+              "parentUUID": "d2fdd4e6-c0ec-4543-aeba-860c3a594303",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ebb479fa-f023-4928-b0d8-02125e98b993"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 21753,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Aviva Automation results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "videoOnFailOnly": true,
+        "reportFilename": "Aviva Automation results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
