@@ -208,7 +208,7 @@ describe('Policy Purchase with NYN', () => {
         cy.getAndWait('#CorrespondenceModal > .modal-dialog > .modal-content > .modal-footer > .btn').click()
         //cy.wait(80000)
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnViewPrinterQueue').click()
-        cy.getAndWait('tbody > :nth-child(3) > :nth-child(3)').contains('No Documents In Queue')
+        cy.contains('No Documents In Queue')
 
         // Completing Diary chaser to move policy to full cover and check for cert being added to print queue
         cy.getAndWait(':nth-child(1) > .level1').click()

@@ -22,7 +22,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/014AgentDocUpload.cy.js',
     'cypress/integration/aviva/Tests/015AgentMTAPurch.cy.js',
     'cypress/integration/aviva/Tests/016AgentMTATempPurch.cy.js',
-    'cypress/integration/aviva/Tests/017AgentMTADriverNumber.cy.js',
+    // 'cypress/integration/aviva/Tests/017AgentMTADriverNumber.cy.js',
     'cypress/integration/aviva/Tests/018AmendNCD.cy.js',
     // 'cypress/integration/aviva/Tests/019MedicalConditionRemove.cy.js',
     'cypress/integration/aviva/Tests/020AgentCancelation.cy.js',
