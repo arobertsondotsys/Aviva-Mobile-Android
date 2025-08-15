@@ -58,7 +58,7 @@ module.exports = defineConfig({
     useInlineDiffs: true,
     embeddedScreenshots: true,
     videoOnFailOnly: true,
-    reportFilename: 'Aviva Automation results',
+    reportFilename: 'Aviva Telematics Automation results',
   },
   chromeWebSecurity: false,
   defaultCommandTimeout: 10000,
