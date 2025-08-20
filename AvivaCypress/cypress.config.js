@@ -1,9 +1,10 @@
 const { defineConfig } = require("cypress")
 const path = require('path')
 const xlsx = require('xlsx')
-require('cypress-mochawesome-reporter/plugin')
 
 async function setupNodeEvents(on, config) {
+
+  require('cypress-mochawesome-reporter/plugin')(on)
 
    on('task', {
   readExcel({ filePath, sheetName }) {
