@@ -1,7 +1,8 @@
 const { defineConfig } = require("cypress")
-require('cypress-mochawesome-reporter/plugin')
 
 async function setupNodeEvents(on, config) {
+  
+require('cypress-mochawesome-reporter/plugin')(on);
 
   const demoSpecPattern = [
     'cypress/integration/aviva/Tests/000PolicyOwnership.cy.js',
