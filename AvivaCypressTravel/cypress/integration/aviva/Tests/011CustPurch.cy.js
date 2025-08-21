@@ -41,6 +41,10 @@ const ThankYouPage = new ThankYouScreen()
 
 describe('Customer can purchase a policy via website', () => {
     it('should complete the process of purchasing a policy', () => {
+
+        
+    
+
         Server.Server2()
         
         // Revert new window that opens back to original window 
@@ -48,6 +52,13 @@ describe('Customer can purchase a policy via website', () => {
 
         // Accept cookies
         BOAction.cookiesAccept()
+
+        cy.intercept('*').as('allRequests');
+
+    cy.wait('@allRequests').then((interception) => {
+    console.log(interception.request.url);
+    });
+
 
         // Complete section 1 "About you"
         AboutYouPage.aboutYouTitle()

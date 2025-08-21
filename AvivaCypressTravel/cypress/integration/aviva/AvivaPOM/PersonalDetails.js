@@ -67,7 +67,7 @@ licenceYears(){
 personlaDetailsContinue(){
     
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.personaldetails_continue).click()
-    cy.wait(2000)
+    cy.wait(6000)
 
 }
 
