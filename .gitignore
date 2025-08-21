@@ -400,6 +400,7 @@ tooling/v8-snapshot/cache/prod-win32
 system-tests/lib/validations
 
 # Report files - Assets
+AvivaCypress/cypress/downloads/
 AvivaCypress/cypress/reports/
 AvivaCypress/cypress/screenshots/
 AvivaCypress/cypress/reports/html/Aviva Automation results.html
@@ -413,6 +414,7 @@ AvivaCypress/cypress/reports/html/assets/roboto-medium-webfont.woff
 AvivaCypress/cypress/reports/html/assets/roboto-light-webfont.woff2
 AvivaCypress/cypress/reports/html/assets/MaterialIcons-Regular.woff2
 
+AvivaCypressHome/cypress/downloads/
 AvivaCypressHome/cypress/reports/
 AvivaCypressHome/cypress/screenshots/
 AvivaCypressHome/cypress/reports/html/Aviva Automation results.html
@@ -425,6 +427,7 @@ AvivaCypressHome/cypress/reports/html/assets/roboto-medium-webfont.woff
 AvivaCypressHome/cypress/reports/html/assets/roboto-light-webfont.woff2
 AvivaCypressHome/cypress/reports/html/assets/MaterialIcons-Regular.woff2
 
+AvivaCypress Telematics/cypress/downloads/
 AvivaCypress Telematics/cypress/reports/
 AvivaCypress Telematics/cypress/screenshots/
 AvivaCypress Telematics/cypress/reports/html/Aviva Automation results.html
@@ -437,6 +440,7 @@ AvivaCypress Telematics/cypress/reports/html/assets/roboto-medium-webfont.woff
 AvivaCypress Telematics/cypress/reports/html/assets/roboto-light-webfont.woff2
 AvivaCypress Telematics/cypress/reports/html/assets/MaterialIcons-Regular.woff2
 
+AvivaCypressTravel/cypress/downloads/
 AvivaCypressTravel/cypress/reports/
 AvivaCypressTravel/cypress/screenshots/
 AvivaCypressTravel/cypress/reports/html/Aviva Automation results.html
