@@ -52,7 +52,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/008QuotePerformance.cy.js',
     // 'cypress/integration/aviva/Tests/009CustDocUpload.cy.js',
     // 'cypress/integration/aviva/Tests/010CustHoneyPotCheck.cy.js',
-    // 'cypress/integration/aviva/Tests/011CustPurch.cy.js',
+    'cypress/integration/aviva/Tests/011CustPurch.cy.js',
     // 'cypress/integration/aviva/Tests/012AgentUnlock1.cy.js',
   
   ]

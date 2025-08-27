@@ -32,7 +32,15 @@
     
     "agent_quote": "#ctl00_ContentPlaceHolder1_ProductList",
     
-    "quote_linkbtn": ":nth-child(1) > tbody > tr > td > .btn-success",
+    "quote_linkbtn": ":nth-child(5) > tbody > tr > td > .btn-success",
+
+    "yourdetails_title": "#div1",
+    "yourdetailsproposer_mr": "#MainContent_DDLProposerTitle",
+    "yourdetailsproposer_forename": "#MainContent_ProposerForename",
+    "yourdetailsproposer_surname": "#MainContent_ProposerSurname",
+    "yourdetailsproposer_email": "#ProposerEmail",
+    "yourdetailsproposer_phone": "#MainContent_ProposerMobile",
+    "yourdetailsproposer_continue": "#MainContent_Continue1",
     
     "aboutyou_title": "#div1",
     "proposer_mr": "#ctl00_MainContent_DDLProposerTitle",

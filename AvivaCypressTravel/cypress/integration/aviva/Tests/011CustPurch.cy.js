@@ -1,6 +1,6 @@
 import { Servers } from "../AvivaPOM/Servers"
 import { BOActions } from "../AvivaPOM/BOActions"
-import { AboutYou } from "../AvivaPOM/AboutYou"
+import { YourDetails } from "../AvivaPOM/YourDetails"
 import { PersonalDetails } from "../AvivaPOM/PersonalDetails"
 import { InsuranceDetails } from "../AvivaPOM/InsuranceDetails"
 import { CarDetails } from "../AvivaPOM/CarDetails"
@@ -24,7 +24,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 const Server = new Servers()
 const BOAction = new BOActions()
-const AboutYouPage = new AboutYou()
+const YourDetail = new YourDetails()
 const PersonalDetailsPage = new PersonalDetails()
 const InsuranceDetailsPage = new InsuranceDetails()
 const CarDetailsPage = new CarDetails()
@@ -42,9 +42,6 @@ const ThankYouPage = new ThankYouScreen()
 describe('Customer can purchase a policy via website', () => {
     it('should complete the process of purchasing a policy', () => {
 
-        
-    
-
         Server.Server2()
         
         // Revert new window that opens back to original window 
@@ -53,21 +50,14 @@ describe('Customer can purchase a policy via website', () => {
         // Accept cookies
         BOAction.cookiesAccept()
 
-        cy.intercept('*').as('allRequests');
-
-    cy.wait('@allRequests').then((interception) => {
-    console.log(interception.request.url);
-    });
-
-
         // Complete section 1 "About you"
-        AboutYouPage.aboutYouTitle()
-        AboutYouPage.proposerTitle()
-        AboutYouPage.proposerForename()
-        AboutYouPage.proposerSurname()
-        AboutYouPage.proposerEmail()
-        AboutYouPage.phone()
-        AboutYouPage.aboutYouContinue()
+        YourDetail.yourDetailsTitle()
+        YourDetail.yourDetailsProposerTitle()
+        YourDetail.yourDetailsProposerForename()
+        YourDetail.yourDetailsProposerSurname()
+        YourDetail.yourDetailsProposerEmail()
+        YourDetail.yourDetailsPhone()
+        YourDetail.yourDetailsContinue()
 
         // Complete section 2 "Personal details"
         PersonalDetailsPage.personalDetailsTitle()
