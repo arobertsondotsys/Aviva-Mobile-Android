@@ -41,6 +41,37 @@
     "yourdetailsproposer_email": "#ProposerEmail",
     "yourdetailsproposer_phone": "#MainContent_ProposerMobile",
     "yourdetailsproposer_continue": "#MainContent_Continue1",
+
+    "traveldetails_title": "#div2",
+    "traveldetails_singletrip": "#MainContent_lbl_InsuranceType_S > .a-radio__label",
+    "traveldetails_multitrip": "#MultiBtnLabel",
+    "traveldetails_backpacker": "#BackpackerBtnLabel",
+    "traveldetails_travellingto": "#MainContent_ddlTravelingTo",
+    "traveldetails_startdate": "#TripStartDate",
+    "traveldetails_returndate": "#TripReturnDate",
+    "traveldetails_whotravellingindividual": "#travelGroup-Individual > .a-radio > .a-radio__label",
+    "traveldetails_whotravellingcouple": "#travelGroup-Couple > .a-radio > .a-radio__label",
+    "traveldetails_whotravellingfamily": "#travelGroup-Family > .a-radio > .a-radio__label",
+    "traveldetails_continue": "#MainContent_Continue2",
+
+    "travellerdetails_title": "#div3",
+    "travellerdetails_proposerdob": "#ProposerDOB",
+    "travellerdetails_pmiyes": "#MedicalInsurance-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_pmino": "#MedicalInsurance-No > .a-radio > .a-radio__label",
+    "travellerdetails_continue": "#MainContent_Continue3",
+
+    "beforeyougetyourquote_title": "#div4",
+    "beforeyougetyourquote_marketingyes": "#Marketing > :nth-child(1) > .a-radio > .a-radio__label",
+    "beforeyougetyourquote_marketingno": "#Marketing > :nth-child(2) > .a-radio > .a-radio__label",
+    "beforeyougetyourquote_iagree": ".a-checkbox__label",
+    "beforeyougetyourquote_continue": "#MainContent_Continue4",
+    
+    "declaration_title": "#MainContent_H1",
+    "declaration_iagree": ".a-checkbox__label",
+    "declaration_continue": "#MainContent_H1",
+    "declaration_back": "#MainContent_Back",
+    
+
     
     "aboutyou_title": "#div1",
     "proposer_mr": "#ctl00_MainContent_DDLProposerTitle",

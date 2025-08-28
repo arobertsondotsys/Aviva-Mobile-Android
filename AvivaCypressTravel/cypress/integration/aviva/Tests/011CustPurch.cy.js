@@ -1,10 +1,10 @@
 import { Servers } from "../AvivaPOM/Servers"
 import { BOActions } from "../AvivaPOM/BOActions"
 import { YourDetails } from "../AvivaPOM/YourDetails"
-import { PersonalDetails } from "../AvivaPOM/PersonalDetails"
-import { InsuranceDetails } from "../AvivaPOM/InsuranceDetails"
-import { CarDetails } from "../AvivaPOM/CarDetails"
-import { AdditionalDrivers } from "../AvivaPOM/AdditionalDrivers"
+import { TravelDetails } from "../AvivaPOM/TravelDetails"
+import { TravellerDetails } from "../AvivaPOM/TravellerDetails"
+import { BeforeYouGetYourQuote } from "../AvivaPOM/BeforeYouGetYourQuote"
+import { Declaration } from "../AvivaPOM/Declaration"
 import { YourClaims } from "../AvivaPOM/YourClaims"
 import { PenaltyPoints } from "../AvivaPOM/PenaltyPoints"
 import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
@@ -24,11 +24,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 const Server = new Servers()
 const BOAction = new BOActions()
-const YourDetail = new YourDetails()
-const PersonalDetailsPage = new PersonalDetails()
-const InsuranceDetailsPage = new InsuranceDetails()
-const CarDetailsPage = new CarDetails()
-const AdditionalDriversPage = new AdditionalDrivers()
+const YourDetailsPage = new YourDetails()
+const TravelDetailsPage = new TravelDetails()
+const TravellerDetailsPage = new TravellerDetails
+const BeforeYouGetYourQuotePage = new BeforeYouGetYourQuote
+const DeclarationPage = new Declaration()
 const YourClaimsPage = new YourClaims()
 const PenaltyPointsPage = new PenaltyPoints()
 const CoverStartDatePage = new CoverStartDate()
@@ -50,106 +50,41 @@ describe('Customer can purchase a policy via website', () => {
         // Accept cookies
         BOAction.cookiesAccept()
 
-        // Complete section 1 "About you"
-        YourDetail.yourDetailsTitle()
-        YourDetail.yourDetailsProposerTitle()
-        YourDetail.yourDetailsProposerForename()
-        YourDetail.yourDetailsProposerSurname()
-        YourDetail.yourDetailsProposerEmail()
-        YourDetail.yourDetailsPhone()
-        YourDetail.yourDetailsContinue()
+        // Complete section 1 "Your Details"
+        YourDetailsPage.yourDetailsTitle()
+        YourDetailsPage.yourDetailsProposerTitle()
+        YourDetailsPage.yourDetailsProposerForename()
+        YourDetailsPage.yourDetailsProposerSurname()
+        YourDetailsPage.yourDetailsProposerEmail()
+        YourDetailsPage.yourDetailsPhone()
+        YourDetailsPage.yourDetailsContinue()
 
-        // Complete section 2 "Personal details"
-        PersonalDetailsPage.personalDetailsTitle()
-        PersonalDetailsPage.addressInput()
-        PersonalDetailsPage.addressSuggest()
-        PersonalDetailsPage.addressSelect()
-        PersonalDetailsPage.addressConfirm()
-        PersonalDetailsPage.proposerDOB()
-        PersonalDetailsPage.proposerEmployStatus()
-        PersonalDetailsPage.licenceType()
-        PersonalDetailsPage.licenceYears()
-        PersonalDetailsPage.personlaDetailsContinue()
+        // Complete section 2 "Travel details"
+        TravelDetailsPage.travelDetailsTitle()
+        TravelDetailsPage.travelDetailsSingleTrip()
+        TravelDetailsPage.travelDetailsTravellingTo()
+        TravelDetailsPage.travelDetailsStartDate()
+        TravelDetailsPage.travelDetailsReturnDate()
+        TravelDetailsPage.travelDetailsWhoTravellingIndividual()
+        TravelDetailsPage.travelDetailsContinue()
 
-        // Complete section 3 "Insurance details"
-        InsuranceDetailsPage.insuranceDetailsTitle()
-        InsuranceDetailsPage.drivingExp()
-        InsuranceDetailsPage.drivingExpYears()
-        InsuranceDetailsPage.insuranceDetailsContinue()
+        // // Complete section 3 "Traveller Details"
+        TravellerDetailsPage.travellerDetailsTitle()
+        TravellerDetailsPage.travellerDetailsProposerDOB()
+        TravellerDetailsPage.travellerDetailsPMINo()
+        TravellerDetailsPage.travellerDetailsContinue()
 
-        // Complete section 4 "Car details"
-        CarDetailsPage.carDetailsTitle()
-        CarDetailsPage.carRegYes()
-        CarDetailsPage.carRegInput()
-        CarDetailsPage.findCarBTN()
-        CarDetailsPage.confirmCarBTN()
-        CarDetailsPage.carValueInput()
-        CarDetailsPage.carModifiedFalse()
-        CarDetailsPage.carDetailsContinue()
+        // // Complete section 4 "Before You Get Your Quote"
+        BeforeYouGetYourQuotePage.beforeYouGetYourQuoteTitle()
+        BeforeYouGetYourQuotePage.beforeYouGetYourQuoteMarketingNo()
+        BeforeYouGetYourQuotePage.beforeYouGetYourQuoteIAgree()
+        BeforeYouGetYourQuotePage.beforeYouGetYourQuoteContinue()
 
-        // Complete section 5 "Additional drivers"
-        AdditionalDriversPage.additionalDriversHeading()
-        AdditionalDriversPage.additionalDriversFalse()
-        AdditionalDriversPage.additionalDriversContinue()
+        // // Complete section 5 "Declaration Page"
+        DeclarationPage.declarationTitle()
+        DeclarationPage.declarationIAgree()
+        DeclarationPage.declarationContinue()
 
-        // Complete section 6 "Your claims"
-        YourClaimsPage.claimsHeading()
-        YourClaimsPage.claimsFalse1st()
-        YourClaimsPage.claimsContinue()
-
-        // Complete section 7 "Penalty points"
-        PenaltyPointsPage.ppHeading()
-        PenaltyPointsPage.ppFalse1st()
-        PenaltyPointsPage.ppContinue()
-
-        // Complete section 8 "Cover start date"
-        CoverStartDatePage.coverStartHeading()
-        CoverStartDatePage.coverStartDate()
-        CoverStartDatePage.coverStartHaveHomeIns()
-        CoverStartDatePage.coverStartHaveCarIns()
-        CoverStartDatePage.coverStartMarketing()
-        CoverStartDatePage.coverStartCustomerQuote()
-        CoverStartDatePage.coverStartContinue()
-
-        // Quote screen - Buy now 
-        QuotePageAndExtras.quotePageHeading()
-        //cy.pause()
-        QuotePageAndExtras.buyNowBtn()
-
-        // Complete post quote 1 "About you car"
-        AboutYourCarPage.postQuote1Heading()
-        AboutYourCarPage.postQuote1OwnCar()
-        AboutYourCarPage.postQuote1PrivateIns()
-        AboutYourCarPage.postQuote1Continue()
-
-        // Complete post quote 2 "About the drivers"
-        AboutTheDriversPage.postQuote2Heading()
-        AboutTheDriversPage.postQuote2IsResidentTrue()
-        AboutTheDriversPage.postQuote2IsMainDriverTrue()
-        AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
-        AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
-        AboutTheDriversPage.postQuote2IsNoConvictionTrue()
-        AboutTheDriversPage.postQuote2IsNoDisqualificationTrue()
-        AboutTheDriversPage.postQuote2IsNoRefusalTrue()
-        AboutTheDriversPage.postQuote2IsNoIncreaseTrue()
-        AboutTheDriversPage.postQuote2IsNoMedicalTrue()
-        AboutTheDriversPage.postQuote2DriverNumber()
-        AboutTheDriversPage.postQuote2Continue()
-
-        // Complete post quote 3 "Your insurance history and inception details"
-        YourInsHistoryAndIncepDetsPage.postQuote3Heading()
-        YourInsHistoryAndIncepDetsPage.postQuote3NCDROITrue()
-        YourInsHistoryAndIncepDetsPage.postQuote3NoOtherNCDTrue()
-        YourInsHistoryAndIncepDetsPage.postQuote3WithinExpiryTrue()
-        YourInsHistoryAndIncepDetsPage.postQuote3IsMyAvivaTrue()
-        YourInsHistoryAndIncepDetsPage.postQuote3CustomerQuoteTsAndCs()
-        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
-
-        // Payment screen
-        PaymentPage.selectPaymentMethod()
-
-        // Thank you page
-        ThankYouPage.thankyouHeading()
-        ThankYouPage.retreivePolicyNumber()
+        
     })
 })

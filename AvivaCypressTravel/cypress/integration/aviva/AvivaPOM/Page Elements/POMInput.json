@@ -64,7 +64,14 @@
     "HeadingData":
     {
 
-    "yourdetails_Heading": "Your details",
+    "Yourdetails_Heading": "Your details",
+    "TravelDetails_Heading": "Travel details",
+    "TravellerDetails_Heading": "Traveller details",
+    "BeforeYouGetYourQuote_Heading": "Before you get your quote...",
+    "Declaration_Heading": "Declaration",
+
+
+    "AboutYou_Heading": "About you",
     "PersonDetails_Heading": "Personal details",
     "InsuranceDetails_Heading": "Insurance details",
     "CarDetails_Heading": "Car details",

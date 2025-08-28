@@ -5,7 +5,7 @@ export class YourDetails{
 
 yourDetailsTitle(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.yourdetails_title).contains(this.UserData.HeadingData.yourdetails_Heading)
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.yourdetails_title).contains(this.UserData.HeadingData.Yourdetails_Heading)
 
 }
 
