@@ -5,7 +5,7 @@ export class TravelDetails{
 
 travelDetailsTitle(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.personaldetails_title).contains(this.UserData.HeadingData.TravelDetails_Heading)
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_title).contains(this.UserData.HeadingData.TravelDetails_Heading)
 
 }
 
@@ -33,6 +33,24 @@ travelDetailsTravellingTo(){
 
 }
 
+travelDetailsTravellingToEurope(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_travellingtoeurope).click()
+
+}
+
+travelDetailsTravellingToWorldwideExcUSA(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_travellingtowwexcusa).click()
+
+}
+
+travelDetailsTravellingToWorldwideIncUSA(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_travellingtowwincusa).click()
+
+}
+
 travelDetailsStartDate(){
 
     const day = require('dayjs')
@@ -41,11 +59,28 @@ travelDetailsStartDate(){
 
 }
 
+travelDetailsCoverStartDate(){
+
+    cy.wait(2000)    
+    const day = require('dayjs')
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_coverstartdate).type(day().add(7, 'day').format('DD/MM/YYYY'))
+
+}
+
 travelDetailsReturnDate(){
 
     const day = require('dayjs')
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_returndate).invoke('val', day().add(14, 'day').format('DD/MM/YYYY'))
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_returndate).invoke('val', day().add(21, 'day').format('DD/MM/YYYY'))
+
+}
+
+travelDetailsReturnDateBackpacker(){
+
+    const day = require('dayjs')
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_returndate).invoke('val', day().add(39, 'day').format('DD/MM/YYYY'))
 
 }
 

@@ -11,24 +11,24 @@ thankyouHeading(){
 
 }
 
-retreivePolicyNumber(){
+retreiveTravelPolicyNumber(){
 
-    cy.getAndWait('.m-card-content__inner > p > strong')
+    cy.getAndWait('.m-card-content__inner > p')
     .invoke('text') 
     .then((text) => {
     
     const numberOnly = text.match(/\d+/)[0]
 
     cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
-        const updatedData = { ...data, policyNumber: numberOnly }
+        const updatedData = { ...data, travelPolicyNumber: numberOnly }
         cy.writeFile('policy.json', updatedData)
     })
 
-    cy.wrap(numberOnly).as('policyNumber')
+    cy.wrap(numberOnly).as('travelPolicyNumber')
     })
 
-    cy.get('@policyNumber').then((policyNumber) => {
-    cy.log(`Extracted policy number: ${policyNumber}`)
+    cy.get('@travelPolicyNumber').then((travelPolicyNumber) => {
+    cy.log(`Extracted policy number: ${travelPolicyNumber}`)
     })
         
 }

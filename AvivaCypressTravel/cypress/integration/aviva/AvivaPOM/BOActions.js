@@ -61,7 +61,7 @@ removeAttr(){
 
 agentQuote(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.agent_quote).select(1)
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.agent_quote).select(3)
     cy.window().then((win) => {
         const orig = win.open
           
@@ -89,6 +89,12 @@ livePoliciesBTN(){
 unlockBTN(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.unlock_btn).click()
+
+}
+
+lockQuoteBTN(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.lock_quote).should('be.visible')
 
 }
 

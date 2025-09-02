@@ -23,6 +23,7 @@ declarationBack(){
 
 declarationContinue(){
 
+    cy.wait(2000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.declaration_continue).click()
 
 }

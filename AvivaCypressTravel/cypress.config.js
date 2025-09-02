@@ -42,7 +42,9 @@ async function setupNodeEvents(on, config) {
   const demoSpecPattern = [
     // 'cypress/integration/aviva/Tests/000PolicyOwnership.cy.js',
     // 'cypress/integration/aviva/Tests/001TempPack.cy.js',
-    // 'cypress/integration/aviva/Tests/002AgentPurch.cy.js',
+    'cypress/integration/aviva/Tests/002AgentBackpacker.cy.js',
+    'cypress/integration/aviva/Tests/003AgentMultiTrip.cy.js',
+    'cypress/integration/aviva/Tests/004AgentSingleTrip.cy.js',
     // 'cypress/integration/aviva/Tests/003AgentUnlock.cy.js',
     // 'cypress/integration/aviva/Tests/004CheckCookies.cy.js',
     // 'cypress/integration/aviva/Tests/005AgentDocUpload.cy.js',
@@ -52,7 +54,9 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/008QuotePerformance.cy.js',
     // 'cypress/integration/aviva/Tests/009CustDocUpload.cy.js',
     // 'cypress/integration/aviva/Tests/010CustHoneyPotCheck.cy.js',
-    'cypress/integration/aviva/Tests/011CustPurch.cy.js',
+    'cypress/integration/aviva/Tests/011CustSingleTrip.cy.js',
+    'cypress/integration/aviva/Tests/011CustMultiTrip.cy.js',
+    'cypress/integration/aviva/Tests/011CustBackpacker.cy.js',
     // 'cypress/integration/aviva/Tests/012AgentUnlock1.cy.js',
   
   ]

@@ -29,50 +29,143 @@
 ,"QuotePageLocators":
 
     {
+   
     
     "agent_quote": "#ctl00_ContentPlaceHolder1_ProductList",
     
     "quote_linkbtn": ":nth-child(5) > tbody > tr > td > .btn-success",
 
-    "yourdetails_title": "#div1",
+    "yourdetails_title": "#section1 > .m-showhide__control",
     "yourdetailsproposer_mr": "#MainContent_DDLProposerTitle",
     "yourdetailsproposer_forename": "#MainContent_ProposerForename",
     "yourdetailsproposer_surname": "#MainContent_ProposerSurname",
     "yourdetailsproposer_email": "#ProposerEmail",
     "yourdetailsproposer_phone": "#MainContent_ProposerMobile",
-    "yourdetailsproposer_continue": "#MainContent_Continue1",
+    "yourdetailsproposer_continue": "#Continue1",
 
-    "traveldetails_title": "#div2",
+    "traveldetails_title": "#section2 > .m-showhide__control",
     "traveldetails_singletrip": "#MainContent_lbl_InsuranceType_S > .a-radio__label",
     "traveldetails_multitrip": "#MultiBtnLabel",
     "traveldetails_backpacker": "#BackpackerBtnLabel",
     "traveldetails_travellingto": "#MainContent_ddlTravelingTo",
+    "traveldetails_travellingtoeurope": "#TravellingTo-Europe > .a-radio > .a-radio__label",
+    "traveldetails_travellingtowwincusa": "#TravellingTo > :nth-child(3) > .a-radio > .a-radio__label",
+    "traveldetails_travellingtowwexcusa": "#TravellingTo-Worldwideexcl > .a-radio > .a-radio__label",
     "traveldetails_startdate": "#TripStartDate",
+    "traveldetails_coverstartdate": "#MainContent_CoverStartDate",
     "traveldetails_returndate": "#TripReturnDate",
     "traveldetails_whotravellingindividual": "#travelGroup-Individual > .a-radio > .a-radio__label",
     "traveldetails_whotravellingcouple": "#travelGroup-Couple > .a-radio > .a-radio__label",
     "traveldetails_whotravellingfamily": "#travelGroup-Family > .a-radio > .a-radio__label",
-    "traveldetails_continue": "#MainContent_Continue2",
+    "traveldetails_continue": "#Continue2",
 
-    "travellerdetails_title": "#div3",
+    "travellerdetails_title": "#section3 > .m-showhide__control",
+    "travellerdetails_adults1": "#NumberAdults > :nth-child(1) > .a-radio > .a-radio__label",
+    "travellerdetails_adults2": "#NumberAdults > :nth-child(2) > .a-radio > .a-radio__label",
     "travellerdetails_proposerdob": "#ProposerDOB",
     "travellerdetails_pmiyes": "#MedicalInsurance-Yes > .a-radio > .a-radio__label",
     "travellerdetails_pmino": "#MedicalInsurance-No > .a-radio > .a-radio__label",
-    "travellerdetails_continue": "#MainContent_Continue3",
+    "travellerdetails_adult2dob": "#Adult2DOB",
+    "travellerdetails_adult2pmiyes": "#Adult2MedicalInsurance-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_adult2pmino": "#Adult2MedicalInsurance-No > .a-radio > .a-radio__label",
+    "travellerdetails_noofchildren": "#ddlNoChildren",
+    "travellerdetails_child1dob": "#Child1DOB",
+    "travellerdetails_child1educationyes": "#Child1Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child1educationno": "#Child1Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child2dob": "#Child2DOB",
+    "travellerdetails_child2educationyes": "#Child2Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child2educationno": "#Child2Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child3dob": "#Child3DOB",
+    "travellerdetails_child3educationyes": "#Child3Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child3educationno": "#Child3Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child4dob": "#Child4DOB",
+    "travellerdetails_child4educationyes": "#Child4Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child4educationno": "#Child4Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child5dob": "#Child5DOB",
+    "travellerdetails_child5educationyes": "#Child5Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child5educationno": "#Child5Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child6dob": "#Child6DOB",
+    "travellerdetails_child6educationyes": "#Child6Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child6educationno": "#Child6Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child7dob": "#Child7DOB",
+    "travellerdetails_child7educationyes": "#Child7Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child7educationno": "#Child7Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child8dob": "#Child8DOB",
+    "travellerdetails_child8educationyes": "#Child8Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child8educationno": "#Child8Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_child9dob": "#Child9DOB",
+    "travellerdetails_child9educationyes": "#Child9Education-Yes > .a-radio > .a-radio__label",
+    "travellerdetails_child9educationno": "#Child9Education-No > .a-radio > .a-radio__label",
+    "travellerdetails_continue": "#Continue3",
 
-    "beforeyougetyourquote_title": "#div4",
+    "beforeyougetyourquote_title": "#section4 > .m-showhide__control",
     "beforeyougetyourquote_marketingyes": "#Marketing > :nth-child(1) > .a-radio > .a-radio__label",
     "beforeyougetyourquote_marketingno": "#Marketing > :nth-child(2) > .a-radio > .a-radio__label",
     "beforeyougetyourquote_iagree": ".a-checkbox__label",
-    "beforeyougetyourquote_continue": "#MainContent_Continue4",
+    "beforeyougetyourquote_continue": "#Continue4",
     
     "declaration_title": "#MainContent_H1",
     "declaration_iagree": ".a-checkbox__label",
-    "declaration_continue": "#MainContent_H1",
+    "declaration_continue": "#MainContent_btnContinue",
     "declaration_back": "#MainContent_Back",
     
+    "travelquotepage_title": ".m-heading-group__item",
+    "travelquotepage_wintersportsselect": "#WinterSportsGroup > .m-card-content > .m-form-row__content > .m-form-row-group > .m-form-row-group-item > .a-radio > .a-radio__label",
+    "travelquotepage_cruiseselect": "#CruiseGroup > .m-card-content > .m-form-row__content > .m-form-row-group > .m-form-row-group-item > .a-radio > .a-radio__label",
+    "travelquotepage_scubadivingselect": "#ScubaGroup > .m-card-content > .m-form-row__content > .m-form-row-group > .m-form-row-group-item > .a-radio > .a-radio__label",
+    "travelquotepage_buynow": "#btnBuyNow",
+    "travelquotepage_buynowbottom": "#MainContent_btnBuyNow2",
+    "travelquotepage_back": "#MainContent_Back",
 
-    
+    "travellernames_title": ".m-heading-group__item",
+    "travellernames_title1": "#MainContent_ReviewRiskTitle",
+    "travellernames_adult2firstname": "#MainContent_Adult2FirstName",
+    "travellernames_adult2surname": "#MainContent_Adult2Surname",
+    "travellernames_child1firstname": "#MainContent_ChildRepeater_ChildFirstName_0",
+    "travellernames_child1surname": "#MainContent_ChildRepeater_ChildSurname_0",
+    "travellernames_child2firstname": "#MainContent_ChildRepeater_ChildFirstName_1",
+    "travellernames_child2surname": "#MainContent_ChildRepeater_ChildSurname_1",
+    "travellernames_child3firstname": "#MainContent_ChildRepeater_ChildFirstName_2",
+    "travellernames_child3surname": "#MainContent_ChildRepeater_ChildSurname_2",
+    "travellernames_child4firstname": "#MainContent_ChildRepeater_ChildFirstName_3",
+    "travellernames_child4surname": "#MainContent_ChildRepeater_ChildSurname_3",
+    "travellernames_child5firstname": "#MainContent_ChildRepeater_ChildFirstName_4",
+    "travellernames_child5surname": "#MainContent_ChildRepeater_ChildSurname_4",
+    "travellernames_child6firstname": "#MainContent_ChildRepeater_ChildFirstName_5",
+    "travellernames_child6surname": "#MainContent_ChildRepeater_ChildSurname_5",
+    "travellernames_child7firstname": "#MainContent_ChildRepeater_ChildFirstName_6",
+    "travellernames_child7surname": "#MainContent_ChildRepeater_ChildSurname_6",
+    "travellernames_address": ".autoaddress-text-box",
+    "travellernames_addressconfirm": "#MainContent_btnConfirmAddress",
+    "travellernames_iagree": ".a-checkbox__label",
+    "travellernames_continue": "#btnContinueToPayment",
+    "travellernames_back": "#MainContent_BackToQuote",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "aboutyou_title": "#div1",
     "proposer_mr": "#ctl00_MainContent_DDLProposerTitle",
     "proposer_forename": "#ctl00_MainContent_ProposerForename",
@@ -242,8 +335,8 @@
     "inshistory_ispostdocsfalse": "#IsPostDocs-no",
     "inshistory_continue": "#ctl00_MainContent_btnContinueToPayment",
 
-    "paymenttype_agent": "#ctl00_MainContent_PaymentType",
-    "paymenttype_agentnopaycontinue": "#ctl00_MainContent_NoPay",
+    "paymenttype_agent": "#MainContent_PaymentType",
+    "paymenttype_agentnopaycontinue": "#MainContent_NoPay",
     "paymenttype_agentchequeamount": "#ctl00_MainContent_txtAmountReceived",
     "paymenttype_agentchequeref": "#ctl00_MainContent_txtPayRef",
     "paymenttype_agentchequepay": "#ctl00_MainContent_PayCheque",
@@ -266,6 +359,7 @@
     "livepolicy_btn": ":nth-child(2) > .card-header > .panel-title > .accordion-toggle > .btn",
     "unlock_btn": "#ctl00_ContentPlaceHolder1_LockCustomer",
     "notes": "#ctl00_divNotes > .a-button",
+    "lock_quote": "#btnQuoteLock",
     "createnewquote_btn": "#ctl00_ContentPlaceHolder1_Submit",
     "age_policytool": "[class^='dropdown policyTools']",
     "backdate_day": "#ctl00_ContentPlaceHolder1_BackDateDay",

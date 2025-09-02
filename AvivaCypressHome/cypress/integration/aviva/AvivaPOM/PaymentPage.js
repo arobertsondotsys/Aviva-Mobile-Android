@@ -33,7 +33,7 @@ export class PaymentPage{
     cy.wait(6000)
     cy.url().then((currentUrl) => {
         if (currentUrl.includes('rwy')) {
-            this.paymentDDQANoPassword()();
+            this.paymentDDQAPasswordCheck();
         } else if (currentUrl.includes('stg')) {
             this.paymentDDDemoCust();
         } else {

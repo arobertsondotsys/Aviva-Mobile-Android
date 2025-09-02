@@ -119,7 +119,7 @@ describe('Agent purchase home policy renewal as autorollover', () => {
     QuotePageAndExtras.quotePageStaffOptions()
     QuotePageAndExtras.quotePageStaffDiscounts()
     QuotePageAndExtras.quotePageStaffRecalculate()
-    
+    cy.pause()
     QuotePageAndExtras.quotePageMonthlyBtn()
 
     // Complete and pay
