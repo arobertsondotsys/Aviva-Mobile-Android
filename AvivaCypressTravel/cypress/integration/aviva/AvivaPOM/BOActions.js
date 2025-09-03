@@ -340,10 +340,10 @@ selectActionRefundsWithPolicyNumber(){
 selectActionDocumentsWithTravelPolicyNumber(){
 
     cy.readFile('policy.json').then((data) => {
-        const travelPolicyNumber = data.travelPolicyNumber
+        const travelPolicyNumberSingle = data.travelPolicyNumberSingle
         cy.getAndWait('.panel-title')
-        .contains(travelPolicyNumber)
-        cy.xpath("//span[normalize-space()='"+travelPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        .contains(travelPolicyNumberSingle)
+        cy.xpath("//span[normalize-space()='"+travelPolicyNumberSingle+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
          })
         
