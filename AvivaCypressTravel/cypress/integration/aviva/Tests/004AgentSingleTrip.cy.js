@@ -6,6 +6,8 @@ import { TravelDetails } from "../AvivaPOM/TravelDetails"
 import { TravellerDetails } from "../AvivaPOM/TravellerDetails"
 import { BeforeYouGetYourQuote } from "../AvivaPOM/BeforeYouGetYourQuote"
 import { Declaration } from "../AvivaPOM/Declaration"
+import { TravelQuotePage } from "../AvivaPOM/TravelQuotePage"
+import { TravellerNames } from "../AvivaPOM/TravellerNames"
 import { YourClaims } from "../AvivaPOM/YourClaims"
 import { PenaltyPoints } from "../AvivaPOM/PenaltyPoints"
 import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
@@ -32,6 +34,8 @@ const TravelDetailsPage = new TravelDetails()
 const TravellerDetailsPage = new TravellerDetails
 const BeforeYouGetYourQuotePage = new BeforeYouGetYourQuote
 const DeclarationPage = new Declaration()
+const TravelQuotePageAndExtras = new TravelQuotePage()
+const TravellerNamesPage = new TravellerNames()
 const YourClaimsPage = new YourClaims()
 const PenaltyPointsPage = new PenaltyPoints()
 const CoverStartDatePage = new CoverStartDate()
@@ -80,22 +84,36 @@ describe('Customer can purchase a policy via website', () => {
         TravelDetailsPage.travelDetailsWhoTravellingIndividual()
         TravelDetailsPage.travelDetailsContinue()
 
-        // // Complete section 3 "Traveller Details"
+        // Complete section 3 "Traveller Details"
         TravellerDetailsPage.travellerDetailsTitle()
         TravellerDetailsPage.travellerDetailsProposerDOB()
         TravellerDetailsPage.travellerDetailsPMINo()
         TravellerDetailsPage.travellerDetailsContinue()
 
-        // // Complete section 4 "Before You Get Your Quote"
+        // Complete section 4 "Before You Get Your Quote"
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteTitle()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteMarketingNo()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteIAgree()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteContinue()
 
-        // // Complete section 5 "Declaration Page"
+        // Complete section 5 "Declaration Page"
         DeclarationPage.declarationTitle()
         DeclarationPage.declarationIAgree()
         DeclarationPage.declarationContinue()
+
+        TravelQuotePageAndExtras.travelQuotePageTitle()
+        TravelQuotePageAndExtras.travelQuotePageWinterSportsCover()
+        TravelQuotePageAndExtras.travelQuotePageBuyNow()
+
+        TravellerNamesPage.travellerNamesEnterAddress()
+        TravellerNamesPage.travellerNamesIAgree()
+        TravellerNamesPage.travellerNamesContinue()
+
+        PaymentTypesPage.paymentTypeAgentNoPay()
+        PaymentTypesPage.paymentTypeAgentNoPayContinue()
+
+        ThankYouPage.thankyouHeading()
+        ThankYouPage.retreiveTravelPolicyNumberSingle()
 
         
     })

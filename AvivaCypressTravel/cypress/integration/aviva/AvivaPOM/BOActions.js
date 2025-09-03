@@ -229,13 +229,13 @@ selectActionMakeADJWithPolicyNumber(){
         
 }
 
-selectActionCancelWithPolicyNumber(){
+selectActionCancelWithTravelPolicyNumber(){
 
     cy.readFile('policy.json').then((data) => {
-        const policyNumber = data.policyNumber
+        const travelPolicyNumber = data.travelPolicyNumber
         cy.getAndWait('.panel-title')
-        .contains(policyNumber)
-        cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        .contains(travelPolicyNumber)
+        cy.xpath("//span[normalize-space()='"+travelPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Cancel Policy']")
          })
         
@@ -337,13 +337,13 @@ selectActionRefundsWithPolicyNumber(){
         
 }
 
-selectActionDocumentsWithPolicyNumber(){
+selectActionDocumentsWithTravelPolicyNumber(){
 
     cy.readFile('policy.json').then((data) => {
-        const policyNumber = data.policyNumber
+        const travelPolicyNumber = data.travelPolicyNumber
         cy.getAndWait('.panel-title')
-        .contains(policyNumber)
-        cy.xpath("//span[normalize-space()='"+policyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        .contains(travelPolicyNumber)
+        cy.xpath("//span[normalize-space()='"+travelPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
          })
         

@@ -116,7 +116,7 @@ describe('Customer can purchase a policy via website', () => {
         PaymentPage.selectPaymentMethod()
 
         ThankYouPage.thankyouHeading()
-        ThankYouPage.retreiveTravelPolicyNumber()
+        ThankYouPage.retreiveTravelPolicyNumberMulti()
 
         
 

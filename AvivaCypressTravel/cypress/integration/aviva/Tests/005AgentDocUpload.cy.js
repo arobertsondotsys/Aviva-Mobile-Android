@@ -32,7 +32,7 @@ describe('Agent can upload document', () => {
         
         // Select policy and Documents 
         BOAction.livePoliciesBTN()
-        BOAction.selectActionDocumentsWithPolicyNumber()
+        BOAction.selectActionDocumentsWithTravelPolicyNumber()
         
         // Upload selected file 
         cy.getAndWait('#Upload').click()

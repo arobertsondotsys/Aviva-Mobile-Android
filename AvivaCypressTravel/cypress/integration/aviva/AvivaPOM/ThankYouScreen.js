@@ -11,7 +11,7 @@ thankyouHeading(){
 
 }
 
-retreiveTravelPolicyNumber(){
+retreiveTravelPolicyNumberMulti(){
 
     cy.getAndWait('.m-card-content__inner > p')
     .invoke('text') 
@@ -20,15 +20,59 @@ retreiveTravelPolicyNumber(){
     const numberOnly = text.match(/\d+/)[0]
 
     cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
-        const updatedData = { ...data, travelPolicyNumber: numberOnly }
+        const updatedData = { ...data, travelPolicyNumberMulti: numberOnly }
         cy.writeFile('policy.json', updatedData)
     })
 
-    cy.wrap(numberOnly).as('travelPolicyNumber')
+    cy.wrap(numberOnly).as('travelPolicyNumberMulti')
     })
 
-    cy.get('@travelPolicyNumber').then((travelPolicyNumber) => {
-    cy.log(`Extracted policy number: ${travelPolicyNumber}`)
+    cy.get('@travelPolicyNumberMulti').then((travelPolicyNumberMulti) => {
+    cy.log(`Extracted policy number: ${travelPolicyNumberMulti}`)
+    })
+        
+}
+
+retreiveTravelPolicyNumberBackpacker(){
+
+    cy.getAndWait('.m-card-content__inner > p')
+    .invoke('text') 
+    .then((text) => {
+    
+    const numberOnly = text.match(/\d+/)[0]
+
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+        const updatedData = { ...data, travelPolicyNumberBackpacker: numberOnly }
+        cy.writeFile('policy.json', updatedData)
+    })
+
+    cy.wrap(numberOnly).as('travelPolicyNumberBackpacker')
+    })
+
+    cy.get('@travelPolicyNumberBackpacker').then((travelPolicyNumberBackpacker) => {
+    cy.log(`Extracted policy number: ${travelPolicyNumberBackpacker}`)
+    })
+        
+}
+
+retreiveTravelPolicyNumberSingle(){
+
+    cy.getAndWait('.m-card-content__inner > p')
+    .invoke('text') 
+    .then((text) => {
+    
+    const numberOnly = text.match(/\d+/)[0]
+
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+        const updatedData = { ...data, travelPolicyNumberSingle: numberOnly }
+        cy.writeFile('policy.json', updatedData)
+    })
+
+    cy.wrap(numberOnly).as('travelPolicyNumberSingle')
+    })
+
+    cy.get('@travelPolicyNumberSingle').then((travelPolicyNumberSingle) => {
+    cy.log(`Extracted policy number: ${travelPolicyNumberSingle}`)
     })
         
 }

@@ -6,6 +6,8 @@ import { TravelDetails } from "../AvivaPOM/TravelDetails"
 import { TravellerDetails } from "../AvivaPOM/TravellerDetails"
 import { BeforeYouGetYourQuote } from "../AvivaPOM/BeforeYouGetYourQuote"
 import { Declaration } from "../AvivaPOM/Declaration"
+import { TravelQuotePage } from "../AvivaPOM/TravelQuotePage"
+import { TravellerNames } from "../AvivaPOM/TravellerNames"
 import { YourClaims } from "../AvivaPOM/YourClaims"
 import { PenaltyPoints } from "../AvivaPOM/PenaltyPoints"
 import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
@@ -32,6 +34,8 @@ const TravelDetailsPage = new TravelDetails()
 const TravellerDetailsPage = new TravellerDetails
 const BeforeYouGetYourQuotePage = new BeforeYouGetYourQuote
 const DeclarationPage = new Declaration()
+const TravelQuotePageAndExtras = new TravelQuotePage()
+const TravellerNamesPage = new TravellerNames()
 const YourClaimsPage = new YourClaims()
 const PenaltyPointsPage = new PenaltyPoints()
 const CoverStartDatePage = new CoverStartDate()
@@ -98,6 +102,26 @@ describe('Customer can purchase a policy via website', () => {
         DeclarationPage.declarationTitle()
         DeclarationPage.declarationIAgree()
         DeclarationPage.declarationContinue()
+
+        TravelQuotePageAndExtras.travelQuotePageTitle()
+        TravelQuotePageAndExtras.travelQuotePageWinterSportsCover()
+        TravelQuotePageAndExtras.travelQuotePageBuyNow()
+
+        TravellerNamesPage.travellerNamesTitle()
+        TravellerNamesPage.travellerNamesTitle1()
+        TravellerNamesPage.travellerNamesAdult2Firstname()
+        TravellerNamesPage.travellerNamesAdult2Surname()
+        TravellerNamesPage.travellerNamesEnterAddress()
+        TravellerNamesPage.travellerNamesIAgree()
+        TravellerNamesPage.travellerNamesContinue()
+
+        PaymentTypesPage.paymentTypeAgentNoPay()
+        PaymentTypesPage.paymentTypeAgentNoPayContinue()
+
+        ThankYouPage.thankyouHeading()
+        ThankYouPage.retreiveTravelPolicyNumberBackpacker()
+
+
 
         
     })

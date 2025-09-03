@@ -32,7 +32,7 @@ describe('Agent can cancel a policy', () => {
         // Select policy
         BOAction.livePoliciesBTN()
 
-        BOAction.selectActionCancelWithPolicyNumber()
+        BOAction.selectActionCancelWithTravelPolicyNumber()
 
         // Select Cancelation reason 
         BOAction.cookiesAccept()

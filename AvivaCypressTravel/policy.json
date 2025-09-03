@@ -1,3 +1,7 @@
 {
-  "travelPolicyNumber": "472500021"
+  "travelPolicyNumber": "472500029",
+  "travelWelcomePackPolicyNumber": "472500024",
+  "travelPolicyNumberSingle": "472500031",
+  "travelPolicyNumberBackpacker": "472500033",
+  "travelPolicyNumberMulti": "472500034"
 }

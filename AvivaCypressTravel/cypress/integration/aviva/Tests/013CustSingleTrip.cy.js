@@ -5,11 +5,8 @@ import { TravelDetails } from "../AvivaPOM/TravelDetails"
 import { TravellerDetails } from "../AvivaPOM/TravellerDetails"
 import { BeforeYouGetYourQuote } from "../AvivaPOM/BeforeYouGetYourQuote"
 import { Declaration } from "../AvivaPOM/Declaration"
-import { YourClaims } from "../AvivaPOM/YourClaims"
-import { PenaltyPoints } from "../AvivaPOM/PenaltyPoints"
-import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
-import { QuotePage } from "../AvivaPOM/QuotePage"
-import { AboutYourCarPQ1 } from "../AvivaPOM/AboutYourCarPQ1"
+import { TravelQuotePage } from "../AvivaPOM/TravelQuotePage"
+import { TravellerNames } from "../AvivaPOM/TravellerNames"
 import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
 import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
 import { PaymentScreen } from "../AvivaPOM/PaymentScreen"
@@ -29,11 +26,8 @@ const TravelDetailsPage = new TravelDetails()
 const TravellerDetailsPage = new TravellerDetails
 const BeforeYouGetYourQuotePage = new BeforeYouGetYourQuote
 const DeclarationPage = new Declaration()
-const YourClaimsPage = new YourClaims()
-const PenaltyPointsPage = new PenaltyPoints()
-const CoverStartDatePage = new CoverStartDate()
-const QuotePageAndExtras = new QuotePage()
-const AboutYourCarPage = new AboutYourCarPQ1()
+const TravelQuotePageAndExtras = new TravelQuotePage()
+const TravellerNamesPage = new TravellerNames()
 const AboutTheDriversPage = new AboutTheDriversPQ2()
 const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
 const PaymentPage = new PaymentScreen()
@@ -84,6 +78,19 @@ describe('Customer can purchase a policy via website', () => {
         DeclarationPage.declarationTitle()
         DeclarationPage.declarationIAgree()
         DeclarationPage.declarationContinue()
+
+        TravelQuotePageAndExtras.travelQuotePageTitle()
+        TravelQuotePageAndExtras.travelQuotePageWinterSportsCover()
+        TravelQuotePageAndExtras.travelQuotePageBuyNow()
+
+        TravellerNamesPage.travellerNamesEnterAddress()
+        TravellerNamesPage.travellerNamesIAgree()
+        TravellerNamesPage.travellerNamesContinue()
+
+        PaymentPage.selectPaymentMethod()
+
+        ThankYouPage.thankyouHeading()
+        ThankYouPage.retreiveTravelPolicyNumberSingle()
 
         
     })
