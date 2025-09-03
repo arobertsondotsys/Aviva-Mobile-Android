@@ -33,7 +33,7 @@ retreiveTravelPolicyNumber(){
         
 }
 
-retreiveTempPackPolicyNumber(){
+retreiveTravelWelcomePackPolicyNumber(){
 
     cy.getAndWait('.m-card-content__inner > p > strong')
     .invoke('text') 
@@ -42,15 +42,15 @@ retreiveTempPackPolicyNumber(){
     const numberOnly = text.match(/\d+/)[0]
 
     cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
-        const updatedData = { ...data, tempPackPolicyNumber: numberOnly }
+        const updatedData = { ...data, travelWelcomePackPolicyNumber: numberOnly }
         cy.writeFile('policy.json', updatedData)
     })
 
-    cy.wrap(numberOnly).as('tempPackPolicyNumber')
+    cy.wrap(numberOnly).as('travelWelcomePackPolicyNumber')
     })
 
-    cy.get('@tempPackPolicyNumber').then((tempPackPolicyNumber) => {
-    cy.log(`Extracted policy number: ${tempPackPolicyNumber}`)
+    cy.get('@travelWelcomePackPolicyNumber').then((travelWelcomePackPolicyNumber) => {
+    cy.log(`Extracted policy number: ${travelWelcomePackPolicyNumber}`)
     })
         
 }
