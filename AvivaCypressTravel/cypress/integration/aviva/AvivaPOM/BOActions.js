@@ -349,13 +349,13 @@ selectActionDocumentsWithTravelPolicyNumber(){
         
 }
 
-selectActionDocumentsWithTempPackPolicyNumber(){
+selectActionDocumentsWithWelcomePackPolicyNumber(){
 
     cy.readFile('policy.json').then((data) => {
-        const tempPackPolicyNumber = data.tempPackPolicyNumber
+        const welcomePackPolicyNumber = data.welcomePackPolicyNumber
         cy.getAndWait('.panel-title')
-        .contains(tempPackPolicyNumber)
-        cy.xpath("//span[normalize-space()='"+tempPackPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        .contains(welcomePackPolicyNumber)
+        cy.xpath("//span[normalize-space()='"+welcomePackPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
          })
         
