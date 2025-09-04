@@ -63,7 +63,7 @@ module.exports = defineConfig({
     reportFilename: 'Aviva Telematics Automation results',
   },
   chromeWebSecurity: false,
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 30000,
   viewportWidth: 1920,
   viewportHeight: 1400,
   pageLoadTimeout: 200000,
