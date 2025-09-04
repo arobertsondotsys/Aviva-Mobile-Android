@@ -62,14 +62,11 @@ module.exports = defineConfig({
 
     },
   
-  "chromeWebSecurity": false,
-
-  defaultCommandTimeout: 10000,
-
+  chromeWebSecurity: false,
+  defaultCommandTimeout: 30000,
   viewportWidth: 1920,
   viewportHeight: 1400,
-
-  pageLoadTimeout: 80000,
+  pageLoadTimeout: 30000,
 
   retries: 
   {

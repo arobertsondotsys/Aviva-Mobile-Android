@@ -80,10 +80,10 @@ module.exports = defineConfig({
     reportFilename: 'Aviva Travel Automation results',
   },
   chromeWebSecurity: false,
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 30000,
   viewportWidth: 1920,
   viewportHeight: 1400,
-  pageLoadTimeout: 200000,
+  pageLoadTimeout: 30000,
   retries: {
     runMode: 1,
     openMode: 0,
