@@ -18,9 +18,10 @@ retreiveTravelPolicyNumberMulti(){
     .then((text) => {
     
     const numberOnly = text.match(/\d+/)[0]
+    const server = Cypress.env('server')
 
     cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
-        const updatedData = { ...data, travelPolicyNumberMulti: numberOnly }
+        const updatedData = { ...data, travelPolicyNumberMulti: numberOnly, server }
         cy.writeFile('policy.json', updatedData)
     })
 

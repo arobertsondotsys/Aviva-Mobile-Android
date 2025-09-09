@@ -18,13 +18,14 @@ retreivePolicyNumber() {
     .then((text) => {
 
     const numberOnly = text.match(/\d+/)[0]
+    const server = Cypress.env('server')
 
     cy.wrap(numberOnly).as('policyNumber')
 
     // Read the existing data from the file
     cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
-            const updatedData = { ...data, policyNumber: numberOnly } // Merge new data with existing data
-            cy.writeFile('policy.json', updatedData); // Write the updated data back to the file
+            const updatedData = { ...data, policyNumber: numberOnly, server } 
+            cy.writeFile('policy.json', updatedData)
         })
     })
     cy.get('@policyNumber').then((policyNumber) => {

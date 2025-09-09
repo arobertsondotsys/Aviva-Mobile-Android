@@ -18,9 +18,10 @@ retreiveTelematicsPolicyNumber(){
     .then((text) => {
     
     const numberOnly = text.match(/\d+/)[0]
+    const server = Cypress.env('server')
 
     cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
-        const updatedData = { ...data, telematicsPolicyNumber: numberOnly }
+        const updatedData = { ...data, telematicsPolicyNumber: numberOnly, server }
         cy.writeFile('policy.json', updatedData)
     })
 
