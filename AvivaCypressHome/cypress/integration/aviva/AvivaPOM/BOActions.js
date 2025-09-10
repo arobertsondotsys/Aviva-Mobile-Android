@@ -963,7 +963,7 @@ checkRenewalDocsAutoRoloverNoEmail(){
     cy.contains('Statement Of Fact')
     cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.contains('Policy Schedule')
-    cy.getAndWait(':nth-child(5) > :nth-child(5)').should('not.contain', 'Receipt')
+    cy.should('not.contain', 'Receipt')
 
 }
 
