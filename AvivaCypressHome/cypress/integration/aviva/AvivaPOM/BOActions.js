@@ -388,6 +388,30 @@ selectActionDocumentsWithPolicyNumber(){
         
 }
 
+selectActionDocumentsWithPolicyNumberForAgentDD(){
+
+    cy.readFile('policy.json').then((data) => {
+        const PolicyNumberForAgentDD = data.PolicyNumberForAgentDD
+        cy.getAndWait('.panel-title')
+        .contains(PolicyNumberForAgentDD)
+        cy.xpath("//span[normalize-space()='"+PolicyNumberForAgentDD+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
+selectActionDocumentsWithPolicyNumberForCustDD(){
+
+    cy.readFile('policy.json').then((data) => {
+        const PolicyNumberForCustDD = data.PolicyNumberForCustDD
+        cy.getAndWait('.panel-title')
+        .contains(PolicyNumberForCustDD)
+        cy.xpath("//span[normalize-space()='"+PolicyNumberForCustDD+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
 selectActionDocumentsWithPolicyNumberForAgentMTA(){
 
     cy.readFile('policy.json').then((data) => {
@@ -835,6 +859,16 @@ inviteRenewalParagon12(){
 recallPolicy(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.recall_policy).click()
+
+}
+
+checkNBDocsDD(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Email Full Cover')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Statement Of Fact')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Policy Schedule')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Quote Email')
 
 }
 

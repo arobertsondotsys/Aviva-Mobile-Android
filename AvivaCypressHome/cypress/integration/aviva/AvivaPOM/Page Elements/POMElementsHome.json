@@ -256,6 +256,7 @@
     "batchprint_renewal":"#ctl00_ContentPlaceHolder1_BatchPrint",
     "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
     "recall_policy":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_RecallPolicy",
+    "check_nbdocs":"tbody > :nth-child(3) > :nth-child(4)",
     "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
     "check_nbdocspost":"tbody > :nth-child(3) > :nth-child(3)",
     "check_mtadocspost":"tbody > :nth-child(4) > :nth-child(3)",

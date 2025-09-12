@@ -33,6 +33,46 @@ retreivePolicyNumber() {
     })
 }
 
+retreivePolicyNumberForAgentDD() {
+    cy.getAndWait('.m-card-content__inner > p > strong')
+    .invoke('text')
+    .then((text) => {
+
+    const numberOnly = text.match(/\d+/)[0]
+
+    cy.wrap(numberOnly).as('PolicyNumberForAgentDD')
+
+    // Read the existing data from the file
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+            const updatedData = { ...data, PolicyNumberForAgentDD: numberOnly } // Merge new data with existing data
+            cy.writeFile('policy.json', updatedData); // Write the updated data back to the file
+        })
+    })
+    cy.get('@PolicyNumberForAgentDD').then((PolicyNumberForAgentDD) => {
+    cy.log(`Extracted policy number: ${PolicyNumberForAgentDD}`)
+    })
+}
+
+retreivePolicyNumberForCustDD() {
+    cy.getAndWait('.m-card-content__inner > p > strong')
+    .invoke('text')
+    .then((text) => {
+
+    const numberOnly = text.match(/\d+/)[0]
+
+    cy.wrap(numberOnly).as('PolicyNumberForCustDD')
+
+    // Read the existing data from the file
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+            const updatedData = { ...data, PolicyNumberForCustDD: numberOnly } // Merge new data with existing data
+            cy.writeFile('policy.json', updatedData); // Write the updated data back to the file
+        })
+    })
+    cy.get('@PolicyNumberForCustDD').then((PolicyNumberForCustDD) => {
+    cy.log(`Extracted policy number: ${PolicyNumberForCustDD}`)
+    })
+}
+
 retreivePolicyNumberForAgentMTA() {
     cy.getAndWait('.m-card-content__inner > p > strong')
     .invoke('text')

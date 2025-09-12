@@ -15,6 +15,8 @@
   "paragonPolicyNumber13": "902501545",
   "paragonPolicyNumber14": "902501546",
   "PolicyNumberForCustMTA": "902501527",
-  "PolicyNumberForAgentMTA": "902501526",
-  "server": "QA2"
+  "PolicyNumberForAgentMTA": "902502088",
+  "server": "QA2",
+  "PolicyNumberForAgentDD": "902502090",
+  "PolicyNumberForCustDD": "902502101"
 }
