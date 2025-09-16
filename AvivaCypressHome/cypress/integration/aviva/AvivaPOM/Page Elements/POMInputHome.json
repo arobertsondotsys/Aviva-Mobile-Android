@@ -66,11 +66,6 @@
     "CaravanValue": "30000",
     "PBValue": "1000"
 
-
-
-
-
-
     },
 
     "HeadingData":
@@ -88,6 +83,26 @@
     "PostQuote3_Heading": "Your insurance history and inception details",
     "DiaryCorrespondence_Heading": "Internal Diary and Correspondence",
     "Thankyou_Heading": "Thank you"
+
+    },
+
+    "BonkersData":
+    {
+
+    "Bonkers_Address": "1 Dublin",
+    "Bonkers_YearBuilt": "1990",
+    "Bonkers_RebuildCost": "240,000",
+    "Bonkers_ContentsAmount": "24,000",
+    "Bonkers_FirstName": "Andy",
+    "Bonkers_Surname": "Test",
+    "Bonkers_Email": "homeautotesting@dotsys.co.uk",
+    "Bonkers_Mobile": "0877777777",
+    "Bonkers_DayDOB": "20",
+    "Bonkers_MonthDOB": "11",
+    "Bonkers_YearDOB": "1980",
+    "Bonkers_Occupation": "Shop Assistant"
+    
+    
 
     }
     

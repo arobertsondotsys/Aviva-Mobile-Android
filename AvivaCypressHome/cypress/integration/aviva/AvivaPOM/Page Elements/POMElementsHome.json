@@ -350,4 +350,124 @@
 
     }
 
+,"BonkersHomePageLocators":
+{
+    "bonkershome_addess": ".mb-xs",
+    "bonkershome_addessoption1": ".top-\\[54px\\] > :nth-child(2)",
+    "bonkershome_getstarted": ".lg\\:w-1\\/2 > .flex-col > ._UiButton_1dpbh_1",
+    "bonkershome_yearbuilt": "#yearBuildingConstructed",
+    "bonkershome_ber": "#ber",
+    "bonkershome_propertytype": ":nth-child(5) > .grid > .ui-select > ._UiSelect_1fbno_1 > .m-0",
+    "bonkershome_flatroofyes": ":nth-child(6) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_flatrrofno": ":nth-child(6) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_standardmaterialsyes": ":nth-child(7) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_standardmaterialsno": ":nth-child(7) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_noofbedrooms": ":nth-child(8) > .grid > .ui-select > ._UiSelect_1fbno_1 > .m-0",
+    "bonkershome_noofbathrooms": ":nth-child(9) > .gap-xxs > .ui-select > ._UiSelect_1fbno_1 > .m-0",
+    "bonkershome_heatingtype": ":nth-child(10) > .gap-xxs > .ui-select > ._UiSelect_1fbno_1 > .m-0",
+    "bonkershome_listedbuildingyes": ":nth-child(11) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_listedbuildingno": ":nth-child(11) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_notalarmed": ":nth-child(12) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_alarmed": ":nth-child(12) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_monitoredalarm": ":nth-child(3) > .ui-plain-radio > .box-border",
+    "bonkershome_smokealarmsyes": ":nth-child(13) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_smokealarmsno": ":nth-child(13) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_securitylocksyes": ":nth-child(14) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_securitylocksno": ":nth-child(14) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_occupancytype": ":nth-child(15) > .gap-xxs > .ui-select > ._UiSelect_1fbno_1 > .m-0",
+    "bonkershome_propertycontinue": ":nth-child(16) > ._UiButton_1dpbh_1",
+
+    "bonkershome_rebuildcost": "#rebuildingCost",
+    "bonkershome_underconstructionyes": ":nth-child(3) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_underconstructionno": ":nth-child(3) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_goodstateofrepairyes": ":nth-child(4) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_goodstateofrepairno": ":nth-child(4) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_lossordamageyes": ":nth-child(5) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_lossordamageno": ":nth-child(5) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_property1continue": ".gap-md > ._UiButton_1dpbh_1",
+
+    "bonkershome_contentsyes": ":nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_contentsno": ":nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_contentsamount": "#contentsCover",
+    "bonkershome_unspecifieditemcoveryes": ":nth-child(4) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_unspecifieditemcoverno": ":nth-child(4) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_specifieditemcoveryes": ":nth-child(5) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_specifieditemcoverno": ":nth-child(5) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_contentscontinue": ":nth-child(6) > ._UiButton_1dpbh_1",
+
+    "bonkershome_claimhistory": ".m-0",
+    "bonkershome_convictionyes": ":nth-child(3) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_convictionno": ":nth-child(3) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_refusedyes": ":nth-child(4) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_refusedno": ":nth-child(4) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_specialtermsimposedyes": ":nth-child(5) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_specialtermsimposedno": ":nth-child(5) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_cancelledyes": ":nth-child(6) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_cancelledno": ":nth-child(6) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_historyandclaimscontinue": ".gap-md > ._UiButton_1dpbh_1",
+
+    "bonkershome_aboutyoutitle": ".lg\\:grid-cols-\\[2fr_1fr\\] > .grid > .ui-select > ._UiSelect_1fbno_1 > .m-0",
+    "bonkershome_firstname": ".lg\\:grid-cols-2 > :nth-child(1) > .relative > .ui-typography",
+    "bonkershome_surname": ":nth-child(2) > .lg\\:grid-cols-2 > :nth-child(2) > .relative > .ui-typography",
+    "bonkershome_email": "#email",
+    "bonkershome_mobile": "#phone",
+    "bonkershome_daydob": "#daydob",
+    "bonkershome_monthdob": "#monthdob",
+    "bonkershome_yeardob": "#yeardob",
+    "bonkershome_employmentstaus": ":nth-child(6) > .grid > .ui-select > ._UiSelect_1fbno_1 > .m-0",
+    "bonkershome_occupation": "#occupationSearch",
+    "bonkershome_occupationselect": ".absolute > .text-sm",
+    "bonkershome_startday": "#daypolicyStartDate",
+    "bonkershome_startmonth": "#monthpolicyStartDate",
+    "bonkershome_startyear": "#yearpolicyStartDate",
+    "bonkershome_secondpolicholderyes": ":nth-child(10) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_secondpolicholderno": ":nth-child(10) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_accidentaldamageyes": ":nth-child(12) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_accidentaldamageno": ":nth-child(12) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_personalaccidentcoveryes": ":nth-child(13) > :nth-child(2) > .gap-xxs > :nth-child(1) > .ui-plain-radio > .box-border",
+    "bonkershome_personalaccidentcoverno": ":nth-child(13) > :nth-child(2) > .gap-xxs > :nth-child(2) > .ui-plain-radio > .box-border",
+    "bonkershome_aboutyoucontinue": ".col-span-2.gap-sm > ._UiButton_1dpbh_1",
+    "bonkershome_declarationagree":":nth-child(6) > ._UiCheckbox_6diu5_1 > ._UiCheckbox__custom_6diu5_5",
+    "bonkershome_tsandcsagree":":nth-child(7) > ._UiCheckbox_6diu5_1 > ._UiCheckbox__custom_6diu5_5",
+    "bonkershome_declarationcontinue":".col-span-2 > ._UiButton_1dpbh_1",
+
+    "bonkershome_quotepremium":".flex-col > :nth-child(1) > .text-xl",
+    "bonkershome_quotepremiumselect":".md\\:grid-cols-\\[120px_1fr_180px\\] > .justify-between > ._UiButton_1dpbh_1",
+    "bonkershome_quoteaccept":".mb-md > ._UiButton_1dpbh_1"
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+
+
+}
+
 }

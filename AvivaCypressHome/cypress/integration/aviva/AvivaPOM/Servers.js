@@ -52,6 +52,10 @@ export class Servers{
             TEST10PRODMIGRATION: 'https://insurance-testaviva10PRODmigration.dotsys.co.uk/testdemolinks.html',
             GCCPRE: 'https://insurance-pre.aviva.ie/testdemolinks.html'
         }
+
+        this.server3Urls = {
+            BONKERSHOME: 'https://uat.bonkers.ie/compare-home-insurance/'
+        }
     }
 
     Server() {
@@ -66,6 +70,11 @@ export class Servers{
 
     Server2() {
         const url = this.server2Urls[this.server] || this.server2Urls['QA2'] // Default to QA2 if no valid server is provided
+        cy.visit(url)
+    }
+
+    Server3() {
+        const url = this.server3Urls[this.server] || this.server3Urls['BONKERSHOME']
         cy.visit(url)
     }
 

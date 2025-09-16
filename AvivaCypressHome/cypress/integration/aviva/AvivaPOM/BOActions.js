@@ -592,6 +592,18 @@ selectActionDocumentsWithParagonPolicyNumber14(){
         
 }
 
+selectActionDocumentsWithBonkersPolicyNumber(){
+
+    cy.readFile('policy.json').then((data) => {
+        const BonkersPolicyNumber = data.BonkersPolicyNumber
+        cy.getAndWait('.panel-title')
+        .contains(BonkersPolicyNumber)
+        cy.xpath("//span[normalize-space()='"+BonkersPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
 selectActionDPAWithPolicyNumber(){
 
     cy.readFile('policy.json').then((data) => {
@@ -1109,6 +1121,17 @@ checkRNLParagonDocs(){
 }
 
 checkRNLMTAParagonDocs(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
+    //cy.wait(80000)
+    //cy.reload()
+    cy.contains('Home MTA Confirmation Letter')
+    cy.contains('Receipt')
+    cy.contains('Policy Schedule')
+
+}
+
+checkBonkersPIFDocs(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     //cy.wait(80000)

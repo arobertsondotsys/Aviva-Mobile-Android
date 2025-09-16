@@ -41,6 +41,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/029ParagonCheckRNLMTA.cy.js',
     'cypress/integration/aviva/Tests/030AgentCancellation.cy.js', 
     'cypress/integration/aviva/Tests/031ParagonQueueDocsCheck.cy.js',
+    'cypress/integration/aviva/Tests/032BonkersPurch.cy.js',
  ]
  config.specPattern = demoSpecPattern
  

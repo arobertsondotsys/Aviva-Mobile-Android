@@ -93,6 +93,26 @@ retreivePolicyNumberForAgentMTA() {
     })
 }
 
+retreiveBonkersPolicyNumber() {
+    cy.getAndWait('.m-card-content__inner > p > strong')
+    .invoke('text')
+    .then((text) => {
+
+    const numberOnly = text.match(/\d+/)[0]
+
+    cy.wrap(numberOnly).as('BonkersPolicyNumber')
+
+    // Read the existing data from the file
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+            const updatedData = { ...data, BonkersPolicyNumber: numberOnly } // Merge new data with existing data
+            cy.writeFile('policy.json', updatedData); // Write the updated data back to the file
+        })
+    })
+    cy.get('@BonkersPolicyNumber').then((BonkersPolicyNumber) => {
+    cy.log(`Extracted policy number: ${BonkersPolicyNumber}`)
+    })
+}
+
 retreivePolicyNumberForCustMTA() {
     cy.getAndWait('.m-card-content__inner > p > strong')
     .invoke('text')
