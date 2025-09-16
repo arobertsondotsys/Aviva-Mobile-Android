@@ -400,60 +400,9 @@ tooling/v8-snapshot/cache/prod-win32
 system-tests/lib/validations
 
 # Report files - Assets
-AvivaCypress/cypress/downloads/
-AvivaCypress/cypress/reports/
-AvivaCypress/cypress/screenshots/
-AvivaCypress/cypress/reports/html/Aviva Automation results.html
-AvivaCypress/cypress/screenshots/AmendNCD.feature/Amend NCD -- Agent can Amend an NCD (failed).png
-AvivaCypress/cypress/reports/html/Aviva Automation results.html
-AvivaCypress/cypress/reports/html/assets/MaterialIcons-Regular.woff
-AvivaCypress/cypress/reports/html/assets/roboto-light-webfont.woff
-AvivaCypress/cypress/reports/html/assets/MaterialIcons-Regular.woff2
-AvivaCypress/cypress/reports/html/assets/app.js.LICENSE.txt
-AvivaCypress/cypress/reports/html/assets/roboto-medium-webfont.woff
-AvivaCypress/cypress/reports/html/assets/roboto-light-webfont.woff2
-AvivaCypress/cypress/reports/html/assets/MaterialIcons-Regular.woff2
+**/cypress/downloads/
+**/cypress/reports/
+**/cypress/screenshots/
 
-AvivaCypressHome/cypress/downloads/
-AvivaCypressHome/cypress/reports/
-AvivaCypressHome/cypress/screenshots/
-AvivaCypressHome/cypress/reports/html/Aviva Automation results.html
-AvivaCypressHome/cypress/reports/html/Aviva Automation results.html
-AvivaCypressHome/cypress/reports/html/assets/MaterialIcons-Regular.woff
-AvivaCypressHome/cypress/reports/html/assets/roboto-light-webfont.woff
-AvivaCypressHome/cypress/reports/html/assets/MaterialIcons-Regular.woff2
-AvivaCypressHome/cypress/reports/html/assets/app.js.LICENSE.txt
-AvivaCypressHome/cypress/reports/html/assets/roboto-medium-webfont.woff
-AvivaCypressHome/cypress/reports/html/assets/roboto-light-webfont.woff2
-AvivaCypressHome/cypress/reports/html/assets/MaterialIcons-Regular.woff2
-
-AvivaCypress Telematics/cypress/downloads/
-AvivaCypress Telematics/cypress/reports/
-AvivaCypress Telematics/cypress/screenshots/
-AvivaCypress Telematics/cypress/reports/html/Aviva Automation results.html
-AvivaCypress Telematics/cypress/reports/html/Aviva Automation results.html
-AvivaCypress Telematics/cypress/reports/html/assets/MaterialIcons-Regular.woff
-AvivaCypress Telematics/cypress/reports/html/assets/roboto-light-webfont.woff
-AvivaCypress Telematics/cypress/reports/html/assets/MaterialIcons-Regular.woff2
-AvivaCypress Telematics/cypress/reports/html/assets/app.js.LICENSE.txt
-AvivaCypress Telematics/cypress/reports/html/assets/roboto-medium-webfont.woff
-AvivaCypress Telematics/cypress/reports/html/assets/roboto-light-webfont.woff2
-AvivaCypress Telematics/cypress/reports/html/assets/MaterialIcons-Regular.woff2
-
-AvivaCypressTravel/cypress/downloads/
-AvivaCypressTravel/cypress/reports/
-AvivaCypressTravel/cypress/screenshots/
-AvivaCypressTravel/cypress/reports/html/Aviva Automation results.html
-AvivaCypressTravel/cypress/reports/html/Aviva Automation results.html
-AvivaCypressTravel/cypress/reports/html/assets/MaterialIcons-Regular.woff
-AvivaCypressTravel/cypress/reports/html/assets/roboto-light-webfont.woff
-AvivaCypressTravel/cypress/reports/html/assets/MaterialIcons-Regular.woff2
-AvivaCypressTravel/cypress/reports/html/assets/app.js.LICENSE.txt
-AvivaCypressTravel/cypress/reports/html/assets/roboto-medium-webfont.woff
-AvivaCypressTravel/cypress/reports/html/assets/roboto-light-webfont.woff2
-AvivaCypressTravel/cypress/reports/html/assets/MaterialIcons-Regular.woff2
-
-AvivaCypressHome\policy.json
-AvivaCypress\policy.json
-AvivaCypress Telematics\policy.json
-AvivaCypressTravel\policy.json
+# Ignore all policy.json files in any folder
+**/policy.json
