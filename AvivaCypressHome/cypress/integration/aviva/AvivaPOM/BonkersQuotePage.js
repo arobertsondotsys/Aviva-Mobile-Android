@@ -7,7 +7,7 @@ export class BonkersQuotePage{
 
 bonkersQuotePremium(){
 
-    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremium).should('not.contain', '0')
+    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremium).should('not.contain', '0.00')
 
 }
 

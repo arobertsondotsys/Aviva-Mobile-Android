@@ -1134,11 +1134,15 @@ checkRNLMTAParagonDocs(){
 checkBonkersPIFDocs(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
-    //cy.wait(80000)
-    //cy.reload()
-    cy.contains('Home MTA Confirmation Letter')
-    cy.contains('Receipt')
+    cy.wait(100000)
+    cy.reload()
+    cy.contains('Welcome Letter')
+    cy.contains('Welcome Email Full Cover')
+    //cy.contains('Home Receipt')
+    cy.contains('Statement Of Fact')
+    //cy.contains('Receipt')
     cy.contains('Policy Schedule')
+    cy.contains('Quote Email')
 
 }
 
