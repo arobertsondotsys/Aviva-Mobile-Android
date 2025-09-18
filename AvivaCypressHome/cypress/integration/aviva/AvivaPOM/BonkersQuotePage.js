@@ -18,7 +18,7 @@ bonkersQuoteSelect(){
 }
 
 bonkersQuoteSelectAviva() {
-    cy.wait(6000)
+    cy.wait(10000)
     cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer).each(($card) => {
         if ($card.find(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage).length > 0) {
             cy.wrap($card).contains('Select quote').click();

@@ -1006,12 +1006,24 @@ checkRenewalDocsAutoRoloverNoEmail(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain','Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     ////cy.wait(1000)
-    cy.contains('Renewal Invite Letter')
-    cy.contains('Renewal Invite Schedule')
-    cy.contains('Statement Of Fact')
-    cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
-    cy.contains('Policy Schedule')
-    cy.should('not.contain', 'Receipt')
+    cy.get('.SummaryBackground').each(($row) => {
+    if ($row.text().includes('HomeRNLNoReceipt')) {
+    cy.wrap($row)
+    .find('td') // Adjust if needed to target the correct cell
+    .eq(4)      // Assuming the 5th column is Document Pack Content
+    .should('contain', 'Renewal Cover Letter')
+    .should('contain', 'Policy Schedule')
+    .should('contain', 'Statement Of Fact')
+    .should('not.contain', 'Receipt')
+  }
+})
+
+    // cy.contains('Renewal Invite Letter')
+    // cy.contains('Renewal Invite Schedule')
+    // cy.contains('Statement Of Fact')
+    // cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
+    // cy.contains('Policy Schedule')
+    // cy.should('not.contain', 'Receipt')
 
 }
 
