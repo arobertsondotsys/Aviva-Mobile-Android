@@ -19,11 +19,11 @@ bonkersQuoteSelect(){
 
 bonkersQuoteSelectAviva() {
     cy.wait(10000);
-    cy.getAndWait('img[alt="Aviva-logo"]').each(($img) => {
-        // Traverse up to the card container (adjust selector if needed)
-        const $card = $img.closest('.justify-between');
-        if ($card.length) {
-            cy.wrap($card).find('._UiButton_1dpbh_1').contains('Select quote').click();
+    cy.get('.home-insurance-result-card').each(($card) => {
+        // Check if this card contains the Aviva logo
+        if ($card.find('img[alt="Aviva-logo"]').length > 0) {
+            // Click the "Select quote" button in this card
+            cy.wrap($card).contains('Select quote').click();
             return false; // Stop after clicking the first match
         }
     });
