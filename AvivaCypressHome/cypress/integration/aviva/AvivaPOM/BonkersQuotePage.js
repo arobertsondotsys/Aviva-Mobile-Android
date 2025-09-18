@@ -20,8 +20,7 @@ bonkersQuoteSelect(){
 bonkersQuoteSelectAviva() {
     
     cy.get(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage)
-      .closest('.home-card-wrapper')
-      .find('button, ._UiButton_1dpbh_1')
+      .closest(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer)
       .contains('Select quote')
       .click()
 }
