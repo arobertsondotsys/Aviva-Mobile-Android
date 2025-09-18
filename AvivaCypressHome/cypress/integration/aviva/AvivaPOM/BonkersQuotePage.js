@@ -18,10 +18,10 @@ bonkersQuoteSelect(){
 }
 
 bonkersQuoteSelectAviva() {
-    cy.wait(10000);
-    cy.get('.home-insurance-result-card').each(($card) => {
+    cy.wait(6000);
+    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer).each(($card) => {
         // Check if this card contains the Aviva logo
-        if ($card.find('img[alt="Aviva-logo"]').length > 0) {
+        if ($card.find(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage).length > 0) {
             // Click the "Select quote" button in this card
             cy.wrap($card).contains('Select quote').click();
             return false; // Stop after clicking the first match
