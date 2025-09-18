@@ -1009,7 +1009,7 @@ checkRenewalDocsAutoRoloverNoEmail(){
     cy.get('.SummaryBackground').each(($row) => {
     if ($row.text().includes('HomeRNLNoReceipt')) {
     cy.wrap($row)
-    .find('<td>') // Adjust if needed to target the correct cell
+    .find(':nth-child(5) > :nth-child(5)') // Adjust if needed to target the correct cell
     .eq(4)      // Assuming the 5th column is Document Pack Content
     .should('contain', 'Renewal Cover Letter')
     .should('contain', 'Policy Schedule')
