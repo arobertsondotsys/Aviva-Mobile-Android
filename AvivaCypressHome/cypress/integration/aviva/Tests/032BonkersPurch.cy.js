@@ -92,7 +92,7 @@ describe('Customer purchase home policy', () => {
     BonkersQuoteDeclaration.bonkersTsAndCsAgree()
     BonkersQuoteDeclaration.bonkersDeclarationContinue()
 
-    BonkersQuoteScreen.bonkersQuotePremium()
+    
     cy.pause()
     BonkersQuoteScreen.bonkersQuoteSelectAviva()
     BonkersQuoteScreen.bonkersquoteAccept()
