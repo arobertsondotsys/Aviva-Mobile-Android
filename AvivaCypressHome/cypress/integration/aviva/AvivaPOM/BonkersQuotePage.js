@@ -19,10 +19,14 @@ bonkersQuoteSelect(){
 
 bonkersQuoteSelectAviva(){
 
-    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer).within(() => {
-    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage).should('be.visible')
-    cy.contains('Select quote').click()
-  })
+    cy.get(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer).each(($container) => {
+    // Check if this container has an Aviva image inside
+    if ($container.find(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage).length > 0) {
+    // Click the "Select quote" button in this container
+    cy.wrap($container).contains('Select quote').click()
+    return false // Stop after clicking the first match
+  }
+})
 
 }
 
