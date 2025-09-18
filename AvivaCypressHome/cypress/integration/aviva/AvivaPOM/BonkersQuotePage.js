@@ -18,12 +18,15 @@ bonkersQuoteSelect(){
 }
 
 bonkersQuoteSelectAviva() {
-    cy.wait(4000)
-    cy.getAndWait('img[alt="Aviva-logo"]') // Find the Aviva logo image
-    .closest('.home-card-wrapper > .justify-between ') // Adjust if needed to the card's parent class
-    .find('.home-card-wrapper > .justify-between > ._UiButton_1dpbh_1') // Adjust to the actual selector for the Select quote button
-    .contains('Select quote')
-    .click();
+    cy.wait(10000);
+    cy.getAndWait('img[alt="Aviva-logo"]').each(($img) => {
+        // Traverse up to the card container (adjust selector if needed)
+        const $card = $img.closest('.justify-between');
+        if ($card.length) {
+            cy.wrap($card).find('._UiButton_1dpbh_1').contains('Select quote').click();
+            return false; // Stop after clicking the first match
+        }
+    });
 }
 
 bonkersquoteAccept(){
