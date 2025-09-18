@@ -18,8 +18,9 @@ bonkersQuoteSelect(){
 }
 
 bonkersQuoteSelectAviva() {
-    
-    cy.get(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage)
+
+    cy.wait(2000)
+    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage)
       .closest(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer)
       .contains('Select quote')
       .click()
