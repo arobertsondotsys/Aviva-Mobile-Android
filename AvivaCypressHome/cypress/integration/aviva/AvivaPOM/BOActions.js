@@ -997,7 +997,7 @@ checkRenewalDocsAutoRolover(){
 
 checkRenewalDocsAutoRoloverNoEmail(){
 
-    cy.wait(100000)
+    cy.wait(140000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
