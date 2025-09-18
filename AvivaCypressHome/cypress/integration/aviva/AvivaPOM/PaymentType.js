@@ -35,7 +35,7 @@ export class PaymentType{
 
     paymentTypeAgentDD(){
 
-        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(2)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.paymenttype_agent).select(3)
 
     }
 
