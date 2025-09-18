@@ -18,15 +18,13 @@ bonkersQuoteSelect(){
 }
 
 bonkersQuoteSelectAviva() {
-    cy.wait(6000);
+    cy.wait(6000)
     cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer).each(($card) => {
-        // Check if this card contains the Aviva logo
         if ($card.find(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage).length > 0) {
-            // Click the "Select quote" button in this card
             cy.wrap($card).contains('Select quote').click();
-            return false; // Stop after clicking the first match
+            return false
         }
-    });
+    })
 }
 
 bonkersquoteAccept(){

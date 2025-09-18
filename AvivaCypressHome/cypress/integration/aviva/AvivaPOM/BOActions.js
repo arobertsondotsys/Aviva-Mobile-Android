@@ -932,7 +932,7 @@ checkRenewalInviteDocsNoEmail(){
 
 checkRenewalDocs(){
 
-    cy.wait(80000)
+    cy.wait(100000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')
@@ -943,7 +943,7 @@ checkRenewalDocs(){
 
 checkRenewalDocsNoEmail(){
 
-    cy.wait(80000)
+    cy.wait(100000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Receipt')
