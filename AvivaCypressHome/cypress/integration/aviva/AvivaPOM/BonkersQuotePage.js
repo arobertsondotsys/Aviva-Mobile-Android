@@ -17,6 +17,15 @@ bonkersQuoteSelect(){
 
 }
 
+bonkersQuoteSelectAviva(){
+
+    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumselectquotecontainer).within(() => {
+    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quotepremiumavivaimage).should('be.visible')
+    cy.contains('Select quote').click()
+  })
+
+}
+
 bonkersquoteAccept(){
 
     cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quoteaccept).click()

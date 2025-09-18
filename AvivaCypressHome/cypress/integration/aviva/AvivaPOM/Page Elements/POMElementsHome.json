@@ -433,6 +433,8 @@
 
     "bonkershome_quotepremium":".flex-col > :nth-child(1) > .text-xl",
     "bonkershome_quotepremiumselect":".md\\:grid-cols-\\[120px_1fr_180px\\] > .justify-between > ._UiButton_1dpbh_1",
+    "bonkershome_quotepremiumselectquotecontainer":".home-card-wrapper > :nth-child(2) > .justify-between",
+    "bonkershome_quotepremiumavivaimage":":nth-child(2) > .border-t-0').should('be.visible",
     "bonkershome_quoteaccept":".mb-md > ._UiButton_1dpbh_1"
 
     

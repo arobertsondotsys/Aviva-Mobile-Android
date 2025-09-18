@@ -94,7 +94,7 @@ describe('Customer purchase home policy', () => {
 
     BonkersQuoteScreen.bonkersQuotePremium()
     cy.pause()
-    BonkersQuoteScreen.bonkersQuoteSelect()
+    BonkersQuoteScreen.bonkersQuoteSelectAviva()
     BonkersQuoteScreen.bonkersquoteAccept()
 
     //Move to Aviva side to continue purchase 
