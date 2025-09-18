@@ -113,7 +113,7 @@ describe('Agent purchase home policy', () => {
     QuotePageAndExtras.quotePageStaffOptions()
     QuotePageAndExtras.quotePageStaffDiscounts()
     QuotePageAndExtras.quotePageStaffRecalculate()
-    QuotePageAndExtras.quotePageBuyNowBtn()
+    QuotePageAndExtras.quotePageMonthlyBtn()
 
     // Complete and pay
     CompleteAndPayPage.completeAndPayHeading()
