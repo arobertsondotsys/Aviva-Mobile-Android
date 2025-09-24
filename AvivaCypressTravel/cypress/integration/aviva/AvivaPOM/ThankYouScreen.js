@@ -78,7 +78,7 @@ retreiveTravelPolicyNumberSingle(){
         
 }
 
-retreiveTravelWelcomePackPolicyNumber(){
+retreiveTravelMultiFamilyWith3AddOns(){
 
     cy.getAndWait('.m-card-content__inner > p > strong')
     .invoke('text') 
@@ -87,15 +87,15 @@ retreiveTravelWelcomePackPolicyNumber(){
     const numberOnly = text.match(/\d+/)[0]
 
     cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
-        const updatedData = { ...data, travelWelcomePackPolicyNumber: numberOnly }
+        const updatedData = { ...data, travelMultiFamilyWith3AddOns: numberOnly }
         cy.writeFile('policy.json', updatedData)
     })
 
-    cy.wrap(numberOnly).as('travelWelcomePackPolicyNumber')
+    cy.wrap(numberOnly).as('travelMultiFamilyWith3AddOns')
     })
 
-    cy.get('@travelWelcomePackPolicyNumber').then((travelWelcomePackPolicyNumber) => {
-    cy.log(`Extracted policy number: ${travelWelcomePackPolicyNumber}`)
+    cy.get('@travelMultiFamilyWith3AddOns').then((travelMultiFamilyWith3AddOns) => {
+    cy.log(`Extracted policy number: ${travelMultiFamilyWith3AddOns}`)
     })
         
 }

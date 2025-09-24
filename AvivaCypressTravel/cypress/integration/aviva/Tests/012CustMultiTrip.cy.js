@@ -33,7 +33,7 @@ const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
 const PaymentPage = new PaymentScreen()
 const ThankYouPage = new ThankYouScreen()
 
-describe('Customer can purchase a policy via website', () => {
+describe('Customer can purchase a Multi trip policy via website', () => {
     it('should complete the process of purchasing a policy', () => {
 
         Server.Server2()

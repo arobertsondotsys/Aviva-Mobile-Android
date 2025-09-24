@@ -104,6 +104,8 @@ describe('Agent can purchase a policy via back office', () => {
         // Complete section 6 "Quote Page"
         TravelQuotePageAndExtras.travelQuotePageTitle()
         TravelQuotePageAndExtras.travelQuotePageWinterSportsCover()
+        TravelQuotePageAndExtras.travelQuotePageTitleCruiseCover()
+        TravelQuotePageAndExtras.travelQuotePageTitleScubaDivingCover()
         TravelQuotePageAndExtras.travelQuotePageBuyNow()
 
         // Complete section 7 "Traveller Names/Details"
@@ -131,6 +133,6 @@ describe('Agent can purchase a policy via back office', () => {
 
         // Section 9 "Thank you Page"
         ThankYouPage.thankyouHeading()
-        ThankYouPage.retreiveTravelWelcomePackPolicyNumber()
+        ThankYouPage.retreiveTravelMultiFamilyWith3AddOns()
     })
 })

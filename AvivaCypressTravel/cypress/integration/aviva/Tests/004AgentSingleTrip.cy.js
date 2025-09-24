@@ -47,7 +47,7 @@ const PaymentTypesPage = new PaymentTypes()
 const PaymentPage = new PaymentScreen()
 const ThankYouPage = new ThankYouScreen()
 
-describe('Customer can purchase a policy via website', () => {
+describe('Agent can purchase a single trip policy via Backoffice', () => {
     it('should complete the process of purchasing a policy', () => {
 
         Server.Server()

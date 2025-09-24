@@ -340,6 +340,30 @@ selectActionRefundsWithPolicyNumber(){
 selectActionDocumentsWithTravelPolicyNumber(){
 
     cy.readFile('policy.json').then((data) => {
+        const travelPolicyNumber = data.travelPolicyNumber
+        cy.getAndWait('.panel-title')
+        .contains(travelPolicyNumber)
+        cy.xpath("//span[normalize-space()='"+travelPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
+selectActionDocumentsWithTravelPolicyNumberBackPacker(){
+
+    cy.readFile('policy.json').then((data) => {
+        const travelPolicyNumberBackpacker = data.travelPolicyNumberBackpacker
+        cy.getAndWait('.panel-title')
+        .contains(travelPolicyNumberBackpacker)
+        cy.xpath("//span[normalize-space()='"+travelPolicyNumberBackpacker+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
+selectActionDocumentsWithTravelPolicyNumberSingle(){
+
+    cy.readFile('policy.json').then((data) => {
         const travelPolicyNumberSingle = data.travelPolicyNumberSingle
         cy.getAndWait('.panel-title')
         .contains(travelPolicyNumberSingle)
@@ -349,13 +373,25 @@ selectActionDocumentsWithTravelPolicyNumber(){
         
 }
 
-selectActionDocumentsWithWelcomePackPolicyNumber(){
+selectActionDocumentsWithTravelPolicyNumberMulti(){
 
     cy.readFile('policy.json').then((data) => {
-        const welcomePackPolicyNumber = data.welcomePackPolicyNumber
+        const travelPolicyNumberMulti = data.travelPolicyNumberMulti
         cy.getAndWait('.panel-title')
-        .contains(welcomePackPolicyNumber)
-        cy.xpath("//span[normalize-space()='"+welcomePackPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        .contains(travelPolicyNumberMulti)
+        cy.xpath("//span[normalize-space()='"+travelPolicyNumberMulti+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
+         })
+        
+}
+
+selectActionDocumentsWithtravelMultiFamilyWith3AddOns(){
+
+    cy.readFile('policy.json').then((data) => {
+        const travelMultiFamilyWith3AddOns = data.travelMultiFamilyWith3AddOns
+        cy.getAndWait('.panel-title')
+        .contains(travelMultiFamilyWith3AddOns)
+        cy.xpath("//span[normalize-space()='"+travelMultiFamilyWith3AddOns+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Documents']")
          })
         
@@ -499,6 +535,39 @@ inviteRenewal(){
 recallPolicy(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.recall_policy).click()
+
+}
+
+checkNBTravelBackpackerDocs(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')
+    
+
+}
+
+checkNBTravelSingleTripDocs(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')
+
+}
+
+checkNBTravelMultiTripDocs(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')
+
+}
+
+checkNBTravelMultiFamilyTripDocs(){
+
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')
 
 }
 

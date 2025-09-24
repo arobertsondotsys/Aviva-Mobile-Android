@@ -385,6 +385,7 @@
     "tick_renewal":"#ctl00_ContentPlaceHolder1_RenewalGrid_ctl02_checkRenewal",
     "batchprint_renewal":"#ctl00_ContentPlaceHolder1_BatchPrint",
     "renewed_scheme":"#ctl00_ContentPlaceHolder1_ProviderSchemeList",
+    "check_nbdocs":"tbody > :nth-child(3) > :nth-child(4)",
     "check_renewaldocs":"tbody > :nth-child(4) > :nth-child(4)",
     "check_renewaldocspost":"tbody > :nth-child(4) > :nth-child(3)",
     "printqueue_view":"#ctl00_ContentPlaceHolder1_btnViewPrinterQueue",

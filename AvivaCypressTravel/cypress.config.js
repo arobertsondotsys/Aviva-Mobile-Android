@@ -41,7 +41,7 @@ async function setupNodeEvents(on, config) {
 
   const demoSpecPattern = [
     'cypress/integration/aviva/Tests/000PolicyOwnership.cy.js',
-    'cypress/integration/aviva/Tests/001WelcomePack.cy.js',
+    'cypress/integration/aviva/Tests/001AgentMultiFamily3AddOns.cy.js',
     'cypress/integration/aviva/Tests/002AgentBackpacker.cy.js',
     'cypress/integration/aviva/Tests/003AgentMultiTrip.cy.js',
     'cypress/integration/aviva/Tests/004AgentSingleTrip.cy.js',
@@ -58,6 +58,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/012CustMultiTrip.cy.js',
     'cypress/integration/aviva/Tests/013CustSingleTrip.cy.js',
     // 'cypress/integration/aviva/Tests/014AgentUnlock1.cy.js',
+    'cypress/integration/aviva/Tests/015NBDocsCheck.cy.js',
   
   ]
   config.specPattern = demoSpecPattern

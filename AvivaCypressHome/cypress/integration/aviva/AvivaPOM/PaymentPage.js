@@ -7,39 +7,39 @@ export class PaymentPage{
     cy.wait(6000)
     cy.url().then((currentUrl) => {
         if (currentUrl.includes('rwy')) {
-            this.paymentCardQAAgent();
+            this.paymentCardQAAgent()
         } else if (currentUrl.includes('stg')) {
-            this.paymentCardDemoAgent();
+            this.paymentCardDemoAgent()
         } else {
-            throw new Error('Unknown payment environment: ' + currentUrl);
+            throw new Error('Unknown payment environment: ' + currentUrl)
         }
-    });
+    })
 }
 
   selectPaymentMethod1() {
     cy.wait(6000)
     cy.url().then((currentUrl) => {
         if (currentUrl.includes('rwy')) {
-            this.paymentCardQAWithCheck();
+            this.paymentCardQAWithCheck()
         } else if (currentUrl.includes('stg')) {
-            this.paymentCardDemo();
+            this.paymentCardDemo()
         } else {
-            throw new Error('Unknown payment environment: ' + currentUrl);
+            throw new Error('Unknown payment environment: ' + currentUrl)
         }
-    });
+    })
 }
 
   selectPaymentMethod2() {
     cy.wait(6000)
     cy.url().then((currentUrl) => {
         if (currentUrl.includes('rwy')) {
-            this.paymentDDQAPasswordCheck();
+            this.paymentDDQANoPassword()
         } else if (currentUrl.includes('stg')) {
-            this.paymentDDDemoCust();
+            this.paymentDDDemoCust()
         } else {
-            throw new Error('Unknown payment environment: ' + currentUrl);
+            throw new Error('Unknown payment environment: ' + currentUrl)
         }
-    });
+    })
 }
 
     paymentCardQAWithCheck() {
