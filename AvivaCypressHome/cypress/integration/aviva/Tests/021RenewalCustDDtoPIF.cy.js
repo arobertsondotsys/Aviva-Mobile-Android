@@ -112,6 +112,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     // Complete and pay
     CompleteAndPayPage.completeAndPayHeading()
     CompleteAndPayPage.completeAndPayMortgage()
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayCheckBox()
     CompleteAndPayPage.completeAndPayContinue()
 

@@ -157,6 +157,7 @@ describe('Customer purchase home policy', () => {
 
     QuotePageAndExtras.quotePageBuyNowBtn()
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 
     PaymentScreen.selectPaymentMethod1()

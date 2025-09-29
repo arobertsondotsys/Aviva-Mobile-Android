@@ -77,6 +77,14 @@ postQuote3PostDocsFalse(){
 
 }
 
+postQuote3MarketingRNL(isMarketing) {
+    if (isMarketing) {
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.importantinf_marketingyes).click()
+    } else {
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.importantinf_marketingno).click()
+    }
+}
+
 postQuote3CustomerQuoteTsAndCs(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_custcheck).click()

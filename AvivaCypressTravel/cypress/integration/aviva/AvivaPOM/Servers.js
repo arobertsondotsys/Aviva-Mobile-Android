@@ -37,7 +37,7 @@ export class Servers{
         }
 
         this.server2Urls = {
-            QA: 'https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html#',
+            QA: 'https://qainsurance-aviva.dotsys.co.uk/testdemolinks.html',
             QA2: 'https://qa2insurance-aviva.dotsys.co.uk/testdemolinks.html#',
             QA3: 'https://qa3insurance-aviva.dotsys.co.uk/testdemolinks.html#',
             TEST2LOADED: 'http://insurance-testaviva2loaded.dotsys.co.uk/testdemolinks.html',

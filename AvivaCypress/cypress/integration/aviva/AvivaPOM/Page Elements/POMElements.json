@@ -201,6 +201,8 @@
     "inshistory_ispostcertfalse": "#IsPostCert-no",
     "inshistory_ispostdocstrue": "#IsPostDocs-yes",
     "inshistory_ispostdocsfalse": "#IsPostDocs-no",
+    "importantinf_marketingyes": "#RecieveOffers-True > .a-radio > .a-radio__label",
+    "importantinf_marketingno": "#RecieveOffers-False > .a-radio > .a-radio__label",
     "inshistory_continue": "#ctl00_MainContent_btnContinueToPayment",
 
     "paymenttype_agent": "#ctl00_MainContent_PaymentType",

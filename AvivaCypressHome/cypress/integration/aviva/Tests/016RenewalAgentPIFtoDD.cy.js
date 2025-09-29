@@ -172,6 +172,7 @@ describe('Agent purchase home policy renewal on new DD', () => {
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageMonthlyBtnRNLswap()
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
   
     PaymentScreen.RNLDDQA()

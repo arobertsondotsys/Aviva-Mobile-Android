@@ -183,6 +183,7 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageFullBtnRNLswap()
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 
     PaymentTypePage.paymentTypeAgentCardRenewal()

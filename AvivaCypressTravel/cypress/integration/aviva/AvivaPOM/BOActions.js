@@ -540,6 +540,9 @@ recallPolicy(){
 
 checkNBTravelBackpackerDocs(){
 
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Welcome Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Receipt Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Policy Schedule')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')
@@ -549,6 +552,9 @@ checkNBTravelBackpackerDocs(){
 
 checkNBTravelSingleTripDocs(){
 
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Welcome Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Receipt Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Policy Schedule')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')
@@ -557,6 +563,9 @@ checkNBTravelSingleTripDocs(){
 
 checkNBTravelMultiTripDocs(){
 
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Welcome Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Receipt Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Policy Schedule')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')
@@ -565,6 +574,9 @@ checkNBTravelMultiTripDocs(){
 
 checkNBTravelMultiFamilyTripDocs(){
 
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Welcome Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Receipt Email')
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Policy Schedule')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Receipt')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Travel Quote Email')

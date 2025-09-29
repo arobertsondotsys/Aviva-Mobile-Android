@@ -127,7 +127,7 @@ describe('Agent purchase home policy renewal as autorollover', () => {
     BOAction.notes()
     CompleteAndPayPage.completeAndPayMortgage()
     CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
-    
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type

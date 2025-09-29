@@ -22,10 +22,18 @@ export class CompleteAndPay{
 
     }
 
+    completeAndPayMarketingRNL(isMarketing) {
+    if (isMarketing) {
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.importantinf_marketingyes).click()
+    } else {
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.importantinf_marketingno).click()
+    }
+}
+
     completeAndPayCheckBox(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.completeandpay_checkbox).click({force:true})
-        ////cy.wait(1000)
+        cy.wait(1000)
 
     }
 
@@ -37,7 +45,7 @@ export class CompleteAndPay{
 
     completeAndPayContinue(){
 
-        ////cy.wait(1000)
+        cy.wait(1000)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.completeandpay_continue).click()
 
     }

@@ -193,6 +193,8 @@
     "inshistory_nootherncdtrue": "#IsNotOtherNCD-True > .a-radio > .a-radio__label > .a-radio__label-inner",
     "inshistory_withinexptrue": "#IsWithinExpiry-True > .a-radio > .a-radio__label > .a-radio__label-inner",
     "inshistory_ismyavivatrue": "#IsMyAviva-True > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "importantinf_marketingyes": "#RecieveOffers-True > .a-radio > .a-radio__label",
+    "importantinf_marketingno": "#RecieveOffers-False > .a-radio > .a-radio__label",
     "inshistory_continue": "#ctl00_MainContent_btnContinueToPayment",
 
     "paymenttype_agent": "#MainContent_PaymentType",

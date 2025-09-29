@@ -492,8 +492,8 @@ inviteRenewal(){
 
 recallPolicy(){
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.recall_policy).click()
-
+    //cy.getAndWait(this.LoginElementLocators.BOPageLocators.recall_policy).click()
+    cy.stopWindow(this.LoginElementLocators.BOPageLocators.recall_policy)
 }
 
 checkRenewalInviteDocs(){

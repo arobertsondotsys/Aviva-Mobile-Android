@@ -185,6 +185,7 @@ describe('Agent purchase home policy with docs set to post at RNL MTA', () => {
     BOAction.selectActionRenewalWithParagonPolicyNumber12()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageBuyNowBtn()
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
   
     PaymentTypePage.paymentTypeAgentCardRenewal()

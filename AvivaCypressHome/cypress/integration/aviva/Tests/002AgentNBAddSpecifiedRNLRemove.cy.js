@@ -171,6 +171,7 @@ describe('Agent purchase home policy', () => {
     //cy.pause()
 
     QuotePageAndExtras.quotePageBuyNowBtn()
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 
     PaymentTypePage.paymentTypeAgentCardRenewal()

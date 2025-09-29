@@ -261,6 +261,7 @@ describe('Customer can Renew a policy', () => {
         AboutTheDriversPage.postQuote2IsNoMedicalTrue()
         AboutTheDriversPage.postQuote2Continue()
 
+        YourInsHistoryAndIncepDetsPage.postQuote3MarketingRNL(true)
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
         // Payment screen
