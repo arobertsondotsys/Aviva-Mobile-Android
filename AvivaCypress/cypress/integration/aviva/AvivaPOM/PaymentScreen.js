@@ -33,7 +33,7 @@ selectPaymentMethod2() {
     cy.wait(6000)
     cy.url().then((currentUrl) => {
         if (currentUrl.includes('rwy')) {
-            this.paymentDDQANoPassword();
+            this.paymentDDQAWithPassword();
         } else if (currentUrl.includes('stg')) {
             this.paymentDDDemo();
         } else {
@@ -452,7 +452,7 @@ paymentDDQAWithPassword(){
       })
       const bic= 'BOFIIE2D'
       const iban= 'IE87BOFI90491561068076'
-      const CCnumber='4917610000000000'
+      const CCnumber='5454545454545454'
       const Exp1='03'
       const Exp2='30'
       const CVC='737'

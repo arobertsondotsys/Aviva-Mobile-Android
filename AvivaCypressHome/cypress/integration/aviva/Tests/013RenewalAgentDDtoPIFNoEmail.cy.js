@@ -125,7 +125,6 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     CompleteAndPayPage.completeAndPayHeading()
     BOAction.notes()
     CompleteAndPayPage.completeAndPayMortgage()
-    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
@@ -181,6 +180,7 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageFullBtnRNLswap()
+    CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 
     PaymentTypePage.paymentTypeAgentCardRenewal()
