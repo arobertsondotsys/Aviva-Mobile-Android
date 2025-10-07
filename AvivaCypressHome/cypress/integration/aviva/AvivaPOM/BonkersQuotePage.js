@@ -29,7 +29,7 @@ bonkersQuoteSelectAviva() {
 
 bonkersquoteAccept(){
 
-    cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quoteaccept).click()
+    cy.stopWindow(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_quoteaccept)
     cy.wait(3000)
 
 }

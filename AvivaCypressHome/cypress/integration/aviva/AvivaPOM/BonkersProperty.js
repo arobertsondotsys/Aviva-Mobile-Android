@@ -132,6 +132,7 @@ bonkersPropertyContinue(){
 
 bonkersRebuildCost(){
 
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.BonkersHomePageLocators.bonkershome_rebuildcost).type(this.UserData.BonkersData.Bonkers_RebuildCost)
 
 }
