@@ -1006,15 +1006,13 @@ checkRenewalDocsAutoRoloverNoEmail(){
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain','Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     ////cy.wait(1000)
-    cy.get('.SummaryBackground').each(($row) => {
+    cy.get('tr').each(($row) => {
     if ($row.text().includes('HomeRNLNoReceipt')) {
-    cy.wrap($row)
-    .find(':nth-child(5) > :nth-child(5)') // Adjust if needed to target the correct cell
-    .eq(4)      // Assuming the 5th column is Document Pack Content
-    .should('contain', 'Renewal Cover Letter')
-    .should('contain', 'Policy Schedule')
-    .should('contain', 'Statement Of Fact')
-    .should('not.contain', 'Receipt')
+        cy.wrap($row).find('td').last()
+          .should('contain', 'Renewal Cover Letter')
+          .should('contain', 'Policy Schedule')
+          .should('contain', 'Statement Of Fact')
+          .should('not.contain', 'Receipt')
   }
 })
 
