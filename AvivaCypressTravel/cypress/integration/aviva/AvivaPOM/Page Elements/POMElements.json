@@ -47,7 +47,7 @@
     "traveldetails_singletrip": "#MainContent_lbl_InsuranceType_S > .a-radio__label",
     "traveldetails_multitrip": "#MultiBtnLabel",
     "traveldetails_backpacker": "#BackpackerBtnLabel",
-    "traveldetails_travellingto": "#MainContent_ddlTravelingTo",
+    "traveldetails_travellingto": "#ddlTravelingTo",
     "traveldetails_travellingtoeurope": "#TravellingTo-Europe > .a-radio > .a-radio__label",
     "traveldetails_travellingtowwincusa": "#TravellingTo > :nth-child(3) > .a-radio > .a-radio__label",
     "traveldetails_travellingtowwexcusa": "#TravellingTo-Worldwideexcl > .a-radio > .a-radio__label",
