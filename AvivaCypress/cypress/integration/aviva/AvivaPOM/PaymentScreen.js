@@ -583,7 +583,7 @@ paymentDDQANoPassword() {
         cy.wait(4000)
 
         cy.url().then((url) => {
-          if (url.includes('direct.rwy-aviva.co.uk')) {
+          if (url.includes('direct')) {
             // Still on direct.rwy, check for password box
             cy.wait(6000)
             cy.get('iframe').each(($iframe, idx) => {
@@ -600,7 +600,7 @@ paymentDDQANoPassword() {
                   }
                 })
             })
-          } else if (url.includes('qa2aviva.dotsys.co.uk')) {
+          } else if (url.includes('cover-summary')) {
             // Redirected to thank you page, skip password logic
             cy.log('Redirected to qa2aviva.dotsys.co.uk, thank you page detected, skipping password logic.')
             cy.contains('Thank you').should('exist')
