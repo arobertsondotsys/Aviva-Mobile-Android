@@ -35,7 +35,7 @@ export class PaymentPage{
         if (currentUrl.includes('rwy')) {
             this.paymentDDQANoPassword()
         } else if (currentUrl.includes('stg')) {
-            this.paymentDDDemoCust()
+            this.paymentDDDemo()
         } else {
             throw new Error('Unknown payment environment: ' + currentUrl)
         }
@@ -124,85 +124,85 @@ export class PaymentPage{
 
 }
 
-paymentDDQAPasswordCheck(){
+// paymentDDQAPasswordCheck(){
 
-  cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
-  {
-    Cypress.on('uncaught:exception', (err, runnable) =>
-    {
-    return false
-    })
-    const bic= 'BOFIIE2D'
-    const iban= 'IE87BOFI90491561068076'
-    const CCnumber='4917610000000000'
-    const Exp1='03'
-    const Exp2='30'
-    const CVC='737'
+//   cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
+//   {
+//     Cypress.on('uncaught:exception', (err, runnable) =>
+//     {
+//     return false
+//     })
+//     const bic= 'BOFIIE2D'
+//     const iban= 'IE87BOFI90491561068076'
+//     const CCnumber='4917610000000000'
+//     const Exp1='03'
+//     const Exp2='30'
+//     const CVC='737'
     
-    cy.wait(5000)
-    cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
+//     cy.wait(5000)
+//     cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
 
-    cy.get('#BIC').type(bic)
-    cy.get('#IBAN').type(iban)
-    cy.get('#PaymentDayOfMonth').select(1)
-    cy.get('.a-checkbox__label').click()
-    cy.get('#continueButton').click()
+//     cy.get('#BIC').type(bic)
+//     cy.get('#IBAN').type(iban)
+//     cy.get('#PaymentDayOfMonth').select(1)
+//     cy.get('.a-checkbox__label').click()
+//     cy.get('#continueButton').click()
 
-    const getIframeDocumentCard = () => {
-      return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
-      .then((body) => cy.wrap(body))
+//     const getIframeDocumentCard = () => {
+//       return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+//       .then((body) => cy.wrap(body))
       
-    }
+//     }
 
-    const getIframeDocumentMonth = () => {
-      return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
-      .then((body) => cy.wrap(body))
+//     const getIframeDocumentMonth = () => {
+//       return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+//       .then((body) => cy.wrap(body))
       
-    }
+//     }
 
-    const getIframeDocumentYear = () => {
-      return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
-      .then((body) => cy.wrap(body))
+//     const getIframeDocumentYear = () => {
+//       return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+//       .then((body) => cy.wrap(body))
       
-    }
+//     }
 
-    const getIframeDocumentCVC = () => {
-      return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
-      .then((body) => cy.wrap(body))
+//     const getIframeDocumentCVC = () => {
+//       return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+//       .then((body) => cy.wrap(body))
       
-    }
+//     }
     
       
-    getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
-    getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
-    getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
-    getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
-    cy.get('#continueButton').click()
+//     getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
+//     getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
+//     getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
+//     getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
+//     cy.get('#continueButton').click()
 
-  })
-// Wait for the Adyen iframe to appear
-  cy.wait(10000);
+//   })
+// // Wait for the Adyen iframe to appear
+//   cy.wait(10000);
 
-  // Try all Adyen iframes for the password input
-  cy.get('iframe').each(($iframe, idx) => {
-    cy.wrap($iframe)
-      .its('0.contentDocument.body')
-      .should('not.be.empty')
-      .then((body) => {
-        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
-          cy.log(`Found password input in iframe[${idx}]`);
-          cy.wrap(body)
-            .find('input[placeholder*="password"]')
-            .type('password', { force: true })
-          cy.wrap(body)
-            .find('#buttonSubmit')
-            .click({ force: true })
-        }
-      })
-  })
+//   // Try all Adyen iframes for the password input
+//   cy.get('iframe').each(($iframe, idx) => {
+//     cy.wrap($iframe)
+//       .its('0.contentDocument.body')
+//       .should('not.be.empty')
+//       .then((body) => {
+//         if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
+//           cy.log(`Found password input in iframe[${idx}]`);
+//           cy.wrap(body)
+//             .find('input[placeholder*="password"]')
+//             .type('password', { force: true })
+//           cy.wrap(body)
+//             .find('#buttonSubmit')
+//             .click({ force: true })
+//         }
+//       })
+//   })
 
 
-}
+// }
 
 paymentDDQANoPassword() {
   cy.url().then((currentUrl) => {
@@ -516,207 +516,148 @@ paymentCardDemoAgent(){
 
 }
 
-paymentDDQA(){
+// paymentDDQA(){
 
-    cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
-    {
-      Cypress.on('uncaught:exception', (err, runnable) =>
-      {
-      return false
-      })
-      const bic= 'BOFIIE2D'
-      const iban= 'IE87BOFI90491561068076'
-      const CCnumber='4917610000000000'
-      const Exp1='03'
-      const Exp2='30'
-      const CVC='737'
+//     cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
+//     {
+//       Cypress.on('uncaught:exception', (err, runnable) =>
+//       {
+//       return false
+//       })
+//       const bic= 'BOFIIE2D'
+//       const iban= 'IE87BOFI90491561068076'
+//       const CCnumber='4917610000000000'
+//       const Exp1='03'
+//       const Exp2='30'
+//       const CVC='737'
       
-      cy.wait(10000)
-      cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
+//       cy.wait(10000)
+//       cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
 
-      cy.get('#BIC').type(bic)
-      cy.get('#IBAN').type(iban)
-      cy.get('#PaymentDayOfMonth').select(1)
-      cy.get('.a-checkbox__label').click()
-      cy.get('#continueButton').click()
+//       cy.get('#BIC').type(bic)
+//       cy.get('#IBAN').type(iban)
+//       cy.get('#PaymentDayOfMonth').select(1)
+//       cy.get('.a-checkbox__label').click()
+//       cy.get('#continueButton').click()
 
-      const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
+//       const getIframeDocumentCard = () => {
+//         return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
         
-      }
+//       }
 
-      const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
+//       const getIframeDocumentMonth = () => {
+//         return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
         
-      }
+//       }
 
-      const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
+//       const getIframeDocumentYear = () => {
+//         return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
         
-      }
+//       }
 
-      const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
+//       const getIframeDocumentCVC = () => {
+//         return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
         
-      }
-      
-        
-      getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
-      getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
-      getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
-      getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
-      cy.get('#continueButton').click()
-
-    })
-
-  // Wait for the Adyen iframe to appear
-  cy.wait(10000);
-
-  // Try all Adyen iframes for the password input
-  cy.get('iframe').each(($iframe, idx) => {
-    cy.wrap($iframe)
-      .its('0.contentDocument.body')
-      .should('not.be.empty')
-      .then((body) => {
-        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
-          cy.log(`Found password input in iframe[${idx}]`);
-          cy.wrap(body)
-            .find('input[placeholder*="password"]')
-            .type('password', { force: true })
-          cy.wrap(body)
-            .find('#buttonSubmit')
-            .click({ force: true })
-        }
-      })
-  })
-
-
-}
-
-paymentDDQACust(){
-
-    cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
-    {
-      Cypress.on('uncaught:exception', (err, runnable) =>
-      {
-      return false
-      })
-      const bic= 'BOFIIE2D'
-      const iban= 'IE87BOFI90491561068076'
-      const CCnumber='4917610000000000'
-      const Exp1='03'
-      const Exp2='30'
-      const CVC='737'
-      
-      cy.wait(10000)
-      cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
-
-      cy.get('#BIC').type(bic)
-      cy.get('#IBAN').type(iban)
-      cy.get('#PaymentDayOfMonth').select(1)
-      cy.get('.a-checkbox__label').click()
-      cy.get('#continueButton').click()
-
-      const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
-
-      const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
-
-      const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
-
-      const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
+//       }
       
         
-      getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
-      getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
-      getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
-      getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
-      cy.get('#continueButton').click()
+//       getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
+//       getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
+//       getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
+//       getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
+//       cy.get('#continueButton').click()
 
-    })
+//     })
+
+//   // Wait for the Adyen iframe to appear
+//   cy.wait(10000);
+
+//   // Try all Adyen iframes for the password input
+//   cy.get('iframe').each(($iframe, idx) => {
+//     cy.wrap($iframe)
+//       .its('0.contentDocument.body')
+//       .should('not.be.empty')
+//       .then((body) => {
+//         if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
+//           cy.log(`Found password input in iframe[${idx}]`);
+//           cy.wrap(body)
+//             .find('input[placeholder*="password"]')
+//             .type('password', { force: true })
+//           cy.wrap(body)
+//             .find('#buttonSubmit')
+//             .click({ force: true })
+//         }
+//       })
+//   })
 
 
-}
+// }
+
+// paymentDDQACust(){
+
+//     cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
+//     {
+//       Cypress.on('uncaught:exception', (err, runnable) =>
+//       {
+//       return false
+//       })
+//       const bic= 'BOFIIE2D'
+//       const iban= 'IE87BOFI90491561068076'
+//       const CCnumber='4917610000000000'
+//       const Exp1='03'
+//       const Exp2='30'
+//       const CVC='737'
+      
+//       cy.wait(10000)
+//       cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading').contains('Set up monthly Direct Debit')
+
+//       cy.get('#BIC').type(bic)
+//       cy.get('#IBAN').type(iban)
+//       cy.get('#PaymentDayOfMonth').select(1)
+//       cy.get('.a-checkbox__label').click()
+//       cy.get('#continueButton').click()
+
+//       const getIframeDocumentCard = () => {
+//         return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
+        
+//       }
+
+//       const getIframeDocumentMonth = () => {
+//         return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
+        
+//       }
+
+//       const getIframeDocumentYear = () => {
+//         return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
+        
+//       }
+
+//       const getIframeDocumentCVC = () => {
+//         return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+//         .then((body) => cy.wrap(body))
+        
+//       }
+      
+        
+//       getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
+//       getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
+//       getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
+//       getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
+//       cy.get('#continueButton').click()
+
+//     })
+
+
+// }
 
 paymentDDDemo(){
-
-    cy.origin('https://www.direct.stg-aviva.co.uk', () => 
-    {
-      Cypress.on('uncaught:exception', (err, runnable) =>
-      {
-      return false
-      })
-      const bic= 'BOFIIE2D'
-      const iban= 'IE87BOFI90491561068076'
-      const CCnumber='4917610000000000'
-      const Exp1='03'
-      const Exp2='30'
-      const CVC='737'
-      
-      cy.wait(10000)
-      cy.get('.payment-heading').contains('Payment')
-
-      cy.get('#BIC').type(bic)
-      cy.get('#IBAN').type(iban)
-      cy.get('#PaymentDayOfMonth').select(1)
-      cy.get('.a-checkbox__label').click()
-      cy.get('#continueButton').click()
-
-      const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
-
-      const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
-
-      const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
-
-      const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
-      
-        
-      getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
-      getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
-      getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
-      getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
-      cy.get('#continueButton').click()
-
-    })
-
-}
-
-paymentDDDemoCust(){
 
     cy.origin('https://www.direct.stg-aviva.co.uk', () => 
     {
