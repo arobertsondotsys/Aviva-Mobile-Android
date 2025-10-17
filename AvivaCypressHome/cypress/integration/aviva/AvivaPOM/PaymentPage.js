@@ -357,9 +357,9 @@ paymentCardQAAgent() {
                 });
             });
           });
-        } else if (url.includes('cover-summary')) {
-            cy.log('Redirected to qa2aviva.dotsys.co.uk, thank you page detected, skipping password logic.');
-            cy.contains('Thank you').should('exist');
+        } else if (url.includes('cover-summary') || url.includes('diary-items-required')) {
+            cy.log('Redirected to thank you/diary page, skipping password logic.');
+            cy.contains(/Thank you|Internal Diary and Correspondence/).should('exist');
         } else {
           throw new Error('Unknown payment environment after continue: ' + url);
         }
