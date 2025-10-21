@@ -36,9 +36,9 @@ describe('Customer can purchase a Temp AD', () => {
         // cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()
         PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnAdjustment').click()
-        cy.getAndWait('#ctl00_MainContent_ddlTempSelection').select(2, {force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlTempSelection, #ddlTempSelection').select(2)
         cy.window().then((win) => {
-            cy.getAndWait('#btnMakeTempChange').click({force: true})
+            cy.getAndWait('#btnMakeTempChange').click()
             const orig = win.open
             win.open = function (url, targetAndWait, features) {
                 return orig.call(this, url, '_self', features)
@@ -48,17 +48,17 @@ describe('Customer can purchase a Temp AD', () => {
         // Input dates for temp AD
         cy.getAndWait('#mainSection > .l-section > .l-columns > .l-columns__column > .a-heading').contains('Temporarily add another driver')
         cy.getAndWait('#StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_CoverTime').type('13:00', {force: true})
+        cy.getAndWait('#ctl00_MainContent_CoverTime, #CoverTime').type('13:00', {force: true})
         cy.getAndWait('#EndDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_CoverEndTime').type('23:59', {force: true})
+        cy.getAndWait('#ctl00_MainContent_CoverEndTime, #CoverEndTime').type('23:59', {force: true})
         cy.getAndWait('#ctl00_MainContent_Continue').click({force: true})
 
         // Input temp AD details
-        cy.getAndWait('#ctl00_MainContent_DDLProposerTitle').select(1, {force: true})
+        cy.getAndWait('#ctl00_MainContent_DDLProposerTitle, #DDLProposerTitle').select(1, {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerForename').type('Andy', {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerSurname').type('Test', {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerDOB').type('20/11/1980', {force: true})
-        cy.getAndWait('#ctl00_MainContent_LicenceType').select(1, {force: true})
+        cy.getAndWait('#ctl00_MainContent_LicenceType, #LicenceType').select(1, {force: true})
         cy.getAndWait('#ctl00_MainContent_Continue2').click({force: true})
 
         // Quote page

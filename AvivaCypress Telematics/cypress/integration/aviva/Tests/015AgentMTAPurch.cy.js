@@ -47,7 +47,7 @@ describe('Agent can purchase MTA', () => {
         
         // Select to perform a permanent adjustment on contact details
         BOAction.cookiesAccept()
-        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select('CarDetails').should('have.value', 'CarDetails')
+        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection, #ddlPermaSelection').select('CarDetails').should('have.value', 'CarDetails')
         cy.getAndWait('#btnMakePermaChange').click()
         
         // Amend Contact number

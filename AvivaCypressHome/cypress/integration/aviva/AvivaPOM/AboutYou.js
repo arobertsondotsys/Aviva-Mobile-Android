@@ -101,12 +101,12 @@ bizStatus() {
     cy.wait(1000)
     const trySelect = (attempt = 1) => {
         cy.log(`Attempting to select business status, try #${attempt}`);
-        cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status, { timeout: 20000 })
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.biz_status, { timeout: 20000 })
             .should('exist')
             .should('be.visible')
             .then($dropdown => {
                 // Re-query before select to avoid stale element
-                cy.xpath(this.LoginElementLocators.QuotePageLocators.biz_status, { timeout: 20000 })
+                cy.getAndWait(this.LoginElementLocators.QuotePageLocators.biz_status, { timeout: 20000 })
                     .select(1)
                     .then($el => {
                         // Check if value is '1'

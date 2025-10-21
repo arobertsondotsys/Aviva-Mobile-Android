@@ -35,7 +35,7 @@
     "quote_linkbtn": ":nth-child(1) > tbody > tr > td > .btn-success",
     
     "aboutyou_title": "#div1",
-    "proposer_mr": "#ctl00_MainContent_DDLProposerTitle",
+    "proposer_mr": "#ctl00_MainContent_DDLProposerTitle, #DDLProposerTitle",
     "proposer_forename": "#ctl00_MainContent_ProposerForename",
     "proposer_surname": "#ctl00_MainContent_ProposerSurname",
     "aboutyou_continue": "#ctl00_MainContent_Continue1",
@@ -46,14 +46,14 @@
     "address_select": "[data-index= '0'] > a",
     "address_confirm": "#ctl00_MainContent_btnConfirmAddress",
     "proposer_dob": "#ProposerDOB",
-    "employment_status": "#ctl00_MainContent_EmploymentStatus",
+    "employment_status": "#ctl00_MainContent_EmploymentStatus, #EmploymentStatus",
     "licence_type": "#LicenceType",
-    "licence_years": "#ctl00_MainContent_LicenceYearsHeld",
+    "licence_years": "#ctl00_MainContent_LicenceYearsHeld, #LicenceYearsHeld",
     "personaldetails_continue": "#ctl00_MainContent_Continue2",
 
     "insurancedetails_title": "#div3",
-    "drivingexp_ddl": "#ctl00_MainContent_ddlDrivingExperience",
-    "drivingexp_years": "#ctl00_MainContent_ddlYearsNCB",
+    "drivingexp_ddl": "#ctl00_MainContent_ddlDrivingExperience, #ddlDrivingExperience",
+    "drivingexp_years": "#ctl00_MainContent_ddlYearsNCB, #ddlYearsNCB",
     "caruse_ddl": "#ctl00_MainContent_ddlCarUse",
     "insurancedetails_continue": "#ctl00_MainContent_Continue3",
 
@@ -257,7 +257,7 @@
     {
         
     "selectaction_makeadj": "[class^='dropdown selectAction']", 
-    "perm_additonaldriver": "#ctl00_MainContent_ddlPermaSelection",
+    "perm_additonaldriver": "#ctl00_MainContent_ddlPermaSelection, #ddlPermaSelection",
     "perm_adjbtn": "#btnMakePermaChange",
     "permmta_continue": "#ctl00_MainContent_btnContinue",  
     "permmta_buynow": "#ctl00_MainContent_btnBuyNow", 

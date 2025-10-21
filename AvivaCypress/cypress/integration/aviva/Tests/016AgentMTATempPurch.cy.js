@@ -38,15 +38,15 @@ describe('Agent can purchase Temporary MTA', () => {
         
         // Select to perform a temporary adjustment on TSV
         BOAction.cookiesAccept()
-        cy.getAndWait('#ctl00_MainContent_ddlTempSelection').select('TSV', {force: true})
-        cy.getAndWait('#btnMakeTempChange').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlTempSelection, #ddlTempSelection').select('TSV')
+        cy.getAndWait('#btnMakeTempChange').click()
         
         // Enter date for TSV
         cy.getAndWait('#mainSection > .l-section > .l-columns > .l-columns__column > .a-heading').contains('Temporary substitution of my car')
         cy.getAndWait('#StartDate').type(day().add(2, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_CoverTime').type('13:00', {force: true})
+        cy.getAndWait('#ctl00_MainContent_CoverTime, #CoverTime').type('13:00', {force: true})
         cy.getAndWait('#EndDate').type(day().add(2, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_CoverEndTime').type('23:59', {force: true})
+        cy.getAndWait('#ctl00_MainContent_CoverEndTime, #CoverEndTime').type('23:59', {force: true})
         cy.getAndWait('#ctl00_MainContent_Continue').click({force: true})
         
         // Enter TSV details
