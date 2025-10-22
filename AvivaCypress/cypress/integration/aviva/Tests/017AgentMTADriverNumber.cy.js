@@ -41,7 +41,7 @@ describe('Agent can change the driver number', () => {
         
         // Select to perform a permanent adjustment on contact details
         BOAction.cookiesAccept()
-        cy.get('#ctl00_MainContent_ddlPermaSelection').select('Contacts', {force: true}).should('have.value', 'Contacts')
+        cy.get('#ctl00_MainContent_ddlPermaSelection, #ddlPermaSelection').select('Contacts', {force: true}).should('have.value', 'Contacts')
         cy.get('#btnMakePermaChange').click({force: true})
         
         // Input date for MTA to start

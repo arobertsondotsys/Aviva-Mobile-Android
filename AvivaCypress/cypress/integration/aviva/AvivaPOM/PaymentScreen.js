@@ -543,11 +543,12 @@ paymentDDQANoPassword() {
 
         cy.wait(5000);
         cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading')
-          .contains('Set up monthly Direct Debit');
-        cy.get('#BIC').type(bic);
-        cy.get('#IBAN').type(iban);
-        cy.get('#PaymentDayOfMonth').select(1);
-        cy.get('.a-checkbox__label').click();
+          .contains('Set up monthly Direct Debit')
+        cy.get('#BIC').type(bic)
+        cy.get('#IBAN').type(iban)
+        cy.get('#PaymentDayOfMonth').select(1)
+        cy.get('.a-checkbox__label').click()
+        cy.get('#continueButton').click()
 
         // fill card iframes and click continue
         const getIframe = (title) =>

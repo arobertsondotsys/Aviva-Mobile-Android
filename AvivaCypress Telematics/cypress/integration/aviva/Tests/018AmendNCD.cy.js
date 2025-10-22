@@ -225,8 +225,8 @@ describe('Agent can Amend an NCD', () => {
         cy.getAndWait('#ctl00_MainContent_NCDRecalculate').click()
         cy.wait(10000)
         cy.contains('View premium breakdown').click()
-        cy.get('[data-origin="#SinglePaymentBreakdown"]').contains('Step-back NCD')
-        cy.getAndWait('.o-modal__cancel').click()
+        cy.get('[data-origin="#SinglePaymentBreakdown"], #ctl00_MainContent_PermBreakdown').contains('Step-back NCD')
+        //cy.getAndWait('.o-modal__cancel').click()
         
         MTABOAction.permMTAContinue()
         

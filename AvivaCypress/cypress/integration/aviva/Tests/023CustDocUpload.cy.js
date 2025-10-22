@@ -28,7 +28,7 @@ describe('Customer can upload a document', () => {
 
         PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnUploadDocuments').click()
-        cy.getAndWait('#Main_ddlDocumentUpload').select(1)
+        cy.getAndWait('#Main_ddlDocumentUpload, #ddlDocumentUpload').select(1)
         cy.getAndWait('.a-file-upload__label').click()
         cy.get('input[type="file"]').selectFile("C:/Aviva/AvivaCypress/cypress/support/Example.jpg", {force:true})
         cy.getAndWait('#Main_btnUpload').click()

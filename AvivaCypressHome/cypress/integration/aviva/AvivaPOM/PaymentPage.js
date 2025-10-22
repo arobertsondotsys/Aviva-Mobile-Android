@@ -211,36 +211,37 @@ paymentDDQANoPassword() {
     if (currentUrl.includes('direct')) {
       // Run actions that must target the payment origin
       cy.origin('https://www.direct.rwy-aviva.co.uk', () => {
-        Cypress.on('uncaught:exception', () => false);
+        Cypress.on('uncaught:exception', () => false)
 
-        const bic = 'BOFIIE2D';
-        const iban = 'IE87BOFI90491561068076';
-        const CCnumber = '4917610000000000';
-        const Exp1 = '03';
-        const Exp2 = '30';
-        const CVC = '737';
+        const bic = 'BOFIIE2D'
+        const iban = 'IE87BOFI90491561068076'
+        const CCnumber = '4917610000000000'
+        const Exp1 = '03'
+        const Exp2 = '30'
+        const CVC = '737'
 
         cy.wait(5000);
         cy.get('#pspForm > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-heading')
-          .contains('Set up monthly Direct Debit');
-        cy.get('#BIC').type(bic);
-        cy.get('#IBAN').type(iban);
-        cy.get('#PaymentDayOfMonth').select(1);
-        cy.get('.a-checkbox__label').click();
+          .contains('Set up monthly Direct Debit')
+        cy.get('#BIC').type(bic)
+        cy.get('#IBAN').type(iban)
+        cy.get('#PaymentDayOfMonth').select(1)
+        cy.get('.a-checkbox__label').click()
+        cy.get('#continueButton').click()
 
         // fill card iframes and click continue
         const getIframe = (title) =>
           cy.get(`iframe[title="${title}"]`)
             .its('0.contentDocument.body')
             .should('not.be.empty')
-            .then((body) => cy.wrap(body));
+            .then((body) => cy.wrap(body))
 
-        getIframe('Iframe for secured card number').find('#encryptedCardNumber').type(CCnumber);
-        getIframe('Iframe for secured card expiry month').find('#encryptedExpiryMonth').type(Exp1);
-        getIframe('Iframe for secured card expiry year').find('#encryptedExpiryYear').type(Exp2);
-        getIframe('Iframe for secured card security code').find('#encryptedSecurityCode').type(CVC);
+        getIframe('Iframe for secured card number').find('#encryptedCardNumber').type(CCnumber)
+        getIframe('Iframe for secured card expiry month').find('#encryptedExpiryMonth').type(Exp1)
+        getIframe('Iframe for secured card expiry year').find('#encryptedExpiryYear').type(Exp2)
+        getIframe('Iframe for secured card security code').find('#encryptedSecurityCode').type(CVC)
 
-        cy.get('#continueButton').click();
+        cy.get('#continueButton').click()
       }); // END cy.origin for direct host
 
       // -- IMPORTANT: now we are back in top-level test context --
@@ -251,41 +252,41 @@ paymentDDQANoPassword() {
         if (url.includes('direct')) {
           // still on payment host — password flow
           // Do NOT call cy.origin here for the same origin as top; run commands directly
-          cy.wait(6000);
+          cy.wait(6000)
           cy.get('iframe').each(($iframe, idx) => {
             cy.wrap($iframe)
               .its('0.contentDocument.body')
               .should('not.be.empty')
               .then((body) => {
-                const pw = Cypress.$(body).find('input[placeholder*="password"]');
+                const pw = Cypress.$(body).find('input[placeholder*="password"]')
                 if (pw.length > 0) {
-                  cy.log(`Found password input in iframe[${idx}]`);
-                  cy.wrap(body).find('input[placeholder*="password"]').type('password', { force: true });
-                  cy.wrap(body).find('#buttonSubmit').click({ force: true });
+                  cy.log(`Found password input in iframe[${idx}]`)
+                  cy.wrap(body).find('input[placeholder*="password"]').type('password', { force: true })
+                  cy.wrap(body).find('#buttonSubmit').click({ force: true })
                 } else {
-                  cy.log(`No password input found in iframe[${idx}]`);
+                  cy.log(`No password input found in iframe[${idx}]`)
                 }
-              });
-          });
+              })
+          })
         } else if (url.includes('cover-summary') || url.includes('diary-items-required')) {
           // redirected to thank-you / diary pages on a different host — run checks at top-level (no cy.origin)
-          cy.log('Redirected to thank you/diary page, skipping password logic.');
-          cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist');
+          cy.log('Redirected to thank you/diary page, skipping password logic.')
+          cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist')
         } else {
           // fallback: also check page content for the expected phrases before failing
           cy.contains(/Thank you|Internal Diary and Correspondence/i).then(($el) => {
             if ($el && $el.length) {
-              cy.log('Found thank-you / diary content on page.');
+              cy.log('Found thank-you / diary content on page.')
             } else {
-              throw new Error('Unknown payment environment after continue: ' + url);
+              throw new Error('Unknown payment environment after continue: ' + url)
             }
-          });
+          })
         }
-      });
+      })
     } else {
-      throw new Error('Unknown initial payment environment: ' + currentUrl);
+      throw new Error('Unknown initial payment environment: ' + currentUrl)
     }
-  });
+  })
 }
 
 

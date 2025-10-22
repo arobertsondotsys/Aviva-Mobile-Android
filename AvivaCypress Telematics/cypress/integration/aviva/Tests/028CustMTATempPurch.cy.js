@@ -36,7 +36,7 @@ describe('Customer can purchase a Temp AD', () => {
         // cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()
         PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnAdjustment').click()
-        cy.getAndWait('#ctl00_MainContent_ddlTempSelection').select(2, {force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlTempSelection, #ddlTempSelection').select(2, {force: true})
         cy.window().then((win) => {
             cy.getAndWait('#btnMakeTempChange').click({force: true})
             const orig = win.open

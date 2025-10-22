@@ -33,7 +33,7 @@ describe('Customer can cancel policy', () => {
         PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnCancel').click()
         cy.getAndWait('.a-heading--2').contains('Cancel policy')
-        cy.getAndWait('#ctl00_MainContent_cancelReason').select(1)
+        cy.getAndWait('#ctl00_MainContent_cancelReason, #cancelReason').select(1)
         cy.getAndWait('#ctl00_MainContent_reasonContinue').click()
         cy.getAndWait('#ctl00_MainContent_cancelDate').type(day().add(6, 'day').format('DD/MM/YYYY'))
         cy.getAndWait('#ctl00_MainContent_dateContinue').click()

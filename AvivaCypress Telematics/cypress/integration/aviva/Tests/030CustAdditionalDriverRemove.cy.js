@@ -232,7 +232,7 @@ describe('Customer can add a driver and remove at ADJ', () => {
         //cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()
         PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnAdjustment').click()
-        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection').select(4, {force:true})
+        cy.getAndWait('#ctl00_MainContent_ddlPermaSelection, #ddlPermaSelection').select(4, {force:true})
         cy.window().then((win) => {
             cy.getAndWait('#btnMakePermaChange').click({force:true})
             const orig = win.open
