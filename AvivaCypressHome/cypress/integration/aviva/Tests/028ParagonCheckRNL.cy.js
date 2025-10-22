@@ -201,6 +201,7 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     QuotePageAndExtras.quotePageCaravanCoverViewOptions()
     QuotePageAndExtras.quotePageCaravanCoverAddWithPersonal()
     QuotePageAndExtras.quotePageBuyNowBtn()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 

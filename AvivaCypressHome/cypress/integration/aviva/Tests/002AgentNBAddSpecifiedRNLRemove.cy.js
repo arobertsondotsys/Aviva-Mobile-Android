@@ -171,6 +171,7 @@ describe('Agent purchase home policy', () => {
     //cy.pause()
 
     QuotePageAndExtras.quotePageBuyNowBtn()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 

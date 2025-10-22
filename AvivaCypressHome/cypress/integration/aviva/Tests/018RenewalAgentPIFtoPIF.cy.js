@@ -170,6 +170,7 @@ describe('Agent purchase home policy renewal as PIF', () => {
     BOAction.selectActionRenewalWithPolicyNumber()
     QuotePageAndExtras.selectStaffDiscount()
     QuotePageAndExtras.quotePageBuyNowBtn()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 

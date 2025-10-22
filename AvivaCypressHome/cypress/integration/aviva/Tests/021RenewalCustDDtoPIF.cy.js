@@ -177,6 +177,7 @@ describe('Customer purchase home policy renewal as PIF from DD', () => {
     QuotePageAndExtras.quotePageFullBtnRNLswap()
     
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
   

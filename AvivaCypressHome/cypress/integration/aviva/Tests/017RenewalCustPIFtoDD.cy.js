@@ -166,6 +166,7 @@ describe('Customer purchase home policy renewal on new DD', () => {
     PortalAction.portalRenewMonthlyPaymentSwap()
     
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
   

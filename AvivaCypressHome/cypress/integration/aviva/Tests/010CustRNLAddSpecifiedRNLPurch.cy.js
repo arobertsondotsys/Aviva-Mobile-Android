@@ -156,6 +156,7 @@ describe('Customer purchase home policy', () => {
 
     QuotePageAndExtras.quotePageBuyNowBtn()
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     CompleteAndPayPage.completeAndPayMarketingRNL(true)
     CompleteAndPayPage.completeAndPayContinue()
 

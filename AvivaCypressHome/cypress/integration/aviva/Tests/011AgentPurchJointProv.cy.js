@@ -119,6 +119,7 @@ describe('Agent purchase home policy with a joint provider', () => {
     CompleteAndPayPage.completeAndPayHeading()
     BOAction.notes()
     CompleteAndPayPage.completeAndPayMortgage()
+    CompleteAndPayPage.completeAndPayMyAvivaDocsNo()
     CompleteAndPayPage.completeAndPayContinue()
 
     // Select payment type
