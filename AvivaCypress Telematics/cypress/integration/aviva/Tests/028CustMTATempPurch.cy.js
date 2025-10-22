@@ -36,9 +36,9 @@ describe('Customer can purchase a Temp AD', () => {
         // cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()
         PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnAdjustment').click()
-        cy.getAndWait('#ctl00_MainContent_ddlTempSelection, #ddlTempSelection').select(2, {force: true})
+        cy.getAndWait('#ctl00_MainContent_ddlTempSelection, #ddlTempSelection').select(2)
         cy.window().then((win) => {
-            cy.getAndWait('#btnMakeTempChange').click({force: true})
+            cy.getAndWait('#btnMakeTempChange').click()
             const orig = win.open
             win.open = function (url, targetAndWait, features) {
                 return orig.call(this, url, '_self', features)
@@ -54,7 +54,7 @@ describe('Customer can purchase a Temp AD', () => {
         cy.getAndWait('#ctl00_MainContent_Continue').click({force: true})
 
         // Input temp AD details
-        cy.getAndWait('#ctl00_MainContent_DDLProposerTitle').select(1, {force: true})
+        cy.getAndWait('#ctl00_MainContent_DDLProposerTitle, ').select(1, {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerForename').type('Andy', {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerSurname').type('Test', {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerDOB').type('20/11/1980', {force: true})

@@ -273,7 +273,7 @@
     {
         
     "selectaction_makeadj": "[class^='dropdown selectAction']", 
-    "perm_additonaldriver": "#ctl00_MainContent_ddlPermaSelection",
+    "perm_additonaldriver": "#ctl00_MainContent_ddlPermaSelection, #ddlPermaSelection",
     "perm_adjbtn": "#btnMakePermaChange",
     "permmta_continue": "#ctl00_MainContent_btnContinue",  
     "permmta_buynow": "#ctl00_MainContent_btnBuyNow", 
