@@ -48,9 +48,9 @@ describe('Customer can purchase a Temp AD', () => {
         // Input dates for temp AD
         cy.getAndWait('#mainSection > .l-section > .l-columns > .l-columns__column > .a-heading').contains('Temporarily add another driver')
         cy.getAndWait('#StartDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_CoverTime').type('13:00', {force: true})
+        cy.getAndWait('#ctl00_MainContent_CoverTime, #CoverTime').type('13:00', {force: true})
         cy.getAndWait('#EndDate').type(day().add(1, 'day').format('DD/MM/YYYY'), {force: true})
-        cy.getAndWait('#ctl00_MainContent_CoverEndTime').type('23:59', {force: true})
+        cy.getAndWait('#ctl00_MainContent_CoverEndTime, #CoverEndTime').type('23:59', {force: true})
         cy.getAndWait('#ctl00_MainContent_Continue').click({force: true})
 
         // Input temp AD details
