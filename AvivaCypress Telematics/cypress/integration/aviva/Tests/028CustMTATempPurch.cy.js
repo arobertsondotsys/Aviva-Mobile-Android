@@ -54,11 +54,11 @@ describe('Customer can purchase a Temp AD', () => {
         cy.getAndWait('#ctl00_MainContent_Continue').click({force: true})
 
         // Input temp AD details
-        cy.getAndWait('#ctl00_MainContent_DDLProposerTitle, ').select(1, {force: true})
+        cy.getAndWait('#ctl00_MainContent_DDLProposerTitle, #DDLProposerTitle').select(1, {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerForename').type('Andy', {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerSurname').type('Test', {force: true})
         cy.getAndWait('#ctl00_MainContent_ProposerDOB').type('20/11/1980', {force: true})
-        cy.getAndWait('#ctl00_MainContent_LicenceType').select(1, {force: true})
+        cy.getAndWait('#ctl00_MainContent_LicenceType, #LicenceType').select(1, {force: true})
         cy.getAndWait('#ctl00_MainContent_Continue2').click({force: true})
 
         // Quote page

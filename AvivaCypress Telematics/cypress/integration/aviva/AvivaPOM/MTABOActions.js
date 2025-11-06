@@ -21,7 +21,7 @@ permADJRemoveAdditionalDriver(){
 
     cy.contains('Remove driver').click({force: true})
     cy.contains('Additional drivers', {force: true})
-    cy.contains('Sarah Vader', {force: true})
+    cy.contains('Jane Dough', {force: true})
     cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.permmta_deletedriverbtn).click({force: true})
         
 }

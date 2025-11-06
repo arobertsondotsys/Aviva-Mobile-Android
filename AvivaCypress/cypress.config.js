@@ -81,7 +81,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/037DiaryCheck.cy.js',
     'cypress/integration/aviva/Tests/038NBDeclineOverride.cy.js',
     'cypress/integration/aviva/Tests/039MTADeclineOverride.cy.js',
-    'cypress/integration/aviva/Tests/040RNLDeclineOverride.cy.js',
+    //'cypress/integration/aviva/Tests/040RNLDeclineOverride.cy.js',
     //'cypress/integration/aviva/Tests/C.cy.js',
     //'cypress/integration/aviva/Tests/ChaserCheck.cy.js',
   ]

@@ -93,4 +93,12 @@ selectStaffDiscount(){
 
 }
 
+quotePageEditCar(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_editcar).click()
+
+}
+
+
+
 }

@@ -16,6 +16,7 @@ import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndInce
 import { PaymentTypes } from "../AvivaPOM/PaymentTypes"
 import { DiaryAndCorrespondence } from "../AvivaPOM/DiaryAndCorrespondence"
 import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
+import { Decline } from "../AvivaPOM/Decline"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -42,6 +43,7 @@ const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
 const PaymentTypesPage = new PaymentTypes()
 const DiaryAndCorrespondencePage = new DiaryAndCorrespondence()
 const ThankYouPage = new ThankYouScreen()
+const DeclineScreen = new Decline()
 const day = require('dayjs')
 
 describe('Agent can Renew a policy', () => {
@@ -214,7 +216,10 @@ describe('Agent can Renew a policy', () => {
         BOAction.livePoliciesBTN()
         BOAction.selectActionRenewalWithPolicyNumber()
         QuotePageAndExtras.selectStaffDiscount()
+        QuotePageAndExtras.quotePageEditCar()
+        cy.pause()
         QuotePageAndExtras.buyNowBtn()
+        
 
         AboutYourCarPage.postQuote1OwnCar()
         AboutYourCarPage.postQuote1PrivateIns()

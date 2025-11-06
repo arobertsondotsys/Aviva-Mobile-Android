@@ -5,6 +5,7 @@ import { CoverStartDate } from "../AvivaPOM/CoverStartDate"
 import { AboutTheDriversPQ2 } from "../AvivaPOM/AboutTheDriversPQ2"
 import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndIncepDetsPQ3"
 import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
+import { Decline } from "../AvivaPOM/Decline"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -20,6 +21,7 @@ const CoverStartDatePage = new CoverStartDate()
 const AboutTheDriversPage = new AboutTheDriversPQ2()
 const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
 const ThankYouPage = new ThankYouScreen()
+const DeclineScreen = new Decline()
 const day = require('dayjs')
 
 describe('Agent can purchase MTA', () => {
@@ -51,6 +53,7 @@ describe('Agent can purchase MTA', () => {
         // Amend Contact number
         cy.getAndWait('#ctl00_MainContent_ProposerMobile').clear().type('07950439086')
         cy.getAndWait('#ctl00_MainContent_Continue1').click()
+        cy.pause()
         
         // Input date for MTA to start
         CoverStartDatePage.coverStartDate()
@@ -59,12 +62,12 @@ describe('Agent can purchase MTA', () => {
         // Checking the heading, Note box present 
         cy.getAndWait('#ctl00_MainContent_NoPaymentPerma > .a-heading').contains('No payment required')
         BOAction.notes()
-        cy.getAndWait('#ctl00_MainContent_btnContinue').click({force: true})
+        cy.getAndWait('#ctl00_MainContent_btnContinue').click()
         
         // Completing post quote screen 2 questions
         AboutTheDriversPage.postQuote2Heading()
         BOAction.notes()
-        AboutTheDriversPage.postQuote2IsResidentTrue()
+        AboutTheDriversPage.postQuote2IsResidentFalse()
         AboutTheDriversPage.postQuote2IsMainDriverTrue()
         AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
         AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
@@ -76,6 +79,12 @@ describe('Agent can purchase MTA', () => {
         AboutTheDriversPage.postQuote2Continue()
         
         // Completing post quote screen 3 
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
+
+        DeclineScreen.declineOverrideToQuote()
+        DeclineScreen.declineOverrideToQuoteContinue()
+
+        cy.getAndWait('#ctl00_MainContent_btnContinue').click()
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
         
         // Thank you page

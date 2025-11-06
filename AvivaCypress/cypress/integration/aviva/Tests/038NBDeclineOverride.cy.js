@@ -16,6 +16,7 @@ import { YourInsHistoryAndIncepDetsPQ3 } from "../AvivaPOM/YourInsHistoryAndInce
 import { PaymentTypes } from "../AvivaPOM/PaymentTypes"
 import { DiaryAndCorrespondence } from "../AvivaPOM/DiaryAndCorrespondence"
 import { ThankYouScreen } from "../AvivaPOM/ThankYouScreen"
+import { Decline } from "../AvivaPOM/Decline"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -42,6 +43,7 @@ const YourInsHistoryAndIncepDetsPage = new YourInsHistoryAndIncepDetsPQ3()
 const PaymentTypesPage = new PaymentTypes()
 const DiaryAndCorrespondencePage = new DiaryAndCorrespondence()
 const ThankYouPage = new ThankYouScreen()
+const DeclineScreen = new Decline()
 
 describe('Agent can purchase a policy via back office', () => {
     it('should complete the policy purchase process', () => {
@@ -145,7 +147,7 @@ describe('Agent can purchase a policy via back office', () => {
         AboutTheDriversPage.postQuote2Heading()
         BOAction.notes()
         AboutTheDriversPage.postQuote2IsResidentTrue()
-        AboutTheDriversPage.postQuote2IsMainDriverTrue()
+        AboutTheDriversPage.postQuote2IsMainDriverFalse()
         AboutTheDriversPage.postQuote2IsNotOtherCarTrue()
         AboutTheDriversPage.postQuote2IsNotOtherInsTrue()
         AboutTheDriversPage.postQuote2IsNoConvictionTrue()
@@ -167,6 +169,14 @@ describe('Agent can purchase a policy via back office', () => {
         YourInsHistoryAndIncepDetsPage.postQuote3PostDocs()
         YourInsHistoryAndIncepDetsPage.postQuote3Continue()
 
+        DeclineScreen.declineOverrideToQuote()
+        DeclineScreen.declineOverrideToQuoteContinue()
+
+        QuotePageAndExtras.buyNowBtn()
+        AboutYourCarPage.postQuote1Continue()
+        AboutTheDriversPage.postQuote2Continue()
+        YourInsHistoryAndIncepDetsPage.postQuote3Continue()
+
         // Payment type screen - selecting "No payment required"
         BOAction.notes()
         PaymentTypesPage.paymentTypeAgentNoPay()
@@ -180,6 +190,6 @@ describe('Agent can purchase a policy via back office', () => {
         // Thank you page
         ThankYouPage.thankyouHeading()
         BOAction.notes()
-        ThankYouPage.retreivePolicyNumber()
+        ThankYouPage.retreiveOverrideDeclinePolicyNumber()
     })
 })

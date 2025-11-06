@@ -23,11 +23,25 @@ postQuote2IsResidentTrue(){
 
 }
 
+postQuote2IsResidentFalse(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_isresidentfalse).click()
+
+}
+
+
 postQuote2IsMainDriverTrue(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_ismaindrivertrue).click()
 
 }
+
+postQuote2IsMainDriverFalse(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.aboutthedrivers_ismaindriverfalse).click()
+
+}
+
 
 postQuote2IsNotOtherCarTrue(){
 
