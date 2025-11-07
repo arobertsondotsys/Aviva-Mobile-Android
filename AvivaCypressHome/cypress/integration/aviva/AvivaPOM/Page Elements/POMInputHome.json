@@ -60,6 +60,7 @@
     "IBAN": "IE87BOFI90491561068076",
     "SpecifiedItemDescription": "Ring",
     "SpecifiedItemValue": "8000",
+    "SpecifiedItemValueDecline": "15000",
     "CaravanMake": "Superior",
     "CaravanSerial": "90001",
     "CaravanYear": "2010",
@@ -82,7 +83,8 @@
     "PostQuote2_Heading": "About the drivers",
     "PostQuote3_Heading": "Your insurance history and inception details",
     "DiaryCorrespondence_Heading": "Internal Diary and Correspondence",
-    "Thankyou_Heading": "Thank you"
+    "Thankyou_Heading": "Thank you",
+    "Decline_Heading": "Policy Loadings"
 
     },
 

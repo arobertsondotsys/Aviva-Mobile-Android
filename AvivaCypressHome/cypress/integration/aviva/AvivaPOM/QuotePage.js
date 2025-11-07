@@ -92,6 +92,17 @@ export class QuotePage{
 
     }
 
+    quotePageOptionalCoverAddSpecifiedItemDecline(){
+
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_specifieditem).click()
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemdescription).type(this.UserData.InputData.SpecifiedItemDescription)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemtype).select(1)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_itemvalue).type(this.UserData.InputData.SpecifiedItemValueDecline)
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_additem).click()
+        cy.wait(10000)
+
+    }
+
     quotePageRemoveSpecifiedItem(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.specifieditem_edit).click()

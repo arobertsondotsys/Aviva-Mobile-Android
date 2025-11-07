@@ -42,6 +42,9 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/030AgentCancellation.cy.js', 
     'cypress/integration/aviva/Tests/031ParagonQueueDocsCheck.cy.js',
     'cypress/integration/aviva/Tests/032BonkersPurch.cy.js',
+    'cypress/integration/aviva/Tests/033NBDeclineOverride.cy.js',
+    'cypress/integration/aviva/Tests/034MTADeclineOverride.cy.js',
+    'cypress/integration/aviva/Tests/035RNLDeclineOverride.cy.js'
  ]
  config.specPattern = demoSpecPattern
  

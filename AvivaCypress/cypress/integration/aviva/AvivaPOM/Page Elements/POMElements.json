@@ -62,6 +62,7 @@
     "insurancedetails_continue": "#ctl00_MainContent_Continue3",
 
     "cardetails_title": "#div4",
+    "cardetails_changedetails": "#ctl00_MainContent_btnEditCar",
     "carreg_yes": "#IsCarReg-True > .a-radio > .a-radio__label",
     "carreg_no": "#IsCarReg-False > .a-radio > .a-radio__label",
     "manual_make": "#ddlMake",
@@ -75,6 +76,8 @@
     "findcar_btn": "#ctl00_MainContent_btnFindCar",
     "confirmcar_btn": "#ctl00_MainContent_btnConfirmReg",
     "carvalue_input": "#VehicleCurrentValue",
+    "cartracker_yes": "#IsTrackingDevice-True > .a-radio > .a-radio__label",
+    "cartracker_no": "#IsTrackingDevice-False > .a-radio > .a-radio__label",
     "carmodified_false": "#IsModified-False > .a-radio > .a-radio__label > .a-radio__label-inner",
     "cardetails_continue": "#Continue4",
 
@@ -123,6 +126,9 @@
 
     "quotepage_heading": ".m-heading-group__item",
     "quotepage_staffoptions": "#MainContent_divStaffSection > .a-heading > .m-showhide__control",
+    "quotepage_staffmanualrefer": "[style='width: 100%; margin-top: 30px'] > :nth-child(1) > .a-button",
+    "quotepage_staffmanualrefercontinue": "#ctl00_MainContent_btnManualRefer",
+    
     "quotepage_discounts": "#ddlAvailableDiscounts",
     "quotepage_tpft": "#QuoteType-False > .a-radio > .a-radio__label",
     "buynow_btn": "#btnBuyNow",

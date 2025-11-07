@@ -52,6 +52,12 @@ addSpecifiedItemValue(){
         
 }
 
+addSpecifiedItemValueDecline(){
+
+    cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.addspecifieditem_value).type('15000')
+        
+}
+
 addSpecifiedItemAddItem(){
 
     cy.getAndWait(this.LoginElementLocators.PermMTAPageLocators.addspecifieditem_additem).click({force: true})

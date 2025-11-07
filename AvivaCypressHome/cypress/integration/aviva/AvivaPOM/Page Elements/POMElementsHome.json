@@ -66,6 +66,7 @@
     "number_bathrooms": "#MainContent_DDL_BathRoomCount, #DDL_BathRoomCount",
     "heating_type": "#MainContent_DDLMainHeatType, #DDLMainHeatType",
     "good_repairstatetrue": "#IsGoodRepair-True > .a-radio > .a-radio__label",
+    "good_repairstatefalse": "#IsGoodRepair-False > .a-radio > .a-radio__label",
     "flood_subsidencefalse": "#IsFloodDmg-False > .a-radio > .a-radio__label",
     "yourproperty_continue": "#MainContent_Continue2",
 
@@ -214,7 +215,15 @@
     "diarycorres_valuationreciept": "[style='font-style:normal;'] > :nth-child(1)",   
     
 
-    "thankyou_heading": ".m-heading-group__item"
+    "thankyou_heading": ".m-heading-group__item",
+
+    "decline_heading": "#MainContent_HeaderPolicyLoading",
+    "decline_overridetoquote": "#MainContent_btnOverrideQuote",
+    "decline_overridetodecline": "#MainContent_btnOverrideDecline",
+    "decline_addpremium": "#MainContent_btnShowPremiumAdjustment",
+    "decline_addendorsement": "#MainContent_btnShowManualEndorsement",
+    "decline_suppressaltpremium": "#btnSuppressAltPremium",
+    "decline_overridetoquotecontinue": "#MainContent_btnOverrideToModalConfirmButton"
 
 
     }

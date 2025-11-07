@@ -9,6 +9,12 @@ carDetailsTitle(){
 
 }
 
+carDetailsChangeDetails(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.cardetails_changedetails).click()
+
+}
+
 carRegYes(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carreg_yes).click()
@@ -18,6 +24,13 @@ carRegYes(){
 carRegInput(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carreg_input).type(this.UserData.InputData.CarReg)
+
+}
+
+carRegInputAudiR8(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carreg_input).clear()
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carreg_input).type('08D8')
 
 }
 
@@ -36,6 +49,25 @@ confirmCarBTN(){
 carValueInput(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carvalue_input).select('75000')
+
+}
+
+carValueInput155K(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carvalue_input).select('155001')
+    cy.wait(2000)
+
+}
+
+carTrackerYes(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.cartracker_yes).click()
+
+}
+
+carTrackerNo(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.cartracker_no).click()
 
 }
 

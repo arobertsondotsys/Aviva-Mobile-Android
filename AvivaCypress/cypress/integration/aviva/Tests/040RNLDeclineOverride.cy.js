@@ -216,11 +216,27 @@ describe('Agent can Renew a policy', () => {
         BOAction.livePoliciesBTN()
         BOAction.selectActionRenewalWithPolicyNumber()
         QuotePageAndExtras.selectStaffDiscount()
-        QuotePageAndExtras.quotePageEditCar()
-        cy.pause()
+        QuotePageAndExtras.selectStaffManualRefer()
+        // QuotePageAndExtras.quotePageEditCar()
+
+        // CarDetailsPage.carDetailsChangeDetails()
+        // CarDetailsPage.carRegInputAudiR8()
+        // CarDetailsPage.findCarBTN()
+        // CarDetailsPage.confirmCarBTN()
+        // CarDetailsPage.carValueInput155K()
+        // CarDetailsPage.carTrackerNo()
+        // CarDetailsPage.carDetailsContinue()
+
+        // AdditionalDriversPage.additionalDriversContinue()
+        // YourClaimsPage.claimsContinue()
+        // PenaltyPointsPage.ppContinue()
+        // CoverStartDatePage.coverStartContinue()
+
+        DeclineScreen.declineOverrideToQuote()
+        DeclineScreen.declineOverrideToQuoteContinue()
+
         QuotePageAndExtras.buyNowBtn()
         
-
         AboutYourCarPage.postQuote1OwnCar()
         AboutYourCarPage.postQuote1PrivateIns()
         AboutYourCarPage.postQuote1Continue()

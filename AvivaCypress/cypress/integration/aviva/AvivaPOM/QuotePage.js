@@ -93,6 +93,15 @@ selectStaffDiscount(){
 
 }
 
+selectStaffManualRefer(){
+
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_staffmanualrefer).click()
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_staffmanualrefercontinue).click() 
+
+}
+
+
+
 quotePageEditCar(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_editcar).click()

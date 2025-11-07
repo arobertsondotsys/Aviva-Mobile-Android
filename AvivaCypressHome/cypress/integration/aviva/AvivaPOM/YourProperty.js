@@ -89,6 +89,14 @@ export class YourProperty{
 
     }
 
+    goodStateOfRepair(isGoodStateofRepair) {
+    if (isGoodStateofRepair) {
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.good_repairstatetrue).click()
+    } else {
+        cy.getAndWait(this.LoginElementLocators.QuotePageLocators.good_repairstatefalse).click()
+    }
+}
+
     floodSubsidenceFalse(){
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.flood_subsidencefalse).click({force:true})
