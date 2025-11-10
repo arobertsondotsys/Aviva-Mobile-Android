@@ -54,7 +54,7 @@ travelDetailsTravellingToWorldwideIncUSA(){
 travelDetailsStartDate(){
 
     const day = require('dayjs')
-
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_startdate).type(day().add(2, 'day').format('DD/MM/YYYY'))
 
 }
