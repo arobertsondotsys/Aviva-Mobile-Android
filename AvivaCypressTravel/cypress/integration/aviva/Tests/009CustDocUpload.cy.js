@@ -26,7 +26,7 @@ describe('Customer can upload a document', () => {
         Logins.loginPassword()
         Logins.loginPortalButton()
 
-        PortalAction.portalManagePolicyWithPolicyNumber()
+        PortalAction.portalManagePolicyWithTravelMultiFamilyWith2AddOnsPolicyNumber()
         cy.getAndWait('#Main_btnUploadDocuments').click()
         cy.getAndWait('#Main_ddlDocumentUpload').select(1)
         cy.getAndWait('.a-file-upload__label').click()

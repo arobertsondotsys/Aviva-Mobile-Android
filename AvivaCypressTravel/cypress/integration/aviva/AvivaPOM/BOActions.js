@@ -229,13 +229,13 @@ selectActionMakeADJWithPolicyNumber(){
         
 }
 
-selectActionCancelWithTravelPolicyNumber(){
+selectActionCancelWithTravelMultiFamilyWith3AddOns(){
 
     cy.readFile('policy.json').then((data) => {
-        const travelPolicyNumber = data.travelPolicyNumber
+        const travelMultiFamilyWith3AddOns = data.travelMultiFamilyWith3AddOns
         cy.getAndWait('.panel-title')
-        .contains(travelPolicyNumber)
-        cy.xpath("//span[normalize-space()='"+travelPolicyNumber+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
+        .contains(travelMultiFamilyWith3AddOns)
+        cy.xpath("//span[normalize-space()='"+travelMultiFamilyWith3AddOns+"']/../..//button[@type='button'][normalize-space()='Select Action']").click()
         cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Cancel Policy']")
          })
         

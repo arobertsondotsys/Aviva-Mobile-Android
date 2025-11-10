@@ -29,6 +29,7 @@ travellerDetailsProposerDOB(){
 
 travellerDetailsAdult2DOB(){
 
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.travellerdetails_adult2dob).type(this.UserData.InputData.DOB2)
 
 }

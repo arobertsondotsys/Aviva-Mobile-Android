@@ -55,7 +55,7 @@ travelDetailsStartDate(){
 
     const day = require('dayjs')
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_startdate).type(day().format('DD/MM/YYYY'))
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_startdate).type(day().add(2, 'day').format('DD/MM/YYYY'))
 
 }
 
@@ -64,7 +64,7 @@ travelDetailsCoverStartDate(){
     cy.wait(2000)    
     const day = require('dayjs')
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_coverstartdate).type(day().add(7, 'day').format('DD/MM/YYYY'))
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.traveldetails_coverstartdate).type(day().add(9, 'day').format('DD/MM/YYYY'))
 
 }
 

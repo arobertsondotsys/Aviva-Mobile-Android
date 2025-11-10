@@ -99,7 +99,16 @@
     "PostQuote2_Heading": "About the drivers",
     "PostQuote3_Heading": "Your insurance history and inception details",
     "DiaryCorrespondence_Heading": "Internal Diary and Correspondence",
-    "Thankyou_Heading": "Thank you"
+    "Thankyou_Heading": "Thank you",
+
+    "Cancellation_Heading": "Cancel policy",
+    "Cancellation_Amount_Heading": "Amount to be refunded",
+    "Cancellation_CancelPolicy_Heading": "Cancel policy",
+    "Cancellation_BeforeYouProceed_Heading": "Before you proceed",
+    "Cancellation_CancConfirm_Heading": "Confirm cancellation of policy",
+    "Cancellation_CancConfirmationPage_Heading": "Your policy has been cancelled"
+
+    
 
     }
     

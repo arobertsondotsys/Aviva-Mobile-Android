@@ -414,4 +414,51 @@
 
     }
 
+,"BOCancPageLocators":
+
+
+    {
+        
+    "cancellation_heading": ".l-columns__column > .a-heading--2", 
+    "Cancellation_request": "#MainContent_CancellationRequest",
+    "cancellation_reasonddl": ".m-multiselect-toggle",
+    "cancellation_reason": ":nth-child(4) > .a-checkbox > .a-checkbox__label",  
+    "cancellation_continue": "#MainContent_policyholderReasonContinue", 
+    "cancellation_dateheading": ".a-label",
+    "cancellation_date": "#MainContent_staffCancelDate",
+    "cancellation_staffcontinue": "#MainContent_staffDateContinue",  
+    "cancellation_amountheading": "#ctl00_MainContent_divStaffInsurer > .a-heading--3",  
+    "cancellation_amountcontinue": "#ctl00_MainContent_Continue",  
+    "cancellation_confirmheading": ".m-heading-group__item"    
+
+    }
+
+,"PortalCancPageLocators":
+
+
+    {
+        
+    "portal_cancellationbtn": "#Main_btnTravelCancel", 
+    "portal_cancellationrequest": "#Main_btnCancelTravelModal",
+    "portal_cancellationreasonddl": "#cancelReason",
+    "portal_cancellationagreeandconfirm": ".a-checkbox__label",  
+    "portal_cancellationcontinue": "#MainContent_reasonContinue", 
+    "portal_cancellationdateheading": ".a-label",
+    "portal_cancellationdate": "#MainContent_staffCancelDate",
+    "portal_cancellationstaffcontinue": "#MainContent_staffDateContinue",  
+    "portal_cancellationamountheading": "#MainContent_divCustomerPremium > .a-heading--3",  
+    "portal_cancellationamountcontinue": "#MainContent_Continue",  
+    "portal_cancellationcancelpolicyheading": ".l-columns__column > .a-heading--2",    
+    "portal_cancellationbeforeyouproceedheading": ".m-form-row > .a-heading--semibold", 
+    "portal_cancellationsignature": ".jSignature", 
+    "portal_cancellationcancelpolicycontinue": "#MainContent_Continue", 
+    "portal_cancellationconfirmheading": ".CustomerModal > :nth-child(1) > .a-heading", 
+    "portal_cancellationconfirmcontinue": "#MainContent_Submit",
+    "portal_cancellationconfirmpageheading": ".m-heading-group__item"
+
+    
+
+    }
+
+    
 }
