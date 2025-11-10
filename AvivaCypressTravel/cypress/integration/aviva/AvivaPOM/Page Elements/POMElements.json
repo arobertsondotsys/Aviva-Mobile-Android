@@ -427,8 +427,8 @@
     "cancellation_dateheading": ".a-label",
     "cancellation_date": "#MainContent_staffCancelDate",
     "cancellation_staffcontinue": "#MainContent_staffDateContinue",  
-    "cancellation_amountheading": "#ctl00_MainContent_divStaffInsurer > .a-heading--3",  
-    "cancellation_amountcontinue": "#ctl00_MainContent_Continue",  
+    "cancellation_amountheading": "#MainContent_divStaffInsurer > .a-heading--3",  
+    "cancellation_amountcontinue": "#MainContent_Continue",  
     "cancellation_confirmheading": ".m-heading-group__item"    
 
     }
