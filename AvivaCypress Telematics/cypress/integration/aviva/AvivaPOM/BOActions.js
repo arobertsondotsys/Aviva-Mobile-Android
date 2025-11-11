@@ -481,7 +481,7 @@ inviteRenewal(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(telematicsPolicyNumber)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(1)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select('Motor - AvivaTelematics')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()

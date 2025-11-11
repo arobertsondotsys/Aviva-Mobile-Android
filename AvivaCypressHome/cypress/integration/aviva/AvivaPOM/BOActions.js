@@ -801,7 +801,7 @@ inviteRenewal(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(policyNumber)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(2)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select('Home - Aviva')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
