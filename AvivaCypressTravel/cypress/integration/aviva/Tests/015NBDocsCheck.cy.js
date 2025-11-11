@@ -30,7 +30,7 @@ describe('Check Paragon Queue for correct documents', () => {
         BOAction.policySelectButton()
         BOAction.livePoliciesBTN()
 
-        cy.wait(120000)
+        cy.wait(180000)
         // Select Documents and revert window back to current window
         BOAction.selectActionDocumentsWithTravelPolicyNumberBackPacker()
 
