@@ -48,7 +48,7 @@ removeAttr(){
 
 agentQuote(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.agent_quote).select(2)
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.agent_quote).select('Home')
     cy.window().then((win) => {
         const orig = win.open
       

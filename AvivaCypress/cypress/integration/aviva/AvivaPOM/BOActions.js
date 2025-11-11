@@ -61,7 +61,7 @@ removeAttr(){
 
 agentQuote(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.agent_quote).select(1)
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.agent_quote).select('Motor')
     cy.window().then((win) => {
         const orig = win.open
           
