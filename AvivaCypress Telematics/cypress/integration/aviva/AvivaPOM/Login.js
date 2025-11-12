@@ -111,7 +111,7 @@ loginPassword() {
     let password;
 
     // Choose password based on server name
-    if (server.toLowerCase().includes('4e2e') || server.toLowerCase().includes('7hotfix')) {
+    if (server.toLowerCase().includes('4e2e')) {
         password = this.UserData.InputData.PortalPass7Hotfix;
     } else {
         password = this.UserData.InputData.PortalPass;
