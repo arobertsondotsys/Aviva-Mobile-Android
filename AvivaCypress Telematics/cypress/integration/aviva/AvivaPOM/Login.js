@@ -105,12 +105,21 @@ loginEmail2(){
     
 }
 
-loginPassword(){
+loginPassword() {
+    // Get the server from Cypress.env or default to empty string
+    const server = Cypress.env('server') || '';
+    let password;
 
-    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_password).clear({force:true}).type(this.UserData.InputData.PortalPass, {force:true})
+    // Choose password based on server name
+    if (server.toLowerCase().includes('4e2e') || server.toLowerCase().includes('7hotfix')) {
+        password = this.UserData.InputData.PortalPass7Hotfix;
+    } else {
+        password = this.UserData.InputData.PortalPass;
+    }
 
-    //cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_password).clear().type(this.UserData.InputData.PortalPass7Hotfix)
-
+    cy.getAndWait(this.LoginElementLocators.LoginPageLocators.portal_password)
+      .clear({force:true})
+      .type(password, {force:true});
 }
 
 loginPassword1(){
