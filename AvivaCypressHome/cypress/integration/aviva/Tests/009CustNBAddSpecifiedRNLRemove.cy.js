@@ -140,7 +140,7 @@ describe('Customer purchase home policy', () => {
     BOAction.livePoliciesBTN()
     BOAction.selectActionDocumentsWithPolicyNumber()
     BOAction.checkRenewalInviteDocs()
-    cy.go(-1)
+    cy.wait(500)
 
     // Purchase Home Renewal as customer
     Server.Server1()

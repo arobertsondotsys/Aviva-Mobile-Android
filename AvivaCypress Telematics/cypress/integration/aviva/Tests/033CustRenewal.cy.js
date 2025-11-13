@@ -226,7 +226,7 @@ describe('Customer can Renew a policy', () => {
         BOAction.livePoliciesBTN()
         BOAction.selectActionDocumentsWithPolicyNumber()
         BOAction.checkRenewalInviteDocs()
-        cy.go(-1)
+        cy.wait(500)
 
         // Purchase renewal quote
         Server.Server1()

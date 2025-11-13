@@ -36,6 +36,7 @@ describe('Portal Login Tests', () => {
         cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
         cy.go('back')
         cy.go('forward')
+        cy.wait(500)
     })
 
     it('User enters invalid email, password and clicks login button', () => {
