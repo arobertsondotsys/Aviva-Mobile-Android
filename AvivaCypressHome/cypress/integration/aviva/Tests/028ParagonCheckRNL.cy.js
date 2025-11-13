@@ -144,14 +144,6 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     BOAction.notes()
     ThankYouScreen.retreiveParagonPolicyNumber10()
 
-    // Server.Server()
-    // BOAction.home()
-    // Logins.email()
-    // BOAction.searchButton()
-    // BOAction.policySelectButton()
-    // BOAction.livePoliciesBTN()
-    // BOAction.homePolicyTab()
-
     // Navigate back to the B/O
     Server.Server()
     BOAction.home()
@@ -163,10 +155,6 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     // Back date policy
     BOAction.policyToolsAgePolicyWithParagonPolicyNumber10()
     BOAction.agePolicy()
-    // cy.get('#ctl00_ContentPlaceHolder1_BackDateDay').select(8)
-    // cy.get('#ctl00_ContentPlaceHolder1_BackDateMonth').select(2)
-    // cy.get('#ctl00_ContentPlaceHolder1_BackDateYear').select(3)
-    // cy.get('#ctl00_ContentPlaceHolder1_UpdateDate').click()
 
     // Generate and invite renewal
     cy.go(-2)
@@ -217,17 +205,6 @@ describe('Agent purchase home policy with docs set to post at RNL', () => {
     ThankYouScreen.thankyouHeading()
     MTABOAction.adjustmentReceiptAssert()
     BOAction.notes()
-
-    // Check correct documents have been added to print queue
-    // Server.Server()
-    // BOAction.home()
-    // Logins.email()
-    // BOAction.searchButton()
-    // BOAction.policySelectButton()
-    // BOAction.livePoliciesBTN()
-    // BOAction.homePolicyTab()
-    // BOAction.selectActionDocumentsWithPolicyNumber()
-    // BOAction.checkRNLParagonDocs()
   })
 })
   
