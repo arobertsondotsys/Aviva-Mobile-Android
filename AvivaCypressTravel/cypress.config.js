@@ -46,7 +46,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/003AgentMultiTrip.cy.js',
     'cypress/integration/aviva/Tests/004AgentSingleTrip.cy.js',
     // 'cypress/integration/aviva/Tests/003AgentUnlock.cy.js',
-    // 'cypress/integration/aviva/Tests/004CheckCookies.cy.js',
+    //'cypress/integration/aviva/Tests/004CheckCookies.cy.js',
     'cypress/integration/aviva/Tests/005AgentDocUpload.cy.js',
     // 'cypress/integration/aviva/Tests/006AgentMTAPurch.cy.js',
     // 'cypress/integration/aviva/Tests/008NTUCanc.cy.js',
@@ -60,6 +60,7 @@ async function setupNodeEvents(on, config) {
     'cypress/integration/aviva/Tests/015NBDocsCheck.cy.js',
     'cypress/integration/aviva/Tests/016CustCancellation.cy.js',
     'cypress/integration/aviva/Tests/017AgentCancelation.cy.js',
+    //'cypress/integration/aviva/Tests/018AgentRNLMultiTrip.cy.js'
   
   ]
   config.specPattern = demoSpecPattern

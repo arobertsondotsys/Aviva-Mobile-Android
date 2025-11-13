@@ -494,6 +494,19 @@ policyToolsAgePolicyWithPolicyNumber(){
         
 }
 
+policyToolsAgePolicyWithTravelPolicyNumberMulti(){
+
+    cy.readFile('policy.json').then((data) => {
+        const travelPolicyNumberMulti = data.travelPolicyNumberMulti
+        cy.getAndWait('.panel-title')
+        .contains(travelPolicyNumberMulti)
+        cy.xpath("//span[normalize-space()='"+travelPolicyNumberMulti+"']/../..//button[@type='button'][normalize-space()='Policy Tools']").click()
+        cy.stopWindow("//ul[@class='dropdown-menu show']//a[.=' Age Policy']")
+        
+         })
+        
+}
+
 
 
 
