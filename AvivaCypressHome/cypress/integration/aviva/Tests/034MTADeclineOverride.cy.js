@@ -3,10 +3,12 @@ import { Login } from "../AvivaPOM/Login"
 import { QuotePage } from "../AvivaPOM/QuotePage"
 import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
 import { PaymentPage } from "../AvivaPOM/PaymentPage"
+import { DiaryCorrespondence } from "../AvivaPOM/DiaryCorrespondence"
 import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
 import { BOActions } from "../AvivaPOM/BOActions"
 import { MTABOActions } from "../AvivaPOM/MTABOActions"
 import { Decline } from "../AvivaPOM/Decline"
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -20,10 +22,12 @@ const Logins = new Login
 const QuotePageAndExtras = new QuotePage
 const CompleteAndPayPage = new CompleteAndPay
 const PaymentScreen = new PaymentPage
+const DiaryCorrespondencePage = new DiaryCorrespondence
 const ThankYouScreen = new ThankYouPage
 const BOAction = new BOActions
 const MTABOAction = new MTABOActions
 const DeclineScreen = new Decline
+
 
 describe('Agent MTA purchase', () => {
   it('should allow an agent to make an MTA purchase', () => {
@@ -60,6 +64,9 @@ describe('Agent MTA purchase', () => {
     MTABOAction.paymentTypeAgentCard()
     MTABOAction.paymentTypeAgentPayNow()
     PaymentScreen.selectPaymentMethod()
+    DiaryCorrespondencePage.diaryCorrespondenceHeading()
+    DiaryCorrespondencePage.diaryCorrespondenceReceipt()
+    DiaryCorrespondencePage.diaryCorrespondenceContinue()
     ThankYouScreen.thankyouHeading()
   })
 })

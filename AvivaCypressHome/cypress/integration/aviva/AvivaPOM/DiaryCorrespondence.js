@@ -18,7 +18,7 @@ diaryCorrespondenceContinue(){
 
 diaryCorrespondenceReceipt(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.diarycorres_valuationreciept).contains(' Valuations/Receipt for Ring ')
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.diarycorres_valuationreciept).contains('Receipt for Ring')
 
 }
 

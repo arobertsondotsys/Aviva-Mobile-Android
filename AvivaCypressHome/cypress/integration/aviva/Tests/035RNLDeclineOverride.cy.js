@@ -8,9 +8,11 @@ import { QuotePage } from "../AvivaPOM/QuotePage"
 import { CompleteAndPay } from "../AvivaPOM/CompleteAndPay"
 import { PaymentType } from "../AvivaPOM/PaymentType"
 import { PaymentPage } from "../AvivaPOM/PaymentPage"
+import { DiaryCorrespondence } from "../AvivaPOM/DiaryCorrespondence"
 import { ThankYouPage } from "../AvivaPOM/ThankYouPage"
 import { BOActions } from "../AvivaPOM/BOActions"
 import { Decline } from "../AvivaPOM/Decline"
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -29,6 +31,7 @@ const QuotePageAndExtras = new QuotePage
 const CompleteAndPayPage = new CompleteAndPay
 const PaymentTypePage = new PaymentType
 const PaymentScreen = new PaymentPage
+const DiaryCorrespondencePage = new DiaryCorrespondence
 const ThankYouScreen = new ThankYouPage
 const DeclineScreen = new Decline
 const BOAction = new BOActions
@@ -188,7 +191,9 @@ describe('Agent purchase home policy renewal as PIF', () => {
     PaymentTypePage.paymentTypeAgentCardRenewal()
     CompleteAndPayPage.completeAndPayRNLPayNow()
     PaymentScreen.selectPaymentMethod()
-
+    DiaryCorrespondencePage.diaryCorrespondenceHeading()
+    DiaryCorrespondencePage.diaryCorrespondenceReceipt()
+    DiaryCorrespondencePage.diaryCorrespondenceContinue()
     ThankYouScreen.thankyouHeading()
 
     // Navigate back to B/O and check renewal docs have generated
