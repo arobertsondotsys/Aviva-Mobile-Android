@@ -78,7 +78,7 @@
     "carvalue_input": "#VehicleCurrentValue",
     "cartracker_yes": "#IsTrackingDevice-True > .a-radio > .a-radio__label",
     "cartracker_no": "#IsTrackingDevice-False > .a-radio > .a-radio__label",
-    "carmodified_false": "#IsModified-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "carmodified_false": "#IsModified-False",
     "cardetails_continue": "#Continue4",
 
     "additionaldrivers_heading": "#div5",

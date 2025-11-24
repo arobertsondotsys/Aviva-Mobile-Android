@@ -73,7 +73,7 @@ carTrackerNo(){
 
 carModifiedFalse(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carmodified_false).click({force: true})
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carmodified_false).click()
 
 }
 
