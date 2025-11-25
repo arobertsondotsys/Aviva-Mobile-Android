@@ -73,6 +73,7 @@ carTrackerNo(){
 
 carModifiedFalse(){
 
+    cy.wait(1000)
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carmodified_false).click()
 
 }
