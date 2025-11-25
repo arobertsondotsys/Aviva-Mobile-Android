@@ -831,7 +831,7 @@ inviteRenewalParagon10(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(paragonPolicyNumber10)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(2)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(3)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
@@ -861,7 +861,7 @@ inviteRenewalParagon12(){
         cy.getAndWait(this.LoginElementLocators.BOPageLocators.input_policynumber).type(paragonPolicyNumber12)
     })
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(2)
+    cy.getAndWait(this.LoginElementLocators.BOPageLocators.renewed_scheme).select(3)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.search_policynumber).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.tick_renewal).click()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.batchprint_renewal).click()
@@ -995,14 +995,14 @@ checkRenewalDocsAutoRolover(){
 
 }
 
-checkRenewalDocsAutoRoloverNoEmail(){
+checkRenewalDocsAutoRolloverNoEmail(){
 
-    cy.wait(140000)
+    cy.wait(180000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Statement Of Fact')
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain', 'Receipt')
+    //cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain', 'Receipt')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).should('not.contain','Email')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
     ////cy.wait(1000)

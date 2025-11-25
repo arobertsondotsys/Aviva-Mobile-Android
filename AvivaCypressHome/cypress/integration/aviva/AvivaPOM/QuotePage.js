@@ -202,7 +202,9 @@ export class QuotePage{
 
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.quotepage_addcaravancover).click()
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.caravancover_make).type(this.UserData.InputData.CaravanMake)
+        cy.wait(500)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.caravancover_serialno).type(this.UserData.InputData.CaravanSerial)
+        cy.wait(500)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.caravancover_year).type(this.UserData.InputData.CaravanYear)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.caravancover_suminsured).type(this.UserData.InputData.CaravanValue)
         cy.getAndWait(this.LoginElementLocators.QuotePageLocators.caravancover_personalbelongingsyes).click()

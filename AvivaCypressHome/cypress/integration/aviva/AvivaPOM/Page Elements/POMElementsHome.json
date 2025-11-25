@@ -212,7 +212,7 @@
 
     "diarycorres_heading": ".a-heading--1",
     "diarycorres_continue": "#MainContent_Summary",
-    "diarycorres_valuationreciept": "[style='font-style:normal;'] > :nth-child(1)",   
+    "diarycorres_valuationreciept": "#MainContent_DocumentGrid",   
     
 
     "thankyou_heading": ".m-heading-group__item",
@@ -363,7 +363,7 @@
 
 ,"BonkersHomePageLocators":
 {
-    "bonkershome_addess": ".input-wrapper",
+    "bonkershome_addess": "input[placeholder='Enter full address or Eircode']",
     "bonkershome_addessoption1": ".left-0 > :nth-child(2)",
     "bonkershome_getstarted": ".group > ._UiButton_1dpbh_1",
     "bonkershome_yearbuilt": "#yearBuildingConstructed",
