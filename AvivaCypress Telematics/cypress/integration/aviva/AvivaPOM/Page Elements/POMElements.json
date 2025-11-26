@@ -63,7 +63,7 @@
     "findcar_btn": "#ctl00_MainContent_btnFindCar",
     "confirmcar_btn": "#ctl00_MainContent_btnConfirmReg",
     "carvalue_input": "#VehicleCurrentValue",
-    "carmodified_false": "#IsModified-False > .a-radio > .a-radio__label > .a-radio__label-inner",
+    "carmodified_false": "#IsModified-False",
     "cardetails_continue": "#Continue4",
 
     "additionaldrivers_heading": "#div5",

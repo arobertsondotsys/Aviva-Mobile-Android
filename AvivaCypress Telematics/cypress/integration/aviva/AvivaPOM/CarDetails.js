@@ -41,7 +41,8 @@ carValueInput(){
 
 carModifiedFalse(){
 
-    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carmodified_false).click({force: true})
+    cy.wait(1000)
+    cy.getAndWait(this.LoginElementLocators.QuotePageLocators.carmodified_false).click()
 
 }
 
