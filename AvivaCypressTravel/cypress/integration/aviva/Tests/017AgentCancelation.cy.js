@@ -21,7 +21,7 @@ describe('Agent can cancel a policy', () => {
 
         // Log in
         Logins.company()
-        Logins.username()
+        Logins.username3()
         Logins.password()
         Logins.loginButton()
 

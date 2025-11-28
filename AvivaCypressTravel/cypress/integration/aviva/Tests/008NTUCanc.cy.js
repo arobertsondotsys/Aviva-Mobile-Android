@@ -20,7 +20,7 @@ describe('Agent can NTU a cancellation', () => {
         
         // Log in to back office
         Logins.company()
-        Logins.username()
+        Logins.username3()
         Logins.password()
         Logins.loginButton()
 

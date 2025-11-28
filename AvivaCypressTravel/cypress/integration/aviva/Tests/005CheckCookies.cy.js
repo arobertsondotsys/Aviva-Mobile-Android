@@ -18,7 +18,7 @@ describe('Check cookie status', () => {
         
         // Log in
         Logins.company()
-        Logins.username()
+        Logins.username3()
         Logins.password()
         Logins.loginButton()
 

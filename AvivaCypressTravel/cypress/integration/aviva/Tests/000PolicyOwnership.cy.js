@@ -19,7 +19,7 @@ describe('Change policy ownership', () => {
 
         // Log in
         Logins.company()
-        Logins.username()
+        Logins.username3()
         Logins.password()
         Logins.loginButton()
 
