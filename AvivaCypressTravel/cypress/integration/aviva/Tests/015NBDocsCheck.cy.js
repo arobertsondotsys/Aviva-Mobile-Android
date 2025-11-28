@@ -20,7 +20,7 @@ describe('Check Paragon Queue for correct documents', () => {
         
         // Log in
         Logins.company()
-        Logins.username()
+        Logins.username3()
         Logins.password()
         Logins.loginButton()
 
