@@ -257,7 +257,7 @@
     "save_rollover":"#ctl00_ContentPlaceHolder1_btnSaveAutoRollover",
     "generate_renewal":"[class^='btn btn-sm btn-cta btn-sm']",
     "generate_renewalcheck":"#ctl00_ContentPlaceHolder1_QuoteTabs_2 > .table > tbody > :nth-child(2) > :nth-child(2)",
-    "generate_renewalcheck1":"#ctl00_ContentPlaceHolder1_QuoteTabs_2 > .table > tbody > :nth-child(2) > :nth-child(4)",
+    "generate_renewalcheck1":"#ctl00_ContentPlaceHolder1_QuoteTabs_2 > .table > tbody > :nth-child(2) > :nth-child(5)",
     "printqueue_view":"#ctl00_ContentPlaceHolder1_btnViewPrinterQueue",
     "extract_policynumber":"[class^='badge rounded-pill text-bg-success']",
     "select_renewals":"[class^='level2 dropdown-item dynamic'][title^='Renewals']",
