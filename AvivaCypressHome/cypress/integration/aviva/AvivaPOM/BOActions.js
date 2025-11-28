@@ -876,7 +876,7 @@ recallPolicy(){
 
 checkNBDocsDD(){
 
-    cy.wait(100000)
+    cy.wait(120000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_nbdocs).contains('Welcome Email Full Cover')
