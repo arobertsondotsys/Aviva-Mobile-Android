@@ -132,32 +132,77 @@ agePolicyTool(){
         
 }
 
-agePolicy(){
-
+agePolicy() {
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
         const day = parseInt(dayString)
-        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+1)
-      })
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_month).invoke('val').then(monthString => {
+            let month = parseInt(monthString); // 1-based (1 = January)
+            const currentYear = new Date().getFullYear()
+            let year = currentYear - 1
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_year).select(this.UserData.InputData.BackdateYear)
+            let newDay = day + 1
+            let newMonth = month
+            let newYear = year
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_message).contains(this.UserData.InputData.BackdateMessage)
-        
+            // Get the number of days in the current month/year
+            const daysInMonth = new Date(year, month, 0).getDate();
+
+            if (newDay > daysInMonth) {
+                newDay = 1 // Move to first day of next month
+                newMonth += 1
+                if (newMonth > 12) {
+                    newMonth = 1
+                    newYear += 1
+                }
+            }
+
+            // Pad month to two digits if needed
+            let paddedMonth = newMonth.toString().padStart(2, '0')
+
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).select(newDay.toString())
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_month).select(paddedMonth)
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_year).select(newYear.toString())
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_message).contains(this.UserData.InputData.BackdateMessage)
+        })
+    })
 }
 
-agePolicyPlus2(){
-
+agePolicyPlus2() {
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).invoke('val').then(dayString => {
-        const day = parseInt(dayString)
-        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).select(day+2)
-      })
+        const day = parseInt(dayString);
+        cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_month).invoke('val').then(monthString => {
+            let month = parseInt(monthString); // 1-based (1 = January)
+            let newDay = day + 2;
+            let newMonth = month;
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_year).select(this.UserData.InputData.BackdateYear)
+            // Always set year to current year minus 1
+            const currentYear = new Date().getFullYear();
+            let newYear = (currentYear - 1).toString();
 
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_confirm).click()
-    cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_message).contains(this.UserData.InputData.BackdateMessage)
-        
+            // Get the number of days in the current month of the newYear
+            const daysInMonth = new Date(newYear, month, 0).getDate();
+
+            if (newDay > daysInMonth) {
+                newDay = newDay - daysInMonth;
+                newMonth += 1;
+                // If month > 12, reset month to 1 (January), but DO NOT increment year
+                if (newMonth > 12) {
+                    newMonth = 1;
+                }
+            }
+
+            // Pad month to two digits if needed
+            let paddedMonth = newMonth.toString().padStart(2, '0');
+
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_day).select(newDay.toString());
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_month).select(paddedMonth);
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_year).select(newYear);
+
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_confirm).click();
+            cy.getAndWait(this.LoginElementLocators.BOPageLocators.backdate_message).contains(this.UserData.InputData.BackdateMessage);
+        });
+    });
 }
 
 selectActionRenewalWithPolicyNumber(){
