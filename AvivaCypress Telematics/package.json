@@ -33,7 +33,7 @@
     "8CRMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST8CRMIGRATION",
     "9FATMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST9FATMIGRATION",
     "10PRODMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST10PRODMIGRATION",
-    "GCCPRErun": "npx cypress run --browser chrome --record --env server=GCCPRE",
+    "GCCPRErun": "npx cypress run --browser chrome --env server=GCCPRE",
     "QAopen": "npx cypress open --browser chrome --env server=QA",
     "QA2open": "npx cypress open --browser chrome --env server=QA2",
     "QA3open": "npx cypress open --browser chrome --env server=QA3",
@@ -47,7 +47,7 @@
     "8CRMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST8CRMIGRATION",
     "9FATMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST9FATMIGRATION",
     "10PRODMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST10PRODMIGRATION",
-    "GCCPREopen": "npx cypress open --browser chrome --record --env server=GCCPRE",
+    "GCCPREopen": "npx cypress open --browser chrome --env server=GCCPRE",
     "cy:run": "set NODE_OPTIONS=--max-old-space-size=4096 && cypress run",
     "cy:open": "set NODE_OPTIONS=--max-old-space-size=4096 && cypress open"
   },
