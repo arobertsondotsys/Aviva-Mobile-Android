@@ -17,7 +17,6 @@
 import './commands'
 import 'cypress-mochawesome-reporter/register'
 import 'cypress-wait-until'
-import 'cypress-plugin-tab';
 require('cypress-xpath')
 //import 'cypress-email-results'
 // Alternatively you can use CommonJS syntax:
