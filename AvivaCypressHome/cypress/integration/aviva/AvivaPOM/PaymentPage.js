@@ -404,6 +404,7 @@ paymentCardDemoAgent() {
         cy.wrap($iframe)
           .its('0.contentDocument.body')
           .should('not.be.empty')
+          cy.wait(2000)
           .then((body) => {
             const cardInput = Cypress.$(body).find('input[placeholder="Card Number"]');
             if (cardInput.length > 0) {
