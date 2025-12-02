@@ -6,9 +6,9 @@ export class PaymentScreen{
   selectPaymentMethod() {
     cy.wait(6000)
     cy.url().then((currentUrl) => {
-        if (currentUrl.includes('rwy')) {
+        if (currentUrl.includes('rwy') || currentUrl.includes('pre-aviva')) {
             this.paymentCardQAWithCheck();
-        } else if (currentUrl.includes('stg')) {
+        } else if (currentUrl.includes('stg') || currentUrl.includes('pre-aviva')) {
             this.paymentCardDemo();
         } else {
             throw new Error('Unknown payment environment: ' + currentUrl);
@@ -19,9 +19,9 @@ export class PaymentScreen{
  selectPaymentMethod1() {
     cy.wait(6000)
     cy.url().then((currentUrl) => {
-        if (currentUrl.includes('rwy')) {
+        if (currentUrl.includes('rwy') || currentUrl.includes('pre-aviva')) {
             this.paymentCardQAAgent();
-        } else if (currentUrl.includes('stg')) {
+        } else if (currentUrl.includes('stg') || currentUrl.includes('pre-aviva')) {
             this.paymentCardDemoAgent();
         } else {
             throw new Error('Unknown payment environment: ' + currentUrl);
@@ -32,9 +32,9 @@ export class PaymentScreen{
 selectPaymentMethod2() {
     cy.wait(6000)
     cy.url().then((currentUrl) => {
-        if (currentUrl.includes('rwy')) {
+        if (currentUrl.includes('rwy') || currentUrl.includes('pre-aviva')) {
             this.paymentDDQAWithPassword();
-        } else if (currentUrl.includes('stg')) {
+        } else if (currentUrl.includes('stg') || currentUrl.includes('pre-aviva')) {
             this.paymentDDDemo();
         } else {
             throw new Error('Unknown payment environment: ' + currentUrl);
@@ -43,7 +43,11 @@ selectPaymentMethod2() {
 }
 
 paymentCardQAWithCheck() {
-  cy.origin('https://www.direct.rwy-aviva.co.uk', () => {
+  cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
       Cypress.on('uncaught:exception', (err, runnable) => {
           return false // Prevent Cypress from failing the test on uncaught exceptions
       })
@@ -126,8 +130,11 @@ paymentCardQAWithCheck() {
 
 paymentCardQA(){
 
-    cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
-    {
+    cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -202,8 +209,11 @@ paymentCardQA(){
 
 paymentCardQAAgent(){
 
-    cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
-    {
+    cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -252,8 +262,11 @@ paymentCardQAAgent(){
 
 paymentCardDemo(){
 
-    cy.origin('https://www.direct.stg-aviva.co.uk', () => 
-    {
+    cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(stg-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -336,8 +349,11 @@ paymentCardDemo(){
 
 paymentCardDemoAgent(){
 
-    cy.origin('https://www.direct.stg-aviva.co.uk', () => 
-    {
+    cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(stg-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
         Cypress.on('uncaught:exception', (err, runnable) =>
         {
         return false
@@ -385,8 +401,11 @@ paymentCardDemoAgent(){
 
 paymentDDQA(){
 
-    cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
-    {
+    cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -444,8 +463,11 @@ paymentDDQA(){
 
 paymentDDQAWithPassword(){
 
-    cy.origin('https://www.direct.rwy-aviva.co.uk', () => 
-    {
+    cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -527,8 +549,11 @@ paymentDDQAWithPassword(){
 
 paymentDDDemo(){
 
-    cy.origin('https://www.direct.stg-aviva.co.uk', () => 
-    {
+    cy.origin(
+    { 
+      origin: /^https:\/\/www\.direct\.(stg-aviva|pre-aviva)\.co\.uk$/ 
+    }, 
+    () => {
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false

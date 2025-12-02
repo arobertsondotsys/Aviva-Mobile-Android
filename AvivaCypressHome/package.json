@@ -19,7 +19,7 @@
     "8CRMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=TEST8CRMIGRATION",
     "9FATMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=TEST9FATMIGRATION",
     "10PRODMIGRATION": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=TEST10PRODMIGRATION",
-    "GCCPRE": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=GCCPRE",
+    "PREPRODE": "npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=GCCPRE",
     "QA2P1": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=QA2,USER_INDEX=1 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
     "QA2P2": "npm run set-build-id && npx cypress run --browser chrome --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=QA2,USER_INDEX=2 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
     "DEMOP1": "npm run set-build-id && npx cypress run --browser chrome --headed --record --key 2103b0fb-3f8e-4ab2-b184-f0e7327f1052 --env server=DEMO,USER_INDEX=1 --parallel --ci-build-id ${(Get-Content buildid.txt)}",
@@ -39,7 +39,7 @@
     "8CRMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST8CRMIGRATION",
     "9FATMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST9FATMIGRATION",
     "10PRODMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST10PRODMIGRATION",
-    "GCCPRErun": "npx cypress run --browser chrome --env server=GCCPRE",
+    "PREPRODrun": "npx cypress run --browser chrome --env server=GCCPRE",
     "QAopen": "npx cypress open --browser chrome --env server=QA",
     "QA2open": "npx cypress open --browser chrome --env server=QA2",
     "QA3open": "npx cypress open --browser chrome --env server=QA3",
@@ -53,7 +53,7 @@
     "8CRMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST8CRMIGRATION",
     "9FATMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST9FATMIGRATION",
     "10PRODMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST10PRODMIGRATION",
-    "GCCPREopen": "npx cypress open --browser chrome --env server=GCCPRE"
+    "PREPRODopen": "npx cypress open --browser chrome --env server=GCCPRE"
   },
   "author": "",
   "license": "ISC",
@@ -62,6 +62,7 @@
     "cypress-email-results": "^1.8.0",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-plugin-tab": "^1.0.5",
     "cypress-wait-until": "^3.0.2"
   },
   "dependencies": {
