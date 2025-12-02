@@ -317,35 +317,33 @@ paymentCardDemoAgent() {
 
       cy.wait(10000);
 
-      const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]')
-          .its('0.contentDocument.body').should('not.be.empty')
-          .then((body) => cy.wrap(body));
-      };
-
-      const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]')
-          .its('0.contentDocument.body').should('not.be.empty')
-          .then((body) => cy.wrap(body));
-      };
-
-      const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]')
-          .its('0.contentDocument.body').should('not.be.empty')
-          .then((body) => cy.wrap(body));
-      };
-
-      const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]')
-          .its('0.contentDocument.body').should('not.be.empty')
-          .then((body) => cy.wrap(body));
-      };
-
-      getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber);
-      getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1);
-      getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2);
-      getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC);
-      cy.get('#continueButton').click();
+      // Check all iframes for the plain card number input
+      cy.get('iframe').each(($iframe, idx) => {
+        cy.wrap($iframe)
+          .its('0.contentDocument.body')
+          .should('not.be.empty')
+          .then((body) => {
+            const cardInput = Cypress.$(body).find('input[placeholder="Card Number"]');
+            if (cardInput.length > 0) {
+              cy.log(`Found plain card input in iframe[${idx}]`);
+              cy.wrap(body).find('input[placeholder="Card Number"]').type(CCnumber);
+              cy.wrap(body).find('input[placeholder="MMYY"], input[placeholder="MMYY"]').type(`${Exp1}/${Exp2}`);
+              cy.wrap(body).find('input[placeholder="CV2"], input[placeholder="CVC"]').type(CVC);
+              cy.wrap(body).find('input[placeholder="Address Line 1"], input[placeholder="Address Line 1"]').click();
+              cy.wrap(body).contains('button', 'Submit').click();
+            } else {
+              // Fallback to Adyen iframe logic if not found
+              const adyenCard = Cypress.$(body).find('#encryptedCardNumber');
+              if (adyenCard.length > 0) {
+                cy.wrap(body).find('#encryptedCardNumber').type(CCnumber);
+                cy.wrap(body).find('#encryptedExpiryMonth').type(Exp1);
+                cy.wrap(body).find('#encryptedExpiryYear').type(Exp2);
+                cy.wrap(body).find('#encryptedSecurityCode').type(CVC);
+                cy.wrap(body).find('#continueButton').click();
+              }
+            }
+          });
+      });
     });
   });
 }
