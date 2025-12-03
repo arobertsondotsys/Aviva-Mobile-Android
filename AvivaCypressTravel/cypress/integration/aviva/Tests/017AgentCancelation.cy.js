@@ -42,10 +42,10 @@ describe('Agent can cancel a policy', () => {
         CancellationPage.cancellationReason()
         CancellationPage.cancellationContinue()
 
-        // Select Cancelation date (+5 days from current date)
-        // CancellationPage.cancellationDateHeading()
-        // CancellationPage.cancellationDate()
-        // CancellationPage.cancellationDateContinue()
+        //Select Cancelation date (+5 days from current date)
+        CancellationPage.cancellationDateHeading()
+        CancellationPage.cancellationDate()
+        CancellationPage.cancellationDateContinue()
 
         // Quote screen for cancelation
         CancellationPage.cancellationAmountHeading()
