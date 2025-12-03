@@ -264,7 +264,7 @@ paymentCardDemo() {
     cy.url().then((url) => {
       if (url.includes('direct')) {
         // Still on payment host, check for password iframe
-        cy.wait(6000);
+        cy.wait(8000);
         cy.get('iframe').each(($iframe, idx) => {
           cy.wrap($iframe)
             .its('0.contentDocument.body')
