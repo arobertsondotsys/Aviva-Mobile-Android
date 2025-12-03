@@ -262,28 +262,34 @@ paymentCardQAAgent() {
               cy.wrap(body).find('input[placeholder="Address Line 1"], input[placeholder="Address Line 1"]').click();
               cy.wrap(body).contains('button', 'Submit').click();
             } else {
-            // Fallback to Adyen iframe logic if not found 
+            // Fallback to Adyen iframe logic if not found
             if ($body.find('#encryptedCardNumber').length) {
             cy.log(`Found Adyen card number in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedCardNumber').type(CCnumber);
+            adyenFieldsFilled = true
             }
             if ($body.find('#encryptedExpiryMonth').length) {
             cy.log(`Found Adyen expiry month in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedExpiryMonth').type(Exp1);
+            adyenFieldsFilled = true
             }
             if ($body.find('#encryptedExpiryYear').length) {
             cy.log(`Found Adyen expiry year in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedExpiryYear').type(Exp2);
+            adyenFieldsFilled = true
             }
             if ($body.find('#encryptedSecurityCode').length) {
             cy.log(`Found Adyen CVC in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedSecurityCode').type(CVC);
+            adyenFieldsFilled = true
             }
-            cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
           }
         });
-      });   
-      
+        }).then(() => {   
+        if (adyenFieldsFilled) {
+        cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
+        }
+      });
     });
   });
 }
@@ -430,24 +436,30 @@ paymentCardDemoAgent() {
             if ($body.find('#encryptedCardNumber').length) {
             cy.log(`Found Adyen card number in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedCardNumber').type(CCnumber);
+            adyenFieldsFilled = true
             }
             if ($body.find('#encryptedExpiryMonth').length) {
             cy.log(`Found Adyen expiry month in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedExpiryMonth').type(Exp1);
+            adyenFieldsFilled = true
             }
             if ($body.find('#encryptedExpiryYear').length) {
             cy.log(`Found Adyen expiry year in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedExpiryYear').type(Exp2);
+            adyenFieldsFilled = true
             }
             if ($body.find('#encryptedSecurityCode').length) {
             cy.log(`Found Adyen CVC in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedSecurityCode').type(CVC);
+            adyenFieldsFilled = true
             }
-            cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
           }
         });
-      });   
-      
+        }).then(() => {   
+        if (adyenFieldsFilled) {
+        cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
+        }
+      });
     });
   });
 }
