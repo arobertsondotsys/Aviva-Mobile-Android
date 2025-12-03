@@ -279,10 +279,11 @@ paymentCardQAAgent() {
             cy.log(`Found Adyen CVC in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedSecurityCode').type(CVC);
             }
+            cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
           }
         });
       });   
-      cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
+      
     });
   });
 }
@@ -442,10 +443,11 @@ paymentCardDemoAgent() {
             cy.log(`Found Adyen CVC in iframe[${idx}]`);
             cy.wrap(body).find('#encryptedSecurityCode').type(CVC);
             }
+            cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
           }
         });
       });   
-      cy.get('#continueButton', { timeout: 10000 }).should('be.visible').and('not.be.disabled').click();
+      
     });
   });
 }
