@@ -43,11 +43,15 @@ selectPaymentMethod2() {
 }
 
 paymentCardQAWithCheck() {
-  cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+    cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.rwy-aviva.co.uk')) {
+      originUrl = 'https://www.direct.rwy-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
       Cypress.on('uncaught:exception', (err, runnable) => {
           return false // Prevent Cypress from failing the test on uncaught exceptions
       })
@@ -129,12 +133,15 @@ paymentCardQAWithCheck() {
 }
 
 paymentCardQA(){
-
-    cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+  cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.rwy-aviva.co.uk')) {
+      originUrl = 'https://www.direct.rwy-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -208,12 +215,15 @@ paymentCardQA(){
 }
 
 paymentCardQAAgent(){
-
-    cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+  cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.rwy-aviva.co.uk')) {
+      originUrl = 'https://www.direct.rwy-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -261,12 +271,15 @@ paymentCardQAAgent(){
 }
 
 paymentCardDemo(){
-
-    cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(stg-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+  cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.stg-aviva.co.uk')) {
+      originUrl = 'https://www.direct.stg-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -348,12 +361,15 @@ paymentCardDemo(){
 }
 
 paymentCardDemoAgent(){
-
-    cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(stg-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+  cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.stg-aviva.co.uk')) {
+      originUrl = 'https://www.direct.stg-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
         Cypress.on('uncaught:exception', (err, runnable) =>
         {
         return false
@@ -400,12 +416,15 @@ paymentCardDemoAgent(){
 }
 
 paymentDDQA(){
-
-    cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+  cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.rwy-aviva.co.uk')) {
+      originUrl = 'https://www.direct.rwy-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -462,12 +481,15 @@ paymentDDQA(){
 }
 
 paymentDDQAWithPassword(){
-
-    cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(rwy-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+  cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.rwy-aviva.co.uk')) {
+      originUrl = 'https://www.direct.rwy-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
@@ -548,12 +570,15 @@ paymentDDQAWithPassword(){
 }
 
 paymentDDDemo(){
-
-    cy.origin(
-    { 
-      origin: /^https:\/\/www\.direct\.(stg-aviva|pre-aviva)\.co\.uk$/ 
-    }, 
-    () => {
+  cy.url().then((currentUrl) => {
+    let originUrl = '';
+    if (currentUrl.startsWith('https://www.direct.stg-aviva.co.uk')) {
+      originUrl = 'https://www.direct.stg-aviva.co.uk';
+    } else if (currentUrl.startsWith('https://www.direct.pre-aviva.co.uk')) {
+      originUrl = 'https://www.direct.pre-aviva.co.uk';
+    } else {
+      throw new Error('Unknown payment domain: ' + currentUrl);
+    }
       Cypress.on('uncaught:exception', (err, runnable) =>
       {
       return false
