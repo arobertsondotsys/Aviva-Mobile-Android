@@ -244,7 +244,7 @@ paymentCardQAAgent() {
       const Exp2 = '30';
       const CVC = '737';
 
-      cy.wait(10000);
+      cy.wait(12000);
 
       // Check all iframes for the plain card number input
       cy.get('iframe').each(($iframe, idx) => {
@@ -408,7 +408,7 @@ paymentCardDemoAgent() {
       const Exp2 = '30';
       const CVC = '737';
 
-      cy.wait(10000);
+      cy.wait(12000);
 
       // Check all iframes for the plain card number input
       cy.get('iframe').each(($iframe, idx) => {
