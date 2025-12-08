@@ -34,6 +34,29 @@ retreivePolicyNumber(){
         
 }
 
+retreivePolicyNumberDD(){
+
+    cy.getAndWait('.m-card-content__inner > p > strong')
+    .invoke('text') 
+    .then((text) => {
+    
+    const numberOnly = text.match(/\d+/)[0]
+    const server = Cypress.env('server')
+
+    cy.readFile('policy.json', { timeout: 10000 }).then((data) => {
+        const updatedData = { ...data, policyNumberDD: numberOnly, server }
+        cy.writeFile('policy.json', updatedData)
+    })
+
+    cy.wrap(numberOnly).as('policyNumberDD')
+    })
+
+    cy.get('@policyNumberDD').then((policyNumberDD) => {
+    cy.log(`Extracted policy number: ${policyNumberDD}`)
+    })
+        
+}
+
 retreiveTempPackPolicyNumber(){
 
     cy.getAndWait('.m-card-content__inner > p > strong')

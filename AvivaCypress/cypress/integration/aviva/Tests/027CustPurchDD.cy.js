@@ -150,6 +150,6 @@ describe('Customer can purchase a policy via website', () => {
  
         // Thank you page
         ThankYouPage.thankyouHeading()
-        ThankYouPage.retreivePolicyNumber()
+        ThankYouPage.retreivePolicyNumberDD()
     })
 })
