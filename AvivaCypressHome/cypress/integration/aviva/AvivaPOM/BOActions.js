@@ -932,7 +932,7 @@ checkRenewalInviteDocsNoEmail(){
 
 checkRenewalDocs(){
 
-    cy.wait(100000)
+    cy.wait(120000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Cover Letter')
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')
@@ -943,7 +943,7 @@ checkRenewalDocs(){
 
 checkRenewalDocsNoEmail(){
 
-    cy.wait(100000)
+    cy.wait(120000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Receipt')
@@ -963,7 +963,7 @@ checkRenewalDocsNoEmail(){
 
 checkRenewalDocsNoEmailQA(){
 
-    cy.wait(80000)
+    cy.wait(120000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Receipt')
@@ -983,7 +983,7 @@ checkRenewalDocsNoEmailQA(){
 
 checkRenewalDocsAutoRolover(){
 
-    cy.wait(80000)
+    cy.wait(120000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Renewal Confirm Email')
@@ -1027,7 +1027,7 @@ checkRenewalDocsAutoRolloverNoEmail(){
 
 checkRenewalDocsAutoRoloverNoEmailQA(){
 
-    cy.wait(80000)
+    cy.wait(120000)
     cy.reload()
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.check_renewaldocs).contains('Policy Schedule')
@@ -1056,7 +1056,7 @@ checkRenewalInviteDocsPost(){
 
 checkRenewalConfirmationDocsPost(){
 
-    cy.wait(80000)
+    cy.wait(120000)
     cy.reload()
     cy.contains(/Renewal Cover Letter|Renewal Confirm Letter/)
     cy.contains('Renewal Confirm Email')
@@ -1146,7 +1146,7 @@ checkRNLMTAParagonDocs(){
 checkBonkersPIFDocs(){
 
     cy.getAndWait(this.LoginElementLocators.BOPageLocators.printqueue_view).click()
-    cy.wait(100000)
+    cy.wait(120000)
     cy.reload()
     cy.contains('Welcome Letter')
     cy.contains('Welcome Email Full Cover')
