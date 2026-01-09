@@ -30,7 +30,7 @@ describe('Customer can upload a document', () => {
         cy.getAndWait('#Main_btnUploadDocuments').click()
         cy.getAndWait('#Main_ddlDocumentUpload, #ddlDocumentUpload').select(1)
         cy.getAndWait('.a-file-upload__label').click()
-        cy.get('input[type="file"]').selectFile("C:/Aviva/AvivaCypress/cypress/support/Example.jpg", {force:true})
+        cy.get('input[type="file"]').selectFile("C:/Users/a.robertson/OneDrive - MCL Insurance/Desktop/Cypress Projects/Aviva/AvivaCypress/cypress/support/Example.jpg", {force:true})
         cy.getAndWait('#Main_btnUpload').click()
         cy.getAndWait('#Main_divSuccessMessage > .l-columns > .l-columns__column > .m-card > .m-card-content > .m-heading-group__item').contains('Upload successful')
     })

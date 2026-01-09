@@ -38,7 +38,7 @@ describe('Agent can upload document', () => {
         cy.getAndWait('#Upload').click()
         cy.getAndWait('#ctl00_ContentPlaceHolder1_DocumentTypeList').select("49")
         cy.getAndWait('#ctl00_ContentPlaceHolder1_ReferenceNumber').type('123')
-        cy.getAndWait('#ctl00_ContentPlaceHolder1_FileUpload').selectFile("C:/Aviva/AvivaCypress/cypress/support/Example.jpg", {force: true})
+        cy.getAndWait('#ctl00_ContentPlaceHolder1_FileUpload').selectFile("C:/Users/a.robertson/OneDrive - MCL Insurance/Desktop/Cypress Projects/Aviva/AvivaCypress Telematics/cypress/support/Example.jpg", {force: true})
         cy.getAndWait('#ctl00_ContentPlaceHolder1_btnUpload').click()
         cy.getAndWait('[id^="ctl00_ContentPlaceHolder1_gvScannedDocuments_ctl"]').last().should('have.text', 'View')
     })
