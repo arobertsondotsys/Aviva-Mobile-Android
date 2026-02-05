@@ -56,6 +56,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
+    saveJson: true,
     inlineAssets: true,
     useInlineDiffs: true,
     embeddedScreenshots: true,
