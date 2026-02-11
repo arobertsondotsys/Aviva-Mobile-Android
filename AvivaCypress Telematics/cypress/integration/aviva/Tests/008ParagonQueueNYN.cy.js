@@ -136,6 +136,7 @@ describe('Policy Purchase with NYN', () => {
         CoverStartDatePage.coverStartHaveHomeIns()
         CoverStartDatePage.coverStartHaveCarIns()
         CoverStartDatePage.coverStartMarketing()
+        CoverStartDatePage.coverStartCallConsent(true)
         CoverStartDatePage.coverStartContinue()
 
         // Quote screen - Buy now 

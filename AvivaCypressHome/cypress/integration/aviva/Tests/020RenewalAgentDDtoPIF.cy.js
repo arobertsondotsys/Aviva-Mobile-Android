@@ -106,10 +106,10 @@ describe('Agent purchase home policy renewal as PIF from DD', () => {
     PolicyStartDateClaimsPage.coverStartTitle()
     BOAction.notes()
     PolicyStartDateClaimsPage.claimsFreeYears()
-    
     PolicyStartDateClaimsPage.coverStartDate()
     PolicyStartDateClaimsPage.coverStartHaveCarIns()
     PolicyStartDateClaimsPage.coverStartMarketing()
+    PolicyStartDateClaimsPage.coverStartCallConsent(true)
     PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage

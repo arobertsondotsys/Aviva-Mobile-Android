@@ -102,6 +102,7 @@ describe('Agent purchase home policy', () => {
     PolicyStartDateClaimsPage.coverStartDate()
     PolicyStartDateClaimsPage.coverStartHaveCarIns()
     PolicyStartDateClaimsPage.coverStartMarketing()
+    PolicyStartDateClaimsPage.coverStartCallConsent(true)
     PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage

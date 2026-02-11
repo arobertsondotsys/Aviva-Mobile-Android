@@ -97,6 +97,8 @@
     "coverstart_havecartrue": "#IsHouseholdCar-True > .a-radio > .a-radio__label",
     "coverstart_marketingfalse": "#RecieveOffers-False > .a-radio > .a-radio__label",
     "coverstart_marketingtrue": "#RecieveOffers-True > .a-radio > .a-radio__label",
+    "coverstart_callconsentyes": "",
+    "coverstart_callconsentno": "",
     "coverstart_promocode": "#MainContent_PromoCode",
     "coverstart_custcheck": ".a-checkbox__label",
     "coverstart_notcustcheck": ".a-checkbox__label",

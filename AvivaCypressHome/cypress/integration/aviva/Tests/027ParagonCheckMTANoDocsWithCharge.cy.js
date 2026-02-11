@@ -108,11 +108,10 @@ describe('Agent purchase home policy with docs set to post at MTA', () => {
     PolicyStartDateClaimsPage.coverStartTitle()
     BOAction.notes()
     PolicyStartDateClaimsPage.claimsFreeYears()
-    
     PolicyStartDateClaimsPage.coverStartDate()
     PolicyStartDateClaimsPage.coverStartHaveCarIns()
     PolicyStartDateClaimsPage.coverStartMarketing()
-    
+    PolicyStartDateClaimsPage.coverStartCallConsent(true)
     PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage

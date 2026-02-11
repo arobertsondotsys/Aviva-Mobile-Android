@@ -149,6 +149,7 @@ describe('Customer can add a driver and remove at ADJ', () => {
         CoverStartDatePage.coverStartHaveHomeIns()
         CoverStartDatePage.coverStartHaveCarIns()
         CoverStartDatePage.coverStartMarketing()
+        CoverStartDatePage.coverStartCallConsent(true)
         CoverStartDatePage.coverStartContinue()
         //cy.wait(10000)
 

@@ -142,6 +142,7 @@ describe('Agent can add a Medical condition and remove ok', () => {
         CoverStartDatePage.coverStartHaveHomeIns()
         CoverStartDatePage.coverStartHaveCarIns()
         CoverStartDatePage.coverStartMarketing()
+        CoverStartDatePage.coverStartCallConsent(true)
         CoverStartDatePage.coverStartContinue()
 
         // Quote screen - Buy now 

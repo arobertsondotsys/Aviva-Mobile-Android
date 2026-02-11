@@ -60,6 +60,16 @@ coverStartMarketing(){
 
 }
 
+coverStartCallConsent(consentYes = true) {
+    const server = Cypress.env('server') || ''
+    if (server.toLowerCase().includes('QA')) {
+        const yesSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentyes
+        const noSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentno
+        cy.getAndWait(consentYes ? yesSelector : noSelector).click();
+    }
+    // If not QA, do nothing (question will not appear)
+}
+
 coverStartNotCustomerQuote(){
 
     cy.getAndWait(this.LoginElementLocators.QuotePageLocators.coverstart_notcustcheck).should('not.be.visible')

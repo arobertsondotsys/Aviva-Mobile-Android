@@ -93,6 +93,7 @@ describe('Agent can purchase a single trip policy via Backoffice', () => {
         // Complete section 4 "Before You Get Your Quote"
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteTitle()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteMarketingNo()
+        BeforeYouGetYourQuotePage.beforeYouGetYourQuoteCallConsent(true)
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteIAgree()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteContinue()
 
