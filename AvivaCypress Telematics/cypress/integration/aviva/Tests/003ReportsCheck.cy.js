@@ -18,10 +18,7 @@ describe('Check reports download', () => {
         Server.Server()
         
         // Log in
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
         
         // Select reports tab
         cy.get('[title="Reports"]').trigger('mouseenter', { force: true })

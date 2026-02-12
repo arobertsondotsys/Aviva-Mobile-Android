@@ -19,9 +19,9 @@ describe('Portal Login Tests', () => {
         Server.Server1()
         BOAction.cookiesAccept()
         cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
-        Logins.loginEmail()
-        Logins.loginPassword()
-        Logins.loginPortalButton()
+
+        cy.portalLogin()
+
         cy.getAndWait('#Main_BreadcrumbHeading').contains('Welcome to MyAviva').and('be.visible')
         cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').then(($button) => {
             if ($button.is(':visible')) {

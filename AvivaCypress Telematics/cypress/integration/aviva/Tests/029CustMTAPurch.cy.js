@@ -39,9 +39,7 @@ describe('Customer can purchase an MTA', () => {
         BOAction.cookiesAccept()
         cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
 
-        Logins.loginEmail()
-        Logins.loginPassword()
-        Logins.loginPortalButton()
+        cy.portalLogin()
 
         // cy.getAndWait('#RenewalDueModal > .CloseBtnMockup').click()
         PortalAction.portalManagePolicyWithPolicyNumber()

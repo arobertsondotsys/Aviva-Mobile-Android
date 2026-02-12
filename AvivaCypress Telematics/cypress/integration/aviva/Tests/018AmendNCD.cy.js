@@ -53,10 +53,7 @@ describe('Agent can Amend an NCD', () => {
         Server.Server()
         
         // Log in
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
 
         // Revert new window that opens back to original window 
         BOAction.agentQuote()
@@ -243,10 +240,7 @@ describe('Agent can Amend an NCD', () => {
         Server.Server()
 
         // Log in
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
 
         // Search for Customer file
         Logins.email()

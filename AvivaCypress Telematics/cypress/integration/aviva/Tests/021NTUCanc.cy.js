@@ -19,10 +19,7 @@ describe('Agent can NTU a cancellation', () => {
         Server.Server()
         
         // Log in to back office
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
 
         // Search for customer
         Logins.email()

@@ -53,10 +53,7 @@ describe('Medical condition can be removed at renewal', () => {
         Server.Server()
         
         // Log in
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
 
         // Revert new window that opens back to original window 
         cy.getAndWait('#ctl00_ContentPlaceHolder1_ProductList').select(1)

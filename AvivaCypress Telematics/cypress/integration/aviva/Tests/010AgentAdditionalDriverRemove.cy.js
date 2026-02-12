@@ -55,10 +55,7 @@ describe('Agent can add a driver and remove at ADJ', () => {
         Server.Server()
         
         // Log in
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
 
         // Revert new window that opens back to original window 
         BOAction.agentQuote()

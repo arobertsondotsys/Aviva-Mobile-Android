@@ -22,9 +22,7 @@ describe('Customer can upload a document', () => {
         BOAction.cookiesAccept()
         cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
 
-        Logins.loginEmail()
-        Logins.loginPassword()
-        Logins.loginPortalButton()
+        cy.portalLogin()
 
         PortalAction.portalManagePolicyWithPolicyNumber()
         cy.getAndWait('#Main_btnUploadDocuments').click()
