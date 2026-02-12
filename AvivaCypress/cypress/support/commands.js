@@ -1,3 +1,5 @@
+
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -24,6 +26,26 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
+
+// Custom command for agent login using the Login class
+Cypress.Commands.add('agentLogin', () => {
+  const { Login } = require('../integration/aviva/AvivaPOM/Login');
+  const login = new Login();
+  login.company();
+  login.username();
+  login.password();
+  login.loginButton();
+})
+
+// Custom command for portal login using the Login class
+Cypress.Commands.add('portalLogin', () => {
+  const { Login } = require('../integration/aviva/AvivaPOM/Login');
+  const login = new Login();
+  login.loginEmail();
+  login.loginPassword();
+  login.loginPortalButton();
+})
+
 import 'cypress-iframe'
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {
     Cypress.log({

@@ -37,10 +37,7 @@ describe('Policy Purchase with NNY', () => {
         Server.Server()
         
         // Log in
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
         
         // Revert new window that opens back to original window 
         cy.get('#ctl00_ContentPlaceHolder1_ProductList').select(1)

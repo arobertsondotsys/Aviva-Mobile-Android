@@ -26,7 +26,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 const Server = new Servers()
 const BOAction = new BOActions()
-const Logins = new Login()
 const AboutYouPage = new AboutYou()
 const PersonalDetailsPage = new PersonalDetails()
 const InsuranceDetailsPage = new InsuranceDetails()
@@ -47,11 +46,8 @@ describe('Agent can purchase a policy via back office', () => {
     it('should complete the policy purchase process', () => {
         Server.Server()
         
-        // Log in
-        Logins.company()
-        Logins.username()
-        Logins.password()
-        Logins.loginButton()
+        // Log in using custom command
+        cy.agentLogin()
 
         // Revert new window that opens back to original window 
         BOAction.agentQuote()
