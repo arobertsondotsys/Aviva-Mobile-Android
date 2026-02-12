@@ -101,8 +101,8 @@
     "beforeyougetyourquote_title": "#section4 > .m-showhide__control",
     "beforeyougetyourquote_marketingyes": "#Marketing > :nth-child(1) > .a-radio > .a-radio__label",
     "beforeyougetyourquote_marketingno": "#Marketing > :nth-child(2) > .a-radio > .a-radio__label",
-    "beforeyougetyourquote_callconsentyes": "",
-    "beforeyougetyourquote_callconsentno": "",
+    "beforeyougetyourquote_callconsentyes": "#CallConsent-yes",
+    "beforeyougetyourquote_callconsentno": "#CallConsent-no",
     "beforeyougetyourquote_iagree": ".a-checkbox__label",
     "beforeyougetyourquote_continue": "#Continue4",
     
