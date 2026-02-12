@@ -62,9 +62,10 @@ coverStartMarketing(){
 
 coverStartCallConsent(consentYes = true) {
     const server = Cypress.env('server') || ''
-    if (server.toLowerCase().includes('QA')) {
-        const yesSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentyes
-        const noSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentno
+    // Only match 'QA' exactly, not 'QA2' or others
+    if (server.trim().toLowerCase() === 'qa') {
+        const yesSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentyes;
+        const noSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentno;
         cy.getAndWait(consentYes ? yesSelector : noSelector).click();
     }
     // If not QA, do nothing (question will not appear)
