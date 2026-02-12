@@ -33,10 +33,7 @@ describe('Agent purchase home policy with a joint provider', () => {
   it('should allow an agent to purchase a home policy with a joint provider', () => {
     // Login to back office 
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
     BOAction.agentQuote()
     BOAction.createNewQuoteBTN()
     BOAction.cookiesAccept()

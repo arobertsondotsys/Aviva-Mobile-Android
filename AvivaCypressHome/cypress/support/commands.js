@@ -24,6 +24,17 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
+// Custom command for agent login using the Login class
+Cypress.Commands.add('agentLogin', () => {
+  const { Login } = require('../integration/aviva/AvivaPOM/Login');
+  const login = new Login();
+  login.company();
+  login.username();
+  login.password();
+  login.loginButton();
+})
+
+
 import 'cypress-iframe'
 
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {

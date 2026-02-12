@@ -33,10 +33,7 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
   it('should allow an agent to purchase a home policy with docs set to post at NB', () => {
     // Login to back office 
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
     BOAction.agentQuote()
     BOAction.createNewQuoteBTN()
     BOAction.cookiesAccept()

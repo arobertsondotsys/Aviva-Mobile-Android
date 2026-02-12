@@ -25,10 +25,7 @@ describe('Agent MTA purchase of Joint Owner checking for correct documents', () 
   it('should allow an agent to make an MTA purchase and check for correct documents', () => {
     // Login to back office 
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
     Logins.email()
     BOAction.searchButton()
     BOAction.policySelectButton()

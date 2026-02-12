@@ -119,10 +119,7 @@ describe('Customer purchase home policy', () => {
 
     // Navigate back to the B/O
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
 
     Logins.email()
     BOAction.searchButton()

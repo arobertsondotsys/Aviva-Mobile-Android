@@ -33,10 +33,7 @@ describe('Agent MTA purchase', () => {
   it('should allow an agent to make an MTA purchase', () => {
     // Login to back office 
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
     Logins.email()
     BOAction.searchButton()
     BOAction.policySelectButton()

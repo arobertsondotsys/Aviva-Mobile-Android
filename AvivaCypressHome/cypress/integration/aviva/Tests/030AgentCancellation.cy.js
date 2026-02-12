@@ -19,10 +19,7 @@ describe('Agent can cancel a policy', () => {
   it('should allow an agent to cancel a policy', () => {
     // Login to back office 
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
     Logins.email()
     BOAction.searchButton()
     BOAction.policySelectButton()

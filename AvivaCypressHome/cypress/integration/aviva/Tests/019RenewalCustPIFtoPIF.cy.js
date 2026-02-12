@@ -124,10 +124,7 @@ describe('Customer purchase home policy renewal as PIF', () => {
 
     // Navigate to the B/O and login
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
     Logins.email()
     BOAction.searchButton()
     BOAction.policySelectButton()

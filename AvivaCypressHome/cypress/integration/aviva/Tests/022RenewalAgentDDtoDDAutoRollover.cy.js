@@ -35,10 +35,7 @@ describe('Agent purchase home policy renewal as autorollover', () => {
   it('should allow an agent to purchase a home policy renewal as autorollover', () => {
     // Login to back office 
     Server.Server()
-    Logins.company()
-    Logins.username()
-    Logins.password()
-    Logins.loginButton()
+    cy.agentLogin()
     BOAction.agentQuote()
     BOAction.createNewQuoteBTN()
     BOAction.cookiesAccept()
