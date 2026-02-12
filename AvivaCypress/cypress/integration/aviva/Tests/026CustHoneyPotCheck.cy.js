@@ -132,7 +132,7 @@ describe('Customer can purchase a policy via website', () => {
         CoverStartDatePage.coverStartHaveHomeIns()
         CoverStartDatePage.coverStartHaveCarIns()
         CoverStartDatePage.coverStartMarketing()
-        CoverStartDatePage.coverStartCallConsent(true)
+        //CoverStartDatePage.coverStartCallConsent(true)
         CoverStartDatePage.coverStartCustomerQuote()
         CoverStartDatePage.coverStartContinue()
 

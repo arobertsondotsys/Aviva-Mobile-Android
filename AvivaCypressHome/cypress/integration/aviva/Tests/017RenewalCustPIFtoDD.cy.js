@@ -100,7 +100,7 @@ describe('Customer purchase home policy renewal on new DD', () => {
     PolicyStartDateClaimsPage.coverStartDate()
     PolicyStartDateClaimsPage.coverStartHaveCarIns()
     PolicyStartDateClaimsPage.coverStartMarketing()
-    PolicyStartDateClaimsPage.coverStartCallConsent(true)
+    //PolicyStartDateClaimsPage.coverStartCallConsent(true)
     PolicyStartDateClaimsPage.coverStartCustomerQuote()
     PolicyStartDateClaimsPage.coverStartContinue()
 

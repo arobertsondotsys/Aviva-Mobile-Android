@@ -133,7 +133,7 @@ describe('Medical condition can be removed at renewal', () => {
         CoverStartDatePage.coverStartHaveHomeIns()
         CoverStartDatePage.coverStartHaveCarIns()
         CoverStartDatePage.coverStartMarketing()
-        CoverStartDatePage.coverStartCallConsent(true)
+        //CoverStartDatePage.coverStartCallConsent(true)
         CoverStartDatePage.coverStartContinue()
 
         // Quote screen - Buy now 
