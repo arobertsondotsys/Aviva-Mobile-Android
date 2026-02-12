@@ -17,10 +17,7 @@ describe('Check cookie status', () => {
         Server.Server()
         
         // Log in
-        Logins.company()
-        Logins.username3()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
 
         cy.getCookie('.evolveDAuth').then((cookie) => {
             if (cookie) {

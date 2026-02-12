@@ -25,9 +25,7 @@ describe('Customer can cancel policy', () => {
         cy.getAndWait('[class^="a-heading a-heading--1 u-margin--top-none"]').contains('Log in to MyAviva').and('be.visible')
 
         // Log in
-        Logins.loginEmail()
-        Logins.loginPassword()
-        Logins.loginPortalButton()
+        cy.portalLogin()
 
         // Enter account to cancel policy
         PortalAction.portalManagePolicyWithTravelPolicyNumberSingle()

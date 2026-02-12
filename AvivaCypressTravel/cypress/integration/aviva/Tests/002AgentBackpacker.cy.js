@@ -53,10 +53,7 @@ describe('Agent can purchase a Backpacker policy via Backoffice', () => {
         Server.Server()
 
         // Log in
-        Logins.company()
-        Logins.username3()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
         
         // Revert new window that opens back to original window 
         BOAction.agentQuote()

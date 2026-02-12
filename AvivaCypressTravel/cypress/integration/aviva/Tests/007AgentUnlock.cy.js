@@ -18,10 +18,7 @@ describe('Agent can unlock customer file', () => {
         Server.Server()
         
         // Log in
-        Logins.company()
-        Logins.username3()
-        Logins.password()
-        Logins.loginButton()
+        cy.agentLogin()
 
         // Search for Customer file
         Logins.email()
