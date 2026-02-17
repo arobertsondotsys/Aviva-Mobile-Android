@@ -90,7 +90,7 @@ describe('Agent can purchase a policy via back office', () => {
         // Complete section 4 "Before You Get Your Quote"
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteTitle()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteMarketingNo()
-        //BeforeYouGetYourQuotePage.beforeYouGetYourQuoteCallConsent(true)
+        BeforeYouGetYourQuotePage.beforeYouGetYourQuoteCallConsent(true)
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteIAgree()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteContinue()
 

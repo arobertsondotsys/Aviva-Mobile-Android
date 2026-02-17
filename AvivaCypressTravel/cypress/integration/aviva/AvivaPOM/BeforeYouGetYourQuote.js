@@ -23,7 +23,7 @@ beforeYouGetYourQuoteMarketingNo(){
 
 beforeYouGetYourQuoteCallConsent(consentYes = true) {
     const server = Cypress.env('server') || ''
-    if (server.toLowerCase().includes('QA')) {
+    if (server.trim().toLowerCase() === 'qa') {
         const yesSelector = this.LoginElementLocators.QuotePageLocators.beforeyougetyourquote_callconsentyes
         const noSelector = this.LoginElementLocators.QuotePageLocators.beforeyougetyourquote_callconsentno
         cy.getAndWait(consentYes ? yesSelector : noSelector).click();

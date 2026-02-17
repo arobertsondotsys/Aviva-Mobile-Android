@@ -45,7 +45,7 @@ describe('Change policy ownership', () => {
             cy.get('[class^="dropdown selectAction"]').first().click({ force: true }).contains('Policy Ownership').invoke("removeAttr", "target").click({ force: true })
 
             // Change ownership
-            cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingJan2026@DOTSYS.co.uk')
+            cy.get('#ctl00_ContentPlaceHolder1_NewEmailAddress').type('automatedtestingFeb2026@DOTSYS.co.uk')
             cy.get('#ctl00_ContentPlaceHolder1_ChangeOwnership').click()
             cy.get('#ctl00_ContentPlaceHolder1_SuccessMessage').contains('The policy has now been re-registered')
             cy.go('back')

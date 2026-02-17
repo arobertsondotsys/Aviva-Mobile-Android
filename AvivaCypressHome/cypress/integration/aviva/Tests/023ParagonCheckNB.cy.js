@@ -110,7 +110,7 @@ describe('Agent purchase home policy with docs set to post at NB', () => {
     PolicyStartDateClaimsPage.coverStartDate()
     PolicyStartDateClaimsPage.coverStartHaveCarIns()
     PolicyStartDateClaimsPage.coverStartMarketing()
-    //PolicyStartDateClaimsPage.coverStartCallConsent(true)
+    PolicyStartDateClaimsPage.coverStartCallConsent(true)
     PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage

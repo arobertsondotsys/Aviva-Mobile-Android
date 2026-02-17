@@ -106,7 +106,7 @@ describe('Agent purchase home policy renewal as autorollover', () => {
     PolicyStartDateClaimsPage.coverStartDate()
     PolicyStartDateClaimsPage.coverStartHaveCarIns()
     PolicyStartDateClaimsPage.coverStartMarketing()
-    //PolicyStartDateClaimsPage.coverStartCallConsent(true)
+    PolicyStartDateClaimsPage.coverStartCallConsent(true)
     PolicyStartDateClaimsPage.coverStartContinue()
 
     // Quotepage

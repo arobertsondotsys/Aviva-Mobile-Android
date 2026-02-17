@@ -83,7 +83,7 @@ describe('Customer can purchase a Multi trip policy via website', () => {
         // // Complete section 4 "Before You Get Your Quote"
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteTitle()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteMarketingNo()
-        //BeforeYouGetYourQuotePage.beforeYouGetYourQuoteCallConsent(true)
+        BeforeYouGetYourQuotePage.beforeYouGetYourQuoteCallConsent(true)
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteIAgree()
         BeforeYouGetYourQuotePage.beforeYouGetYourQuoteContinue()
 
