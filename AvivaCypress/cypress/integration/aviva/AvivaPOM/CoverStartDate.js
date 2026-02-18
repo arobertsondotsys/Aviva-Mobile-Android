@@ -66,7 +66,7 @@ coverStartCallConsent(consentYes = true) {
     if (server.trim().toLowerCase() === 'qa') {
         const yesSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentyes;
         const noSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentno;
-        cy.getAndWait(consentYes ? yesSelector : noSelector).click();
+        cy.getAndWait(consentYes ? yesSelector : noSelector).click()
     }
     // If not QA, do nothing (question will not appear)
 }

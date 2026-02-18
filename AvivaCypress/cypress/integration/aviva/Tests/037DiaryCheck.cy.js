@@ -124,6 +124,7 @@ describe('Check Diary Chaser function', () => {
         CoverStartDatePage.coverStartHaveHomeIns()
         CoverStartDatePage.coverStartHaveCarIns()
         CoverStartDatePage.coverStartMarketing()
+        CoverStartDatePage.coverStartCallConsent(true)
         CoverStartDatePage.coverStartContinue()
 
         // Quote screen - Buy now 
