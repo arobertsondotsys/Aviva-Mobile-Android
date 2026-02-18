@@ -30,7 +30,7 @@ Cypress.Commands.add('agentLogin', () => {
   const { Login } = require('../integration/aviva/AvivaPOM/Login');
   const login = new Login();
   login.company();
-  login.username();
+  login.username3();
   login.password();
   login.loginButton();
 })
