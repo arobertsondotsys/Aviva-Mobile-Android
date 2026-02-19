@@ -66,8 +66,8 @@ paymentCardQAWithCheck() {
       cy.wait(3000);
 
       cy.get('body').then(($body) => {
-        if ($body.find('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').length > 0) {
-          cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click();
+        if ($body.find('#paymentMethodSelectionCard').length > 0) {
+          cy.get('#paymentMethodSelectionCard').click();
         } else {
           cy.log('Radio button not found, proceeding without clicking.');
         }
@@ -220,7 +220,7 @@ paymentCardDemo() {
 
       // Check if the radio button exists and click it
       cy.get('body').then(($body) => {
-        const radioSelector = '.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label';
+        const radioSelector = '#paymentMethodSelectionCard';
         if ($body.find(radioSelector).length > 0) {
           cy.get(radioSelector).click();
         } else {
