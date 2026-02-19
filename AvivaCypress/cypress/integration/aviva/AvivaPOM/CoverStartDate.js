@@ -61,14 +61,13 @@ coverStartMarketing(){
 }
 
 coverStartCallConsent(consentYes = true) {
-    const server = Cypress.env('server') || ''
-    // Only match 'QA' exactly, not 'QA2' or others
-    if (server.trim().toLowerCase() === 'qa') {
+    const server = (Cypress.env('server') || '').trim().toLowerCase();
+    if (server !== 'qa2') {
         const yesSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentyes;
         const noSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentno;
-        cy.getAndWait(consentYes ? yesSelector : noSelector).click()
+        cy.getAndWait(consentYes ? yesSelector : noSelector).click();
     }
-    // If not QA, do nothing (question will not appear)
+    // If QA2, do nothing (question will not appear)
 }
 
 coverStartNotCustomerQuote(){
