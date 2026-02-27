@@ -22,13 +22,9 @@ beforeYouGetYourQuoteMarketingNo(){
 }
 
 beforeYouGetYourQuoteCallConsent(consentYes = true) {
-    const server = (Cypress.env('server') || '').trim().toLowerCase();
-    if (server !== 'qa2') {
         const yesSelector = this.LoginElementLocators.QuotePageLocators.beforeyougetyourquote_callconsentyes;
         const noSelector = this.LoginElementLocators.QuotePageLocators.beforeyougetyourquote_callconsentno;
-        cy.getAndWait(consentYes ? yesSelector : noSelector).click();
-    }
-    // If QA2, do nothing (question will not appear)
+        cy.getAndWait(consentYes ? yesSelector : noSelector).click()
 }
 
 beforeYouGetYourQuoteIAgree(){

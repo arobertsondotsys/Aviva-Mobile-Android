@@ -36,13 +36,9 @@ export class PolicyStartDateClaims{
     }
 
     coverStartCallConsent(consentYes = true) {
-        const server = (Cypress.env('server') || '').trim().toLowerCase();
-        if (server !== 'qa2') {
             const yesSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentyes;
             const noSelector = this.LoginElementLocators.QuotePageLocators.coverstart_callconsentno;
-            cy.getAndWait(consentYes ? yesSelector : noSelector).click();
-        }
-        // If QA2, do nothing (question will not appear)
+            cy.getAndWait(consentYes ? yesSelector : noSelector).click()
     }
 
 
