@@ -1,5 +1,5 @@
   
-describe('API Automation', () => {
+describe('Aviva Bonkers API Automation', () => {
  const TOKEN_URL = 'https://qaaviva.dotsys.co.uk/publicwebservices/AggregatorAPI/api/Secure/token'
  const DATAGATEWAY_TOKEN_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/DataGateway/DataGateway/Token/GetToken'
   
