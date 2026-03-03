@@ -3,7 +3,35 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "QArun": "npx cypress run --browser chrome --env server=QA",
+    "QA2run": "npx cypress run --browser chrome --env server=QA2",
+    "QA3run": "npx cypress run --browser chrome --env server=QA3",
+    "DEMOrun": "npx cypress run --browser chrome --env server=DEMO",
+    "2LOADEDrun": "npx cypress run --browser chrome --env server=TEST2LOADED",
+    "3FATrun": "npx cypress run --browser chrome --env server=TEST3FAT",
+    "4E2Erun": "npx cypress run --browser chrome --env server=TEST4E2E",
+    "5PRICINGrun": "npx cypress run --browser chrome --env server=TEST5PRICING",
+    "6TRAININGrun": "npx cypress run --browser chrome --env server=TEST6TRAINING",
+    "7HOTFIXrun": "npx cypress run --browser chrome --env server=TEST7HOTFIX",
+    "8CRMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST8CRMIGRATION",
+    "9FATMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST9FATMIGRATION",
+    "10PRODMIGRATIONrun": "npx cypress run --browser chrome --env server=TEST10PRODMIGRATION",
+    "PREPRODrun": "npx cypress run --browser chrome --env server=GCCPRE",
+    "QAopen": "npx cypress open --browser chrome --env server=QA",
+    "QA2open": "npx cypress open --browser chrome --env server=QA2",
+    "QA3open": "npx cypress open --browser chrome --env server=QA3",
+    "DEMOopen": "npx cypress open --browser chrome --env server=DEMO",
+    "2LOADEDopen": "npx cypress open --browser chrome --env server=TEST2LOADED",
+    "3FATopen": "npx cypress open --browser chrome --env server=TEST3FAT",
+    "4E2Eopen": "npx cypress open --browser chrome --env server=TEST4E2E",
+    "5PRICINGopen": "npx cypress open --browser chrome --env server=TEST5PRICING",
+    "6TRAININGopen": "npx cypress open --browser chrome --env server=TEST6TRAINING",
+    "7HOTFIXopen": "npx cypress open --browser chrome --env server=TEST7HOTFIX",
+    "8CRMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST8CRMIGRATION",
+    "9FATMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST9FATMIGRATION",
+    "10PRODMIGRATIONopen": "npx cypress open --browser chrome --env server=TEST10PRODMIGRATION",
+    "PREPRODopen": "npx cypress open --browser chrome --env server=GCCPRE"
   },
   "author": "",
   "license": "ISC",
@@ -14,4 +42,5 @@
   "dependencies": {
     "pdf-parse": "^1.1.1"
   }
+ 
 }

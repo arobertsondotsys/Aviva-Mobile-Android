@@ -1,18 +1,20 @@
   
+const server = require('../../e2e/AvivaPOM/Servers')
+
 describe('Aviva Bonkers API Automation', () => {
- const TOKEN_URL = 'https://qaaviva.dotsys.co.uk/publicwebservices/AggregatorAPI/api/Secure/token'
+ const TOKEN_URL = 'https://qa2aviva.dotsys.co.uk/publicwebservices/AggregatorAPI/api/Secure/token'
  const DATAGATEWAY_TOKEN_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/DataGateway/DataGateway/Token/GetToken'
   
-  const HOME_URL = 'https://qaaviva.dotsys.co.uk/PublicWebServices/AggregatorAPI/api/Secure/v1/Bonkers/GetHomeQuote'
+  const HOME_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/AggregatorAPI/api/Secure/v1/Bonkers/GetHomeQuote'
   const MOTOR_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/AggregatorAPI/api/Secure/v1/Bonkers/GetQuote'
-  const GATEWAY_URL = 'https://qaaviva.dotsys.co.uk/PublicWebServices/DataGateway/DataGateway/CustomerData/CustomerSearch'
+  const GATEWAY_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/DataGateway/DataGateway/CustomerData/CustomerSearch'
   
  
   it('Obtain OAuth token then call Home endpoint', () => {
     
     cy.request({
       method: 'POST',
-      url: TOKEN_URL,
+      url: server.token(),
       headers: { 'Content-Type': 'application/json' },
       body: {
         "access_token": "",
@@ -36,7 +38,7 @@ describe('Aviva Bonkers API Automation', () => {
       // Use the token to call the protected Home endpoint
       cy.request({
         method: 'POST',
-        url: HOME_URL,
+        url: server.home(),
         headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json'  },
         body: {
           "AggregatorReference": "Bonkers",
@@ -142,7 +144,7 @@ describe('Aviva Bonkers API Automation', () => {
     // Request an OAuth token using client_credentials (JSON body as provided)
     cy.request({
       method: 'POST',
-      url: TOKEN_URL,
+      url: server.token(),
       headers: { 'Content-Type': 'application/json' },
       body: {
         "access_token": "",
@@ -166,7 +168,7 @@ describe('Aviva Bonkers API Automation', () => {
       // Use the token to call the protected Motor endpoint
       cy.request({
         method: 'POST',
-        url: MOTOR_URL,
+        url: server.motor(),
         headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json'  },
         body: {
           "AggregatorReference": "Bonkers",
@@ -255,13 +257,13 @@ describe('Aviva Bonkers API Automation', () => {
 it('Obtain OAuth token then call Gateway endpoint', () => {
 cy.request({
     method: 'POST',
-    url: DATAGATEWAY_TOKEN_URL,
+    url: server.gatewayToken(),
     headers: { 'Content-Type': 'application/json' },
     body: {
       "grant_type": "client_credentials",
       "client_id": "oath-respond-2025-v1",
       "user_id": "string",
-      "client_secret": "8faa9e43-5473-4382-b0ee-c056e0e15ced",
+      "client_secret": "02dcf264-8d88-41d9-bb89-204287ee58fc",
       "audience": "DataGatewayAPI",
       "refresh_token": "string",
       "access_token": "string",
@@ -277,7 +279,7 @@ cy.request({
 
     cy.request({
       method: 'POST',
-      url: GATEWAY_URL,
+      url: server.gateway(),
       headers: {'Authorization': `Bearer ${accessToken}`,'Content-Type': 'application/json'   },
       body: {
         "policyNumber": "932519117",
