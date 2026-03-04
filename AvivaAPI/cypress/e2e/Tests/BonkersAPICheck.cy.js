@@ -1,14 +1,16 @@
-  
+
 const server = require('../../e2e/AvivaPOM/Servers')
+console.log(server)
+console.log("Server export:", server)
+console.log("Environment:", server.server)
+
+
+before(() => {
+  // Write the chosen server (e.g., QA2) into policy.json for your PowerShell email script
+  cy.task('writePolicyJson', server.server)
+})
 
 describe('Aviva Bonkers API Automation', () => {
- const TOKEN_URL = 'https://qa2aviva.dotsys.co.uk/publicwebservices/AggregatorAPI/api/Secure/token'
- const DATAGATEWAY_TOKEN_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/DataGateway/DataGateway/Token/GetToken'
-  
-  const HOME_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/AggregatorAPI/api/Secure/v1/Bonkers/GetHomeQuote'
-  const MOTOR_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/AggregatorAPI/api/Secure/v1/Bonkers/GetQuote'
-  const GATEWAY_URL = 'https://qa2aviva.dotsys.co.uk/PublicWebServices/DataGateway/DataGateway/CustomerData/CustomerSearch'
-  
  
   it('Obtain OAuth token then call Home endpoint', () => {
     
