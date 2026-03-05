@@ -279,7 +279,7 @@
     "staff_discountheading":"#StaffHeading > .m-showhide__control",
     "staff_discountselect":"#ddlAvailableDiscounts",
     "staff_discountrecalc":"#ctl00_MainContent_Recalculate",
-    "staff_nodiscountheading":"#ctl00_MainContent_UP_Price > .a-heading--2"
+    "staff_nodiscountheading":"#ctl00_MainContent_UP_Price"
 
 
     }
