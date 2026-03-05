@@ -68,8 +68,9 @@ paymentCardQAWithCheck() {
   
       // Check if the radio button exists and click it
       cy.get('body').then(($body) => {
-          if ($body.find('#paymentMethodSelectionCard').length > 0) {
-              cy.get('#paymentMethodSelectionCard').click()
+        const selector = 'label:contains("Credit or debit card")'
+        if ($body.find(selector).length > 0) {
+        cy.contains('label', 'Credit or debit card').click({ force: true })
           } else {
               cy.log('Radio button not found, proceeding without clicking.')
           }
@@ -153,7 +154,15 @@ paymentCardQA(){
       
       cy.wait(10000)
       cy.get('.payment-heading').contains('Payment')
-      cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
+        // Check if the radio button exists and click it
+        cy.get('body').then(($body) => {
+        const selector = 'label:contains("Credit or debit card")'
+        if ($body.find(selector).length > 0) {
+        cy.contains('label', 'Credit or debit card').click({ force: true })
+          } else {
+              cy.log('Radio button not found, proceeding without clicking.')
+          }
+      })
       
         
      
@@ -290,12 +299,13 @@ paymentCardDemo(){
       const CVC='737'
       
       cy.wait(10000)
-      //cy.getAndWait('.payment-heading').contains('Payment')
-      cy.wait(3000)
-       // Check if the radio button exists and click it
+    
+      // Check if the radio button exists and click it
       cy.get('body').then(($body) => {
-          if ($body.find('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').length > 0) {
-              cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click()
+        const selector = 'label:contains("Credit or debit card")'
+        if ($body.find(selector).length > 0) {
+        cy.contains('label', 'Credit or debit card').click({ force: true })
+
           } else {
               cy.log('Radio button not found, proceeding without clicking.')
           }

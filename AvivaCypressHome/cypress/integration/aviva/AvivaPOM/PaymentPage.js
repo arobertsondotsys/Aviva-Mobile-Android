@@ -65,13 +65,15 @@ export class PaymentPage{
       cy.get('.l-section > .a-heading').contains('Pay €');
       cy.wait(3000);
 
-      cy.get('body').then(($body) => {
-        if ($body.find('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').length > 0) {
-          cy.get('.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label').click();
-        } else {
-          cy.log('Radio button not found, proceeding without clicking.');
-        }
-      });
+        // Check if the radio button exists and click it
+        cy.get('body').then(($body) => {
+        const selector = 'label:contains("Credit or debit card")'
+        if ($body.find(selector).length > 0) {
+        cy.contains('label', 'Credit or debit card').click({ force: true })
+          } else {
+              cy.log('Radio button not found, proceeding without clicking.')
+          }
+      })
 
       // Helper for iframe
       const getIframeDocument = (iframeTitle) =>
@@ -317,15 +319,15 @@ paymentCardDemo() {
       cy.get('.payment-heading').contains('Payment');
       cy.wait(2000);
 
-      // Check if the radio button exists and click it
+        // Check if the radio button exists and click it
       cy.get('body').then(($body) => {
-        const radioSelector = '.m-form-row__content > .m-radio-group > :nth-child(1) > .a-radio > .a-radio__label';
-        if ($body.find(radioSelector).length > 0) {
-          cy.get(radioSelector).click();
-        } else {
-          cy.log('Radio button not found, proceeding without clicking.');
-        }
-      });
+        const selector = 'label:contains("Credit or debit card")'
+        if ($body.find(selector).length > 0) {
+        cy.contains('label', 'Credit or debit card').click({ force: true })
+          } else {
+              cy.log('Radio button not found, proceeding without clicking.')
+          }
+      })
 
       // Helper for iframe
       const getIframeDocument = (iframeTitle) =>
