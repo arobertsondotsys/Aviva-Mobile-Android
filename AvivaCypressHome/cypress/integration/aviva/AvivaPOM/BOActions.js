@@ -15,7 +15,7 @@ cookiesAccept(){
     //     }
     // })
 
-    cy.wait(1000)
+    cy.wait(3000)
     cy.get('body').then($body => {
         // Check if the cookie banner title is visible
         if ($body.find('#onetrust-policy-title:visible').length) {
