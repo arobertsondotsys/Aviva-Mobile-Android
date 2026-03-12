@@ -82,7 +82,7 @@ async function setupNodeEvents(on, config) {
 
 
 module.exports = defineConfig({
-
+  numTestsKeptInMemory: 0,
   projectId: 'ybpieo',
   redirectionLimit: 100,
   reporter: 'cypress-mochawesome-reporter',
