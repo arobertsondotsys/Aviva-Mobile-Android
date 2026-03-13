@@ -86,22 +86,22 @@ paymentCardQAWithCheck() {
       }
   
       // Enter card details in the respective iframes
-      getIframeDocument('Iframe for secured card number')
+      getIframeDocument('Iframe for card number')
           .find('#encryptedCardNumber')
           .should('exist')
           .type(CCnumber)
   
-      getIframeDocument('Iframe for secured card expiry month')
+      getIframeDocument('Iframe for expiry month')
           .find('#encryptedExpiryMonth')
           .should('exist')
           .type(Exp1)
   
-      getIframeDocument('Iframe for secured card expiry year')
+      getIframeDocument('Iframe for expiry year')
           .find('#encryptedExpiryYear')
           .should('exist')
           .type(Exp2)
   
-      getIframeDocument('Iframe for secured card security code')
+      getIframeDocument('Iframe for security code')
           .find('#encryptedSecurityCode')
           .should('exist')
           .type(CVC)
@@ -167,25 +167,25 @@ paymentCardQA(){
         
      
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
@@ -245,25 +245,25 @@ paymentCardQAAgent(){
       cy.wait(10000)
     
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
@@ -314,25 +314,25 @@ paymentCardDemo(){
         
      
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
@@ -392,25 +392,25 @@ paymentCardDemoAgent(){
         cy.wait(10000)
   
         const getIframeDocumentCard = () => {
-            return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+            return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
             .then((body) => cy.wrap(body))
      
         }
 
         const getIframeDocumentMonth = () => {
-            return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+            return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
             .then((body) => cy.wrap(body))
      
         }
 
         const getIframeDocumentYear = () => {
-            return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+            return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
             .then((body) => cy.wrap(body))
      
         }
 
         const getIframeDocumentCVC = () => {
-            return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+            return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
             .then((body) => cy.wrap(body))
      
         }
@@ -456,25 +456,25 @@ paymentDDQA(){
       cy.get('#continueButton').click()
 
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
@@ -521,25 +521,25 @@ paymentDDQAWithPassword(){
       cy.get('#continueButton').click()
 
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
@@ -610,25 +610,25 @@ paymentDDDemo(){
       cy.get('#continueButton').click()
 
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]').its('0.contentDocument.body').should('not.be.empty')
+        return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
         .then((body) => cy.wrap(body))
         
       }

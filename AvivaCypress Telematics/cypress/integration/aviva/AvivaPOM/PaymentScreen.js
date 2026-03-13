@@ -82,22 +82,22 @@ paymentCardQAWithCheck() {
           .should('not.be.empty')
           .then((body) => cy.wrap(body));
 
-      getIframeDocument('Iframe for secured card number')
+      getIframeDocument('Iframe for card number')
         .find('#encryptedCardNumber')
         .should('exist')
         .type(CCnumber);
 
-      getIframeDocument('Iframe for secured card expiry month')
+      getIframeDocument('Iframe for expiry month')
         .find('#encryptedExpiryMonth')
         .should('exist')
         .type(Exp1);
 
-      getIframeDocument('Iframe for secured card expiry year')
+      getIframeDocument('Iframe for expiry year')
         .find('#encryptedExpiryYear')
         .should('exist')
         .type(Exp2);
 
-      getIframeDocument('Iframe for secured card security code')
+      getIframeDocument('Iframe for security code')
         .find('#encryptedSecurityCode')
         .should('exist')
         .type(CVC);
@@ -117,31 +117,86 @@ paymentCardQAWithCheck() {
             .its('0.contentDocument.body')
             .should('not.be.empty')
             .then((body) => {
-              const pw = Cypress.$(body).find('input[placeholder*="password"]');
-              if (pw.length > 0) {
-                cy.log(`Found password input in iframe[${idx}]`);
-                cy.wrap(body).find('input[placeholder*="password"]').type('password', { force: true });
-                cy.wrap(body).find('#buttonSubmit').click({ force: true });
-              } else {
-                cy.log(`No password input found in iframe[${idx}]`);
+              // find your original parent iframe
+              const threeDS = Cypress.$(body).find('iframe[name*="threeDSIframe"]');
+              if (!threeDS.length) {
+                cy.log(`No threeDSIframe inside iframe[${idx}]`);
+                return;
               }
-            });
-        });
-      } else if (url.includes('cover-summary') || url.includes('diary-items-required')) {
-        cy.log('Redirected to thank you/diary page, skipping password logic.');
-        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist');
+
+              // helper: ensures iframe body is rendered
+              const getIframeBody = (iframeEl) => {
+                return cy
+                  .wrap(iframeEl)
+                  .its('0.contentDocument.body', { timeout: 20000 })
+                  .should(($b) => {
+                    expect($b).to.exist;
+                    expect($b[0].innerHTML.length).to.be.gt(30);
+                  })
+                  .then((b) => cy.wrap(b));
+              };
+
+              // recursively drill into nested iframes
+              const findPasswordFrame = (iframeEl) => {
+                return getIframeBody(iframeEl).then(($b) => {
+
+                  if ($b.find('#password-input').length > 0) {
+                    return $b;
+                  }
+
+                  const nested = $b.find('iframe');
+                  if (!nested.length) return null;
+
+                  return findPasswordFrame(nested[0]);
+                });
+              };
+
+              // dive from your known correct iframe
+              return findPasswordFrame(threeDS[0]).then(($pwBody) => {
+
+                if (!$pwBody) {
+                  cy.log(
+                    `threeDSIframe found in iframe[${idx}], but no #password-input deeper down yet`
+                  );
+                  return;
+                }
+
+                cy.log(`FOUND #password-input via iframe[${idx}]`);
+
+              
+        cy.wrap($pwBody).within(() => {
+          cy.get('#password-input').type('password', { force: true });
+          cy.get('#buttonSubmit').click({ force: true });
+        })
+    })
+  })
+})
+
+      } else if (
+        url.includes('cover-summary') ||
+        url.includes('diary-items-required')
+      ) {
+
+        cy.log('Redirected to thank you/diary page, skipping password logic.')
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist')
+
       } else {
+
         cy.contains(/Thank you|Internal Diary and Correspondence/i).then(($el) => {
           if ($el && $el.length) {
-            cy.log('Found thank-you / diary content on page.');
+            cy.log('Found thank-you / diary content on page.')
           } else {
-            throw new Error('Unknown payment environment after continue: ' + url);
+            throw new Error('Unknown payment environment after continue: ' + url)
           }
-        });
+        })
+
       }
-    });
-  });
-}
+
+    })
+
+  })
+
+} 
 
 paymentCardQAAgent() {
   cy.url().then((currentUrl) => {
@@ -165,25 +220,25 @@ paymentCardQAAgent() {
       cy.wait(10000);
 
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]')
+        return cy.get('iframe[title="Iframe for card number"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]')
+        return cy.get('iframe[title="Iframe for expiry month"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]')
+        return cy.get('iframe[title="Iframe for expiry year"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]')
+        return cy.get('iframe[title="Iframe for security code"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
@@ -237,22 +292,22 @@ paymentCardDemo() {
           .should('not.be.empty')
           .then((body) => cy.wrap(body));
 
-      getIframeDocument('Iframe for secured card number')
+      getIframeDocument('Iframe for card number')
         .find('#encryptedCardNumber')
         .should('exist')
         .type(CCnumber);
 
-      getIframeDocument('Iframe for secured card expiry month')
+      getIframeDocument('Iframe for expiry month')
         .find('#encryptedExpiryMonth')
         .should('exist')
         .type(Exp1);
 
-      getIframeDocument('Iframe for secured card expiry year')
+      getIframeDocument('Iframe for expiry year')
         .find('#encryptedExpiryYear')
         .should('exist')
         .type(Exp2);
 
-      getIframeDocument('Iframe for secured card security code')
+      getIframeDocument('Iframe for security code')
         .find('#encryptedSecurityCode')
         .should('exist')
         .type(CVC);
@@ -272,31 +327,86 @@ paymentCardDemo() {
             .its('0.contentDocument.body')
             .should('not.be.empty')
             .then((body) => {
-              const pw = Cypress.$(body).find('input[placeholder*="password"]');
-              if (pw.length > 0) {
-                cy.log(`Found password input in iframe[${idx}]`);
-                cy.wrap(body).find('input[placeholder*="password"]').type('password', { force: true });
-                cy.wrap(body).find('#buttonSubmit').click({ force: true });
-              } else {
-                cy.log(`No password input found in iframe[${idx}]`);
+              // find your original parent iframe
+              const threeDS = Cypress.$(body).find('iframe[name*="threeDSIframe"]');
+              if (!threeDS.length) {
+                cy.log(`No threeDSIframe inside iframe[${idx}]`);
+                return;
               }
-            });
-        });
-      } else if (url.includes('cover-summary') || url.includes('diary-items-required')) {
-        cy.log('Redirected to thank you/diary page, skipping password logic.');
-        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist');
+
+              // helper: ensures iframe body is rendered
+              const getIframeBody = (iframeEl) => {
+                return cy
+                  .wrap(iframeEl)
+                  .its('0.contentDocument.body', { timeout: 20000 })
+                  .should(($b) => {
+                    expect($b).to.exist;
+                    expect($b[0].innerHTML.length).to.be.gt(30);
+                  })
+                  .then((b) => cy.wrap(b));
+              };
+
+              // recursively drill into nested iframes
+              const findPasswordFrame = (iframeEl) => {
+                return getIframeBody(iframeEl).then(($b) => {
+
+                  if ($b.find('#password-input').length > 0) {
+                    return $b;
+                  }
+
+                  const nested = $b.find('iframe');
+                  if (!nested.length) return null;
+
+                  return findPasswordFrame(nested[0]);
+                });
+              };
+
+              // dive from your known correct iframe
+              return findPasswordFrame(threeDS[0]).then(($pwBody) => {
+
+                if (!$pwBody) {
+                  cy.log(
+                    `threeDSIframe found in iframe[${idx}], but no #password-input deeper down yet`
+                  );
+                  return;
+                }
+
+                cy.log(`FOUND #password-input via iframe[${idx}]`);
+
+              
+        cy.wrap($pwBody).within(() => {
+          cy.get('#password-input').type('password', { force: true });
+          cy.get('#buttonSubmit').click({ force: true });
+        })
+    })
+  })
+})
+
+      } else if (
+        url.includes('cover-summary') ||
+        url.includes('diary-items-required')
+      ) {
+
+        cy.log('Redirected to thank you/diary page, skipping password logic.')
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist')
+
       } else {
+
         cy.contains(/Thank you|Internal Diary and Correspondence/i).then(($el) => {
           if ($el && $el.length) {
-            cy.log('Found thank-you / diary content on page.');
+            cy.log('Found thank-you / diary content on page.')
           } else {
-            throw new Error('Unknown payment environment after continue: ' + url);
+            throw new Error('Unknown payment environment after continue: ' + url)
           }
-        });
+        })
+
       }
-    });
-  });
-}
+
+    })
+
+  })
+
+} 
 
 paymentCardDemoAgent() {
   cy.url().then((currentUrl) => {
@@ -404,10 +514,10 @@ paymentDDQANoPassword() {
           .should('not.be.empty')
           .then((body) => cy.wrap(body));
 
-      getIframe('Iframe for secured card number').find('#encryptedCardNumber').type(CCnumber);
-      getIframe('Iframe for secured card expiry month').find('#encryptedExpiryMonth').type(Exp1);
-      getIframe('Iframe for secured card expiry year').find('#encryptedExpiryYear').type(Exp2);
-      getIframe('Iframe for secured card security code').find('#encryptedSecurityCode').type(CVC);
+      getIframe('Iframe for card number').find('#encryptedCardNumber').type(CCnumber);
+      getIframe('Iframe for expiry month').find('#encryptedExpiryMonth').type(Exp1);
+      getIframe('Iframe for expiry year').find('#encryptedExpiryYear').type(Exp2);
+      getIframe('Iframe for security code').find('#encryptedSecurityCode').type(CVC);
 
       cy.get('#continueButton').click();
     });
@@ -424,31 +534,86 @@ paymentDDQANoPassword() {
             .its('0.contentDocument.body')
             .should('not.be.empty')
             .then((body) => {
-              const pw = Cypress.$(body).find('input[placeholder*="password"]');
-              if (pw.length > 0) {
-                cy.log(`Found password input in iframe[${idx}]`);
-                cy.wrap(body).find('input[placeholder*="password"]').type('password', { force: true });
-                cy.wrap(body).find('#buttonSubmit').click({ force: true });
-              } else {
-                cy.log(`No password input found in iframe[${idx}]`);
+              // find your original parent iframe
+              const threeDS = Cypress.$(body).find('iframe[name*="threeDSIframe"]');
+              if (!threeDS.length) {
+                cy.log(`No threeDSIframe inside iframe[${idx}]`);
+                return;
               }
-            });
-        });
-      } else if (url.includes('cover-summary') || url.includes('diary-items-required')) {
-        cy.log('Redirected to thank you/diary page, skipping password logic.');
-        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist');
+
+              // helper: ensures iframe body is rendered
+              const getIframeBody = (iframeEl) => {
+                return cy
+                  .wrap(iframeEl)
+                  .its('0.contentDocument.body', { timeout: 20000 })
+                  .should(($b) => {
+                    expect($b).to.exist;
+                    expect($b[0].innerHTML.length).to.be.gt(30);
+                  })
+                  .then((b) => cy.wrap(b));
+              };
+
+              // recursively drill into nested iframes
+              const findPasswordFrame = (iframeEl) => {
+                return getIframeBody(iframeEl).then(($b) => {
+
+                  if ($b.find('#password-input').length > 0) {
+                    return $b;
+                  }
+
+                  const nested = $b.find('iframe');
+                  if (!nested.length) return null;
+
+                  return findPasswordFrame(nested[0]);
+                });
+              };
+
+              // dive from your known correct iframe
+              return findPasswordFrame(threeDS[0]).then(($pwBody) => {
+
+                if (!$pwBody) {
+                  cy.log(
+                    `threeDSIframe found in iframe[${idx}], but no #password-input deeper down yet`
+                  );
+                  return;
+                }
+
+                cy.log(`FOUND #password-input via iframe[${idx}]`);
+
+              
+        cy.wrap($pwBody).within(() => {
+          cy.get('#password-input').type('password', { force: true });
+          cy.get('#buttonSubmit').click({ force: true });
+        })
+    })
+  })
+})
+
+      } else if (
+        url.includes('cover-summary') ||
+        url.includes('diary-items-required')
+      ) {
+
+        cy.log('Redirected to thank you/diary page, skipping password logic.')
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist')
+
       } else {
+
         cy.contains(/Thank you|Internal Diary and Correspondence/i).then(($el) => {
           if ($el && $el.length) {
-            cy.log('Found thank-you / diary content on page.');
+            cy.log('Found thank-you / diary content on page.')
           } else {
-            throw new Error('Unknown payment environment after continue: ' + url);
+            throw new Error('Unknown payment environment after continue: ' + url)
           }
-        });
+        })
+
       }
-    });
-  });
-}
+
+    })
+
+  })
+
+} 
 
 paymentDDDemo() {
   cy.url().then((currentUrl) => {
@@ -481,25 +646,25 @@ paymentDDDemo() {
       cy.get('#continueButton').click();
 
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]')
+        return cy.get('iframe[title="Iframe for card number"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
 
       const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry month"]')
+        return cy.get('iframe[title="Iframe for expiry month"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
 
       const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for secured card expiry year"]')
+        return cy.get('iframe[title="Iframe for expiry year"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
 
       const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for secured card security code"]')
+        return cy.get('iframe[title="Iframe for security code"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
@@ -523,29 +688,84 @@ paymentDDDemo() {
             .its('0.contentDocument.body')
             .should('not.be.empty')
             .then((body) => {
-              const pw = Cypress.$(body).find('input[placeholder*="password"]');
-              if (pw.length > 0) {
-                cy.log(`Found password input in iframe[${idx}]`);
-                cy.wrap(body).find('input[placeholder*="password"]').type('password', { force: true });
-                cy.wrap(body).find('#buttonSubmit').click({ force: true });
-              } else {
-                cy.log(`No password input found in iframe[${idx}]`);
+              // find your original parent iframe
+              const threeDS = Cypress.$(body).find('iframe[name*="threeDSIframe"]');
+              if (!threeDS.length) {
+                cy.log(`No threeDSIframe inside iframe[${idx}]`);
+                return;
               }
-            });
-        });
-      } else if (url.includes('cover-summary') || url.includes('diary-items-required')) {
-        cy.log('Redirected to thank you/diary page, skipping password logic.');
-        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist');
+
+              // helper: ensures iframe body is rendered
+              const getIframeBody = (iframeEl) => {
+                return cy
+                  .wrap(iframeEl)
+                  .its('0.contentDocument.body', { timeout: 20000 })
+                  .should(($b) => {
+                    expect($b).to.exist;
+                    expect($b[0].innerHTML.length).to.be.gt(30);
+                  })
+                  .then((b) => cy.wrap(b));
+              };
+
+              // recursively drill into nested iframes
+              const findPasswordFrame = (iframeEl) => {
+                return getIframeBody(iframeEl).then(($b) => {
+
+                  if ($b.find('#password-input').length > 0) {
+                    return $b;
+                  }
+
+                  const nested = $b.find('iframe');
+                  if (!nested.length) return null;
+
+                  return findPasswordFrame(nested[0]);
+                });
+              };
+
+              // dive from your known correct iframe
+              return findPasswordFrame(threeDS[0]).then(($pwBody) => {
+
+                if (!$pwBody) {
+                  cy.log(
+                    `threeDSIframe found in iframe[${idx}], but no #password-input deeper down yet`
+                  );
+                  return;
+                }
+
+                cy.log(`FOUND #password-input via iframe[${idx}]`);
+
+              
+        cy.wrap($pwBody).within(() => {
+          cy.get('#password-input').type('password', { force: true });
+          cy.get('#buttonSubmit').click({ force: true });
+        })
+    })
+  })
+})
+
+      } else if (
+        url.includes('cover-summary') ||
+        url.includes('diary-items-required')
+      ) {
+
+        cy.log('Redirected to thank you/diary page, skipping password logic.')
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist')
+
       } else {
+
         cy.contains(/Thank you|Internal Diary and Correspondence/i).then(($el) => {
           if ($el && $el.length) {
-            cy.log('Found thank-you / diary content on page.');
+            cy.log('Found thank-you / diary content on page.')
           } else {
-            throw new Error('Unknown payment environment after continue: ' + url);
+            throw new Error('Unknown payment environment after continue: ' + url)
           }
-        });
+        })
+
       }
-    });
-  });
-}
+
+    })
+
+  })
+
+} 
 }
