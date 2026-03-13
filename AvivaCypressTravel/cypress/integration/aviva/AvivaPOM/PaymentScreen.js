@@ -43,7 +43,7 @@ selectPaymentMethod2() {
 }
 
 paymentCardQAWithCheck() {
-    cy.url().then((currentUrl) => {
+  cy.url().then((currentUrl) => {
     let originUrl = '';
     if (currentUrl.startsWith('https://www.direct.rwy-aviva.co.uk')) {
       originUrl = 'https://www.direct.rwy-aviva.co.uk';
@@ -52,21 +52,20 @@ paymentCardQAWithCheck() {
     } else {
       throw new Error('Unknown payment domain: ' + currentUrl);
     }
-      Cypress.on('uncaught:exception', (err, runnable) => {
-          return false // Prevent Cypress from failing the test on uncaught exceptions
-      })
-  
+
+    cy.origin(originUrl, () => {
+      Cypress.on('uncaught:exception', () => false);
+
       const CCnumber = '4917610000000000';
-      const Exp1 = '03'
-      const Exp2 = '30'
-      const CVC = '737'
-  
-      // Wait for the page to load and verify the payment heading
-      cy.wait(5000)
-      cy.get('.l-section > .a-heading').contains('Pay €')
-      cy.wait(3000)
-  
-      // Check if the radio button exists and click it
+      const Exp1 = '03';
+      const Exp2 = '30';
+      const CVC = '737';
+
+      cy.wait(5000);
+      cy.get('.l-section > .a-heading').contains('Pay €');
+      cy.wait(3000);
+
+        // Check if the radio button exists and click it
       cy.get('body').then(($body) => {
         const selector = 'label:contains("Credit or debit card")'
         if ($body.find(selector).length > 0) {
@@ -75,63 +74,129 @@ paymentCardQAWithCheck() {
               cy.log('Radio button not found, proceeding without clicking.')
           }
       })
-  
-      // Helper function to get iframe content
-      const getIframeDocument = (iframeTitle) => {
-          return cy
-              .get(`iframe[title="${iframeTitle}"]`)
-              .its('0.contentDocument.body')
-              .should('not.be.empty')
-              .then((body) => cy.wrap(body));
-      }
-  
-      // Enter card details in the respective iframes
-      getIframeDocument('Iframe for card number')
-          .find('#encryptedCardNumber')
-          .should('exist')
-          .type(CCnumber)
-  
-      getIframeDocument('Iframe for expiry month')
-          .find('#encryptedExpiryMonth')
-          .should('exist')
-          .type(Exp1)
-  
-      getIframeDocument('Iframe for expiry year')
-          .find('#encryptedExpiryYear')
-          .should('exist')
-          .type(Exp2)
-  
-      getIframeDocument('Iframe for security code')
-          .find('#encryptedSecurityCode')
-          .should('exist')
-          .type(CVC)
-  
-      // Click the continue button
-      cy.get('#continueButton').click()
-  
- // Wait for the Adyen iframe to appear
-  cy.wait(10000);
 
-  // Try all Adyen iframes for the password input
-  cy.get('iframe').each(($iframe, idx) => {
-    cy.wrap($iframe)
-      .its('0.contentDocument.body')
-      .should('not.be.empty')
-      .then((body) => {
-        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
-          cy.log(`Found password input in iframe[${idx}]`);
-          cy.wrap(body)
-            .find('input[placeholder*="password"]')
-            .type('password', { force: true })
-          cy.wrap(body)
-            .find('#buttonSubmit')
-            .click({ force: true })
-        }
-      })
+      // Helper for iframe
+      const getIframeDocument = (iframeTitle) =>
+        cy.get(`iframe[title="${iframeTitle}"]`)
+          .its('0.contentDocument.body')
+          .should('not.be.empty')
+          .then((body) => cy.wrap(body));
+
+      getIframeDocument('Iframe for card number')
+        .find('#encryptedCardNumber')
+        .should('exist')
+        .type(CCnumber);
+
+      getIframeDocument('Iframe for expiry month')
+        .find('#encryptedExpiryMonth')
+        .should('exist')
+        .type(Exp1);
+
+      getIframeDocument('Iframe for expiry year')
+        .find('#encryptedExpiryYear')
+        .should('exist')
+        .type(Exp2);
+
+      getIframeDocument('Iframe for security code')
+        .find('#encryptedSecurityCode')
+        .should('exist')
+        .type(CVC);
+
+      cy.get('#continueButton').click();
+    });
+
+    // Back in top-level context
+    cy.wait(4000);
+
+    cy.url().then((url) => {
+      if (url.includes('direct')) {
+        // Still on payment host, check for password iframe
+        cy.wait(6000);
+        cy.get('iframe').each(($iframe, idx) => {
+          cy.wrap($iframe)
+            .its('0.contentDocument.body')
+            .should('not.be.empty')
+            .then((body) => {
+              // find your original parent iframe
+              const threeDS = Cypress.$(body).find('iframe[name*="threeDSIframe"]');
+              if (!threeDS.length) {
+                cy.log(`No threeDSIframe inside iframe[${idx}]`);
+                return;
+              }
+
+              // helper: ensures iframe body is rendered
+              const getIframeBody = (iframeEl) => {
+                return cy
+                  .wrap(iframeEl)
+                  .its('0.contentDocument.body', { timeout: 20000 })
+                  .should(($b) => {
+                    expect($b).to.exist;
+                    expect($b[0].innerHTML.length).to.be.gt(30);
+                  })
+                  .then((b) => cy.wrap(b));
+              };
+
+              // recursively drill into nested iframes
+              const findPasswordFrame = (iframeEl) => {
+                return getIframeBody(iframeEl).then(($b) => {
+
+                  if ($b.find('#password-input').length > 0) {
+                    return $b;
+                  }
+
+                  const nested = $b.find('iframe');
+                  if (!nested.length) return null;
+
+                  return findPasswordFrame(nested[0]);
+                });
+              };
+
+              // dive from your known correct iframe
+              return findPasswordFrame(threeDS[0]).then(($pwBody) => {
+
+                if (!$pwBody) {
+                  cy.log(
+                    `threeDSIframe found in iframe[${idx}], but no #password-input deeper down yet`
+                  );
+                  return;
+                }
+
+                cy.log(`FOUND #password-input via iframe[${idx}]`);
+
+              
+        cy.wrap($pwBody).within(() => {
+          cy.get('#password-input').type('password', { force: true });
+          cy.get('#buttonSubmit').click({ force: true });
+        })
+    })
   })
 })
 
-}
+      } else if (
+        url.includes('cover-summary') ||
+        url.includes('diary-items-required')
+      ) {
+
+        cy.log('Redirected to thank you/diary page, skipping password logic.')
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist')
+
+      } else {
+
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).then(($el) => {
+          if ($el && $el.length) {
+            cy.log('Found thank-you / diary content on page.')
+          } else {
+            throw new Error('Unknown payment environment after continue: ' + url)
+          }
+        })
+
+      }
+
+    })
+
+  })
+
+} 
 
 paymentCardQA(){
   cy.url().then((currentUrl) => {
@@ -279,7 +344,7 @@ paymentCardQAAgent(){
 
 }
 
-paymentCardDemo(){
+paymentCardDemo() {
   cy.url().then((currentUrl) => {
     let originUrl = '';
     if (currentUrl.startsWith('https://www.direct.stg-aviva.co.uk')) {
@@ -289,86 +354,151 @@ paymentCardDemo(){
     } else {
       throw new Error('Unknown payment domain: ' + currentUrl);
     }
-      Cypress.on('uncaught:exception', (err, runnable) =>
-      {
-      return false
-      })
-      const CCnumber='4917610000000000'
-      const Exp1='03'
-      const Exp2='30'
-      const CVC='737'
-      
-      cy.wait(10000)
-    
-      // Check if the radio button exists and click it
+
+    cy.origin(originUrl, () => {
+      Cypress.on('uncaught:exception', () => false);
+
+      const CCnumber = '4917610000000000';
+      const Exp1 = '03';
+      const Exp2 = '30';
+      const CVC = '737';
+
+      cy.wait(5000);
+      cy.get('.payment-heading').contains('Payment');
+      cy.wait(2000);
+
+        // Check if the radio button exists and click it
       cy.get('body').then(($body) => {
         const selector = 'label:contains("Credit or debit card")'
         if ($body.find(selector).length > 0) {
         cy.contains('label', 'Credit or debit card').click({ force: true })
-
           } else {
               cy.log('Radio button not found, proceeding without clicking.')
           }
-      })
-      
-        
-     
-      const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for card number"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
+      });
 
-      const getIframeDocumentMonth = () => {
-        return cy.get('iframe[title="Iframe for expiry month"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
+      // Helper for iframe
+      const getIframeDocument = (iframeTitle) =>
+        cy.get(`iframe[title="${iframeTitle}"]`)
+          .its('0.contentDocument.body')
+          .should('not.be.empty')
+          .then((body) => cy.wrap(body));
 
-      const getIframeDocumentYear = () => {
-        return cy.get('iframe[title="Iframe for expiry year"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
-      }
+      getIframeDocument('Iframe for card number')
+        .find('#encryptedCardNumber')
+        .should('exist')
+        .type(CCnumber);
 
-      const getIframeDocumentCVC = () => {
-        return cy.get('iframe[title="Iframe for security code"]').its('0.contentDocument.body').should('not.be.empty')
-        .then((body) => cy.wrap(body))
-        
+      getIframeDocument('Iframe for expiry month')
+        .find('#encryptedExpiryMonth')
+        .should('exist')
+        .type(Exp1);
+
+      getIframeDocument('Iframe for expiry year')
+        .find('#encryptedExpiryYear')
+        .should('exist')
+        .type(Exp2);
+
+      getIframeDocument('Iframe for security code')
+        .find('#encryptedSecurityCode')
+        .should('exist')
+        .type(CVC);
+
+      cy.get('#continueButton').click();
+    });
+
+    // Back in top-level context
+    cy.wait(4000);
+
+    cy.url().then((url) => {
+      if (url.includes('direct')) {
+        // Still on payment host, check for password iframe
+        cy.wait(8000);
+        cy.get('iframe').each(($iframe, idx) => {
+          cy.wrap($iframe)
+            .its('0.contentDocument.body')
+            .should('not.be.empty')
+            .then((body) => {
+              // find your original parent iframe
+              const threeDS = Cypress.$(body).find('iframe[name*="threeDSIframe"]');
+              if (!threeDS.length) {
+                cy.log(`No threeDSIframe inside iframe[${idx}]`);
+                return;
+              }
+
+              // helper: ensures iframe body is rendered
+              const getIframeBody = (iframeEl) => {
+                return cy
+                  .wrap(iframeEl)
+                  .its('0.contentDocument.body', { timeout: 20000 })
+                  .should(($b) => {
+                    expect($b).to.exist;
+                    expect($b[0].innerHTML.length).to.be.gt(30);
+                  })
+                  .then((b) => cy.wrap(b));
+              };
+
+              // recursively drill into nested iframes
+              const findPasswordFrame = (iframeEl) => {
+                return getIframeBody(iframeEl).then(($b) => {
+
+                  if ($b.find('#password-input').length > 0) {
+                    return $b;
+                  }
+
+                  const nested = $b.find('iframe');
+                  if (!nested.length) return null;
+
+                  return findPasswordFrame(nested[0]);
+                });
+              };
+
+              // dive from your known correct iframe
+              return findPasswordFrame(threeDS[0]).then(($pwBody) => {
+
+                if (!$pwBody) {
+                  cy.log(
+                    `threeDSIframe found in iframe[${idx}], but no #password-input deeper down yet`
+                  );
+                  return;
+                }
+
+                cy.log(`FOUND #password-input via iframe[${idx}]`);
+
+              
+        cy.wrap($pwBody).within(() => {
+          cy.get('#password-input').type('password', { force: true });
+          cy.get('#buttonSubmit').click({ force: true });
+        })
+    })
+  })
+})
+
+      } else if (
+        url.includes('cover-summary') ||
+        url.includes('diary-items-required')
+      ) {
+
+        cy.log('Redirected to thank you/diary page, skipping password logic.')
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).should('exist')
+
+      } else {
+
+        cy.contains(/Thank you|Internal Diary and Correspondence/i).then(($el) => {
+          if ($el && $el.length) {
+            cy.log('Found thank-you / diary content on page.')
+          } else {
+            throw new Error('Unknown payment environment after continue: ' + url)
+          }
+        })
+
       }
-      
-        
-      getIframeDocumentCard().find('#encryptedCardNumber').should('exist').type(CCnumber)
-      getIframeDocumentMonth().find('#encryptedExpiryMonth').should('exist').type(Exp1)
-      getIframeDocumentYear().find('#encryptedExpiryYear').should('exist').type(Exp2)
-      getIframeDocumentCVC().find('#encryptedSecurityCode').should('exist').type(CVC)
-      cy.get('#continueButton').click()
 
     })
 
-    // Wait for the Adyen iframe to appear
-      cy.wait(10000);
+  })
 
-      // Try all Adyen iframes for the password input
-      cy.get('iframe').each(($iframe, idx) => {
-          cy.wrap($iframe)
-          .its('0.contentDocument.body')
-          .should('not.be.empty')
-          .then((body) => {
-        if (Cypress.$(body).find('input[placeholder*="password"]').length > 0) {
-          cy.log(`Found password input in iframe[${idx}]`);
-          cy.wrap(body)
-            .find('input[placeholder*="password"]')
-            .type('password', { force: true });
-          cy.wrap(body)
-            .find('#buttonSubmit')
-            .click({ force: true });
-            }
-          });
-      });
-
-
-}
+} 
 
 paymentCardDemoAgent(){
   cy.url().then((currentUrl) => {
