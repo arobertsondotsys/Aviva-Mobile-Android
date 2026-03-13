@@ -1,0 +1,52 @@
+{
+  "auth": {
+    "username": "$BROWSERSTACK_USERNAME",
+    "access_key": "$BROWSERSTACK_ACCESS_KEY"
+  },
+
+  "browsers": [
+    {
+      "browser": "chrome",
+      "os": "Windows 11",
+      "versions": ["latest"]
+    } 
+   
+  ],
+
+  "run_settings": {
+    "cypress_config_file": "cypress.config.js",
+    "project_name": "Aviva Motor Mobile",
+    "build_name": "Local Test Build",
+    "exclude": [],
+    "parallels": "1",
+    "npm_dependencies": {
+        "cypress": "^15.11.0",
+        "cypress-mochawesome-reporter": "^3.8.2",
+        "cypress-iframe": "^1.0.1",
+        "cypress-email-results": "^1.8.0",
+        "cypress-wait-until": "^3.0.2",
+        "@shelex/cypress-allure-plugin": "^2.40.1",
+        "cypress-real-events": "^1.14.0",
+        "cypress-xpath": "^2.0.1",
+        "@cypress/browserify-preprocessor": "latest",
+        "xlsx": "^0.18.5",
+        "dayjs": "^1.11.7",
+        "nodemailer": "^6.9.4",
+        "pdf-parse": "^1.1.1"
+},
+   
+    "auto_import_dev_dependencies": false,
+    "exclude_dependencies": [],
+    "package_config_options": {},
+    "headless": true
+  },
+
+  "connection_settings": {
+    "local": true,
+    "local_identifier": null,
+    "local_mode": null,
+    "local_config_file": null
+  },
+
+  "disable_usage_reporting": false
+}
