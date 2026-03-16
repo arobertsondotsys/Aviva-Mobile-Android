@@ -235,7 +235,7 @@ paymentDDQANoPassword() {
           .should('not.be.empty')
           .then((body) => cy.wrap(body))
 
-      getIframe('Iframe for secured card number').find('#encryptedCardNumber').type(CCnumber)
+      getIframe('Iframe for card number').find('#encryptedCardNumber').type(CCnumber)
       getIframe('Iframe for expiry month').find('#encryptedExpiryMonth').type(Exp1)
       getIframe('Iframe for expiry year').find('#encryptedExpiryYear').type(Exp2)
       getIframe('Iframe for security code').find('#encryptedSecurityCode').type(CVC)
@@ -255,7 +255,7 @@ paymentDDQANoPassword() {
             .its('0.contentDocument.body')
             .should('not.be.empty')
             .then((body) => {
-   // find your original parent iframe
+              // find your original parent iframe
               const threeDS = Cypress.$(body).find('iframe[name*="threeDSIframe"]');
               if (!threeDS.length) {
                 cy.log(`No threeDSIframe inside iframe[${idx}]`);
@@ -661,7 +661,7 @@ paymentDDDemo() {
       cy.get('#continueButton').click();
 
       const getIframeDocumentCard = () => {
-        return cy.get('iframe[title="Iframe for secured card number"]')
+        return cy.get('iframe[title="Iframe for card number"]')
           .its('0.contentDocument.body').should('not.be.empty')
           .then((body) => cy.wrap(body));
       };
