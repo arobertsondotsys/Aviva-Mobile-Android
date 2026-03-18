@@ -74,29 +74,29 @@ jobs:
           bootanim=""
           timeout=$((SECONDS+420))
 
-        while [ "$SECONDS" -lt "$timeout" ]; do
-          bootcomplete=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
-          bootanim=$(adb shell getprop init.svc.bootanim 2>/dev/null | tr -d '\r')
-          echo "boot_complete=$bootcomplete   bootanim=$bootanim   (t=$SECONDS)"
-          if [ "$bootcomplete" = "1" ] && [ "$bootanim" = "stopped" ]; then
-            echo "Emulator booted!"
-            break
+          while [ "$SECONDS" -lt "$timeout" ]; do
+            bootcomplete=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+            bootanim=$(adb shell getprop init.svc.bootanim 2>/dev/null | tr -d '\r')
+            echo "boot_complete=$bootcomplete   bootanim=$bootanim   (t=$SECONDS)"
+            if [ "$bootcomplete" = "1" ] && [ "$bootanim" = "stopped" ]; then
+              echo "Emulator booted!"
+              break
+            fi
+            sleep 5
+          done
+
+          if [ "$bootcomplete" != "1" ]; then
+            echo "Emulator failed to boot:"
+            tail -n 200 emulator.log || true
+            adb shell getprop || true
+            exit 1
           fi
-          sleep 5
-        done
 
-        if [ "$bootcomplete" != "1" ]; then
-          echo "Emulator failed to boot:"
-          tail -n 200 emulator.log || true
-          adb shell getprop || true
-          exit 1
-        fi
-
-        # Unlock & disable animations
-        adb shell input keyevent 82 || true
-        adb shell settings put global window_animation_scale 0
-        adb shell settings put global transition_animation_scale 0
-        adb shell settings put global animator_duration_scale 0
+          # Unlock & disable animations
+          adb shell input keyevent 82 || true
+          adb shell settings put global window_animation_scale 0
+          adb shell settings put global transition_animation_scale 0
+          adb shell settings put global animator_duration_scale 0
 
       - name: Verify Chrome presence (log only)
         continue-on-error: true
