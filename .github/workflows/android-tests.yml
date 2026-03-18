@@ -12,7 +12,7 @@ jobs:
 
     env:
       AVD_NAME: testAVD
-      ANDROID_IMAGE: "system-images;android-33;google_apis;x86_64"
+      ANDROID_IMAGE: "system-images;android-30;google_apis;x86_64"
 
     steps:
       - name: Checkout code
