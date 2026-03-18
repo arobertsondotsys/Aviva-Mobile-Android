@@ -50,55 +50,54 @@ jobs:
             --device "pixel" \
             --force
 
-      - name: Start emulator (headless, hardened)
+      - name: Start emulator (stable)
         run: |
-          # Extra sanity: ensure ADB server is clean
           adb kill-server || true
-          adb start-server
+          adb start-server || true
 
-          # Start emulator with reliability-focused flags
+          echo "Starting emulator..."
           nohup emulator -avd "${{ env.AVD_NAME }}" \
             -no-window \
             -no-audio \
+            -no-snapshot \
             -no-boot-anim \
             -gpu swiftshader_indirect \
-            -accel on \
+            -accel off \
             -wipe-data \
-            -no-snapshot \
             -memory 2048 \
             > emulator.log 2>&1 &
 
-          # Wait for device to appear
           adb wait-for-device
 
-          # Robust boot wait: check both sys.boot_completed and bootanim
+          echo "Waiting for boot to complete..."
           bootcomplete=""
-          bootanim="stuck"
-          timeout=$((SECONDS+420))  # up to 7 minutes
+          bootanim=""
+          timeout=$((SECONDS+480))
 
           while [ "$SECONDS" -lt "$timeout" ]; do
             bootcomplete=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
             bootanim=$(adb shell getprop init.svc.bootanim 2>/dev/null | tr -d '\r')
-            echo "Waiting... sys.boot_completed=${bootcomplete:-null} init.svc.bootanim=${bootanim:-null} (t=${SECONDS}s)"
+            echo "boot_complete=$bootcomplete   bootanim=$bootanim   (t=$SECONDS)"
             if [ "$bootcomplete" = "1" ] && [ "$bootanim" = "stopped" ]; then
+              echo "Emulator booted!"
               break
             fi
             sleep 5
           done
 
           if [ "$bootcomplete" != "1" ]; then
-            echo "Emulator did not report boot complete in time. Dumping last 200 lines of emulator.log:"
+            echo "Emulator failed to boot:"
             tail -n 200 emulator.log || true
-            echo "Dumping 'adb shell getprop' snapshot:"
-            adb shell getprop | head -n 200 || true
+            adb shell getprop || true
             exit 1
           fi
 
-          # Unlock screen & disable animations for stability
           adb shell input keyevent 82 || true
+
           adb shell settings put global window_animation_scale 0
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0
+
 
       - name: Verify Chrome presence (log only)
         continue-on-error: true
