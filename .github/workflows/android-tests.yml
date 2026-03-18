@@ -1,0 +1,90 @@
+name: Android Mobile Web Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    env:
+      AVD_NAME: testAVD
+      ANDROID_IMAGE: "system-images;android-33;google_apis;x86_64"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses
+
+      - name: Install Android system image
+        run: sdkmanager "${{ env.ANDROID_IMAGE }}"
+
+      - name: Create AVD
+        run: |
+          echo "no" | avdmanager create avd \
+            -n "${{ env.AVD_NAME }}" \
+            -k "${{ env.ANDROID_IMAGE }}" \
+            --device "pixel" \
+            --force
+
+      - name: Start emulator (headless)
+        run: |
+          nohup emulator -avd "${{ env.AVD_NAME }}" -no-window -no-audio -no-boot-anim -accel auto > emulator.log 2>&1 &
+          adb wait-for-device
+          bootcomplete=""
+          until [ "$bootcomplete" = "1" ]; do
+            sleep 5
+            bootcomplete=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+            echo "Waiting for boot... sys.boot_completed=$bootcomplete"
+          done
+          adb shell input keyevent 82
+          adb shell settings put global window_animation_scale 0
+          adb shell settings put global transition_animation_scale 0
+          adb shell settings put global animator_duration_scale 0
+
+      - name: Verify Chrome presence (log only)
+        continue-on-error: true
+        run: |
+          adb shell "pm list packages | grep chrome" || true
+          adb shell "cmd package resolve-activity --brief com.android.chrome | tail -n 1" || true
+
+      - name: Install Appium drivers
+        run: |
+          npm i -g appium
+          appium driver install uiautomator2
+          appium driver install chromedriver
+          appium driver list --installed
+
+      - name: Run WebdriverIO tests
+        run: npx wdio run wdio.conf.js
+
+      - name: Upload Mochawesome report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report-${{ github.run_id }}
+          path: ./reports/mochawesome/**
+          if-no-files-found: ignore
